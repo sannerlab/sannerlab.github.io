@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mutating residues &middot; ADapt documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">ADapt<small>AutoDock preparation &amp; perception tool</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="tree-3d.html">The tree and the 3D view</a></li>
+</ul>
+<h4>Cases</h4><ul>
+<li><a href="case-biomolecule.html">Biological assembly, not the ASU</a></li>
+<li><a href="case-assemblies.html">Choosing between assemblies</a></li>
+<li><a href="case-sidechains.html">Missing side chains</a></li>
+<li><a href="case-altlocs.html">Alternate locations</a></li>
+<li><a href="case-ligand.html">Ligands and other hetero groups</a></li>
+<li><a href="case-metals.html">Metals, ions, unsupported atoms</a></li>
+<li><a href="case-missing-residues.html">Missing residues</a></li>
+<li><a class="here" href="case-mutations.html">Mutating residues</a></li>
+</ul>
+<h4>Results</h4><ul>
+<li><a href="output.html">Writing the PDBQT files</a></li>
+<li><a href="provenance.html">Provenance in the PDBQT files</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="differences.html">ADapt and AGFRgui</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>Mutating residues</h1>
+<p class="lead">Replace a residue by any standard amino acid, to dock against a variant or to
+remove a side chain that gets in the way.</p>
+
+<p>Right-clicking a residue under <b>protein</b> (or under <b>modified</b>) opens a menu of the
+standard amino acids to mutate it to.</p>
+<figure>
+<img src="img/mutate_menu.png" alt="6GGD Biomol 2, mutate menu on SER96 of chain B">
+<figcaption><b>6GGD, Biomol 2, chain B, SER'96</b>: the mutate menu. The residue is highlighted
+in the 3D view while its menu is open.</figcaption>
+</figure>
+<figure class="small">
+<img src="img/mutate_done.png" alt="SER96 labelled SER96 -> ILE">
+<figcaption>After choosing ILE, the label reads <code>SER'96 -&gt; ILE</code>. The same menu
+then offers <code>Base Res: SER</code> to undo the mutation.</figcaption>
+</figure>
+<p>The mutation is made when the receptor is written: the new side chain is built on the
+residue's backbone with the best-scoring rotamer, as for a <a href="case-sidechains.html">side
+chain to complete</a>. It is recorded in the file (<code>REMARK 850 AGFR mutation B:SER:96:_ -&gt;
+ILE</code>) and applied to symmetry copies of the chain as well.</p>
+<p>For a <b>modified</b> residue, the menu starts with its parent residue
+(<code>Base Res: …</code>), which returns it to the standard amino acid.</p>
+<div class="pn"><a href="case-missing-residues.html">&larr; Missing residues</a><a href="output.html">Writing the PDBQT files &rarr;</a></div>
+<footer class="page">ADapt documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of ADapt itself, made by <code>docs/make_screenshots.py</code>; the chemistry
+is ADFR's own code (ADCP distribution).</footer>
+</main></div></body></html>

@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Provenance in the PDBQT files &middot; ADapt documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">ADapt<small>AutoDock preparation &amp; perception tool</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="tree-3d.html">The tree and the 3D view</a></li>
+</ul>
+<h4>Cases</h4><ul>
+<li><a href="case-biomolecule.html">Biological assembly, not the ASU</a></li>
+<li><a href="case-assemblies.html">Choosing between assemblies</a></li>
+<li><a href="case-sidechains.html">Missing side chains</a></li>
+<li><a href="case-altlocs.html">Alternate locations</a></li>
+<li><a href="case-ligand.html">Ligands and other hetero groups</a></li>
+<li><a href="case-metals.html">Metals, ions, unsupported atoms</a></li>
+<li><a href="case-missing-residues.html">Missing residues</a></li>
+<li><a href="case-mutations.html">Mutating residues</a></li>
+</ul>
+<h4>Results</h4><ul>
+<li><a href="output.html">Writing the PDBQT files</a></li>
+<li><a class="here" href="provenance.html">Provenance in the PDBQT files</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="differences.html">ADapt and AGFRgui</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>Provenance in the PDBQT files</h1>
+<p class="lead">A PDBQT file travels without the session that made it. Its header records how it
+was made from the PDB entry, line by line.</p>
+
+<p>Every receptor and ligand file ADapt writes starts with <code>REMARK</code> lines. These
+records describe what was done to the PDB data: which biomolecule was used, which residues were
+mutated or completed, which alternate locations were kept, how hydrogens and charges were
+assigned. Anyone holding the file can see how it was built without having the session that built
+it, and can rebuild the same receptor, with ADapt or with ADFR's command line.</p>
+
+<h2>A receptor header</h2>
+<p>Written from the ASU of 6GGD, with zinc A:401 in the receptor at an edited charge of +1.5,
+SER 96 of chain A mutated to ALA, LYS 120 of chain A left as is, and the A location chosen for
+SER 166:</p>
+<pre>REMARK 850 AGFR version 1.2dev
+REMARK 850 AGFR source 6ggd.pdb
+REMARK 850 AGFR biomolecule ASU: chains A B
+REMARK 850 AGFR mutation A:SER:96:_ -&gt; ALA
+REMARK 850 AGFR side chain completed A:ARG:209:_
+   …                                     (11 more)
+REMARK 850 AGFR altlocs A:SER:166:_ @A (0.42)
+REMARK 850 AGFR altlocs A:CYS:182:_ @A (0.57)
+   …                                     (12 more)
+REMARK 850 AGFR protonated using reduce
+REMARK 850 AGFR partial charge assigned using OpenBabel Gasteiger model
+REMARK 850 AGFR custom charge for A:ZN:401: = 1.5000
+REMARK 850 AGFR end</pre>
+
+<h2>The receptor records</h2>
+<p>In the order they appear. A residue is written as
+<code>chain:name:number:insertion code</code>, for example <code>A:SER:96:_</code>; <code>_</code>
+means no insertion code.</p>
+<table>
+<tr><th>Record</th><th>What it records</th><th>Good to know</th></tr>
+<tr><td><code>version 1.2dev</code></td><td>The version of the ADFR suite that prepared the
+file.</td><td>This is ADFR's version string, not ADapt's version nor the <code>adfr</code> Python
+package's (<code>adfr-0.0.22</code>); both of those are in the session record.</td></tr>
+<tr><td><code>source 6ggd.pdb</code></td><td>The PDB file the receptor was built from.</td><td>The
+PDB id is taken from this name; keep the id as the file name.</td></tr>
+<tr><td><code>biomolecule ASU: chains A B</code></td><td>The <b>tab the receptor was written
+from</b> (ASU, Biomol N, or "ASU and Biomol N"), the chains of the asymmetric unit it uses and, for
+an assembly built by crystal symmetry, the number of copies:
+<code>Biomol 1: chains A, 2 copies</code>.</td><td>Added by ADapt; ADFR's header writer has a
+commented-out placeholder for it. See <a href="case-biomolecule.html">biological
+assembly</a>.</td></tr>
+<tr><td><code>mutation A:SER:96:_ -&gt; ALA</code></td><td>Each residue that was <b>mutated</b>:
+the residue as it is in the PDB file, and the residue it was replaced by.</td><td>The new side
+chain is the best-scoring rotamer. Symmetry copies of the chain are mutated too. See
+<a href="case-mutations.html">mutations</a>.</td></tr>
+<tr><td><code>side chain completed A:ARG:209:_</code></td><td>Each residue whose <b>missing
+side-chain atoms were rebuilt</b> (best-scoring rotamer).</td><td>Lists every completion queued
+in the file, including those in chains the tab does not contain. A residue set to
+<i>Include as is</i> is not listed (A:LYS:120 above). See <a href="case-sidechains.html">side
+chains</a>.</td></tr>
+<tr><td><code>altlocs A:SER:166:_ @A (0.42)</code></td><td>For each residue with <b>alternate
+locations</b> in the receptor, the location used and its occupancy.</td><td>The only record of
+which location was used. When locations tie in occupancy, ADFR's default changes from run to run,
+so this line is how you know. See <a href="case-altlocs.html">alternate locations</a>.</td></tr>
+<tr><td><code>protonated using reduce</code></td><td>Hydrogens were added by
+<code>reduce</code>.</td><td></td></tr>
+<tr><td><code>partial charge assigned using OpenBabel Gasteiger model</code></td><td>Partial
+charges are Gasteiger charges from Open Babel.</td><td></td></tr>
+<tr><td><code>custom charge for A:ZN:401: = 1.5000</code></td><td>Each <b>ion with a manual
+charge</b> in the receptor, and the charge it was given.</td><td>ADFR reads this from the
+asymmetric unit, so the line is written when the receptor comes from an <i>ASU</i> or <i>ASU and
+Biomol N</i> tab. From a <i>Biomol N</i> tab it is missing, but the charge is still in the ion's
+atom record (the charge column). A blank insertion code is written empty here, not as
+<code>_</code>. ADapt writes the charge actually used; ADFR's command line reports the default
+here even when <code>--ionCharges</code> changed it. See <a href="case-metals.html">metals</a>.</td></tr>
+<tr><td><code>end</code></td><td>The end of the header.</td><td></td></tr>
+</table>
+
+<h2>The ligand records</h2>
+<pre>REMARK 850 file prepared by AGFR version 1.2dev
+REMARK 850 source .pdb
+REMARK 850 AGFR biomolecule Biomol 2: chains B
+REMARK 850 AGFR ligand from B:EYB:402:_
+REMARK 4 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    0  A    between atoms: C10_7 and C18_14
+   …</pre>
+<table>
+<tr><th>Record</th><th>What it records</th><th>Good to know</th></tr>
+<tr><td><code>file prepared by AGFR version 1.2dev</code></td><td>The ADFR suite
+version.</td><td>As in the receptor.</td></tr>
+<tr><td><code>source .pdb</code></td><td>Meant to name the source file.</td><td>ADFR leaves the
+name empty in ligand files; the receptor's <code>source</code> line names it.</td></tr>
+<tr><td><code>biomolecule Biomol 2: chains B</code></td><td>The tab the ligand was written from,
+as in the receptor.</td><td>Added by ADapt, in every ligand file (one per fragment).</td></tr>
+<tr><td><code>ligand from B:EYB:402:_</code></td><td>The <b>residues of the PDB file the ligand
+was made of</b>, in file order, with their real chain.</td><td>Added by ADapt. A ligand of several
+residues, such as a peptide, takes several lines of four residues each:
+<code>ligand from B:SER:10:_ B:THR:11:_ B:GLY:12:_ B:GLY:13:_</code>, and so on. Each file of a
+ligand split into fragments names only its own residues.</td></tr>
+<tr><td><code>4 active torsions</code> and the <code>between atoms</code> lines</td><td>The
+ligand's rotatable bonds, all active, each between two atoms named
+<code>NAME_number</code>.</td><td>They match the torsion tree that follows
+(<code>ROOT</code>, <code>BRANCH</code>): the flexibility AutoDock will explore.</td></tr>
+</table>
+<div class="note"><b>The ligand's chain.</b> The atom records of a ligand file label its chain
+<code>A</code> whatever chain it came from, because the identifier is lost in ADFR's Open Babel
+conversion. The coordinates are those of the chosen fragment, and the <code>ligand from</code>
+line gives its true chain and residues.</div>
+
+<h2>Reading the records</h2>
+<pre>grep '^REMARK 850' 6ggd_rec.pdbqt                  # the whole header
+grep 'AGFR biomolecule' *.pdbqt                     # which biomolecule each file came from
+grep 'AGFR ligand from' *_lig*.pdbqt                # which residues each ligand file holds
+grep -E 'AGFR (mutation|side chain completed)' 6ggd_rec.pdbqt
+grep 'AGFR altlocs' 6ggd_rec.pdbqt                  # the conformations that were used</pre>
+
+<h2>Rebuilding a receptor from its header</h2>
+<p>Most records correspond to an option of ADFR's command line, so a receptor can be rebuilt
+without ADapt:</p>
+<table>
+<tr><th>Record</th><th>Option of <code>python -m ADFR.bin.runAGFR -r &lt;file&gt; --toPdbqt</code></th></tr>
+<tr><td><code>biomolecule Biomol 2: …</code></td><td><code>--bioMol 2</code> (<code>--bioMol ASU</code>
+for the asymmetric unit)</td></tr>
+<tr><td><code>mutation A:SER:96:_ -&gt; ALA</code></td><td><code>--mutate "A:SER:96::ALA"</code>
+(several separated by <code>;</code>)</td></tr>
+<tr><td><code>custom charge for A:ZN:401: = 1.5000</code></td><td><code>--ionCharges
+"A:ZN:401::1.5"</code> (see the note below)</td></tr>
+<tr><td>hetero groups kept in the receptor</td><td><code>--heteroToKeep "chid A resnum 401"</code>
+(a ProDy selection)</td></tr>
+<tr><td>residues removed from the receptor</td><td><code>--protToRemove "chid C"</code></td></tr>
+<tr><td><code>altlocs …</code>, side chains left as is</td><td>no option: these choices need ADapt
+or AGFRgui</td></tr>
+</table>
+<p>ADapt's tests check this correspondence: for the same choices, the receptor ADapt writes is
+byte-identical to the command line's, apart from the <code>biomolecule</code> line. See
+<a href="output.html#check">Checking against ADFR's command line</a>.</p>
+<div class="note"><b>An ion charge set on ADFR's command line is misreported in its own header.</b>
+With <code>--ionCharges "A:ZN:401::1.5"</code>, ADFR writes the zinc atom with charge 1.50, but its
+<code>custom charge</code> line says <code>= 2.0000</code>, the default, because that line is read
+from the asymmetric unit, which the option does not change. ADapt sets the charge there too, so its
+header reports the charge actually written. The atom records of the two files are identical (a test
+checks this).</div>
+
+<h2 id="reduce">reduce's choices: the receptor PDB</h2>
+<p>The <code>protonated using reduce</code> line says that <code>reduce</code> added the
+hydrogens, not what it decided. For each histidine it chooses the protonation (HD1, HE2 or both),
+and it may flip the side chain of a histidine, asparagine or glutamine by 180°. Those choices are
+in the <code>&lt;id&gt;_rec_H.pdb</code> written with every receptor: its header is the PDBQT's,
+followed by <code>reduce</code>'s own <code>USER  MOD</code> lines and every atom, hydrogens
+included:</p>
+<pre>USER  MOD reduce.3.23.130521 H: found=0, std=0, add=3340, rem=0, adj=160
+USER  MOD Set 1.1: L 198 HIS     :     no HD1:sc=   0.771  K(o=1.6,f=-4.4)
+USER  MOD Set 3.1: L 190 ASN     :FLIP  amide:sc=   0.105  F(o=-0.34,f=0.18)</pre>
+<p>The same decisions, and the chain renames made for <code>reduce</code> in an assembly built by
+symmetry, are in the save's <code>reduce</code> entry in <code>session.json</code>. See
+<a href="output.html#pdb">the protonated receptor</a>.</p>
+
+<h2>What the header does not record</h2>
+<p>Some facts about a file are not in its header. Every ADapt session keeps them in its
+<code>session.json</code> (see <a href="output.html">Writing the PDBQT files</a>):</p>
+<ul>
+<li>which hetero groups and waters were kept (their atoms are in the file, but no line says they
+were chosen);</li>
+<li>the version and git commit of ADapt, the <code>adfr</code> package version, and checksums of
+the ADFR source files that ran;</li>
+<li>the input file's checksum, and where it came from (an upload, or an RCSB URL);</li>
+<li>every edit, in order, and every file written, with its checksum;</li>
+<li><code>reduce</code>'s version and its His/Asn/Gln decisions, which are also in
+<code>_rec_H.pdb</code>.</li>
+</ul>
+<div class="pn"><a href="output.html">&larr; Writing the PDBQT files</a><a href="differences.html">ADapt and AGFRgui &rarr;</a></div>
+<footer class="page">ADapt documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of ADapt itself, made by <code>docs/make_screenshots.py</code>; the chemistry
+is ADFR's own code (ADCP distribution).</footer>
+</main></div></body></html>
