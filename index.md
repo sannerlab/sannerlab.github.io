@@ -11,9 +11,9 @@ including AutoDock CrankPep (ADCP) for protein–peptide docking.
 {%
   include feature.html
   image="images/photo.jpg"
-  link="research"
-  title="Research"
-  text="Publications from the lab."
+  link="publications"
+  title="Publications"
+  text="Papers from the lab."
 %}
 
 {%

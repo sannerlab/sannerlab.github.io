@@ -2,17 +2,9 @@
 title: Research
 nav:
   order: 1
-  tooltip: Published works
+  tooltip: What we work on
 ---
 
 # {% include icon.html icon="fa-solid fa-microscope" %}Research
 
-Publications from the lab.
-
-{% include section.html %}
-
-{% include search-box.html %}
-
-{% include search-info.html %}
-
-{% include list.html data="citations" component="citation" style="rich" %}
+Page in progress. Meanwhile, see our [publications](../publications/) and [tools](../tools/).
