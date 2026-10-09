@@ -28,15 +28,25 @@ layout: default
   | array_filter
 %}
 
+{% assign has_papers = false %}
+{% for citation in site.data.citations %}
+  {% assign authors = citation.authors | join: "|" %}
+  {% for alias in aliases %}
+    {% if authors contains alias %}{% assign has_papers = true %}{% endif %}
+  {% endfor %}
+{% endfor %}
+
+{% if has_papers %}
 {% capture search -%}
-  research/?search={% for alias in aliases %}"{{ alias }}" {% endfor %}
+  publications/?search={% for alias in aliases %}"{{ alias }}" {% endfor %}
 {%- endcapture %}
 
 <p class="center">
   <a href="{{ search | relative_url | uri_escape }}">
-    Search for {{ page.name | default: page.title }}'s papers on the Research page
+    See {{ page.name | default: page.title }}'s papers on the Publications page
   </a>
 </p>
+{% endif %}
 
 {% capture search -%}
   blog/?search={{ page.name }}
