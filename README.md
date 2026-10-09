@@ -1,3 +1,5 @@
+Visit **[sannerlab.github.io](https://sannerlab.github.io)** 🚀
+
 # Sanner Lab website
 
 Served at **https://sannerlab.github.io**. Built with
