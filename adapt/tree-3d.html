@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The tree and the 3D view &middot; ADapt documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">ADapt<small>AutoDock preparation &amp; perception tool</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a class="here" href="tree-3d.html">The tree and the 3D view</a></li>
+</ul>
+<h4>Cases</h4><ul>
+<li><a href="case-biomolecule.html">Biological assembly, not the ASU</a></li>
+<li><a href="case-assemblies.html">Choosing between assemblies</a></li>
+<li><a href="case-sidechains.html">Missing side chains</a></li>
+<li><a href="case-altlocs.html">Alternate locations</a></li>
+<li><a href="case-ligand.html">Ligands and other hetero groups</a></li>
+<li><a href="case-metals.html">Metals, ions, unsupported atoms</a></li>
+<li><a href="case-missing-residues.html">Missing residues</a></li>
+<li><a href="case-mutations.html">Mutating residues</a></li>
+</ul>
+<h4>Results</h4><ul>
+<li><a href="output.html">Writing the PDBQT files</a></li>
+<li><a href="provenance.html">Provenance in the PDBQT files</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="differences.html">ADapt and AGFRgui</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>The tree and the 3D view</h1>
+<p class="lead">The tree is your way into the structure. Selecting anything in it shows it in 3D,
+and every choice you make in it is redrawn at once.</p>
+
+<h2>Selecting a fragment</h2>
+<p>Click a node's <b>label</b> (not its checkbox) to select it:</p>
+<ul>
+<li>its row is highlighted in the tree;</li>
+<li>its atoms are highlighted <b>in green</b> in the 3D view: as sticks, or as green spheres for
+atoms without bonds such as ions and waters;</li>
+<li>the view <b>centres on the fragment</b>. A single residue or ion is shown with its
+surroundings, so you can judge where it is relative to your pocket. A selection spread over the
+molecule, such as a whole category, is framed as a whole.</li>
+</ul>
+<p>The triangle, or a double-click on the label, opens and closes a node.</p>
+<figure>
+<img src="img/link_residue.png" alt="1FV1 Biomol 1, TRP43 of chain A selected">
+<figcaption><b>1FV1, Biomol 1, chain A, TRP'43 selected</b>: the residue in green sticks, the view
+centred on it.</figcaption>
+</figure>
+
+<h2>What a node highlights</h2>
+<table>
+<tr><th>Node</th><th>Highlighted in the 3D view</th></tr>
+<tr><td>a residue</td><td>its atoms; for a residue with alternate locations, those of the
+location in use</td></tr>
+<tr><td>a category (<i>protein</i>, <i>sidechains to complete</i>, <i>water</i>, …)</td><td>all of
+its residues at once</td></tr>
+<tr><td><i>altloc</i></td><td>every residue of the chain that has alternate locations (see
+<a href="case-altlocs.html">alternate locations</a>)</td></tr>
+<tr><td>a <i>missing residues</i> entry</td><td>the residues on either side of the gap, next to its
+orange marker (see <a href="case-missing-residues.html">missing residues</a>)</td></tr>
+<tr><td>an entry under <i>unknown atom types</i></td><td>the unsupported atom</td></tr>
+<tr><td>a chain</td><td>nothing: a chain node only opens and closes</td></tr>
+</table>
+<div class="pair">
+<figure><img src="img/link_category.png" alt="1FV1 Biomol 1, sidechains to complete of chain B selected">
+<figcaption><b>A category</b>: <i>sidechains to complete</i> of chain B. Its 13 residues are
+highlighted wherever they are; when a selection is spread out, its sticks are drawn thicker so
+they can be seen.</figcaption></figure>
+<figure><img src="img/link_water.png" alt="1FV1 Biomol 1, water of chain A selected">
+<figcaption><b>The waters</b> of chain A: 152 molecules, each shown as a green sphere. This is a
+quick way to see which of them sit in the site before deciding to keep any.</figcaption></figure>
+</div>
+
+<h2>The highlight stays while you work</h2>
+<p>Checking or unchecking a box, choosing an alternate location, editing a charge or mutating a
+residue redraws the molecule's colours and <b>keeps the selected fragment highlighted</b>. You can
+decide on a residue while looking at it. The highlight is replaced by your next selection, and
+cleared when you change tab or load another file.</p>
+
+<h2>What the colours mean</h2>
+<table>
+<tr><th>In the 3D view</th><th>Means</th></tr>
+<tr><td>lines with grey carbons, light blue cartoon</td><td>in the <b>receptor</b></td></tr>
+<tr><td>sticks with orange carbons, orange cartoon</td><td>in the <b>ligand</b></td></tr>
+<tr><td>lines with purple carbons, grey cartoon</td><td>in neither</td></tr>
+<tr><td>small spheres in element colours</td><td>atoms without bonds: waters, ions</td></tr>
+<tr><td>the same, translucent</td><td>a symmetry copy (not in the tree; see <a href="case-biomolecule.html">biological assembly</a>)</td></tr>
+<tr><td>green</td><td>the <b>selected</b> fragment, or what <b>show rec.</b> / <b>show lig.</b>
+highlights</td></tr>
+<tr><td>orange carbons</td><td>what <b>show other</b> highlights</td></tr>
+<tr><td>sticks with cyan carbons</td><td>the <b>rotamer preview</b> of a side chain to be built</td></tr>
+<tr><td>orange dotted lines, spheres and labels</td><td><b>missing residues</b></td></tr>
+</table>
+<p>A checkbox click recolours its atoms immediately, so you can see what you just added or
+removed.</p>
+
+<h2>Browsing rotamers</h2>
+<p>Selecting a residue under <b>sidechains to complete</b> also draws the side chain that would be
+built, with cyan carbons. The drop-down in its params column lists the library's rotamers. Pick one,
+or <b>hover over the drop-down and turn the mouse wheel</b> to step through them one at a time; the
+preview and its score in the status line follow. While the pointer is over the drop-down, the wheel
+browses rotamers and the tree does not scroll. See <a href="case-sidechains.html">missing side
+chains</a>.</p>
+
+<h2>The show buttons</h2>
+<p><b>show rec.</b>, <b>show lig.</b> and <b>show other</b> highlight everything currently in the
+receptor, in the ligand, or in neither, and frame it. Use them before writing a file, to check at a
+glance that the receptor is what you meant it to be.</p>
+<div class="pn"><a href="start.html">&larr; Getting started</a><a href="case-biomolecule.html">Biological assembly, not the ASU &rarr;</a></div>
+<footer class="page">ADapt documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of ADapt itself, made by <code>docs/make_screenshots.py</code>; the chemistry
+is ADFR's own code (ADCP distribution).</footer>
+</main></div></body></html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Missing side chains &middot; ADapt documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">ADapt<small>AutoDock preparation &amp; perception tool</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="tree-3d.html">The tree and the 3D view</a></li>
+</ul>
+<h4>Cases</h4><ul>
+<li><a href="case-biomolecule.html">Biological assembly, not the ASU</a></li>
+<li><a href="case-assemblies.html">Choosing between assemblies</a></li>
+<li><a class="here" href="case-sidechains.html">Missing side chains</a></li>
+<li><a href="case-altlocs.html">Alternate locations</a></li>
+<li><a href="case-ligand.html">Ligands and other hetero groups</a></li>
+<li><a href="case-metals.html">Metals, ions, unsupported atoms</a></li>
+<li><a href="case-missing-residues.html">Missing residues</a></li>
+<li><a href="case-mutations.html">Mutating residues</a></li>
+</ul>
+<h4>Results</h4><ul>
+<li><a href="output.html">Writing the PDBQT files</a></li>
+<li><a href="provenance.html">Provenance in the PDBQT files</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="differences.html">ADapt and AGFRgui</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>Missing side chains</h1>
+<p class="lead">Rebuild them from a rotamer library, check the rotamer in 3D, or keep only the
+atoms the experiment saw.</p>
+
+<p>When some side-chain atoms of a standard amino acid are missing, ADapt lists the residue under
+<b>sidechains to complete</b>, with the atoms it will build (<code>build: CG CD NE CZ NH1
+NH2</code>). By default each such side chain is rebuilt when the receptor is written: every rotamer
+of the library is scored for favourable contacts and clashes with its surroundings, and the best
+is used.</p>
+
+<h2>See the rotamer</h2>
+<figure>
+<img src="img/sc_rotamer_auto.png" alt="1FV1 Biomol 2, ARG100 of chain D selected, with its rotamer preview">
+<figcaption><b>1FV1, Biomol 2, chain D, ARG'100.</b> Selecting the residue centres the view on it
+and draws the side chain that would be built, with <b>cyan carbons</b>. The params column shows the
+rotamer, <code>auto 59</code>: the best-scoring of the library's 81 arginine rotamers. The status
+line gives its score: <i>Score: -1.0, contacts: 2 favorable 2 clashes</i>.</figcaption>
+</figure>
+
+<p>The drop-down lists every rotamer of the library. Choosing one redraws it and gives its score.
+You can also <b>hover over the drop-down and turn the mouse wheel</b> to step through the rotamers
+one by one, watching the preview and the score change:</p>
+<div class="pair">
+<figure><img src="img/sc_rotamer_auto_zoom.png" alt="rotamer 59 (auto)">
+<figcaption><b>auto (59)</b>: score -1.0, 2 favourable contacts, 2 clashes.</figcaption></figure>
+<figure><img src="img/sc_rotamer_3_zoom.png" alt="rotamer 3">
+<figcaption><b>rotamer 3</b>: score -39.0, 6 favourable contacts, 7 clashes.</figcaption></figure>
+</div>
+<div class="note"><b>The drop-down is a preview.</b> When the receptor is written, the side chain is
+built with the best-scoring rotamer (<code>auto</code>), whatever the drop-down shows. AGFRgui
+behaves the same way; the drop-down lets you judge the alternatives, not pick one.</div>
+
+<h2>Or keep the side chain as it is</h2>
+<p>Right-clicking a residue under <b>sidechains to complete</b> offers <b>Complete sidechain</b>
+(the default) and <b>Include as is</b>. The same menu on the category applies to all of its
+residues.</p>
+<figure>
+<img src="img/sc_menu.png" alt="context menu on GLU158 of chain D">
+<figcaption><b>GLU'158 of chain D</b>: its rebuilt side chain in cyan, and the right-click menu.
+<i>Include as is</i> keeps only the atoms in the file.</figcaption>
+</figure>
+<figure class="small">
+<img src="img/sc_asis.png" alt="GLU158 marked use as is">
+<figcaption>After <i>Include as is</i>, the label reads <code>use as is missing: CG CD OE1 OE2</code>.
+The residue stays in the receptor with the atoms the file has, and its
+<code>REMARK 850 AGFR side chain completed</code> line is no longer written.</figcaption>
+</figure>
+<p>Completing a side chain far from the pocket changes little. Near the pocket it decides what the
+ligand will meet, so check the rotamer, or leave the side chain incomplete if its position is too
+uncertain to trust.</p>
+<div class="pn"><a href="case-assemblies.html">&larr; Choosing between assemblies</a><a href="case-altlocs.html">Alternate locations &rarr;</a></div>
+<footer class="page">ADapt documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of ADapt itself, made by <code>docs/make_screenshots.py</code>; the chemistry
+is ADFR's own code (ADCP distribution).</footer>
+</main></div></body></html>

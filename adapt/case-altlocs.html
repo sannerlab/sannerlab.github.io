@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alternate locations &middot; ADapt documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">ADapt<small>AutoDock preparation &amp; perception tool</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="tree-3d.html">The tree and the 3D view</a></li>
+</ul>
+<h4>Cases</h4><ul>
+<li><a href="case-biomolecule.html">Biological assembly, not the ASU</a></li>
+<li><a href="case-assemblies.html">Choosing between assemblies</a></li>
+<li><a href="case-sidechains.html">Missing side chains</a></li>
+<li><a class="here" href="case-altlocs.html">Alternate locations</a></li>
+<li><a href="case-ligand.html">Ligands and other hetero groups</a></li>
+<li><a href="case-metals.html">Metals, ions, unsupported atoms</a></li>
+<li><a href="case-missing-residues.html">Missing residues</a></li>
+<li><a href="case-mutations.html">Mutating residues</a></li>
+</ul>
+<h4>Results</h4><ul>
+<li><a href="output.html">Writing the PDBQT files</a></li>
+<li><a href="provenance.html">Provenance in the PDBQT files</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="differences.html">ADapt and AGFRgui</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>Alternate locations</h1>
+<p class="lead">Where the crystal shows a side chain in more than one conformation, choose the one
+to dock against.</p>
+
+<p>A residue whose atoms have alternate locations is listed under its chain's <b>altloc</b>
+group, sorted into the usual categories. Clicking the <b>altloc</b> node itself highlights all
+of them at once, which is the quickest way to see whether any sits near your pocket, and whether
+you might want its side chain flexible in docking.</p>
+<figure>
+<img src="img/altloc_group.png" alt="1FV1 Biomol 2, altloc group of chain D selected">
+<figcaption><b>1FV1, Biomol 2, chain D, altloc node selected</b>: its three residues (SER'19,
+THR'83, THR'93) are highlighted in green.</figcaption>
+</figure>
+
+<h2>Choosing a location</h2>
+<p>Each residue offers its locations, with their occupancies, as radio buttons in the params
+column. The chosen one is used for the receptor, and the others are left out.</p>
+<figure>
+<img src="img/altloc_residue.png" alt="SER19 of chain D with its two alternate locations">
+<figcaption><b>SER'19 of chain D</b>: locations A and B, each at occupancy 0.50.</figcaption>
+</figure>
+<figure class="small">
+<img src="img/altloc_radios.png" alt="radio buttons A 0.50 and B 0.50">
+</figure>
+<div class="pair">
+<figure><img src="img/altloc_B_zoom.png" alt="SER19 location B">
+<figcaption>Location <b>B</b>.</figcaption></figure>
+<figure><img src="img/altloc_A_zoom.png" alt="SER19 location A">
+<figcaption>Location <b>A</b>: the hydroxyl points elsewhere.</figcaption></figure>
+</div>
+<p>The choice is recorded in the receptor file
+(<code>REMARK 850 AGFR altlocs D:SER:19:_ @A (0.50)</code>), and it is applied in every tab that
+contains the residue.</p>
+
+<h2>The default</h2>
+<p>ADFR selects by default the location with the most atoms, then the one with the highest
+occupancy.</p>
+<div class="note"><b>Ties are not reproducible.</b> When two locations have the same occupancy, as
+all seven altloc residues of 1FV1 do, ADFR's pick depends on the order in which Python iterates a
+set. That order varies from run to run, so SER'19 defaults to A in some runs and to B in others.
+The same holds for <code>agfr</code> and AGFRgui. Ties are common (2 of the 20 altloc residues of
+4A1X, 4 of 19 in 6BHG). If a tied residue matters for your docking, choose its location explicitly:
+the choice you make is always the one written.</div>
+<div class="pn"><a href="case-sidechains.html">&larr; Missing side chains</a><a href="case-ligand.html">Ligands and other hetero groups &rarr;</a></div>
+<footer class="page">ADapt documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of ADapt itself, made by <code>docs/make_screenshots.py</code>; the chemistry
+is ADFR's own code (ADCP distribution).</footer>
+</main></div></body></html>

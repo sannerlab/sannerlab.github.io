@@ -1,0 +1,17 @@
+- title: ADapt
+  subtitle: AutoDock preparation & perception tool
+  group: featured
+  image: images/adapt.png
+  link: adapt/
+  description: Prepares receptor and ligand PDBQT files for AutoDock from a PDB entry, in a web browser.
+  tags:
+    - software
+
+- title: AutoDock CrankPep (ADCP)
+  subtitle: protein–peptide docking
+  group: featured
+  image: images/fallback.svg
+  link: https://github.com/ccsb-scripps/ADCP
+  description: Docking of linear and cyclic peptides by combining folding and docking.
+  tags:
+    - software

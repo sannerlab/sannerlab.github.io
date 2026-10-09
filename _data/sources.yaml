@@ -1,0 +1,5 @@
+# publications by identifier; the update-citations workflow fills in title, authors, journal, date
+- id: doi:10.1093/bioinformatics/btz459
+- id: doi:10.1021/acs.jctc.9b00557
+- id: doi:10.1021/acs.jcim.1c00573
+- id: doi:10.1371/journal.pcbi.1004586
