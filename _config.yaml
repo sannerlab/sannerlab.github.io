@@ -34,6 +34,11 @@ collections:
   # generate page for each member
   members:
     output: true
+    # display order on the Team page; unlisted members go after these
+    order:
+      - michel-sanner.md
+      - kandarp-sojitra.md
+      - jiahui-wang.md
   # generate page for each post
   posts:
     output: true
