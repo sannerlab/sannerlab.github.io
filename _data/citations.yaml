@@ -1,52 +1,5 @@
 # DO NOT EDIT, GENERATED AUTOMATICALLY
 
-- id: doi:10.1093/bioinformatics/btz459
-  title: "<i>AutoDock CrankPep</i>\n                    : combining folding and docking\
-    \ to predict protein\u2013peptide complexes"
-  authors:
-  - Yuqi Zhang
-  - Michel F Sanner
-  publisher: Bioinformatics
-  date: '2019-06-04'
-  link: https://doi.org/g9d5x6
-  plugin: sources.py
-  file: sources.yaml
-- id: doi:10.1021/acs.jctc.9b00557
-  title: "Docking Flexible Cyclic Peptides with\n                    <i>AutoDock CrankPep</i>"
-  authors:
-  - Yuqi Zhang
-  - Michel F. Sanner
-  publisher: Journal of Chemical Theory and Computation
-  date: '2019-09-11'
-  link: https://doi.org/g9hc75
-  plugin: sources.py
-  file: sources.yaml
-- id: doi:10.1021/acs.jcim.1c00573
-  title: Improving Docking Power for Short Peptides Using Random Forest
-  authors:
-  - Michel F. Sanner
-  - Leonard Dieguez
-  - Stefano Forli
-  - Ewa Lis
-  publisher: Journal of Chemical Information and Modeling
-  date: '2021-06-14'
-  link: https://doi.org/hcm2v3
-  plugin: sources.py
-  file: sources.yaml
-- id: doi:10.1371/journal.pcbi.1004586
-  title: 'AutoDockFR: Advances in Protein-Ligand Docking with Explicitly Specified
-    Binding Site Flexibility'
-  authors:
-  - Pradeep Anand Ravindranath
-  - Stefano Forli
-  - David S. Goodsell
-  - Arthur J. Olson
-  - Michel F. Sanner
-  publisher: PLOS Computational Biology
-  date: '2015-12-02'
-  link: https://doi.org/f8ggqm
-  plugin: sources.py
-  file: sources.yaml
 - id: doi:10.1021/acs.analchem.5c02409
   title: "Sulfoxide-diazirine (SODA) as a Cleavable Photoaffinity Group To Enable\
     \ the Identification of Photolabeled Modification Sites via LC\u2013MS<sup>3</sup>"
@@ -83,5 +36,548 @@
   publisher: Journal of Chemical Information and Modeling
   date: '2023-05-11'
   link: https://doi.org/g7mtkk
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1021/acs.jcim.1c00573
+  title: Improving Docking Power for Short Peptides Using Random Forest
+  authors:
+  - Michel F. Sanner
+  - Leonard Dieguez
+  - Stefano Forli
+  - Ewa Lis
+  publisher: Journal of Chemical Information and Modeling
+  date: '2021-06-14'
+  link: https://doi.org/hcm2v3
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1021/acs.jcim.1c00320
+  title: "Cyclic Peptides as Protein Kinase Inhibitors: Structure\u2013Activity Relationship\
+    \ and Molecular Modeling"
+  authors:
+  - Michel F. Sanner
+  - Khalid Zoghebi
+  - Samara Hanna
+  - Saghar Mozaffari
+  - Simin Rahighi
+  - Rakesh K. Tiwari
+  - Keykavous Parang
+  publisher: Journal of Chemical Information and Modeling
+  date: '2021-05-17'
+  link: https://doi.org/gj3pkw
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1021/acs.jctc.0c01006
+  title: "Accelerating A\n                    <scp>uto</scp>\n                   \
+    \ D\n                    <scp>ock</scp>\n                    4 with GPUs and Gradient-Based\
+    \ Local Search"
+  authors:
+  - Diogo Santos-Martins
+  - Leonardo Solis-Vasquez
+  - Andreas F Tillack
+  - Michel F Sanner
+  - Andreas Koch
+  - Stefano Forli
+  publisher: Journal of Chemical Theory and Computation
+  date: '2021-01-06'
+  link: https://doi.org/gmjhff
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1002/pro.3934
+  title: The<scp>AutoDock</scp>suite at 30
+  authors:
+  - David S. Goodsell
+  - Michel F. Sanner
+  - Arthur J. Olson
+  - Stefano Forli
+  publisher: Protein Science
+  date: '2020-09-12'
+  link: https://doi.org/grs3ng
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1111/jth.14756
+  title: "C\u2010terminal residues of activated protein C light chain contribute to\
+    \ its anticoagulant and cytoprotective activities"
+  authors:
+  - Atsuki Yamashita
+  - Yuqi Zhang
+  - Michel F. Sanner
+  - John H. Griffin
+  - Laurent O. Mosnier
+  publisher: Journal of Thrombosis and Haemostasis
+  date: '2020-05-01'
+  link: https://doi.org/grt5w7
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1002/jcc.26054
+  title: 'AutoGridFR: Improvements on AutoDock Affinity Maps and Associated Software
+    Tools'
+  authors:
+  - Yuqi Zhang
+  - Stefano Forli
+  - Anna Omelchenko
+  - Michel F. Sanner
+  publisher: Journal of Computational Chemistry
+  date: '2019-08-22'
+  link: https://doi.org/hcm2xs
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1093/bioinformatics/btz459
+  title: "<i>AutoDock CrankPep</i>\n                    : combining folding and docking\
+    \ to predict protein\u2013peptide complexes"
+  authors:
+  - Yuqi Zhang
+  - Michel F Sanner
+  publisher: Bioinformatics
+  date: '2019-06-04'
+  link: https://doi.org/g9d5x6
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1021/acs.jctc.9b00557
+  title: "Docking Flexible Cyclic Peptides with\n                    <i>AutoDock CrankPep</i>"
+  authors:
+  - Yuqi Zhang
+  - Michel F. Sanner
+  publisher: Journal of Chemical Theory and Computation
+  date: '2019-09-11'
+  link: https://doi.org/g9hc75
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1182/bloodadvances.2017007005
+  title: Activated protein C light chain provides an extended binding surface for
+    its anticoagulant cofactor, protein S
+  authors:
+  - "Jos\xE9 A. Fern\xE1ndez"
+  - Xiao Xu
+  - Ranjeet K. Sinha
+  - Laurent O. Mosnier
+  - Michel F. Sanner
+  - John H. Griffin
+  publisher: Blood Advances
+  date: '2017-08-07'
+  link: https://doi.org/hcm2xt
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1093/bioinformatics/btw367
+  title: "AutoSite: an automated approach for pseudo-ligands prediction\u2014from\
+    \ ligand-binding sites identification to predicting key ligand atoms"
+  authors:
+  - Pradeep Anand Ravindranath
+  - Michel F. Sanner
+  publisher: Bioinformatics
+  date: '2016-06-26'
+  link: https://doi.org/f88tft
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1038/nprot.2016.051
+  title: "Computational protein\u2013ligand docking and virtual drug screening with\
+    \ the AutoDock suite"
+  authors:
+  - Stefano Forli
+  - Ruth Huey
+  - Michael E Pique
+  - Michel F Sanner
+  - David S Goodsell
+  - Arthur J Olson
+  publisher: Nature Protocols
+  date: '2016-04-14'
+  link: https://doi.org/gh4zft
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1371/journal.pcbi.1004586
+  title: 'AutoDockFR: Advances in Protein-Ligand Docking with Explicitly Specified
+    Binding Site Flexibility'
+  authors:
+  - Pradeep Anand Ravindranath
+  - Stefano Forli
+  - David S. Goodsell
+  - Arthur J. Olson
+  - Michel F. Sanner
+  publisher: PLOS Computational Biology
+  date: '2015-12-02'
+  link: https://doi.org/f8ggqm
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1038/nmeth.3204
+  title: 'cellPACK: a virtual mesoscope to model and visualize structural systems
+    biology'
+  authors:
+  - Graham T Johnson
+  - Ludovic Autin
+  - Mostafa Al-Alusi
+  - David S Goodsell
+  - Michel F Sanner
+  - Arthur J Olson
+  publisher: Nature Methods
+  date: '2014-12-01'
+  link: https://doi.org/gsd9wb
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1039/c4fd00017j
+  title: 3D molecular models of whole HIV-1 virions generated with cellPACK
+  authors:
+  - Graham T. Johnson
+  - David S. Goodsell
+  - Ludovic Autin
+  - Stefano Forli
+  - Michel F. Sanner
+  - Arthur J. Olson
+  publisher: Faraday Discuss.
+  date: '2014-01-01'
+  link: https://doi.org/gpf66p
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1371/journal.pone.0051307
+  title: Protein-Protein Docking with F2Dock 2.0 and GB-Rerank
+  authors:
+  - Rezaul Chowdhury
+  - Muhibur Rasheed
+  - Donald Keidel
+  - Maysam Moussalem
+  - Arthur Olson
+  - Michel Sanner
+  - Chandrajit Bajaj
+  publisher: PLoS ONE
+  date: '2013-03-06'
+  link: https://doi.org/hcm2xv
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1109/mcg.2012.93
+  title: 'uPy: A Ubiquitous CG Python API with Biological-Modeling Applications'
+  authors:
+  - L. Autin
+  - G. Johnson
+  - J. Hake
+  - A. Olson
+  - M. Sanner
+  publisher: IEEE Computer Graphics and Applications
+  date: '2012-09-01'
+  link: https://doi.org/gsfc3b
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1016/j.str.2010.12.023
+  title: ePMV Embeds Molecular Modeling into Professional Animation Software Environments
+  authors:
+  - "Graham\_T. Johnson"
+  - Ludovic Autin
+  - "David\_S. Goodsell"
+  - "Michel\_F. Sanner"
+  - "Arthur\_J. Olson"
+  publisher: Structure
+  date: '2011-03-01'
+  link: https://doi.org/frnkt8
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1002/jcc.21256
+  title: 'AutoDock4 and AutoDockTools4: Automated docking with selective receptor
+    flexibility'
+  authors:
+  - Garrett M. Morris
+  - Ruth Huey
+  - William Lindstrom
+  - Michel F. Sanner
+  - Richard K. Belew
+  - David S. Goodsell
+  - Arthur J. Olson
+  publisher: Journal of Computational Chemistry
+  date: '2009-04-27'
+  link: https://doi.org/dvtqjs
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1002/cmdc.200800447
+  title: "Derivation of a Retinoid X Receptor Scaffold from Peroxisome Proliferator\u2010\
+    Activated Receptor\u2005\u03B3 Ligand 1\u2010Di(1<i>H</i>\u2010indol\u20103\u2010\
+    yl)methyl\u20104\u2010trifluoromethylbenzene"
+  authors:
+  - "Marcia\u2005I. Dawson"
+  - Mao Ye
+  - Xihua Cao
+  - Lulu Farhana
+  - "Qiong\u2010Ying Hu"
+  - Yong Zhao
+  - Li Ping Xu
+  - Alice Kiselyuk
+  - "Ricardo\u2005G. Correa"
+  - Li Yang
+  - Tingjun Hou
+  - "John\u2005C. Reed"
+  - "Pamela Itkin\u2010Ansari"
+  - Fred Levine
+  - "Michel\u2005F. Sanner"
+  - "Joseph\u2005A. Fontana"
+  - "Xiao\u2010Kun Zhang"
+  publisher: ChemMedChem
+  date: '2009-06-29'
+  link: https://doi.org/c5sjj2
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1002/prot.22256
+  title: "Shape complementarity of protein\u2013protein complexes at multiple resolutions"
+  authors:
+  - Qing Zhang
+  - Michel Sanner
+  - Arthur J. Olson
+  publisher: 'Proteins: Structure, Function, and Bioinformatics'
+  date: '2008-10-06'
+  link: https://doi.org/cnxph8
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1007/s10822-007-9148-5
+  title: "Protein\u2013ligand docking with multiple flexible side chains"
+  authors:
+  - Yong Zhao
+  - Michel F. Sanner
+  publisher: Journal of Computer-Aided Molecular Design
+  date: '2007-11-22'
+  link: https://doi.org/cz3sp2
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1088/1478-3975/4/3/004
+  title: "A dynamical study of antibody\u2013antigen encounter reactions"
+  authors:
+  - Lorenzo Bongini
+  - Duccio Fanelli
+  - Francesco Piazza
+  - Paolo De Los Rios
+  - Michel Sanner
+  - Ulf Skoglund
+  publisher: Physical Biology
+  date: '2007-10-02'
+  link: https://doi.org/cdsdvs
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1002/prot.21423
+  title: 'FLIPDock: Docking flexible ligands into flexible receptors'
+  authors:
+  - Yong Zhao
+  - Michel F. Sanner
+  publisher: 'Proteins: Structure, Function, and Bioinformatics'
+  date: '2007-05-23'
+  link: https://doi.org/cgmphh
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1093/bioinformatics/btl481
+  title: Hierarchical and multi-resolution representation of protein flexibility
+  authors:
+  - Yong Zhao
+  - Daniel Stoffler
+  - Michel Sanner
+  publisher: Bioinformatics
+  date: '2006-09-18'
+  link: https://doi.org/dc7b87
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1109/mcg.2005.47
+  title: Tangible Augmented Interfaces for Structural Molecular Biology
+  authors:
+  - A. Gillet
+  - M. Sanner
+  - D. Stoffler
+  - A. Olson
+  publisher: IEEE Computer Graphics and Applications
+  date: '2005-03-01'
+  link: https://doi.org/fqmwxp
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1385/nbt:1:1:007
+  title: Visualizing Nature at Work from the Nano to the Macro Scale
+  authors:
+  - Michel F. Sanner
+  - Martin Stolz
+  - Peter Burkhard
+  - Xiang-Peng Kong
+  - Guangwei Min
+  - Tung-Tien Sun
+  - Sergey Driamov
+  - Ueli Aebi
+  - Daniel Stoffler
+  publisher: Nanobiotechnology
+  date: '2005-01-01'
+  link: https://doi.org/b6kdvm
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1016/j.str.2005.01.010
+  title: A Component-Based Software Environment for Visualizing Large Macromolecular
+    Assemblies
+  authors:
+  - Michel F. Sanner
+  publisher: Structure
+  date: '2005-03-01'
+  link: https://doi.org/bzfcjr
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1016/j.str.2005.01.009
+  title: Tangible Interfaces for Structural Molecular Biology
+  authors:
+  - Alexandre Gillet
+  - Michel Sanner
+  - Daniel Stoffler
+  - Arthur Olson
+  publisher: Structure
+  date: '2005-03-01'
+  link: https://doi.org/dx8vv8
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1002/prot.10134
+  title: "Model of the \u03B1L\u03B22 integrin I\u2010domain/ICAM\u20101 DI interface\
+    \ suggests that subtle changes in loop orientation determine ligand specificity"
+  authors:
+  - Glen B. Legge
+  - Garrett M. Morris
+  - Michel F. Sanner
+  - Yoshikazu Takada
+  - Arthur J. Olson
+  - Flavio Grynszpan
+  publisher: 'Proteins: Structure, Function, and Bioinformatics'
+  date: '2002-05-29'
+  link: https://doi.org/dcq7pr
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1002/prot.10130
+  title: "Evolutionary analysis of HIV\u20101 protease inhibitors: Methods for design\
+    \ of inhibitors that evade resistance"
+  authors:
+  - Daniel Stoffler
+  - Michel F. Sanner
+  - Garrett M. Morris
+  - Arthur J. Olson
+  - David S. Goodsell
+  publisher: 'Proteins: Structure, Function, and Bioinformatics'
+  date: '2002-05-03'
+  link: https://doi.org/cjtb7r
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1002/prot.10028
+  title: 'Automated docking to multiple target structures: Incorporation of protein
+    mobility and structural water heterogeneity in AutoDock'
+  authors:
+  - "Fredrik \xD6sterberg"
+  - Garrett M. Morris
+  - Michel F. Sanner
+  - Arthur J. Olson
+  - David S. Goodsell
+  publisher: 'Proteins: Structure, Function, and Bioinformatics'
+  date: '2001-11-15'
+  link: https://doi.org/b3m69b
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1006/jmbi.1999.2621
+  title: The discovery of steroids and other novel FKBP inhibitors using a molecular
+    docking program
+  authors:
+  - P. Burkhard
+  - U. Hommel
+  - M. Sanner
+  - M.D. Walkinshaw
+  publisher: Journal of Molecular Biology
+  date: '1999-04-01'
+  link: https://doi.org/d8gdr9
+  plugin: sources.py
+  file: sources.yaml
+- id: pubmed:10660911
+  title: 'Python: a programming language for software integration and development.'
+  authors:
+  - M F Sanner
+  publisher: Journal of molecular graphics & modelling
+  date: '1999-02-01'
+  link: https://www.ncbi.nlm.nih.gov/pubmed/10660911
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1093/protein/10.10.1123
+  title: Recognition of protein structure on coarse lattices with residue- residue
+    energy functions
+  authors:
+  - B. A. Reva
+  - A. V. Finkelstein
+  - M. Sanner
+  - A. J. Olson
+  - J. Skolnick
+  publisher: Protein Engineering Design and Selection
+  date: '1997-10-01'
+  link: https://doi.org/c92vcf
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1093/protein/10.8.865
+  title: Residue-residue mean-force potentials for protein structure recognition
+  authors:
+  - B. A. Reva
+  - A. V. Finkelstein
+  - M. F. Sanner
+  - A. J. Olson
+  publisher: Protein Engineering Design and Selection
+  date: '1997-08-01'
+  link: https://doi.org/bfz6xp
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1021/jo962179v
+  title: Design and Synthesis of Transition State Analogs for Induction of Hydride
+    Transfer Catalytic Antibodies
+  authors:
+  - "Josef Schr\xF6er"
+  - Michel Sanner
+  - Jean-Louis Reymond
+  publisher: The Journal of Organic Chemistry
+  date: '1997-05-01'
+  link: https://doi.org/d256dr
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1002/(sici)1097-0134(199607)25:3<379::aid-prot9>3.0.co;2-a
+  title: Adjusting potential energy functions for lattice models of chain molecules
+  authors:
+  - Boris A. Reva
+  - Alexei V. Finkelstein
+  - Michel F. Sanner
+  - Arthur J. Olson
+  publisher: 'Proteins: Structure, Function, and Genetics'
+  date: '1996-07-01'
+  link: https://doi.org/b7x8gf
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1002/(sici)1096-987x(199606)17:8<1025::aid-jcc11>3.0.co;2-d
+  title: 'Lattice modeling: Accuracy of energy calculations'
+  authors:
+  - Boris A. Reva
+  - Michel F. Sanner
+  - Arthur J. Olson
+  - Alexei V. Finkelstein
+  publisher: Journal of Computational Chemistry
+  date: '1996-06-01'
+  link: https://doi.org/dstk4q
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1002/(sici)1097-0282(199603)38:3<305::aid-bip4>3.0.co;2-y
+  title: 'Reduced surface: An efficient way to compute molecular surfaces'
+  authors:
+  - Michel F. Sanner
+  - Arthur J. Olson
+  - Jean-Claude Spehner
+  publisher: Biopolymers
+  date: '1996-03-01'
+  link: https://doi.org/c7jbnr
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1002/bip.360291006
+  title: "Conformational studies of cyclic peptide structures in solution from <sup>1</sup>H\u2010\
+    Nmr data by distance geometry calculation and restrained energy minimization"
+  authors:
+  - Hans Senn
+  - "Hans\u2010Rudolf Loosli"
+  - Michel Sanner
+  - Werner Braun
+  publisher: Biopolymers
+  date: '1990-08-15'
+  link: https://doi.org/dpp9jx
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1007/bf01533068
+  title: 'GEOM: A new tool for molecular modelling based on distance geometry calculations
+    with NMR data'
+  authors:
+  - Michel Sanner
+  - Armin Widmer
+  - Hans Senn
+  - Werner Braun
+  publisher: Journal of Computer-Aided Molecular Design
+  date: '1989-09-01'
+  link: https://doi.org/d2jtn4
   plugin: sources.py
   file: sources.yaml
