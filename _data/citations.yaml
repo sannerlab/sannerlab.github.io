@@ -47,3 +47,41 @@
   link: https://doi.org/f8ggqm
   plugin: sources.py
   file: sources.yaml
+- id: doi:10.1021/acs.analchem.5c02409
+  title: "Sulfoxide-diazirine (SODA) as a Cleavable Photoaffinity Group To Enable\
+    \ the Identification of Photolabeled Modification Sites via LC\u2013MS<sup>3</sup>"
+  authors:
+  - Suyuan Chen
+  - Michel F. Sanner
+  - "Denise-Liu\u2032 Gracias Leone"
+  - Stefan Loroch
+  - Stefano Forli
+  - Steven H. L. Verhelst
+  publisher: Analytical Chemistry
+  date: '2025-08-06'
+  link: https://doi.org/hcm2v7
+  plugin: sources.py
+  file: sources.yaml
+- id: arxiv:2310.09529
+  title: Docking Peptides into HIV/FIV Protease with Deep Learning and Focused Peptide
+    Docking Methods
+  authors:
+  - Katherine Ge
+  - Dayna Olson
+  - Michel F. Sanner
+  publisher: arXiv
+  date: '2023-10-18'
+  link: https://arxiv.org/abs/2310.09529
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1021/acs.jcim.3c00602
+  title: "Predicting Protein\u2013Peptide Interactions: Benchmarking Deep Learning\
+    \ Techniques and a Comparison with Focused Docking"
+  authors:
+  - Sudhanshu Shanker
+  - Michel F. Sanner
+  publisher: Journal of Chemical Information and Modeling
+  date: '2023-05-11'
+  link: https://doi.org/g7mtkk
+  plugin: sources.py
+  file: sources.yaml
