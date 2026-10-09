@@ -2,8 +2,6 @@
 name: Michel Sanner
 image: images/fallback.svg
 role: principal-investigator
-aliases:
-  - Sanner
 description: Professor of Molecular Biology
 affiliation: Department of Integrative Structural and Computational Biology, Scripps Research
 links:
