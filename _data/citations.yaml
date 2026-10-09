@@ -1,3 +1,49 @@
 # DO NOT EDIT, GENERATED AUTOMATICALLY
 
-[]
+- id: doi:10.1093/bioinformatics/btz459
+  title: "<i>AutoDock CrankPep</i>\n                    : combining folding and docking\
+    \ to predict protein\u2013peptide complexes"
+  authors:
+  - Yuqi Zhang
+  - Michel F Sanner
+  publisher: Bioinformatics
+  date: '2019-06-04'
+  link: https://doi.org/g9d5x6
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1021/acs.jctc.9b00557
+  title: "Docking Flexible Cyclic Peptides with\n                    <i>AutoDock CrankPep</i>"
+  authors:
+  - Yuqi Zhang
+  - Michel F. Sanner
+  publisher: Journal of Chemical Theory and Computation
+  date: '2019-09-11'
+  link: https://doi.org/g9hc75
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1021/acs.jcim.1c00573
+  title: Improving Docking Power for Short Peptides Using Random Forest
+  authors:
+  - Michel F. Sanner
+  - Leonard Dieguez
+  - Stefano Forli
+  - Ewa Lis
+  publisher: Journal of Chemical Information and Modeling
+  date: '2021-06-14'
+  link: https://doi.org/hcm2v3
+  plugin: sources.py
+  file: sources.yaml
+- id: doi:10.1371/journal.pcbi.1004586
+  title: 'AutoDockFR: Advances in Protein-Ligand Docking with Explicitly Specified
+    Binding Site Flexibility'
+  authors:
+  - Pradeep Anand Ravindranath
+  - Stefano Forli
+  - David S. Goodsell
+  - Arthur J. Olson
+  - Michel F. Sanner
+  publisher: PLOS Computational Biology
+  date: '2015-12-02'
+  link: https://doi.org/f8ggqm
+  plugin: sources.py
+  file: sources.yaml
