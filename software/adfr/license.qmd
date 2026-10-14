@@ -1,0 +1,13 @@
+---
+title: "License"
+---
+
+The ADFR software suite contains several programs and components. Unless otherwise specified, they
+are provided under the LGPL2 open-source license.
+
+The one exception is the **MSMS** program and the **MSLIB** component, which compute molecular
+surfaces. They are free for academic research but need a license for commercial use. Of the
+suite's programs, only `agfrgui` uses them, for surface calculation and display. They are not
+used by `adfr`, `agfr`, `autosite`, `adcp`, `prepare_ligand` or `prepare_receptor`.
+
+For a commercial license for MSMS and MSLIB, contact [Dr. Michel Sanner](mailto:sanner@scripps.edu).

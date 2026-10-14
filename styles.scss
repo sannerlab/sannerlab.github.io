@@ -11,3 +11,8 @@ $font-size-root: 17px;
 .status { font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; opacity: .75; }
 .pub-list li { margin-bottom: .8rem; }
 .pub-venue { font-style: italic; }
+/* small GUI button screenshots shown inline in text and tables */
+img.icon { height: 2.4em; width: auto; vertical-align: middle; margin: 0 .15em; }
+/* thumbnails on tutorial cards */
+.tool-card img { width: 100%; height: 150px; object-fit: cover; object-position: top left; border-radius: 6px; }
+.tool-card .quarto-figure { margin-bottom: .5rem; }

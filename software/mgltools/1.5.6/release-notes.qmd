@@ -1,0 +1,36 @@
+---
+title: "Release notes"
+---
+
+New in MGLTools 1.5.6:
+
+- New [Panel for holding interfaces](widget-panel.qmd) for a variety of tools.
+- Redesigned [Dashboard widget](dashboard.qmd) with enhanced functionality.
+- New functionality for creating 3D animations.
+- New widget panel for [measuring tools and for altering 3D rendering attributes](measure.qmd) of molecular geometrical objects.
+- New ribbon representation [called Beaded Ribbons.](beaded-ribbons.qmd)
+- New GPU-based Screen Space Ambient Occlusion rendering mode (press the “O” key on the keyboard while the mouse pointer is in the 3D view).
+- Redesigned color [chooser widget](color-chooser.qmd).
+- Faster and more robust mechanism for [saving and restoring sessions](session.qmd) which no longer relies on using log strings.
+- New shortcuts for selecting Water, Ions, DNA, RNA, Amino Acids and Ligands (see Selection command menu in [Dashboard widget.](dashboard.qmd)).
+- Added the ability to grow the current selection by extending the selection to close by atoms, as well as selecting atoms in the neighborhood of the current selection (select around). These function are available through the new [Dashboard widget.](dashboard.qmd)
+- Flashing geometry are used to identify molecular fragments for picking operations.
+- Cursors indicate the type of operation the mouse is performing (e.g. rotation, translation, selection, etc.)
+- Rotation has been moved from middle mouse button to left mouse button.
+- Shift Left button adds to the current selection, Control Left button removes from the current selection.
+- Lazy evaluation of log strings. The creation of log strings can slow down operation and sometimes very large lists of strings have to be created. starting with 1.5.6, Pmv only generates the log strings when the text port showing log strings is visible.
+- Proper handling of MODRES records. The PDB parsers now properly handle MODRES records used to specify modified amino acids. This allows secondary structure to not be interrupted anymore by such residues and the selecting of amino acids to properly include such residues.
+- New command for generating bibliographic information for images created with Pmv. This command is available under the Help menu and allows listing the subset of references needed based on the types of representations visible in the scene ( Help → Cite This Scene ).
+- New commands were added under the Display menu for labeling atoms, residues, chains and molecules (Display → Label → Atoms, Residues, Chains and Molecules).
+- A new user preference called PDB Cache Storage is now used to control maximum space allowed for File → Read → fetch From Web. When the size of cached files exceeds the preference value, the oldest files are deleted from the cache.
+- In 3D Grid changed Volume Rendering widget to include “Use This Widget” and “Use Colormap GUI” options. Fixed “Set Color” menu in Transfer Function editor; this menu is now always on and it updates colors properly.
+- Added Color → Rainbow that colors molecules using a rainbow color map.
+- Added new user preference that allows users to choose geometry used for selection. Possible values are none, spheres, crosses. If set to none, no changes are visible in the viewer when doing selection.
+- The Compute → Molecular Surface command was redesigned. The perMol check button and surface name entry was removed. The command when invoked from the menu now always computes a surface for the whole molecule and names it MSMS-MOL. A check button was added to allow excluding Hetero atoms from the surface calculation. This is useful for instance when water molecules are present but should be ignored when computing the surface. This button is unchecked in order to be backwards compatible.
+- Redesigned [color palette widget](color-palette.qmd).
+- Updated AutoLigand and its GUI to include two new modes of running. Users can now run AutoLigand in Connected Fill or Scan mode. Connected Fill allows to constrain the start and end location for the fill. Users can change xyz coordinates for the start and end location represented in the GUI as yellow and cyan crosses, respectively. This information is then passed to AutoLigand which tries to fill the grid with atoms that start at the start location and end at the end location. In the Scan mode, AutoLigand scans the whole grid and tries to find the best fill with a given number of points regardless of a starting position. This was previously done with separate scripts.
+- Added a citation entry for AutoLigand:
+
+  ```python
+  self.vf.showCitation.citations["AutoLigand"] = """Please acknowledge the use of the AutoLigand that results in any published work, including scientific papers, films and videotapes, by citing the following reference: Harris R, Olson AJ, Goodsell DS.  Proteins. (2008) 70 1506.."""
+  ```

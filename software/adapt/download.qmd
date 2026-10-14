@@ -1,0 +1,6 @@
+---
+title: "Download ADapt"
+---
+
+ADapt is not released yet, so there is no public download. This page will link to the release
+once it is available.

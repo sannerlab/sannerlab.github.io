@@ -1,0 +1,61 @@
+---
+title: "AGFR tutorials"
+---
+
+Step-by-step tutorials with the AGFR graphical interface.
+
+**Before you start:**
+
+- [Install ADFRsuite 1.0](download.qmd), which includes AGFR.
+- Download and unzip the
+  [tutorial data](https://ccsb.scripps.edu/adfr/download/1063/)
+  (`ADFRsuite-1.0_tutorial_data.zip`).
+- Start the graphical interface with `ADFRsuite-1.0/bin/agfrgui`.
+
+For command-line examples see the [AutoDockFR tutorials](/software/adfr/tutorials.qmd).
+
+::: {.tool-grid}
+
+::: {.tool-card}
+![](img/word-image-4.png){fig-alt="Docking box around a known ligand"}
+
+### [Docking box from a known ligand](tutorial-box-ligand.qmd)
+CDK2 (PDB 4EK3) with a ligand from 4EK4. Also shows the equivalent command line.
+:::
+
+::: {.tool-card}
+![](img/word-image-31.png){fig-alt="Docking box around AutoSite fill points"}
+
+### [Docking box from an AutoSite pocket](tutorial-box-pocket.qmd)
+No ligand known: let AutoSite find pockets and size the box on the best one.
+:::
+
+::: {.tool-card}
+![](img/word-image-25.png){fig-alt="Docking box around selected residues"}
+
+### [Docking box from binding-site residues](tutorial-box-residues.qmd)
+Define the box from the amino acids that line the active site.
+:::
+
+::: {.tool-card}
+![](img/word-image-18.png){fig-alt="Flexible receptor side chains"}
+
+### [Maps for flexible receptor side chains](tutorial-flexible-receptor.qmd)
+Make LYS33, LYS88 and LYS89 of CDK2 flexible and adjust the box to cover them.
+:::
+
+::: {.tool-card}
+![](img/word-image-42.png){fig-alt="Covalent ligand outlined with dashed lines"}
+
+### [Maps for covalent docking](tutorial-covalent.qmd)
+Prepare PDB 3C9W for docking covalent ligands bound to CYS164.
+:::
+
+::: {.tool-card}
+![](img/word-image-46.png){fig-alt="Affinity map shown as an orthoslice"}
+
+### [Visualizing affinity maps](tutorial-map-visualization.qmd)
+Show maps of a target file as isocontours and orthoslices.
+:::
+
+:::

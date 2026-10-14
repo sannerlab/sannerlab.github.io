@@ -1,0 +1,32 @@
+---
+title: "Session files"
+---
+
+PMV 1.5.6 introduces a new session file. It no longer relies on log strings and on playing back
+the entire session, which was error prone and slow.
+
+The new session file is self-contained: you can send it to another user and it restores the
+session. It contains a Python script that issues all the PMV commands needed to create the
+molecular geometries and configure them as they were when the session was saved. Vision networks
+are saved and restored too.
+
+Session files are gzipped tar files with the extension `.psf` (PMV Session File).
+
+::: {.callout-note}
+## Limitations
+- Molecules read from PDBQ, PDBQT and PDBQS files are saved in their original format. All other
+  molecules are currently saved as PDB files, which can lose information (for example from mol2
+  files).
+- Only `ATOM`, `HETATM` and `CONECT` records are saved for molecules in a session file. For
+  example, a molecule read from a PDB file with secondary structure records loses these records
+  when restored from a session, so its secondary structure is assigned programmatically and may
+  differ from the PDB records.
+- Some representations are not restored: splines, CA traces, distance, angle and torsion
+  measurements, and isosurfaces of volumetric data.
+- Geometry not created by PMV (for example created in Vision) is not restored.
+:::
+
+::: {.callout-warning}
+## Known bug
+PMV molecules used in Vision networks are not restored.
+:::

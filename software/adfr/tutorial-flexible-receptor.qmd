@@ -1,0 +1,326 @@
+---
+title: "Tutorial: docking with flexible receptor side chains"
+---
+
+This tutorial re-docks a known ligand into its native receptor while treating some receptor side
+chains as flexible. It uses the same system as the [re-docking tutorial](tutorial-redocking.qmd):
+CDK2 ([PDB 4EK3](https://www.rcsb.org/structure/4EK3)) and one of its ligands
+([PDB 4EK4](https://www.rcsb.org/structure/4EK4)).
+
+**You will learn to:**
+
+- compute affinity maps for a pocket with flexible receptor side chains
+- run ADFR to re-dock the ligand into the receptor with flexible side chains
+
+**Prerequisites:** ADFRsuite 1.0 installed with `ADFRsuite-1.0/bin` on your `PATH`, and the
+[tutorial data](https://ccsb.scripps.edu/agfr/download/551/) downloaded and unzipped
+(see [Tutorials](tutorials.qmd)).
+
+## 1. Generate the target file
+
+Flexible residues are given on the command line with the `-f/--flexRes` option and a selection
+string, for example `"A:ILE10,VAL32;B:SER48"`.
+
+A target file for the 4EK3 pocket that binds the crystallographic ligand, with ILE10 and LYS33
+flexible, could be computed with:
+
+```bash
+agfr -l data/4EK4_lig.pdbqt -r data/4EK3_rec.pdbqt -f A:ILE10,LYS33
+```
+
+However, agfr fails here: the docking box, built with the default 4 Å padding around the ligand,
+is too small to cover the flexible side chains.
+
+```
+Computing grids on fiji a Darwin-17.7.0-x86_64-i386-64bit computer
+Date Thu Apr 18 11:13:22 2019
+
+loading receptor: data/4EK3_rec.pdbqt
+loading ligand: data/4EK4_lig.pdbqt
+
+set box using ligand
+    Box center:    23.332    28.922    29.598
+    Box length:    17.250    16.500    12.000
+    Box size  :        46        44        32
+    padding   :     4.000
+    spacing   :     0.375
+Unable to proceed due to the following error(s):
+Flexible residue(s) A: LYS33  outside the box.
+```
+
+To fix this we increase the padding to 8 Å. To save time in this tutorial we also compute maps only
+for the atom types present in the ligand (`-m ligand`).
+
+```bash
+agfr -l data/4EK4_lig.pdbqt -r data/4EK3_rec.pdbqt -f A:ILE10,LYS33 -P 8.0 -m ligand -o 4EK3_rec_FR_10_33
+```
+
+| Option | Meaning |
+|---|---|
+| `-r` | the receptor file |
+| `-l` | the ligand file |
+| `-f` | the receptor side chains to make flexible. Their atoms do not contribute to the grids. Separate residues from different chains with a semicolon, for example `"A:PHE80;B:LYS89"`. |
+| `-P` | padding added around the ligand's bounding box (here 8 Å) |
+| `-m ligand` | compute maps only for the atom types present in the ligand |
+| `-o` | name of the target file to create |
+
+::: {.callout-note collapse="true"}
+## Console output
+```
+#################################################################
+# If you used AGFR in your work, please cite:                   #
+#                                                               #
+# P.A. Ravindranath S. Forli, D.S. Goodsell, A.J. Olson and     #
+# M.F. Sanner                                                   #
+# AutoDockFR: Advances in Protein-Ligand Docking with           #
+# Explicitly Specified Binding Site Flexibility                 #
+# PLoS Comput Biol 11(12): e1004586                             #
+# DOI:10.1371/journal.pcbi.1004586                              #
+#                                                               #
+# P. Ananad Ravindranath and M.F. Sanner                        #
+# AutoSite: an automated approach for pseudoligands prediction  #
+# - From ligand binding sites identification to predicting key  #
+# ligand atoms                                                  #
+# Bioinformatics (2016)                                         #
+# DOI:10.1093/bioinformatics/btw367                             #
+#                                                               #
+# Please see http://adfr.scripps.edu for more information.      #
+#################################################################
+
+Computing grids on fiji a Darwin-17.7.0-x86_64-i386-64bit computer
+Date Thu Apr 18 11:43:07 2019
+
+loading receptor: data/4EK3_rec.pdbqt
+loading ligand: data/4EK4_lig.pdbqt
+
+set box using ligand
+    Box center:    23.332    28.922    29.598
+    Box length:    25.500    24.750    20.250
+    Box size  :        68        66        54
+    padding   :     8.000
+    spacing   :     0.375
+
+identifying pockets using AutoSite ....
+    found 9 pocket(s)
+
+    pocket|  energy | # of |Rad. of | energy |   bns    | score  
+    number|         |points|gyration|per vol.|buriedness|v*b^2/rg
+    ------+---------+------+--------+--------+----------+---------
+        1   -227.36   455    5.82     -0.50      0.91      65.11
+        2    -63.93    83    2.67     -0.77      0.99      30.35
+        3    -32.06    59    2.31     -0.54      0.61       9.40
+        4    -30.03    47    2.62     -0.64      0.69       8.58
+        5    -11.83    25    1.58     -0.47      0.70       7.68
+        6     -9.12    21    1.51     -0.43      0.71       7.06
+        7     -9.12    16    1.43     -0.57      0.64       4.56
+        8     -8.36    12    1.25     -0.70      0.62       3.74
+        9     -4.24    10    1.19     -0.42      0.58       2.87
+    merging clusters ...
+done. got 728 fill Points, in 1.26 (sec)
+
+setting map types using: ligand to ['A' 'Br' 'C' 'HD' 'N' 'NA' 'OA']
+
+computing maps for center=(23.332 28.922 29.598) size=(25.500 24.750 20.250) dims=(68 66 54) ...
+    711 points inside the box
+
+    maps computed in 6.95 (sec)
+the following 14 flexible receptor atoms did not contribute to the grid calculation:
+  A:ILE10:CA,CB,CG1,CG2,CD1,
+  A:LYS33:NZ,H21,H32,H43,CA,CB,CG,CD,CE,
+Adding gradient to maps ...
+processing maps ... done 9.00791692734
+writing maps ... done 1.12659287453
+done adding gradient to maps 10.34 (sec)
+making target file 4EK3_rec_FR_10_33.trg ...done.
+    done. 19.17 (sec)
+```
+:::
+
+## 2. Target file metadata
+
+```bash
+about 4EK3_rec_FR_10_33.trg
+```
+
+::: {.callout-note collapse="true"}
+## Console output
+```
+docking target file
+  date       : Thu Apr 18 11:43:07 2019
+  node       : fiji
+  AGFR       : v1.2
+  AutoSite   : v1.0
+
+  receptor   : 4EK3_rec.pdbqt
+     FlexRec : A:ILE10,LYS33 in flexRec.pdbqt
+    covBond  : No
+
+  box        :  mode ['ligand'], padding 8.00
+    center   : 23.332 28.922 29.598
+    length   : 25.500 24.750 20.250
+    size     : 0068 0066 0054
+    spacing  : 0.375
+
+  maps       : 
+    types    :  C   A   e   d  OA  Br  NA  HD   N   W 
+    W map    : weight 0.60 entropy -0.20
+    gradients: Yes,  kept largest negative cluster
+
+  pocketMode : ['ligand']
+    #fillpts : 711 points
+    file     : 4EK3_rec_FR_10_33/translationPoints.npy
+```
+:::
+
+## 3. Dock the ligand
+
+```bash
+adfr -l data/4EK4_random.pdbqt -t 4EK3_rec_FR_10_33.trg --jobName flexRes --nbRuns 8 --maxEvals 20000 -O --seed 1
+```
+
+ADFR docks the ligand into the receptor while treating the 2 side chains A:ILE10 and A:LYS33 as
+flexible. `adfr` detects the available cores and uses all of them by default. Here it runs 8
+independent searches (`--nbRuns 8`), each with up to 20,000 evaluations of the scoring function
+(`--maxEvals 20000`). By default `adfr` runs 50 searches of 2.5 million evaluations each. Harder
+docking problems need more searches to raise the chance of finding the best pose (the global
+minimum of the scoring function). The low values here give a quick run that is enough to show
+how docking works.
+
+The run writes 3 files:
+
+| File | Content |
+|---|---|
+| `4EK4_random_flexRes_summary.dlg` | the docking log, with most of the messages printed to the terminal and extra clustering information |
+| `4EK4_random_flexRes_out.pdbqt` | multi-model pose file with the solutions |
+| `4EK4_random_flexRes.dro` | the docking result object: input, output and metadata of this run |
+
+::: {.callout-tip}
+## Notes
+- Output files are named after the ligand, followed by the job name (`--jobName`, if given).
+- The search is stochastic: docking the same ligand into the same target twice can give
+  different results with different random seeds. Setting the seed (`--seed`) makes a run
+  reproducible for a given version of the code. See the
+  [re-docking tutorial](tutorial-redocking.qmd#dock-the-randomized-ligand) for details.
+:::
+
+::: {.callout-note collapse="true"}
+## Console output
+```
+#################################################################
+# If you used ADFR in your work, please cite:                   #
+#                                                               #
+# P.A. Ravindranath S. Forli, D.S. Goodsell, A.J. Olson and     #
+# M.F. Sanner                                                   #
+#                                                               #
+# AutoDockFR: Advances in Protein-Ligand Docking with           #
+# Explicitly Specified Binding Site Flexibility                 #
+# PLoS Comput Biol 11(12): e1004586                             #
+#                                                               #
+# DOI:10.1371/journal.pcbi.1004586                              #
+#                                                               #
+# Please see http://adfr.scripps.edu for more information.      #
+#################################################################
+
+Docking on fiji a Darwin-17.7.0-x86_64-i386-64bit computer
+Date Thu Apr 18 11:50:17 2019
+reading ligand /Users/sanner/test1.1/data/4EK4_random.pdbqt
+Detected 4 cores, using 4 cores
+Unpacking maps /Users/sanner/test1.1/4EK3_rec_FR_10_33.trg
+Performing search (8 GA evolutions with 20000 maxEvals each) ...
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+***************************************************
+Termination status
+    0/   8  0.0% runs failed
+    8/   8 100.0% runs exhausted their evaluations
+    0/   8  0.0% runs stopped converged 1 or 2 clusters
+    0/   8  0.0% runs stopped after no improvement in clusters
+    0/   8  0.0% runs stopped because GA ran out of choices
+    0/   8  0.0% runs stopped because GA population converged
+
+Refining results ...
+done.
+
+mode |  affinity  | clust. | ref. | clust. | rmsd | energy | best |
+     | (kcal/mol) | rmsd   | rmsd |  size  | stdv |  stdv  | run  |
+-----+------------+--------+------+--------+------+--------+------+
+   1         -6.8     0.0    -1.0       4     0.7     0.4    003
+   2         -6.2     2.8    -1.0       1      NA      NA    002
+   3         -5.9     4.9    -1.0       2     0.6     0.0    007
+   4         -5.1     6.8    -1.0       1      NA      NA    008
+Writing poses to 4EK4_random_flexRes_out.pdbqt
+
+Docking performed in 8.19 seconds, i.e. 0 hours 00 minutes 08.185095 seconds 
+
+*************** first GA command ***************************
+"/Users/sanner/test1.1/mgltools2_x86_64Darwin_1.2/bin/pythonsh" "/Users/sanner/test1.1/ADFR/bin/runOneGA.py" -F "/var/folders/gm/frz8gxj57hzbyyzwtt5bq8m40000gn/T/tmpORGHr_/4EK3_rec_FR_10_33" -M rigidReceptor -R "/var/folders/gm/frz8gxj57hzbyyzwtt5bq8m40000gn/T/tmpORGHr_/4EK3_rec_FR_10_33/4EK3_rec.pdbqt" -X "A:ILE10,LYS33" -T "/var/folders/gm/frz8gxj57hzbyyzwtt5bq8m40000gn/T/tmpORGHr_/4EK3_rec_FR_10_33/translationPoints.npy" "-l" "data/4EK4_random.pdbqt" "--jobName" "flexRes" "--maxEvals" "20000" "-O" -S 1 -j 1 -o "4EK4_random_flexRes/flexRes0001.dlg"
+
+packaging docking results in to 4EK4_random_flexRes.droin  0.10 (s.)
+```
+:::
+
+## 4. Understanding the output
+
+The messages printed during docking, line by line:
+
+```
+Docking on fiji a Darwin-17.7.0-x86_64-i386-64bit computer
+Date Thu Apr 18 11:50:17 2019
+reading ligand /Users/sanner/test1.1/data/4EK4_random.pdbqt
+Detected 4 cores, using 4 cores
+Unpacking maps /Users/sanner/test1.1/4EK3_rec_FR_10_33.trg
+```
+
+1. host name and platform on which the program runs
+2. date and time of execution
+3. the ligand docked
+4. number of cores detected and used
+5. the target file used
+
+By default ADFR uses all available cores; limit the number with `-c`.
+
+```
+Performing search (8 GA evolutions with 20000 maxEvals each) ...
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+***************************************************
+Termination status
+    0/   8  0.0% runs failed
+    8/   8 100.0% runs exhausted their evaluations
+    0/   8  0.0% runs stopped converged 1 or 2 clusters
+    0/   8  0.0% runs stopped after no improvement in clusters
+    0/   8  0.0% runs stopped because GA ran out of choices
+    0/   8  0.0% runs stopped because GA population converged
+```
+
+As in the [re-docking tutorial](tutorial-redocking.qmd#understanding-the-output), every search
+stopped because it used up its evaluations: this problem needs more evaluations per search (a
+larger `--maxEvals`). The results:
+
+```
+mode |  affinity  | clust. | ref. | clust. | rmsd | energy | best |
+     | (kcal/mol) | rmsd   | rmsd |  size  | stdv |  stdv  | run  |
+-----+------------+--------+------+--------+------+--------+------+
+   1         -6.8     0.0    -1.0       4     0.7     0.4    003
+   2         -6.2     2.8    -1.0       1      NA      NA    002
+   3         -5.9     4.9    -1.0       2     0.6     0.0    007
+   4         -5.1     6.8    -1.0       1      NA      NA    008
+```
+
+Here the 8 searches found 4 distinct solutions, sorted by predicted affinity, best first. The top
+solution was found by 4 of the 8 searches (*clust. size*), and its best pose came from search 3
+(*best run*). The second solution was found once and is 2.8 Å RMSD from the top solution
+(*clust. rmsd*). With a reference ligand (`--reference`), the *ref. rmsd* column would give the
+RMSD of each pose to the reference instead of −1.
+
+::: {.callout-note collapse="true"}
+## Review note
+- The CCSB "you will learn" list says 3 flexible side chains; the commands make 2 flexible
+  (A:ILE10, A:LYS33). Written as 2 here.
+- The CCSB text said the target file was for "PDB id 1EK3"; the files are 4EK3. Corrected.
+- The CCSB text says the command also uses "the AutoSite 1.0 algorithm -as", but no such option
+  appears in the command. Dropped.
+- The CCSB output file names used `flexRec`; the job name and the console output use `flexRes`.
+  Corrected to `flexRes`.
+- The CCSB text said "up to 20'000 evaluations (`--maxEvals 2000`)"; the command uses 20000.
+:::

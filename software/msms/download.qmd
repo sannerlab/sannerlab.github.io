@@ -1,0 +1,26 @@
+---
+title: "Download MSMS"
+---
+
+The current release is **MSMS 2.6.1**. MSMS is free for academic research and teaching;
+commercial use needs a license (see [License](license.qmd)).
+
+| Platform | File | Unpack with |
+|---|---|---|
+| Linux 64-bit | [Linux 64-bit tar file](https://ccsb.scripps.edu/msms/download/933/) | `tar zxvf msms_i86_64Linux2_2.6.1.tar.gz` |
+| macOS before 10.14 (pre-Mojave) | [macOS tar file](https://ccsb.scripps.edu/msms/download/929/) | `tar zxvf msms_MacOSX_2.6.1.tar.gz` |
+| macOS 10.14 (Mojave) and later | [macOS tar file](https://ccsb.scripps.edu/msms/download/950/) | `tar zxvf msms_x86_64Darwin_2.6.1.tar.gz` |
+| Arm64 | [Arm64 tar file](https://ccsb.scripps.edu/msms/download/942/) | `tar zxvf msms_Arm64_2.6.1.tgz` |
+| Windows | [Windows zip file](https://ccsb.scripps.edu/msms/download/931/) | extract the files from `msms_win32_2.6.1.zip` |
+
+The files are served from the CCSB website. See the [Documentation](documentation.qmd) for how to
+run `msms`.
+
+::: {.callout-note collapse="true"}
+## Review note
+- The CCSB page gives the Arm64 file as `msms_Arm64_2.6.1.tar.gz`, but the server delivers
+  `msms_Arm64_2.6.1.tgz`. The command above uses the delivered name.
+- The CCSB page does not say which operating system the Arm64 build is for (Linux or macOS on
+  Apple Silicon).
+- The version number 2.6.1 is taken from the file names; the CCSB page does not state it.
+:::

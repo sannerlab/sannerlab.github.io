@@ -1,0 +1,14 @@
+---
+title: "AutoSite tutorials"
+---
+
+| Tutorial | You will learn to |
+|---|---|
+| [Small-molecule binding site identification](tutorial-small-molecule.qmd) (PDB 1STP) | run AutoSite on a macromolecule, find and understand its output files |
+
+**Before you start:**
+
+- [Download and install ADFRsuite 1.0](download.qmd).
+- Put `ADFRsuite-1.0/bin` on your `PATH` (Linux or macOS shell).
+- Download and unpack the [tutorial data](https://ccsb.scripps.edu/autosite/wp-content/uploads/sites/50/2021/10/1STP.tgz)
+  (`1STP.tgz`).

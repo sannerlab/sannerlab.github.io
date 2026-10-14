@@ -1,0 +1,22 @@
+---
+title: "MGLTools 1.5.7"
+---
+
+MGLTools 1.5.7 is the latest version. It provides:
+
+- a redesigned dashboard widget
+- a sequence viewer widget
+- performance optimizations
+- new commands for superimposition and RMSD calculations
+
+[Download MGLTools 1.5.7](../download.qmd#version-1.5.7). Patched Linux builds are also
+available on the [Download](../download.qmd) page.
+
+There is no separate documentation for 1.5.7 on the CCSB site; the most recent documentation is
+for [version 1.5.6](../1.5.6/index.qmd).
+
+::: {.callout-note collapse="true"}
+## Review note
+The CCSB page for 1.5.7 (ccsb.scripps.edu/mgltools/1-5-7/) is empty. The feature list above comes
+from the MGLTools home page.
+:::

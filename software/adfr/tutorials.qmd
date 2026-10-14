@@ -1,0 +1,19 @@
+---
+title: "ADFR tutorials"
+---
+
+| Tutorial | You will learn to |
+|---|---|
+| [Hello docking! Re-docking a ligand](tutorial-redocking.qmd) (PDB 4EK3 / 4EK4) | generate a target file, dock a ligand, read the output, and improve the run (exercise) |
+| [Docking with flexible receptor side chains](tutorial-flexible-receptor.qmd) | compute maps for a pocket with flexible side chains and dock into it |
+| [Docking a covalently bound ligand](tutorial-covalent.qmd) (PDB 3C9W) | set up and run covalent docking |
+
+**Before you start:**
+
+- [Download and install ADFRsuite 1.0](download.qmd).
+- Put `ADFRsuite-1.0/bin` on your `PATH` (Linux or macOS shell).
+- Download and unzip the [tutorial data](https://ccsb.scripps.edu/agfr/download/551/)
+  (`ADFRsuite-1.0_tutorial_data.zip`).
+
+To generate target files with the graphical interface instead of the command line, see the
+[AutoGridFR tutorials](../agfr/index.qmd).

@@ -1,0 +1,15 @@
+---
+title: "ADapt documentation"
+---
+
+The full documentation opens as its own set of pages.
+
+| Page | What it covers |
+|---|---|
+| [Overview](/adapt/index.html) | the problem ADapt solves, the interface, fragment categories |
+| [Getting started](/adapt/start.html) | running ADapt and loading an entry |
+| [The tree and the 3D view](/adapt/tree-3d.html) | navigating the structure |
+| [Writing the PDBQT files](/adapt/output.html) | the output files |
+| [Provenance in the PDBQT files](/adapt/provenance.html) | what is recorded in the output |
+| [ADapt and AGFRgui](/adapt/differences.html) | differences between the two tools |
+| [Known issues](/adapt/known-issues.html) | what is known to be wrong or missing |

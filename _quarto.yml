@@ -3,94 +3,233 @@ project:
   output-dir: _site
   pre-render: _scripts/publications.py
   resources:
-    - adapt/**
-    - .nojekyll
-
+  - adapt/**
+  - .nojekyll
 website:
-  title: "Sanner Lab"
+  title: Sanner Lab
   site-url: https://sannerlab.github.io
-  description: "Computational methods and software for molecular docking at Scripps Research."
+  description: Computational methods and software for molecular docking at Scripps Research.
   page-navigation: true
   back-to-top-navigation: true
   search: true
   navbar:
     left:
-      - text: Home
-        href: index.qmd
-      - text: Lab
-        href: lab.qmd
-      - text: Software
-        menu:
-          - text: All software
-            href: software/index.qmd
-          - text: "---"
-          - text: AutoDock CrankPep (ADCP)
-            href: software/adcp/index.qmd
-          - text: AutoSite
-            href: software/autosite.qmd
-          - text: AutoDockFR (ADFR)
-            href: software/adfr.qmd
-          - text: AutoGridFR (AGFR)
-            href: software/agfr.qmd
-          - text: ADapt
-            href: software/adapt.qmd
-          - text: MSMS
-            href: software/msms.qmd
-          - text: MGLTools
-            href: software/mgltools.qmd
-      - text: Publications
-        href: publications.qmd
-      - text: Contact
-        href: contact.qmd
+    - text: Home
+      href: index.qmd
+    - text: Lab
+      href: lab.qmd
+    - text: Software
+      menu:
+      - text: All software
+        href: software/index.qmd
+      - text: '---'
+      - text: AutoDock CrankPep (ADCP)
+        href: software/adcp/index.qmd
+      - text: AutoSite
+        href: software/autosite/index.qmd
+      - text: AutoDockFR (ADFR)
+        href: software/adfr/index.qmd
+      - text: AutoGridFR (AGFR)
+        href: software/agfr/index.qmd
+      - text: ADapt
+        href: software/adapt/index.qmd
+      - text: MSMS
+        href: software/msms/index.qmd
+      - text: MGLTools
+        href: software/mgltools/index.qmd
+    - text: Publications
+      href: publications.qmd
+    - text: Contact
+      href: contact.qmd
     right:
-      - icon: github
-        href: https://github.com/sannerlab
-        aria-label: Sanner Lab on GitHub
-
+    - icon: github
+      href: https://github.com/sannerlab
+      aria-label: Sanner Lab on GitHub
   sidebar:
-    - id: adcp
-      title: "AutoDock CrankPep"
-      style: docked
-      collapse-level: 2
+  - id: adcp
+    title: AutoDock CrankPep
+    style: docked
+    collapse-level: 2
+    contents:
+    - text: Overview
+      href: software/adcp/index.qmd
+    - section: Version 1.1 (latest)
       contents:
-        - text: Overview
-          href: software/adcp/index.qmd
-        - section: "Version 1.1 (latest)"
-          contents:
-            - text: Download
-              href: software/adcp/1.1/download.qmd
-            - text: Documentation
-              href: software/adcp/1.1/documentation.qmd
-            - text: Tutorials
-              href: software/adcp/1.1/tutorials.qmd
-        - section: "Version 1.0 (deprecated)"
-          contents:
-            - text: Download
-              href: software/adcp/1.0/download.qmd
-            - text: Documentation
-              href: software/adcp/1.0/documentation.qmd
-            - text: Tutorials
-              href: software/adcp/1.0/tutorials.qmd
-            - text: "Tutorial: re-docking"
-              href: software/adcp/1.0/tutorial-redocking.qmd
-            - text: "Tutorial: cyclic peptide"
-              href: software/adcp/1.0/tutorial-cyclic.qmd
-            - text: Windows 10 (WSL)
-              href: software/adcp/1.0/windows.qmd
-        - text: License
-          href: software/adcp/license.qmd
-
+      - text: Download
+        href: software/adcp/1.1/download.qmd
+      - text: Documentation
+        href: software/adcp/1.1/documentation.qmd
+      - text: Tutorials
+        href: software/adcp/1.1/tutorials.qmd
+    - section: Version 1.0 (deprecated)
+      contents:
+      - text: Download
+        href: software/adcp/1.0/download.qmd
+      - text: Documentation
+        href: software/adcp/1.0/documentation.qmd
+      - text: Tutorials
+        href: software/adcp/1.0/tutorials.qmd
+      - text: 'Tutorial: re-docking'
+        href: software/adcp/1.0/tutorial-redocking.qmd
+      - text: 'Tutorial: cyclic peptide'
+        href: software/adcp/1.0/tutorial-cyclic.qmd
+      - text: Windows 10 (WSL)
+        href: software/adcp/1.0/windows.qmd
+    - text: License
+      href: software/adcp/license.qmd
+  - id: autosite
+    title: AutoSite
+    style: docked
+    contents:
+    - text: Overview
+      href: software/autosite/index.qmd
+    - text: Download
+      href: software/autosite/download.qmd
+    - text: Documentation
+      href: software/autosite/documentation.qmd
+    - section: Tutorials
+      href: software/autosite/tutorials.qmd
+      contents:
+      - text: Small-molecule binding site
+        href: software/autosite/tutorial-small-molecule.qmd
+  - id: adfr
+    title: AutoDockFR
+    style: docked
+    contents:
+    - text: Overview
+      href: software/adfr/index.qmd
+    - text: Download
+      href: software/adfr/download.qmd
+    - text: Documentation
+      href: software/adfr/documentation.qmd
+    - section: Tutorials
+      href: software/adfr/tutorials.qmd
+      contents:
+      - text: Re-docking a ligand
+        href: software/adfr/tutorial-redocking.qmd
+      - text: Flexible receptor side chains
+        href: software/adfr/tutorial-flexible-receptor.qmd
+      - text: Covalent docking
+        href: software/adfr/tutorial-covalent.qmd
+    - text: License
+      href: software/adfr/license.qmd
+  - id: agfr
+    title: AutoGridFR
+    style: docked
+    contents:
+    - text: Overview
+      href: software/agfr/index.qmd
+    - text: Download
+      href: software/agfr/download.qmd
+    - text: Documentation
+      href: software/agfr/documentation.qmd
+    - section: Tutorials
+      href: software/agfr/tutorials.qmd
+      contents:
+      - text: Box from a known ligand
+        href: software/agfr/tutorial-box-ligand.qmd
+      - text: Box from an AutoSite pocket
+        href: software/agfr/tutorial-box-pocket.qmd
+      - text: Box from binding-site residues
+        href: software/agfr/tutorial-box-residues.qmd
+      - text: Flexible side chains
+        href: software/agfr/tutorial-flexible-receptor.qmd
+      - text: Covalent docking
+        href: software/agfr/tutorial-covalent.qmd
+      - text: Visualizing maps
+        href: software/agfr/tutorial-map-visualization.qmd
+  - id: adapt
+    title: ADapt
+    style: docked
+    contents:
+    - text: Overview
+      href: software/adapt/index.qmd
+    - text: Download
+      href: software/adapt/download.qmd
+    - text: Documentation
+      href: software/adapt/documentation.qmd
+    - text: Tutorials
+      href: software/adapt/tutorials.qmd
+  - id: msms
+    title: MSMS
+    style: docked
+    contents:
+    - text: Overview
+      href: software/msms/index.qmd
+    - text: Download
+      href: software/msms/download.qmd
+    - text: Documentation
+      href: software/msms/documentation.qmd
+    - text: License
+      href: software/msms/license.qmd
+  - id: mgltools
+    title: MGLTools
+    style: docked
+    collapse-level: 1
+    contents:
+    - text: Overview
+      href: software/mgltools/index.qmd
+    - text: Download
+      href: software/mgltools/download.qmd
+    - text: Documentation
+      href: software/mgltools/documentation.qmd
+    - text: Gallery
+      href: software/mgltools/gallery.qmd
+    - section: Version 1.5.7 (latest)
+      contents:
+      - text: About 1.5.7
+        href: software/mgltools/1.5.7/index.qmd
+    - section: Version 1.5.6
+      contents:
+      - text: About 1.5.6
+        href: software/mgltools/1.5.6/index.qmd
+      - text: Tutorials
+        href: software/mgltools/1.5.6/tutorials.qmd
+      - text: Release notes
+        href: software/mgltools/1.5.6/release-notes.qmd
+      - section: PMV user guide
+        contents:
+        - text: PMV's GUI
+          href: software/mgltools/1.5.6/pmv-gui.qmd
+        - text: Widget panel
+          href: software/mgltools/1.5.6/widget-panel.qmd
+        - text: Dashboard
+          href: software/mgltools/1.5.6/dashboard.qmd
+        - text: Tools panel
+          href: software/mgltools/1.5.6/tools-panel.qmd
+        - text: Measuring tools
+          href: software/mgltools/1.5.6/measure.qmd
+        - text: Geometry tools
+          href: software/mgltools/1.5.6/geometry-tools.qmd
+        - text: Camera tools
+          href: software/mgltools/1.5.6/camera.qmd
+        - text: Beaded ribbons
+          href: software/mgltools/1.5.6/beaded-ribbons.qmd
+        - text: Color chooser
+          href: software/mgltools/1.5.6/color-chooser.qmd
+        - text: Color palette
+          href: software/mgltools/1.5.6/color-palette.qmd
+        - text: Session files
+          href: software/mgltools/1.5.6/session.qmd
+        - text: Selection strings
+          href: software/mgltools/1.5.6/selection-strings.qmd
+        - text: Predefined sets
+          href: software/mgltools/1.5.6/predefined-sets.qmd
   page-footer:
-    left: "Sanner Lab · Department of Integrative Structural and Computational Biology · Scripps Research, La Jolla, CA"
+    left: Sanner Lab · Department of Integrative Structural and Computational Biology · Scripps Research,
+      La Jolla, CA
     right:
-      - icon: github
-        href: https://github.com/sannerlab
-
+    - icon: github
+      href: https://github.com/sannerlab
 format:
   html:
     theme:
-      light: [cosmo, styles.scss]
-      dark: [darkly, styles.scss]
+      light:
+      - cosmo
+      - styles.scss
+      dark:
+      - darkly
+      - styles.scss
     toc: true
     toc-depth: 3
     code-copy: true

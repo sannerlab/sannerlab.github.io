@@ -57,7 +57,7 @@ agfr -r 3Q47_recH.pdbqt -l 3Q47_pepH.pdbqt -asv 1.1 -o 3Q47
 ```
 
 This puts the docking box around the given peptide with 4 Å padding. If you do not know the
-peptide binding site, see the [agfrgui tutorials](https://ccsb.scripps.edu/agfr/documentation/).
+peptide binding site, see the [agfrgui tutorials](/software/agfr/tutorials.qmd).
 
 | Option | Meaning |
 |---|---|

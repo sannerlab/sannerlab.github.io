@@ -1,0 +1,64 @@
+---
+title: "Predefined sets"
+---
+
+Names of predefined sets can be used in [selection strings](selection-strings.qmd). They are
+matched at the level of the elements they contain.
+
+## Residue sets
+
+| Set | Residues |
+|---|---|
+| `water` | |
+| `ions` | |
+| `DNA` | |
+| `RNA` | |
+| `ligand` | |
+| `acidic` | asp, glu |
+| `acyclic` | ala, arg, asn, asp, cys, glu, gln, gly, ile, leu. lys, met, ser, thr, val |
+| `aliphatic` | ala, gly, ile, leu, val |
+| `aromatic` | his, phe, trp, tyr |
+| `basic` | arg, his, lys |
+| `buried` | ala, cys, ile, leu, met, phe, trp, val |
+| `charged` | arg, asp, glu, his, lys |
+| `cyclic` | his, phe, pro, trp, tyr |
+| `hydrophobic` | ala, gly, ile, leu, met, phe, pro, trp, tyr, val |
+| `large` | arg, glu, gln, his, ile, leu, lys, met, phe, trp, tyr |
+| `medium` | asn, asp, cys, pro, thr, val |
+| `negative` | asp, glu |
+| `neutral` | ala, asn, cys, gln, gly, his, ile, leu, met, phe, pro, ser, thr, trp, tyr, val |
+| `polar` | arg, asn, asp, cys, glu, sln, his, lys, ser, thr |
+| `positive` | arg, his, lys |
+| `small` | ala, gly, ser |
+| `surface` | arg, asn, asp, glu, gln, gly, his, lys, pro, ser, thr, tyr |
+
+The [Dashboard](dashboard.qmd#the-selection-command-menu) page defines water, ions, DNA, RNA and
+ligand for its selection menu.
+
+## Atom sets
+
+| Set | Atoms |
+|---|---|
+| `backbone` | C, CA, N, O |
+| `backbone+h` | C, CA, N, O, HN, HN1, HN2 |
+| `sidechain` | SG, SD, CB, CG, CD, CD1, CD2, CE, CE1, CE2, CE3, CG1, CG2, CZ, CZ2, CZ3, CH2, ND1, ND2, NE, NE1, NE2, NH1, NH2, NZ, OD1, OD2, OG, OG1, OE1, OE2, OH, HD1, HE1, HE2, HE, HE21, HE22, HH23, HH11, HH12, HG, HG1, HH21, HD22, HD21, HZ1, HZ2, HZ3, HH |
+
+## One-letter residue names
+
+```
+ALA=A, ARG=R, ASN=N, ASP=D, ASX=B, CYS=C,
+GLU=E, GLN=Q, GLX=Z, GLY=G, HIS=H, ILE=I, LEU=L,
+LYS=K, MET=M, PHE=F, PRO=P, SER=S, THR=T, TRP=W
+TYR=Y, VAL=V, XAA=X, SEL=U
+```
+
+Source of the one-letter table, as given on the original page:
+`www.ensembl.org/Docs/Pdoc/bioperllive/Bio/SeqUtils.htm`
+
+::: {.callout-note collapse="true"}
+## Review note
+- On the CCSB page the residue lists for `water`, `ions`, `DNA`, `RNA` and `ligand` are empty.
+  Their definitions appear only on the Dashboard page (selection menu).
+- `polar` lists "sln", most likely a typo for gln. `acyclic` has "leu." with a period. Both kept
+  as on the original page.
+:::

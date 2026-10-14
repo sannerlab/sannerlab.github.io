@@ -3,9 +3,8 @@ title: "Software"
 toc: false
 ---
 
-Software developed in the lab. Each tool has an overview, downloads, documentation and tutorials.
-Pages are being moved here from the [CCSB website](https://ccsb.scripps.edu); tools marked
-*moving* still link there.
+Software developed in the lab. Each tool has an overview, downloads, documentation and, where
+available, tutorials. Downloads are still served from the [CCSB website](https://ccsb.scripps.edu).
 
 ::: {.tool-grid}
 
@@ -17,44 +16,44 @@ Docking of linear and cyclic peptides by combining folding and docking.
 :::
 
 ::: {.tool-card}
-<span class="status">moving</span>
+<span class="status">in ADFRsuite 1.0</span>
 
-### [AutoDockFR (ADFR)](adfr.qmd)
+### [AutoDockFR (ADFR)](adfr/index.qmd)
 Protein–ligand docking with explicitly specified receptor flexibility.
 :::
 
 ::: {.tool-card}
-<span class="status">moving</span>
+<span class="status">in ADFRsuite 1.0</span>
 
-### [AutoGridFR (AGFR)](agfr.qmd)
+### [AutoGridFR (AGFR)](agfr/index.qmd)
 Prepares receptors for docking: docking box, binding pockets, affinity maps and target files.
 :::
 
 ::: {.tool-card}
-<span class="status">moving</span>
+<span class="status">in ADFRsuite 1.0</span>
 
-### [AutoSite](autosite.qmd)
+### [AutoSite](autosite/index.qmd)
 Identifies ligand-binding pockets from affinity maps.
 :::
 
 ::: {.tool-card}
-<span class="status">test</span>
+<span class="status">unreleased</span>
 
-### [ADapt](adapt.qmd)
+### [ADapt](adapt/index.qmd)
 Prepares receptor and ligand PDBQT files for AutoDock from a PDB entry, in a web browser.
 :::
 
 ::: {.tool-card}
-<span class="status">moving</span>
+<span class="status">current: 2.6.1</span>
 
-### [MSMS](msms.qmd)
+### [MSMS](msms/index.qmd)
 Computes molecular surfaces. Free for academic use; commercial use needs a license.
 :::
 
 ::: {.tool-card}
-<span class="status">moving</span>
+<span class="status">current: 1.5.7</span>
 
-### [MGLTools](mgltools.qmd)
+### [MGLTools](mgltools/index.qmd)
 The lab's molecular graphics and modeling software, including PMV and AutoDockTools.
 :::
 

@@ -1,0 +1,180 @@
+---
+title: "MSMS documentation"
+subtitle: "msms(1) manual page"
+---
+
+## Synopsis
+
+```
+msms [-if filename] [-of filename] [-af filename] [-probe_radius radius]
+     [-density density] [-no_area] [-surface <tses,ases>] [-socket servicename]
+     [-sinetd] [-noh] [-no_rest_on_pbr] [-no_rest] [-free_vertices]
+     [-all_components] [-one_cavity #atoms at1 [at2] [at3]] [-no_header]
+```
+
+## Description
+
+For a given set of spheres *S* and a probe radius *r~p~*, MSMS computes the reduced surface and
+the analytical model of the solvent excluded surface (SES). The SES can then be triangulated with
+a given vertex density.
+
+The program runs in standalone mode or in server mode. In server mode, the only required option
+is the name of the socket used to communicate with the client application (`-socket servicename`
+or `-sinetd`).
+
+## Options
+
+Options may appear in any order and may be abbreviated. If an abbreviation matches several
+options, the first match is used.
+
+### Input and output
+
+`-if filename`
+: The file from which the sphere set *S* is read. Each line holds the center (*x, y, z*) and the
+  radius *r* of one sphere, in free format. Lines starting with `#` are comments and are skipped.
+  This is the only required option in standalone mode.
+
+`-of filename`
+
+: The files in which to store the triangulated solvent excluded surface. Two files are created,
+  one for vertices and one for faces. For component 0 the files are `filename.vert` and
+  `filename.face`. For other components the component number is inserted in the name; for
+  component 3, for example, the files are `filename_3.vert` and `filename_3.face`.
+
+    **Face file.** Three header lines, then one triangle per line. The first header line holds a
+    comment and the file name of the sphere set. The second describes the content of the third.
+    The third gives the number of triangles, the number of spheres in the set, the triangulation
+    density and the probe sphere radius. On each triangle line, the first three numbers are
+    (1-based) vertex indices. The next field is 1 for a triangle in a toric reentrant face, 2 for a
+    triangle in a spheric reentrant face and 3 for a triangle in a contact face. The last number is
+    the (1-based) face number in the analytical description of the solvent excluded surface.
+    Format: `"%6d %6d %6d %2d %6d"`.
+
+    **Vertex file.** Three header lines (like those of the `.face` file), then one vertex per line:
+    the coordinates (*x, y, z*) and the normal (*nx, ny, nz*), followed by the number of the face
+    (in the analytical description of the surface) the vertex belongs to. Vertices of the
+    analytical surface have 0 in that field, and vertices lying on edges of this surface have
+    negative values. The next field is the (1-based) index of the closest sphere. The last field is
+    1 for vertices of toric reentrant faces (including vertices of the analytical surface), 2 for
+    vertices inside reentrant faces and 3 for vertices inside contact faces.
+    Format: `"%9.3f %9.3f %9.3f %9.3f %9.3f %9.3f %7d %7d %2d"`.
+
+`-af filename`
+: The file in which to store solvent excluded and solvent accessible surface areas. The areas in
+  each surface component are listed for every atom.
+
+`-no_header`
+: Do not write the 3-line header into the `.face` and `.vert` files (written by default).
+
+### Surface calculation
+
+`-probe_radius radius`
+: Changes the probe sphere radius (default 1.5 Å). The value is not checked. MSMS fails to compute
+  the triangulation template sphere for radii that are too small or too large; values from 0.5 to
+  10 should pose no problem.
+
+`-density density`
+: Changes the triangulation density (default 1.0 vertex/Å^2^). The value is not checked. Typical
+  values are 1.0 for large molecules (more than 1000 atoms) and 3.0 for smaller molecules.
+
+`-no_area`
+: Turns off the surface area computation.
+
+`-surface <tses,ases>`
+: Which surface to compute: `tses` for the triangulated solvent excluded surface, `ases` for the
+  analytical solvent excluded surface. The default is the triangulated surface. This option is
+  mainly used to skip triangulation, for instance when only surface areas are needed.
+
+`-noh`
+: Skips atoms with radius 1.2.
+
+### Components
+
+`-free_vertices`
+: Search for free vertices of the reduced surface (not done by default).
+
+`-all_components`
+: Compute all components of the molecular surfaces (reduced and solvent excluded). By default only
+  the external component is computed. With `-of filename`, a `.vert` and a `.face` file are
+  written for each component.
+
+`-one_cavity #atoms at1 [at2] [at3]`
+: Compute one specific component of the molecular surfaces by giving 1, 2 or 3 atoms the probe
+  should initially touch: first the number of atoms, then their (0-based) indices.
+
+### Error recovery
+
+`-no_rest_on_pbr`
+: Badly handled singular cases or numerical instability can make the triangulation fail. By
+  default MSMS then restarts the computation, up to five times, after increasing the radius of
+  the atoms causing the problem by 0.1 Å. This option prevents the restart when problems occur
+  while triangulating spherical reentrant faces (which often points to singularities). The
+  resulting triangulated surface will not be correct and may have holes (see also `-no_rest`).
+
+`-no_rest`
+: Never restart the computation (see also `-no_rest_on_pbr`).
+
+### Server mode
+
+`-socket servicename`
+: Starts MSMS in server mode, listening on the given Unix domain socket for clients requesting
+  this service. When a client connects, MSMS receives the computation parameters and the spheres
+  over the socket, and sends back the triangulated surface when the calculation is done. Values
+  are not encoded in a portable way (such as XDR), so this works only on a limited set of
+  architectures.
+
+`-sinetd`
+: Puts MSMS in server mode when it is started by the internet daemon, so that MSMS starts whenever
+  a client program requests it.
+
+## Examples
+
+Triangulate the solvent excluded surface of a set of spheres and save the triangulation in
+`myset.vert` and `myset.face`:
+
+```bash
+msms -if myset.xyzr -of myset
+```
+
+Compute the surface for a probe radius of 1.4 Å and triangulate it with a density of 3.0:
+
+```bash
+msms -if myset.xyzr -de 3.0 -prob 1.4 -of myset
+```
+
+## See also
+
+`pdb_to_xyzr(1)`
+
+## Known bugs
+
+- If all the vertices of a component of the reduced surface also belong to another component,
+  MSMS fails to find this component. As a workaround, give the first face of that component
+  explicitly with `-one_cavity`.
+- The genus of the reduced surface is sometimes wrong.
+- Singular edges forming full circles are not treated.
+- Normal vectors of singular vertices point arbitrarily to the center of one of the probes they
+  belong to.
+- MSMS crashes or produces wrong results if a sphere of *S* lies entirely inside another sphere
+  of *S*.
+
+## Author
+
+Michel F. Sanner, The Scripps Research Institute, La Jolla, California. Manual page last
+modified February 5, 1996.
+
+::: {.callout-note collapse="true"}
+## Review note
+- **Description:** the CCSB text is garbled here ("can run in standalone or server mode – if
+  filename )"); the standalone-mode sentence is missing. The text above keeps only what is
+  readable.
+- **`-noh`:** the original reads "Used to skip atoms with radius 1.2…???? (I know !)". Please give
+  a proper description (probably: skip hydrogen atoms, identified by radius 1.2 Å).
+- **Second example:** the CCSB page says "Compute all components of the surfaces", but the command
+  has no `-all_components`. The description above was changed to match the command; add
+  `-all_components` if all components were meant.
+- **"FILES" section** listed `pdb_to_xyzr(1)`, which is a related program; shown as "See also".
+  `pdb_to_xyzr` is not described or linked anywhere on the CCSB site.
+- **`-one_cavity`:** the original sentence is missing a word ("specified in followed by").
+- The synopsis on the CCSB page has broken markup; it was rebuilt from the option list.
+:::

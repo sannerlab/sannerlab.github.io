@@ -1,0 +1,92 @@
+---
+title: "Download ADFRsuite"
+---
+
+ADFR is distributed as part of the **ADFR software suite** (ADFRsuite), which contains everything
+needed to set up docking experiments for small molecules and peptides.
+
+## ADFRsuite 1.0 rc1
+
+Release candidate 1 of ADFRsuite 1.0 contains:
+
+- ADFR 1.2 and associated scripts
+- AGFR 1.2
+- AutoSite 1.0 and 1.1
+- ADCP 1.0
+- AutoGrid 4.2
+- `prepare_ligand`
+- `prepare_receptor`
+
+| Platform | Installer | How to install |
+|---|---|---|
+| Linux 64-bit | [installer app](https://ccsb.scripps.edu/adfr/download/1028/) | `chmod a+x ADFRsuite_Linux-x86_64_1.0_install`<br>`./ADFRsuite_Linux-x86_64_1.0_install` |
+| Linux 64-bit | [tarball](https://ccsb.scripps.edu/adfr/download/1038/) | see [Installing from a tarball](#installing-from-a-tarball) |
+| macOS | [tarball](https://ccsb.scripps.edu/adfr/download/1033/) | see [Installing from a tarball](#installing-from-a-tarball) |
+| Windows | [installer app](https://ccsb.scripps.edu/adfr/download/1067/) | double-click the downloaded installer |
+
+### Installation notes
+
+- The commercial installation does **not** install MSMS, the component that computes molecular
+  surfaces. For a commercial MSMS license contact [Dr. Michel Sanner](mailto:sanner@scripps.edu).
+  All other tools in the suite work fully in both installations.
+- The default install location is `~/ADFRsuite-1.0`. If your home folder is not on a local disk,
+  install to a folder on a local disk for better performance.
+- ADFRsuite ships its own Python interpreter (2.7), installed in the `ADFRsuite-1.0` folder. It is
+  isolated from your system Python and does not interfere with it. Start it with
+  `ADFRsuite-1.0/bin/pythonsh`.
+
+### Installing from a tarball
+
+This example uses the macOS tarball; for another tarball change the file and folder names.
+
+```bash
+# unpack the tar file
+tar zxvf ADFRsuite_x86_64Darwin_1.0.tar.gz
+
+# step into the folder created by unpacking
+cd ADFRsuite_x86_64Darwin_1.0
+
+# run the installation script
+#   -d destinationFolder  where to install ADFRsuite 1.0
+#   -c                    how to compile the Python files: 0 for .pyc, 1 for .pyo
+./install.sh -d myFolder -c 0
+```
+
+### Known issues
+
+**Linux 64-bit with older versions of GCC:**
+
+```
+ImportError: /usr/lib64/libstdc++.so.6: version `GLIBCXX_3.4.15' not found (required by ADFRsuite-1.1/lib/python2.7/site-packages/_openbabel.so)
+```
+
+To fix the error:
+
+```bash
+cd <InstallationDir>/ADFRsuite-1.0/lib
+mv libstdc++.so.6.orig libstdc++.so.6
+```
+
+## ADFRsuite 1.1 (development version)
+
+A development build of ADFRsuite 1.1 is available for Linux 64-bit:
+[ADFRsuite_Linux-x86_64_1.1dev_Install](https://sourceforge.net/projects/adfrsuite/files/ADFRsuite-1.1dev/ADFRsuite_Linux-x86_64_1.1dev_Install/download)
+(SourceForge). Install it like the 1.0 installer app:
+
+```bash
+chmod a+x ADFRsuite_Linux-x86_64_1.1dev_Install
+./ADFRsuite_Linux-x86_64_1.1dev_Install
+```
+
+::: {.callout-note collapse="true"}
+## Review note
+- The CCSB "Version 1.1rc1" table labels its installers "ADFRsuite 1.0" and gives 1.0 install
+  commands. Only the Linux installer link is a 1.1 build (SourceForge, `1.1dev`). Its Linux tarball,
+  macOS and Windows links are relative links to the 1.0 files that resolve to
+  `ccsb.scripps.edu/download/...` and return 404. Only the working 1.1 Linux installer is listed
+  here, and its install commands use the real file name; please confirm.
+- The CCSB tarball comment said `-s destinationFolder`, but the command uses `-d`. Changed to `-d`.
+- The known-issue error message mentions `ADFRsuite-1.1`, while the fix uses `ADFRsuite-1.0`.
+- The links "Version 1.1rc1" and "Version 1.0" pointed to `adfr.scripps.edu`, which no longer
+  responds; they were dropped.
+:::

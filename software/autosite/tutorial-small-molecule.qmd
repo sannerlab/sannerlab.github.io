@@ -1,0 +1,86 @@
+---
+title: "Tutorial: small-molecule binding site identification"
+---
+
+This tutorial identifies binding pockets in the biotin-binding protein streptavidin
+([PDB 1STP](https://www.rcsb.org/structure/1STP)).
+
+**You will learn to:**
+
+- run AutoSite on a macromolecule
+- find and understand the output files AutoSite generates
+
+**Prerequisites:** ADFRsuite 1.0 [installed](download.qmd) with `ADFRsuite-1.0/bin` on your
+`PATH`, and the [tutorial data](https://ccsb.scripps.edu/autosite/wp-content/uploads/sites/50/2021/10/1STP.tgz)
+downloaded.
+
+## 1. Run AutoSite
+
+AutoSite needs the macromolecule in PDBQT format. Unpack the input file `1STP.pdbqt`:
+
+```bash
+tar zxvf 1STP.tgz
+```
+
+Run AutoSite on it:
+
+```bash
+autosite -r 1STP.pdbqt
+```
+
+::: {.callout-note collapse="true"}
+## Console output
+```
+#################################################################
+# If you used AutoSite in your work, please cite:               #
+#                                                               #
+# Pradeep Anand Ravindranath and Michel F. Sanner               #
+#                                                               #
+# AutoSite: an automated approach for pseudoligands             #
+# prediction - From ligand binding sites identification to      #
+# predicting key ligand atoms                                   #
+#                                                               #
+# Bioinformatics (2016)                                         #
+#                                                               #
+# DOI: 10.1093/bioinformatics/btw367                            #
+#                                                               #
+# Please see http://adfr.scripps.edu/AutoDockFR/autosite.html   #
+# for more information                                          #
+#################################################################
+AutoSite v1.0.0 started on a Linux-5.11.0-38-generic-x86_64-with-debian-bullseye-sid computer Date Tue Oct 26 10:37:19 2021 computing maps .... No cutoff scan and use cutoffs -0.3 -0.66 -0.5 clustering high affinity points ... analysing 4 clusters ... saving 4 clusters and associated feature points in folder 1STP
+
+clust.| Energy| # of |Rad. of | energy |   bns    |  score |Feature Points
+number|       |points|gyration|per vol.|buriedness|v*b^1.5 | D | A | Other
+------+-------+------+--------+--------+----------+--------+---+---+------
+   1   -112.83   212     4.40    -0.53     0.895    38.64    5   5    9
+   2    -67.80   168     4.10    -0.40     0.793    25.78    4   3    9
+   3    -45.24   129     3.37    -0.35     0.767    22.53    2   2    8
+   4    -44.37   106     3.18    -0.42     0.815    22.14    4   3    6
+AutoSite identified and characterized 4 clusters in 1.75 seconds, i.e. 0 hours 00 minutes 01.747343 seconds
+```
+:::
+
+AutoSite found 4 clusters (pockets). For each one the table lists its energy, number of points,
+radius of gyration, energy per volume, buriedness, score, and its feature points by type.
+
+## 2. Output files
+
+The output files are written in the folder where AutoSite runs.
+
+- `1STP_AutoSiteSummary.log`: the log, with the output printed to the terminal.
+- A folder `1STP/` containing:
+    - the cluster points, one PDB file per cluster (`1STP._CL.xxx.pdb`)
+    - the feature points, one PDB file per cluster (`1STP_fp_xxx.pdb`)
+    - a CSV file with the cluster scoring function values for each cluster (`1STP_summary.csv`)
+    - the AutoGrid input file used to compute the grids (`rigidReceptor.gpf`)
+    - the AutoGrid output files (`rigidReceptor.glg`, `rigidReceptor.x.map`)
+
+::: {.callout-note collapse="true"}
+## Review note
+- The cluster file pattern is written `1STP._CL.xxx.pdb` on the CCSB page, unlike the feature
+  point pattern `1STP_fp_xxx.pdb`. Check the real file names.
+- The CCSB page wrote the CSV file as `91STP_summary.csv` (a typo for "(1STP_summary.csv"); fixed.
+- The console output points to `http://adfr.scripps.edu/AutoDockFR/autosite.html`, which no
+  longer responds. Kept as printed by the program.
+- The CCSB page does not explain the feature-point columns (D, A, Other) of the table.
+:::

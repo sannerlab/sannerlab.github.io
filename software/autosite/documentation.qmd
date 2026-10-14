@@ -1,0 +1,31 @@
+---
+title: "AutoSite documentation"
+---
+
+AutoSite is an open-source program for identifying and characterizing binding pockets in
+biological macromolecules.
+
+## Running AutoSite
+
+AutoSite needs the receptor in PDBQT format. The basic command is:
+
+```bash
+autosite -r receptor.pdbqt
+```
+
+It writes a log of the run and a folder of cluster points, feature points, cluster scores and
+AutoGrid files. The [tutorial](tutorial-small-molecule.qmd) goes through a complete run and its
+output files.
+
+AutoSite can also be run through [AGFR](../agfr/index.qmd), which uses it to find pockets while
+computing target files (option `-asv` selects AutoSite 1.0 or 1.1).
+
+## Step-by-step tutorial
+
+- [Small-molecule binding site identification](tutorial-small-molecule.qmd) (PDB 1STP)
+
+::: {.callout-note collapse="true"}
+## Review note
+The CCSB documentation page only lists the tutorial. The "Running AutoSite" section above is
+taken from that tutorial; no other AutoSite command-line options are documented on the CCSB site.
+:::

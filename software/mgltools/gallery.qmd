@@ -1,0 +1,43 @@
+---
+title: "MGLTools gallery"
+toc: false
+lightbox: true
+---
+
+Images made with MGLTools, from the CCSB MGLTools gallery. Click an image to enlarge it.
+
+::: {.gallery layout-ncol="3"}
+
+![](img/sleeping_dna.jpg){fig-alt="sleeping dna"}
+
+![](img/faah_detail.jpg){fig-alt="FAAH detail"}
+
+![](img/the_secret_life_of_a_water_molecule.jpg){fig-alt="the secret life of a water molecule"}
+
+![](img/the_incredible_underestimated_power_of.jpg){fig-alt="The incredible underestimated power of"}
+
+![](img/smoke_on_the_water15c.jpg){fig-alt="smoke on the water15c"}
+
+![](img/smoke_on_the_water10.jpg){fig-alt="smoke on the water10"}
+
+![](img/rings_1w96_image3.jpg){fig-alt="Rings 1W96 image3"}
+
+![](img/nice_color.jpg){fig-alt="nice color"}
+
+![](img/hug_me_tight2.png){fig-alt="hug me tight2"}
+
+![](img/hells-gate.jpg){fig-alt="Hells gate"}
+
+![](img/glam_molecules7.jpg){fig-alt="glam molecules7"}
+
+![](img/electrolights_in_the_night3.jpg){fig-alt="electrolights in the night3"}
+
+![](img/desolvation_nest10_lotr5.jpg){fig-alt="desolvation nest10 lotr5"}
+
+![](img/desolvation_nest2.jpg){fig-alt="desolvation nest2"}
+
+![](img/chaosad1.jpg){fig-alt="chaosAD1"}
+
+![](img/anewdefault.jpg){fig-alt="anewdefault"}
+
+:::

@@ -1,0 +1,25 @@
+---
+title: "MGLTools documentation"
+---
+
+The latest version of MGLTools is [1.5.7](1.5.7/index.qmd). The CCSB site has no separate
+documentation for 1.5.7; the most recent documentation is for version 1.5.6.
+
+## MGLTools 1.5.6
+
+- [About 1.5.6](1.5.6/index.qmd): components and tutorials
+- [Tutorials](1.5.6/tutorials.qmd): PMV and Vision tutorials (PDF slides)
+- [Release notes](1.5.6/release-notes.qmd)
+
+### PMV user guide
+
+| Page | Covers |
+|---|---|
+| [PMV's GUI](1.5.6/pmv-gui.qmd) | menus, toolbar, status bar |
+| [Widget panel](1.5.6/widget-panel.qmd) | the panel left of the 3D Viewer |
+| [Dashboard](1.5.6/dashboard.qmd) | one-click commands on molecules and fragments, selection and coloring menus |
+| [Tools panel](1.5.6/tools-panel.qmd) | [measuring](1.5.6/measure.qmd), [geometry](1.5.6/geometry-tools.qmd) and [camera](1.5.6/camera.qmd) tools |
+| [Beaded ribbons](1.5.6/beaded-ribbons.qmd) | the beaded ribbon representation |
+| [Color chooser](1.5.6/color-chooser.qmd) and [color palettes](1.5.6/color-palette.qmd) | choosing and saving colors |
+| [Session files](1.5.6/session.qmd) | saving and restoring a session |
+| [Selection strings](1.5.6/selection-strings.qmd) and [predefined sets](1.5.6/predefined-sets.qmd) | selecting molecular fragments by text |

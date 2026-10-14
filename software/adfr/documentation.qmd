@@ -1,0 +1,123 @@
+---
+title: "ADFR documentation"
+---
+
+AutoDockFR (ADFR) is an open-source program for
+[docking](https://en.wikipedia.org/wiki/Docking_(molecular)) flexible ligands into receptors with
+selective flexibility. It is distributed as part of the [ADFR software suite](download.qmd) and
+built from [reusable software components](#implementation).
+
+## Step-by-step tutorials
+
+| Tutorial | |
+|---|---|
+| [Hello docking! Re-docking a ligand](tutorial-redocking.qmd) | CDK2 (PDB 4EK3) with a ligand from PDB 4EK4 |
+| [Docking with flexible receptor side chains](tutorial-flexible-receptor.qmd) | the same complex, with 2 flexible side chains |
+| [Docking a covalently bound ligand](tutorial-covalent.qmd) | PDB 3C9W |
+
+**Before you start:**
+
+- [Download and install ADFRsuite 1.0](download.qmd).
+- Put `ADFRsuite-1.0/bin` on your `PATH` (Linux or macOS shell).
+- Download and unzip the [tutorial data](https://ccsb.scripps.edu/agfr/download/551/)
+  (`ADFRsuite-1.0_tutorial_data.zip`).
+
+## FAQ
+
+### How to create a PDBQT file for a rigid receptor
+
+This creates a PDBQT file for a rigid receptor from a PDB file. The PDBQT file can be used as input
+for AGFR, ADFR and ADCP, and for AutoDock4 and AutoDock Vina.
+
+For docking ligands it is usually better to use the biologically active molecule (the biological
+assembly), which is sometimes different from the asymmetric unit in a PDB file. Download the
+biological assembly from the [PDB website](https://www.rcsb.org) ("Download Files" menu on the page
+of the entry), or build it from the header information of the PDB file. For this example we
+searched the PDB for 4EK3 and downloaded the biological assembly, saved as `4ek3.pdb1` in our
+download folder.
+
+Next, add hydrogen atoms. `prepare_receptor` can add hydrogens with OpenBabel, but we found that
+[reduce from the Richardson lab](https://github.com/rlabduke/reduce) tends to give better results.
+`reduce` is included in ADFRsuite. Run it from the command line:
+
+```bash
+$ADFRsuite_INSTALL_DIR/bin/reduce ~/Download/4ek3.pdb1 > 4ek3H.pdb
+```
+
+::: {.callout-tip}
+On Windows, the `ADFRSuite/bin` folder is added to the path automatically, so you can type
+`reduce` directly in a Windows command prompt (Start menu, type `cmd`).
+:::
+
+Then generate the PDBQT file with `prepare_receptor`:
+
+```bash
+$ADFRsuite_INSTALL_DIR/bin/prepare_receptor -r 4ek3H.pdb -o 4ek3.pdbqt
+```
+
+You now have a PDBQT file for your receptor.
+
+## Implementation
+
+The ADFR suite provides software tools for automated docking and related tasks. They are written in
+Python, C++ and C, following a reusable-component philosophy.
+
+To avoid mismatched Python packages, ADFRsuite ships a self-contained Python interpreter that is
+isolated from the default Python on your computer (except for Windows installations). Start it with
+the `pythonsh` script in `$WHERE_YOU_INSTALLED/ADFRsuite-1.0/bin/`. This folder also contains the
+other executables of the suite.
+
+### Packages developed, extended or wrapped by us
+
+Located in `$WHERE_YOU_INSTALLED/ADFRsuite-1.0/CCSBpckgs/`.
+
+| Package | Language(s) | Functionality | Dependencies |
+|---|---|---|---|
+| ADFR | Python | Ligand docking | |
+| ADFRcc | C++ | AutoDock4 scoring function, Flexibility Tree, Solis Wets local search | |
+| AppFramework | Python | Base class for writing applications | |
+| AutoDockTools | Python | Legacy package used by `prepare_ligand` and `prepare_receptor` | |
+| AutoSite | Python | Binding pocket identification | |
+| bhtree | C | Spatial hashing | |
+| DejaVu2 | Python | OpenGL 3D viewer with Qt camera widget | |
+| geomutils | Python / C++ | Geometry utility functions | |
+| gle | C++ | OpenGL extrusion library wrapper for Python | |
+| mglkey | Python | Software key validation | |
+| mglutil | Python | Utilities | |
+| MolKit | Python | Legacy package used by `prepare_ligand` and `prepare_receptor` | |
+| MolKit2 | Python | Read, write and query molecules | ProDy, Open Babel |
+| mslib | C | Python wrapper of the MSMS library for computing molecular surfaces | |
+| opengltk | C | Python wrapper of the OpenGL library | |
+| PmvApp | Python | Generic molecular visualization application | |
+| prody | Python | CCSB version of the ProDy package | |
+| PyBabel | Python | Legacy package used by `prepare_ligand` and `prepare_receptor` | |
+| pyglf | C | Python wrapper for OpenGL fonts | |
+| Support | Python | | |
+| UTpackages | C++ | Fast iso-contouring and volume rendering | |
+| Volume | Python | Support for 3D rectilinear data grids | |
+
+### Packages developed, extended or wrapped by others
+
+Located in `$WHERE_YOU_INSTALLED/ADFRsuite-1.0/lib/python2.7/site-packages/`.
+
+| Name | Functionality | Version |
+|---|---|---|
+| Bio | BioPython | 1.59 |
+| dateutil | Extension to datetime | 1.5-mpl |
+| IPython | Improved Python shell | 2.2.0 |
+| matplotlib | 2D plotting | 1.2.0 |
+| mmtf | Compressed PDB format | |
+| nlopt | Nonlinear optimization | 2.5.0 |
+| numpy | Numeric arrays extension | 1.9.2 |
+| openbabel | Small molecules | 2.4.1 |
+| PIL | Python Imaging Library | 4.3.0 |
+| PySide | Python wrapper for Qt 4.8 | 1.2.2 |
+
+::: {.callout-note collapse="true"}
+## Review note
+- The link to the `reduce` README at `kinemage.biochem.duke.edu` returns 404; it now points to the
+  Richardson lab's GitHub repository.
+- The CCSB implementation table lists nlopt as "linear optimization"; NLopt is a nonlinear
+  optimization library, so it reads "Nonlinear optimization" here. Please confirm.
+- The `reduce` example reads from `~/Download/`; on most systems the folder is `~/Downloads/`.
+:::

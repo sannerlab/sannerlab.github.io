@@ -1,0 +1,96 @@
+---
+title: "Download MGLTools"
+---
+
+All installers are served from ccsb.scripps.edu.
+
+## Patched versions of 1.5.7 and 1.5.6
+
+These patched builds supersede the latest stable releases of 1.5.6 and 1.5.7.
+
+**October 29, 2022**
+
+- The installation folder is determined at run time, so an installation tree can be moved and
+  still work.
+- The Python interpreter in the `bin` folder of the installation is now called
+  `MGLPython<$PyVersion>`, to avoid interfering with the system Python.
+- `pythonsh` and the other scripts in the `bin` folder set `PYTHONNOUSERSITE="disabled"`, so that
+  packages from the user site-packages (such as `~/.local/lib/pythonX.Y/site-packages`) are not
+  imported.
+
+**November 2, 2022**
+
+- Bug fix in the BRIX parser of the Volume package, in the calculation of grid spacing variables.
+
+| Version | Platform | Installer |
+|---|---|---|
+| 1.5.7 | Linux 64-bit | [mgltools_x86_64Linux2_1.5.7p1.tar.gz](https://ccsb.scripps.edu/mgltools/download/491/) (tarball, patch 1, 125 MB) |
+| 1.5.6 | Linux 64-bit | [mgltools_x86_64Linux2_1.5.6p1.tar.gz](https://ccsb.scripps.edu/mgltools/download/495/) (tarball, patch 1, 68 MB) |
+
+## Version 1.5.7
+
+| Platform | Installer |
+|---|---|
+| Windows | [mgltools_win32_1.5.7_Setup.exe](https://ccsb.scripps.edu/download/262/) (80 MB) |
+| macOS | [mgltools-1.5.7-MacOS-X-Install.dmg](https://ccsb.scripps.edu/download/280/) (GUI installer, 91 MB) |
+| macOS | [mgltools_1.5.7_MacOS-X.tar.gz](https://ccsb.scripps.edu/download/529/) (tarball, 85 MB) |
+| Linux 64-bit | [mgltools_Linux-x86_64_1.5.7_Install](https://ccsb.scripps.edu/download/292/) (GUI installer, 109 MB) |
+| Linux 64-bit | [mgltools_x86_64Linux2_1.5.7.tar.gz](https://ccsb.scripps.edu/download/532/) (tarball, 108 MB) |
+
+## Version 1.5.6
+
+| Platform | Installer |
+|---|---|
+| Windows | [mgltools_win32_1.5.6_Setup.exe](https://ccsb.scripps.edu/download/554/) (71 MB) |
+| macOS | [mgltools_i86Darwin9_1.5.6.dmg](https://ccsb.scripps.edu/download/550/) (GUI installer, 65 MB) |
+| macOS | [mgltools_i86Darwin9_1.5.6.tar.gz](https://ccsb.scripps.edu/download/552/) (tarball, 63 MB) |
+| Linux 64-bit | [mgltools_Linux-x86_64_1.5.6_Install](https://ccsb.scripps.edu/download/546/) (GUI installer, 70 MB) |
+| Linux 64-bit | [mgltools_x86_64Linux2_1.5.6.tar.gz](https://ccsb.scripps.edu/download/548/) (tarball, 68 MB) |
+
+## Fixing registration
+
+The MGLTools registration can be patched to work again:
+
+1. Download the patch script [patchRegistration.py](https://ccsb.scripps.edu/mgltools/download/468/).
+2. Run it with the MGLTools Python interpreter:
+
+::: {.panel-tabset}
+### Linux
+```bash
+$WhereYouInstalledMGLtools/bin/pythonsh patchRegistration.py ccsbserver
+```
+### macOS
+```bash
+/Library/MGLTools/1.5.6/bin/pythonsh patchRegistration.py ccsbserver
+```
+### Windows
+```
+C:\Program Files (X86)\MGLTools-1.5.6\bin\python patchRegistration.py ccsbserver
+```
+:::
+
+The program should display:
+
+```
+patching file: $WhereYouInstalledMGLtools/ … /mglutil/splashregister/register.py
+line xxx replacing: mgldev.scripps.edu:80 by orca.scripps.edu:80
+line xxx replacing: www.scripps.edu:80 by orca.scripps.edu:80
+do you wish to proceed Y/[n]
+```
+
+If the substitutions look the same, press `y`. The original file is kept with a `.bak` extension.
+Then start PMV and register.
+
+::: {.callout-note collapse="true"}
+## Review note
+- The patched builds are labelled on CCSB as `mgltools_Linux-x86_64_1.5.7.tar.gz Patch 1` and
+  `mgltools_x86_64Linux2_1.5.6.tar.gz Patch 1`; the files actually served are named
+  `mgltools_x86_64Linux2_1.5.7p1.tar.gz` and `mgltools_x86_64Linux2_1.5.6p1.tar.gz` (used here).
+  Only Linux patched builds are offered.
+- The second patch note is dated "Nov 2 22022" on CCSB, read as November 2, 2022.
+- The CCSB size for the 1.5.7 patched tarball (125 MB) is larger than the unpatched one (108 MB);
+  not checked.
+- The patched downloads and the registration patch are served from `ccsb.scripps.edu/mgltools/download/…`;
+  the CCSB page linked them as `/download/…`, which returns 404 at the site root.
+- The macOS and Windows commands in "Fixing registration" use the 1.5.6 paths; adjust for 1.5.7.
+:::

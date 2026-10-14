@@ -1,0 +1,472 @@
+---
+title: "Tutorial: re-docking a ligand"
+---
+
+This tutorial re-docks a known ligand into its native receptor: one of the ligands of
+cyclin-dependent kinase 2, CDK2 ([PDB 4EK4](https://www.rcsb.org/structure/4EK4)), into the CDK2
+structure [PDB 4EK3](https://www.rcsb.org/structure/4EK3).
+
+**You will learn to:**
+
+- generate a target file for docking in a box defined by the known ligand
+- run ADFR to re-dock the ligand
+- understand the output of an ADFR docking run
+
+**Prerequisites:** ADFRsuite 1.0 installed with `ADFRsuite-1.0/bin` on your `PATH`, and the
+[tutorial data](https://ccsb.scripps.edu/agfr/download/551/) downloaded and unzipped
+(see [Tutorials](tutorials.qmd)). Run the commands from the folder that contains `data/`.
+
+## 1. Generate the target file
+
+```bash
+agfr -r data/4EK3_rec.pdbqt -l data/4EK4_lig.pdbqt -o ligPocket
+```
+
+You can also use `agfrgui` and follow the AGFR
+[box around a ligand](/software/agfr/tutorial-box-ligand.qmd) tutorial.
+
+| Option | Meaning |
+|---|---|
+| `-r` | the receptor file (required) |
+| `-l` | the ligand file |
+| `-o` | name for the target file |
+
+**Details.** `agfr` positions and sizes the docking box over the receptor pocket(s) where the
+ligand will be docked, and computes affinity maps for a list of AutoDock4 atom types. The maps are
+calculated by AutoGrid4.
+
+- **Box.** The box can be set in several ways with `-b/--boxMode`. Here agfr uses the bounding box
+  of the known ligand (`-l/--ligand`), with 4 Å of padding added on every side. Change the padding
+  with `-P/--padding`.
+- **Output.** The target file (`.trg`) is saved under the name given by `-o/--output`; without
+  it, a unique descriptive name is created. It contains the affinity maps, translational points
+  for placing the ligand at sensible positions in the box, and metadata about the grid size,
+  position and spacing, the receptor atoms involved and the maps. Inspect it with the `about`
+  command.
+- **Pockets.** The translational points are computed by AutoSite, which clusters high-affinity
+  grid points into potential binding pockets. `-p/--pocketMode` sets how multiple clusters are
+  handled; when it is omitted, as here, all clusters are merged into one set of translational
+  points.
+- **Atom types.** By default maps are computed for all AutoDock4 atom types. Restrict them with
+  `-m/--mapTypes` for smaller files and faster runs, but the target file then cannot dock ligands
+  with atom types it has no map for.
+
+::: {.callout-note collapse="true"}
+## Console output (saved in ligPocket.log)
+```
+MSMSLIB 1.4.4 started on fiji
+Copyright M.F. Sanner (March 2000)
+Compilation flags  
+#################################################################
+# If you used AGFR in your work, please cite:                   #
+#                                                               #
+# P.A. Ravindranath S. Forli, D.S. Goodsell, A.J. Olson and     #
+# M.F. Sanner                                                   #
+# AutoDockFR: Advances in Protein-Ligand Docking with           #
+# Explicitly Specified Binding Site Flexibility                 #
+# PLoS Comput Biol 11(12): e1004586                             #
+# DOI:10.1371/journal.pcbi.1004586                              #
+#                                                               #
+# P. Ananad Ravindranath and M.F. Sanner                        #
+# AutoSite: an automated approach for pseudoligands prediction  #
+# - From ligand binding sites identification to predicting key  #
+# ligand atoms                                                  #
+# Bioinformatics (2016)                                         #
+# DOI:10.1093/bioinformatics/btw367                             #
+#                                                               #
+# Please see http://adfr.scripps.edu for more information.      #
+#################################################################
+
+Computing grids on fiji a Darwin-17.7.0-x86_64-i386-64bit computer
+Date Wed Apr 17 17:19:37 2019
+
+loading receptor: data/4EK3_rec.pdbqt
+loading ligand: data/4EK4_lig.pdbqt
+
+set box using ligand
+    Box center:    23.332    28.922    29.598
+    Box length:    17.250    16.500    12.000
+    Box size  :        46        44        32
+    padding   :     4.000
+    spacing   :     0.375
+
+identifying pockets using AutoSite ....
+    found 4 pocket(s)
+
+    pocket|  energy | # of |Rad. of | energy |   bns    | score  
+    number|         |points|gyration|per vol.|buriedness|v*b^2/rg
+    ------+---------+------+--------+--------+----------+---------
+        1   -120.94   267    4.12     -0.45      0.85      46.52
+        2    -20.77    32    2.20     -0.65      0.70       7.02
+        3     -8.36    12    1.25     -0.70      0.62       3.74
+        4     -8.27    14    1.17     -0.59      0.54       3.45
+    merging clusters ...
+done. got 325 fill Points, in 0.59 (sec)
+
+setting map types using: all to ['HS', 'Mg', 'HD', 'NA', 'Fe', 'Br', 'NS', 'A', 'C', 'Mn', 'G', 'F', 'I', 'H', 'J', 'N', 'Q', 'P', 'S', 'GA', 'Z', 'Zn', 'Cl', 'Ca', 'OA', 'SA', 'OS']
+
+computing maps for center=(23.332 28.922 29.598) size=(17.250 16.500 12.000) dims=(46 44 32) ...
+    320 points inside the box
+
+    maps computed in 3.32 (sec)
+Adding gradient to maps ...
+processing maps ... done 8.59889578819
+writing maps ... done 1.53964877129
+done adding gradient to maps 10.75 (sec)
+making target file ligPocket.trg ...done.
+    done. 15.51 (sec)
+```
+:::
+
+## 2. Inspect the target file
+
+```bash
+about ligPocket.trg
+```
+
+This reads and displays the target file's metadata.
+
+::: {.callout-note collapse="true"}
+## Console output
+```
+docking target file
+  date       : Wed Apr 17 17:19:37 2019
+  node       : fiji
+  AGFR       : v1.2
+  AutoSite   : v1.0
+
+  receptor   : 4EK3_rec.pdbqt
+    FlexRec  : None
+    covBond  : No
+
+  box        :  mode ['ligand'], padding 4.00
+    center   : 23.332 28.922 29.598
+    length   : 17.250 16.500 12.000
+    size     : 0046 0044 0032
+    spacing  : 0.375
+
+  maps       : 
+    types    :  C  GA  Fe   A   e   d   S   Q   F  SA   G   P  Mg  Cl  Zn  OA  NS  Ca  Br  Mn  OS  
+               NA   J   I  HS  HD   H   Z   N   W 
+    W map    : weight 0.60 entropy -0.20
+    gradients: Yes,  kept largest negative cluster
+
+  pocketMode : ['ligand']
+    #fillpts : 320 points
+    file     : ligPocket/translationPoints.npy
+```
+:::
+
+## 3. Dock the randomized ligand
+
+```bash
+adfr -l data/4EK4_random.pdbqt -t ligPocket.trg --jobName rigid --nbRuns 8 --maxEvals 20000 -O --seed 1
+```
+
+`adfr` detects the available cores and uses all of them by default. Here it runs 8 independent
+searches (`--nbRuns 8`), each with up to 20,000 evaluations of the scoring function
+(`--maxEvals 20000`). By default `adfr` runs 50 searches of 2.5 million evaluations each. Harder
+docking problems need more searches to raise the chance of finding the best pose (the global
+minimum of the scoring function). The low values here give a quick run that is enough to show
+how docking works.
+
+The run writes:
+
+| File | Content |
+|---|---|
+| `4EK4_random_rigid_summary.dlg` | the docking log, with most of what is shown on the terminal |
+| `4EK4_random_rigid_out.pdbqt` | the docked poses |
+| `4EK4_random_rigid.dro` | the docking result object: input, output and metadata of this run |
+
+::: {.callout-tip}
+## Notes
+- Output files are named after the ligand, followed by the job name (`--jobName`, if given).
+- The search is stochastic: docking the same ligand into the same target twice can give
+  different results with different random seeds. The energy landscape is the same in both runs;
+  if both find its global minimum they give the same solution, whatever path the search took.
+  Searches trapped in local minima give different poses. Setting the seed (`--seed`) makes a
+  run reproducible for a given version of the code.
+:::
+
+::: {.callout-note collapse="true"}
+## Console output
+```
+#################################################################
+# If you used ADFR in your work, please cite:                   #
+#                                                               #
+# P.A. Ravindranath S. Forli, D.S. Goodsell, A.J. Olson and     #
+# M.F. Sanner                                                   #
+#                                                               #
+# AutoDockFR: Advances in Protein-Ligand Docking with           #
+# Explicitly Specified Binding Site Flexibility                 #
+# PLoS Comput Biol 11(12): e1004586                             #
+#                                                               #
+# DOI:10.1371/journal.pcbi.1004586                              #
+#                                                               #
+# Please see http://adfr.scripps.edu for more information.      #
+#################################################################
+
+Docking on fiji a Darwin-17.7.0-x86_64-i386-64bit computer
+Date Thu Apr 18 09:11:45 2019
+reading ligand /Users/sanner/test1.1/data/4EK4_random.pdbqt
+Detected 4 cores, using 4 cores
+Unpacking maps /Users/sanner/test1.1/ligPocket.trg
+Performing search (8 GA evolutions with 20000 maxEvals each) ...
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+***************************************************
+Termination status
+    0/   8  0.0% runs failed
+    8/   8 100.0% runs exhausted their evaluations
+    0/   8  0.0% runs stopped converged 1 or 2 clusters
+    0/   8  0.0% runs stopped after no improvement in clusters
+    0/   8  0.0% runs stopped because GA ran out of choices
+    0/   8  0.0% runs stopped because GA population converged
+
+Refining results ...
+done.
+
+mode |  affinity  | clust. | ref. | clust. | rmsd | energy | best |
+     | (kcal/mol) | rmsd   | rmsd |  size  | stdv |  stdv  | run  |
+-----+------------+--------+------+--------+------+--------+------+
+   1         -7.0     0.0    -1.0       4     0.4     0.2    004
+   2         -6.3     5.0    -1.0       3     0.6     0.1    003
+   3         -6.1     2.0    -1.0       1      NA      NA    006
+Writing poses to 4EK4_random_rigid_out.pdbqt
+
+Docking performed in 7.17 seconds, i.e. 0 hours 00 minutes 07.170796 seconds 
+
+*************** first GA command ***************************
+"/Users/sanner/test1.1/mgltools2_x86_64Darwin_1.2/bin/pythonsh" "/Users/sanner/test1.1/ADFR/bin/runOneGA.py" -F "/var/folders/gm/frz8gxj57hzbyyzwtt5bq8m40000gn/T/tmp99PZpp/ligPocket" -M rigidReceptor -R "/var/folders/gm/frz8gxj57hzbyyzwtt5bq8m40000gn/T/tmp99PZpp/ligPocket/4EK3_rec.pdbqt" -T "/var/folders/gm/frz8gxj57hzbyyzwtt5bq8m40000gn/T/tmp99PZpp/ligPocket/translationPoints.npy" "-l" "data/4EK4_random.pdbqt" "--jobName" "rigid" "--maxEvals" "20000" "-O" -S 1 -j 1 -o "4EK4_random_rigid/rigid0001.dlg"
+
+packaging docking results in to 4EK4_random_rigid.droin  0.12 (s.)
+```
+:::
+
+## 4. Understanding the output
+
+The messages printed during docking, line by line:
+
+```
+Docking on fiji a Darwin-17.7.0-x86_64-i386-64bit computer
+Date Wed Apr 17 13:12:08 2019
+reading ligand /Users/sanner/test1.1/data/4EK4_lig.pdbqt
+Detected 4 cores, using 4 cores
+Unpacking maps /Users/sanner/test1.1/4ek3_rec.trg
+reading reference ligand /Users/sanner/test1.1/data/4EK4_lig.pdbqt
+```
+
+1. host name and platform on which the program runs
+2. date and time of execution
+3. the ligand docked
+4. number of cores detected and used
+5. the target file used
+6. the reference ligand used
+
+::: {.callout-tip}
+- **Cores.** By default ADFR uses all available cores to run the searches in parallel. Limit the
+  number with `-c`.
+- **Reference ligand.** Docking projects often start by re-docking a known ligand, to gain
+  confidence that docking works for this complex. Giving a reference ligand lets you judge success:
+  the output then lists the RMSD of each docked pose to the reference.
+:::
+
+```
+Performing search (8 GA evolutions with 20000 maxEvals each) ...
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+***************************************************
+Termination status
+    0/   8  0.0% runs failed
+    8/   8 100.0% runs exhausted their evaluations
+    0/   8  0.0% runs stopped converged 1 or 2 clusters
+    0/   8  0.0% runs stopped after no improvement in clusters
+    0/   8  0.0% runs stopped because GA ran out of choices
+    0/   8  0.0% runs stopped because GA population converged
+```
+
+By default ADFR runs 50 independent searches, that is 50 evolutions of a population of 100
+individuals with a genetic algorithm (GA). Here we deliberately reduced this to 8 very short runs.
+Lines 1–4 are a progress bar showing the percentage of runs completed.
+
+The lines below give statistics on how the searches ended. ADFR has several termination criteria.
+In this example every search stopped because it used up its evaluations. The default of 2.5 million
+evaluations is usually never reached, because other criteria stop the search first: the population
+converges (no diversity left, so new solutions are unlikely), or the population still holds several
+competitive solutions but none has improved for a set number of generations (default 5).
+
+You want searches to end because the population converged or stopped improving. A result like this
+one clearly shows that the problem needs more evaluations per search (a larger `--maxEvals`).
+
+The results come next:
+
+```
+Refining results ...
+done.
+
+mode |  affinity  | clust. | ref. | clust. | rmsd | energy | best |
+     | (kcal/mol) | rmsd   | rmsd |  size  | stdv |  stdv  | run  |
+-----+------------+--------+------+--------+------+--------+------+
+   1         -7.0     0.0    -1.0       4     0.4     0.2    004
+   2         -6.3     5.0    -1.0       3     0.6     0.1    003
+   3         -6.1     2.0    -1.0       1      NA      NA    006
+```
+
+Here the 8 searches found 3 distinct solutions, sorted by predicted affinity, best first. The top
+solution was found by 4 of the 8 searches (*clust. size*), and its best pose came from search 4
+(*best run*). The second solution was found 3 times; its best pose is 5.0 Å RMSD from the top
+solution (*clust. rmsd*). With a reference ligand (`-r/--reference`), the *ref. rmsd* column would
+give the RMSD of each pose to the reference instead of −1.
+
+::: {.callout-note}
+RMSD values are computed over all isomorphisms between the two molecules, matching
+symmetry-related atoms. This is more accurate than the RMSD in AutoDock4, Vina and earlier
+versions of AutoDockFR.
+:::
+
+## 5. Docking metadata
+
+```bash
+about 4EK4_random_rigid.dro
+```
+
+This displays the metadata of the docking run.
+
+::: {.callout-note collapse="true"}
+## Console output
+```
+docking result file
+  date       : Thu Apr 18 09:11:45 2019
+  node       : fiji
+  platform   : Darwin-17.7.0-x86_64-i386-64bit
+  ncores     : 4
+
+  receptor   : ligPocket.trg
+   docking target file
+     date       : Thu Apr 18 09:08:42 2019
+     node       : fiji
+     AGFR       : v1.2
+     AutoSite   : v1.0
+
+     receptor   : 4EK3_rec.pdbqt
+       FlexRec  : None
+       covBond  : No
+
+     box        :  mode ['ligand'], padding 4.00
+       center   : 23.332 28.922 29.598
+       length   : 17.250 16.500 12.000
+       size     : 0046 0044 0032
+       spacing  : 0.375
+
+     maps       : 
+       types    :  C  GA  Fe   A   e   d   S   Q   F  SA   G   P  Mg  Cl  Zn  OA  NS  Ca  Br  Mn  OS  
+                  NA   J   I  HS  HD   H   Z   N   W 
+       W map    : weight 0.60 entropy -0.20
+       gradients: Yes,  kept largest negative cluster
+
+     pocketMode : ['ligand']
+       #fillpts : 320 points
+       file     : ligPocket/translationPoints.npy
+
+  ligand     : 4EK4_random.pdbqt
+     nbAtoms : 18
+     types   : A:9 C:2 NA:1 OA:1 N:2 Br:1 HD:2 
+  lig ref    : None
+  summary    : 4EK4_random_rigid_summary.dlg
+  GA params  : 
+    maxEvals : 20000
+    nbRuns   : 8
+    jobName  : rigid
+    seed     : 1
+    covLig   : None
+```
+:::
+
+## Exercise: re-dock the ligand reliably
+
+The command
+
+```bash
+adfr -l data/4EK4_random.pdbqt -t ligPocket.trg --jobName rigid --nbRuns 8 --maxEvals 20000 -O --seed 1
+```
+
+gives 3 distinct solutions. Can you change it to re-dock the randomized ligand into its
+crystallographic pose reliably? The crystal structure of the ligand is in `data/4EK4_lig.pdbqt`.
+
+::: {.callout-tip collapse="true"}
+## Answer
+With the command above, every search ended while it was still improving its solutions. The natural
+first step is therefore to give each search more evaluations so it can converge. The default of
+2.5 million is a good choice: unlike AutoDock4, ADFR only keeps searching while improvements are
+seen or can be hoped for.
+
+Giving the crystal structure as a reference (`--reference`) also reports the RMSD between each
+docked pose and the crystal structure.
+
+Finally, the job is named `rigid1`, so `adfr` does not stop because output files with the same name
+already exist. (`-O` overwrites existing files silently.)
+
+```bash
+adfr -l data/4EK4_random.pdbqt -t ligPocket.trg --reference data/4EK4_lig.pdbqt --jobName rigid1 --nbRuns 8 -O --seed 1
+```
+
+The run takes longer, but all searches now converge:
+
+```
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+***************************************************
+Termination status
+    0/   8  0.0% runs failed
+    0/   8  0.0% runs exhausted their evaluations
+    0/   8  0.0% runs stopped converged 1 or 2 clusters
+    8/   8 100.0% runs stopped after no improvement in clusters
+    0/   8  0.0% runs stopped because GA ran out of choices
+    0/   8  0.0% runs stopped because GA population converged
+```
+
+and all of them reach the same solution:
+
+```
+mode |  affinity  | clust. | ref. | clust. | rmsd | energy | best |
+     | (kcal/mol) | rmsd   | rmsd |  size  | stdv |  stdv  | run  |
+-----+------------+--------+------+--------+------+--------+------+
+   1         -7.2     0.0     0.3       8     0.2     0.1    004
+```
+
+The *ref. rmsd* column shows the docked pose is within 0.3 Å of the crystal structure: for this
+simple ligand, 8 independent searches are enough to find the crystal pose reliably. The default of
+50 searches is reasonable for docking most small molecules.
+
+To see how many evaluations each search used, unpack the `.dro` file:
+
+```bash
+tar -xvof 4EK4_random_rigid1.dro
+```
+
+and extract the final summary line from each search's log:
+
+```
+grep END 4EK4_random_rigid1_dro/dockingDetails/rigid1000*.dlg
+
+4EK4_random_rigid1_dro/dockingDetails/rigid10001.dlg:END bestScore: -7.986 RMSD: 0.63 nbgen: 132 nbEvals   750868 time 11.534
+4EK4_random_rigid1_dro/dockingDetails/rigid10002.dlg:END bestScore: -7.803 RMSD: 0.74 nbgen: 246 nbEvals  1374668 time 22.495
+4EK4_random_rigid1_dro/dockingDetails/rigid10003.dlg:END bestScore: -8.095 RMSD: 0.56 nbgen: 168 nbEvals   833674 time 14.200
+4EK4_random_rigid1_dro/dockingDetails/rigid10004.dlg:END bestScore: -8.106 RMSD: 0.33 nbgen: 149 nbEvals   861056 time 13.679
+4EK4_random_rigid1_dro/dockingDetails/rigid10005.dlg:END bestScore: -8.054 RMSD: 0.59 nbgen: 135 nbEvals   752220 time 10.907
+4EK4_random_rigid1_dro/dockingDetails/rigid10006.dlg:END bestScore: -8.058 RMSD: 0.59 nbgen:  72 nbEvals   371400 time 5.874
+4EK4_random_rigid1_dro/dockingDetails/rigid10007.dlg:END bestScore: -7.798 RMSD: 0.75 nbgen: 162 nbEvals   881594 time 11.150
+4EK4_random_rigid1_dro/dockingDetails/rigid10008.dlg:END bestScore: -7.994 RMSD: 0.60 nbgen:  54 nbEvals   258364 time 2.693
+```
+
+The `nbEvals` column shows the searches used different numbers of evaluations, from 258,364 to
+1,374,668; search 004, which found the best solution, used 861,056.
+:::
+
+::: {.callout-note collapse="true"}
+## Review note
+- The CCSB text said each search uses "up to 200'000 evaluations (`--maxEvals 2000`)"; the command
+  uses `--maxEvals 20000`. Changed to 20,000 here.
+- The CCSB text calls the reference option `-r/referenceLigand` in the tutorial and
+  `-r/--reference` in the exercise answer; the command uses `--reference`. Please confirm the name.
+:::

@@ -1,0 +1,33 @@
+---
+title: "MGLTools 1.5.6"
+---
+
+MGLTools 1.5.6 is an open-source software suite comprising:
+
+- **PMV**, the Python Molecular Viewer
+- **ADT**, a graphical front end for AutoDock
+- **Vision**, a visual programming environment
+
+[Download MGLTools 1.5.6](../download.qmd#version-1.5.6)
+
+## Tutorials
+
+- [PMV tutorial](https://ccsb.scripps.edu/mgltools/wp-content/uploads/sites/42/2019/07/PmvTut1page-1.pdf) (PDF of PowerPoint slides, 47 MB)
+- [Vision tutorial](https://ccsb.scripps.edu/mgltools/wp-content/uploads/sites/42/2019/07/VisionTut1Page.pdf) (PDF of PowerPoint slides, 15.8 MB)
+
+## Documentation
+
+- [PMV's GUI](pmv-gui.qmd)
+- [Dashboard](dashboard.qmd)
+- [Tools panel](tools-panel.qmd)
+- [Saving your session](session.qmd)
+- [Selection strings](selection-strings.qmd)
+- [Release notes](release-notes.qmd)
+
+All PMV pages are listed on the [Documentation](../documentation.qmd) page.
+
+::: {.callout-note collapse="true"}
+## Review note
+The CCSB page for 1.5.6 also has headings "Overview", "Installing Pmv" and "FAQ" with no content
+or links; they were left out.
+:::

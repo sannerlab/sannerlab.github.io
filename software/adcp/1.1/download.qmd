@@ -4,7 +4,7 @@ title: "Download ADCP 1.1"
 
 ADCP 1.1 runs on **Linux**. The installation script uses (or creates) a micromamba or conda
 environment called `adcpsuite` with Python 3.7. It installs everything ADCP 1.1 needs, plus
-[agfrgui](https://ccsb.scripps.edu/agfr), the graphical tool for generating the target files
+[agfrgui](/software/agfr/index.qmd), the graphical tool for generating the target files
 that describe receptors.
 
 ## Linux with micromamba
@@ -112,5 +112,5 @@ to install the UTM virtualization app with an Ubuntu virtual machine running ADC
 ## Next steps
 
 - [Documentation](documentation.qmd): example commands for the main features of ADCP 1.1.
-- [AGFR and AGFRgui tutorials](https://ccsb.scripps.edu/agfr/documentation/) for preparing
+- [AGFR and AGFRgui tutorials](/software/agfr/tutorials.qmd) for preparing
   target files.
