@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADapt and AGFRgui &middot; ADapt documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">ADapt<small>AutoDock preparation &amp; perception tool</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="tree-3d.html">The tree and the 3D view</a></li>
+</ul>
+<h4>Cases</h4><ul>
+<li><a href="case-biomolecule.html">Biological assembly, not the ASU</a></li>
+<li><a href="case-assemblies.html">Choosing between assemblies</a></li>
+<li><a href="case-sidechains.html">Missing side chains</a></li>
+<li><a href="case-altlocs.html">Alternate locations</a></li>
+<li><a href="case-ligand.html">Ligands and other hetero groups</a></li>
+<li><a href="case-metals.html">Metals, ions, unsupported atoms</a></li>
+<li><a href="case-missing-residues.html">Missing residues</a></li>
+<li><a href="case-mutations.html">Mutating residues</a></li>
+</ul>
+<h4>Results</h4><ul>
+<li><a href="output.html">Writing the PDBQT files</a></li>
+<li><a href="provenance.html">Provenance in the PDBQT files</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a class="here" href="differences.html">ADapt and AGFRgui</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>ADapt and AGFRgui</h1>
+<p class="lead">The same analysis and the same files, in a browser, with a few defects of the
+original fixed.</p>
+
+<p>ADapt is the PDB analyzer of AutoGridFR's graphical interface (AGFRgui) rebuilt as a web page.
+It does not reimplement the chemistry. The assemblies, categories, defaults, side-chain
+completion, mutations, protonation, charges and PDBQT writing are all ADFR's own code, run from
+the ADCP distribution (<code>adfr-0.0.22</code>). Only the Qt interface was rewritten. For the
+same choices, the receptor ADapt writes is byte-identical to ADFR's command line, except for the
+<code>REMARK 850 AGFR biomolecule</code> line ADapt adds to each file (below). ADapt's test suite checks this on
+ADFR's own test files.</p>
+
+<h2>Fixed in ADapt</h2>
+<ul>
+<li><b>The receptor and ligand files record their biomolecule.</b> A
+<code>REMARK 850 AGFR biomolecule</code> line names the tab the file was written from, the chains it
+uses and, for an assembly built by symmetry, the number of copies. ADFR's header writer has this
+line commented out.</li>
+<li><b>A ligand file names the residues it came from</b>
+(<code>REMARK 850 AGFR ligand from B:EYB:402:_</code>), with their real chain, which its atom
+records lose.</li>
+<li><b>The receptor is also written with all its hydrogens</b>, as <code>reduce</code> placed
+them (<code>&lt;id&gt;_rec_H.pdb</code>), with <code>reduce</code>'s choices for each histidine,
+asparagine and glutamine. ADFR discards this output after reading it.</li>
+<li><b>Missing residues are shown.</b> ADFR's detection never reported one, because its test for a
+gap in the alignment was always false. ADapt uses a corrected copy of that function, which also
+fixes four defects the test had been hiding. The results match the files' own REMARK 465 records
+on ADFR's ten test entries. The PDBQT files do not change.</li>
+<li><b>An edited ion charge is used.</b> AGFRgui's charge box was never read back, so the default
+charge was always written.</li>
+<li><b>A save after a tab switch writes the new tab.</b> AGFRgui kept the previous tab's molecule
+until a checkbox changed.</li>
+<li><b>An alternate location chosen in one tab is applied in a tab opened later.</b> AGFRgui showed
+the choice there, and recorded it in the REMARK, but kept the default coordinates.</li>
+<li><b>Mutations and side-chain choices made after a save take effect.</b></li>
+<li><b>Clicking a label only focuses the view.</b> In AGFRgui, clicking the label of a partly
+checked category put all of its residues in the receptor while the box still showed "partly".</li>
+<li><b>A selected ion or metal is highlighted as a sphere</b> of the highlight colour.</li>
+</ul>
+
+<h2>Not in ADapt</h2>
+<ul>
+<li><b>AutoFocus toggle.</b> ADapt always centres the view on what you click.</li>
+<li><b>Previous / next file.</b> ADapt opens one file at a time.</li>
+<li><b>Maps and docking box.</b> ADapt ends with the PDBQT files. Computing affinity maps, which
+is AGFRgui's next step, is done with AGFR (<code>agfr</code>, <code>agfrgui</code>) from the
+receptor ADapt writes.</li>
+<li><b>Choosing a rotamer.</b> As in AGFRgui, the rotamer drop-down is a preview, and the
+best-scoring rotamer is built.</li>
+</ul>
+
+<h2>Known issues</h2>
+<p>ADapt shares the rest of ADFR's behaviour, including its known issues: symmetry copies that do
+not follow every choice, tied alternate locations whose default varies between runs, and the
+provenance records' gaps. All of them are listed, with their effects and where each is explained,
+on <a href="known-issues.html">Known issues</a>.</p>
+<div class="pn"><a href="provenance.html">&larr; Provenance in the PDBQT files</a><a href="known-issues.html">Known issues &rarr;</a></div>
+<footer class="page">ADapt documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of ADapt itself, made by <code>docs/make_screenshots.py</code>; the chemistry
+is ADFR's own code (ADCP distribution).</footer>
+</main></div></body></html>
