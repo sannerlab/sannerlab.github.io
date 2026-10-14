@@ -22,4 +22,7 @@ jobs:
 
   build-site:
     needs: update-citations
+    # build even if the citation update fails (e.g. a lookup service is down);
+    # the committed _data/citations.yaml is then used as is
+    if: ${{ !cancelled() }}
     uses: ./.github/workflows/build-site.yaml

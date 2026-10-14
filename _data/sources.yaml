@@ -2,7 +2,10 @@
 # Excluded: conference abstracts/proceedings, theses, book chapters, duplicates, and the
 # Israel J Chem 2023 Richard Lerner tribute. The update-citations workflow fills in the details.
 - id: doi:10.1021/acs.analchem.5c02409
-- id: arxiv:2310.09529
+# arXiv preprint, cited by its DataCite DOI: Manubot's arxiv: lookup failed on 2026-10-14.
+# DataCite gives only the year, so the posting date is set here.
+- id: doi:10.48550/arXiv.2310.09529
+  date: 2023-10-18
 - id: doi:10.1021/acs.jcim.3c00602
 - id: doi:10.1021/acs.jcim.1c00573
 - id: doi:10.1021/acs.jcim.1c00320
