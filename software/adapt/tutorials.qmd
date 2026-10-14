@@ -1,0 +1,14 @@
+---
+title: "ADapt tutorials: worked cases"
+---
+
+Each case shows how ADapt handles one preparation problem.
+
+- [Dock into the biological assembly, not the asymmetric unit](/adapt/case-biomolecule.html)
+- [Choosing between assemblies of one file](/adapt/case-assemblies.html)
+- [Missing side chains](/adapt/case-sidechains.html)
+- [Alternate locations](/adapt/case-altlocs.html)
+- [Ligands and other hetero groups](/adapt/case-ligand.html)
+- [Metals, ions and unsupported atoms](/adapt/case-metals.html)
+- [Missing residues](/adapt/case-missing-residues.html)
+- [Mutating residues](/adapt/case-mutations.html)

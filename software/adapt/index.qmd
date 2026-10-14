@@ -1,0 +1,28 @@
+---
+title: "ADapt"
+subtitle: "AutoDock preparation & perception tool"
+---
+
+::: {.callout-warning}
+ADapt is not released yet. These pages describe a test version.
+:::
+
+ADapt takes a PDB entry to receptor and ligand files ready for docking with the AutoDock suite,
+in a web browser.
+
+A PDB file records a crystallographic experiment, not a molecule ready for docking. Preparing a
+receptor from it means making a series of choices: the asymmetric unit or a biological assembly,
+what to do with missing atoms and residues, which alternate location to keep, which cofactors,
+ligands, metals and waters to keep or remove. Most of these choices depend on where a fragment sits
+relative to the pocket you plan to dock into, so they are best made while looking at the structure.
+
+ADapt reads a PDB file, or fetches it from the RCSB, and analyses it with ADFR's own code, the
+same code as the PDB analyzer of [AGFRgui](../agfr/index.qmd). It builds every biological assembly
+the file defines, classifies every residue by what it is and what it needs, proposes the usual
+choices as defaults, and shows each chain as a tree linked to a 3D view.
+
+![ADapt with PDB entry 1FV1](/images/adapt.png){fig-alt="The ADapt interface in a web browser, showing PDB entry 1FV1"}
+
+- [Documentation](documentation.qmd)
+- [Tutorials: worked cases](tutorials.qmd)
+- [Download](download.qmd)
