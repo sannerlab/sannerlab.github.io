@@ -1,0 +1,691 @@
+[
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact",
+    "section": "",
+    "text": "Michel Sanner Department of Integrative Structural and Computational Biology Scripps Research La Jolla, CA, USA\nEmail: sanner@scripps.edu\nFor a commercial license for MSMS, contact Dr. Sanner by email.\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "lab.html",
+    "href": "lab.html",
+    "title": "Lab",
+    "section": "",
+    "text": "Professor of Molecular Biology, Department of Integrative Structural and Computational Biology, Scripps Research. Faculty page · Google Scholar · sanner@scripps.edu\nMichel Sanner received his Ph.D. in Computer Science from the University of Haute Alsace, France, in 1992. His laboratory develops computational methods for predicting molecular interactions, including the widely used AutoDock4 and tools for docking small molecules, proteins and peptides. He also has a long-standing interest in software engineering: the lab builds reusable software components that can be assembled quickly into custom applications, such as PMV, AutoDockTools and the visual programming environment Vision."
+  },
+  {
+    "objectID": "lab.html#principal-investigator",
+    "href": "lab.html#principal-investigator",
+    "title": "Lab",
+    "section": "",
+    "text": "Professor of Molecular Biology, Department of Integrative Structural and Computational Biology, Scripps Research. Faculty page · Google Scholar · sanner@scripps.edu\nMichel Sanner received his Ph.D. in Computer Science from the University of Haute Alsace, France, in 1992. His laboratory develops computational methods for predicting molecular interactions, including the widely used AutoDock4 and tools for docking small molecules, proteins and peptides. He also has a long-standing interest in software engineering: the lab builds reusable software components that can be assembled quickly into custom applications, such as PMV, AutoDockTools and the visual programming environment Vision."
+  },
+  {
+    "objectID": "lab.html#postdoctoral-fellows",
+    "href": "lab.html#postdoctoral-fellows",
+    "title": "Lab",
+    "section": "Postdoctoral fellows",
+    "text": "Postdoctoral fellows\n\nKandarp Sojitra · GitHub\nJiahui Wang · GitHub"
+  },
+  {
+    "objectID": "lab.html#research",
+    "href": "lab.html#research",
+    "title": "Lab",
+    "section": "Research",
+    "text": "Research\nTo be written."
+  },
+  {
+    "objectID": "software/mgltools.html",
+    "href": "software/mgltools.html",
+    "title": "MGLTools",
+    "section": "",
+    "text": "MGLTools is the lab’s molecular graphics and modeling software, including PMV and AutoDockTools.\n\n\n\n\n\n\nNote\n\n\n\nThis page is being moved from the CCSB website. Until then, overview, downloads, documentation and tutorials are at ccsb.scripps.edu/mgltools.\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "software/autosite.html",
+    "href": "software/autosite.html",
+    "title": "AutoSite",
+    "section": "",
+    "text": "AutoSite identifies potential ligand-binding pockets by clustering high-affinity points of AutoDock affinity maps.\n\n\n\n\n\n\nNote\n\n\n\nThis page is being moved from the CCSB website. Until then, overview, downloads, documentation and tutorials are at ccsb.scripps.edu/autosite.\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "software/adfr.html",
+    "href": "software/adfr.html",
+    "title": "AutoDockFR (ADFR)",
+    "section": "",
+    "text": "AutoDockFR docks small molecules into receptors, with explicitly specified flexibility of binding-site side chains.\n\n\n\n\n\n\nNote\n\n\n\nThis page is being moved from the CCSB website. Until then, overview, downloads, documentation and tutorials are at ccsb.scripps.edu/adfr.\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "software/msms.html",
+    "href": "software/msms.html",
+    "title": "MSMS",
+    "section": "",
+    "text": "MSMS computes molecular surfaces. It is free for academic research; commercial use needs a license (contact Dr. Michel Sanner). MSMS is not open source.\n\n\n\n\n\n\nNote\n\n\n\nThis page is being moved from the CCSB website. Until then, overview, downloads, documentation and tutorials are at ccsb.scripps.edu/msms.\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "software/adcp/1.0/documentation.html",
+    "href": "software/adcp/1.0/documentation.html",
+    "title": "ADCP 1.0 documentation",
+    "section": "",
+    "text": "WarningYou are viewing ADCP 1.0 (deprecated)\n\n\n\nThese pages describe version 1.0, distributed with ADFRsuite 1.0. For new work use ADCP 1.1.\nAutoDock CrankPep (ADCP) is an open-source program for docking flexible peptides into receptors. The latest source code is on GitHub.",
+    "crumbs": [
+      "Version 1.0 (deprecated)",
+      "Documentation"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.0/documentation.html#tutorials",
+    "href": "software/adcp/1.0/documentation.html#tutorials",
+    "title": "ADCP 1.0 documentation",
+    "section": "Tutorials",
+    "text": "Tutorials\n\nRe-docking a 7-mer peptide\nRe-docking a cyclic peptide",
+    "crumbs": [
+      "Version 1.0 (deprecated)",
+      "Documentation"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.0/documentation.html#faq",
+    "href": "software/adcp/1.0/documentation.html#faq",
+    "title": "ADCP 1.0 documentation",
+    "section": "FAQ",
+    "text": "FAQ\n\nHow many steps and replicas are enough for my peptide?\n\nThe longer the peptide, the harder the docking problem, so run more replicas with more steps if resources allow. As a guideline, run 100–300 replicas with a maximum of 1–3 million Monte Carlo steps per amino acid (10–30 million steps for a 10-mer).\n\nShould I start from a helix, an extended structure, or a mixture?\n\nIf you know something about the peptide’s conformation, start from that conformation. Starting from one conformation does not prevent sampling of others with different secondary structure. If nothing is known, start from a mixture of 80% extended and 20% helical conformations.\n\nWhy are there clashes in the output structure?\n\nADCP builds side chains from a discrete rotamer library and uses a coarse-grained scoring function for the internal energy. The output can therefore have minor clashes and non-ideal bond angles and lengths. Minimize the structure with any molecular mechanics force field to fix them. (Version 1.1 adds OpenMM minimization.)\n\nWhere are the caps at the peptide termini?\n\nPeptide termini come in different types, and adding the proper caps did not conclusively help docking. ADCP therefore docks without caps. You can add caps to the output structure with software such as VMD or PyMOL.",
+    "crumbs": [
+      "Version 1.0 (deprecated)",
+      "Documentation"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.0/windows.html",
+    "href": "software/adcp/1.0/windows.html",
+    "title": "ADCP 1.0 on Windows 10 and later (WSL)",
+    "section": "",
+    "text": "WarningYou are viewing ADCP 1.0 (deprecated)\n\n\n\nThese pages describe version 1.0, distributed with ADFRsuite 1.0. For new work use ADCP 1.1.\nSince Windows 10 you can run a Linux subsystem on Windows (Windows Subsystem for Linux, WSL). With it enabled, you can install the Linux 64-bit build of ADFRsuite and run ADCP.\nThis page shows how to enable WSL, install Ubuntu 20.04 and install ADFRsuite 1.0 to run ADCP.",
+    "crumbs": [
+      "Version 1.0 (deprecated)",
+      "Windows 10 (WSL)"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.0/windows.html#enable-wsl-and-install-ubuntu",
+    "href": "software/adcp/1.0/windows.html#enable-wsl-and-install-ubuntu",
+    "title": "ADCP 1.0 on Windows 10 and later (WSL)",
+    "section": "Enable WSL and install Ubuntu",
+    "text": "Enable WSL and install Ubuntu\n\nControl Panel → Programs → Turn Windows Features On Or Off. Enable “Windows Subsystem for Linux” and click OK.\nClick “Restart now” to reboot Windows.\nOpen the Microsoft Store (Start menu, type store), search for Ubuntu and get Ubuntu 20.04.\nLaunch Ubuntu (Start → Ubuntu). The first time, you are asked for a UNIX user name and password.\n\nYou now have a working Ubuntu subsystem.\n\n\n\n\n\n\nTip\n\n\n\nWindows files are visible under /mnt/c. Files downloaded with a Windows browser are in /mnt/c/Users/yourname/Downloads.",
+    "crumbs": [
+      "Version 1.0 (deprecated)",
+      "Windows 10 (WSL)"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.0/windows.html#install-adfrsuite-linux-64-bit",
+    "href": "software/adcp/1.0/windows.html#install-adfrsuite-linux-64-bit",
+    "title": "ADCP 1.0 on Windows 10 and later (WSL)",
+    "section": "Install ADFRsuite (Linux 64-bit)",
+    "text": "Install ADFRsuite (Linux 64-bit)\n\nGet the Linux 64-bit tarball.\nIn the Ubuntu shell:\n\nmv /mnt/c/Users/myUserName/Downloads/ADFRsuite_x86_64Linux_1.0.tar.gz .\ntar zxvf ADFRsuite_x86_64Linux_1.0.tar.gz\ncd ADFRsuite_x86_64Linux_1.0\nbash ./install.sh -d ../ADFR10 -c 0   # you must type \"bash\" for this to work\ncd ..\nsudo apt-get install libgomp1\nsudo apt-get install unzip\n\nReplace reduce with a 64-bit version: download reduce64Bit.exe and move it into place. The reduce shipped with the installer is 32-bit and fails under WSL.\n\nmv /mnt/c/Users/myUserName/Downloads/reduce64Bit.exe ADFR10/bin/reduce\nYou can now download the tutorial files and run dockings.",
+    "crumbs": [
+      "Version 1.0 (deprecated)",
+      "Windows 10 (WSL)"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.0/windows.html#dock-with-adcp",
+    "href": "software/adcp/1.0/windows.html#dock-with-adcp",
+    "title": "ADCP 1.0 on Windows 10 and later (WSL)",
+    "section": "Dock with ADCP",
+    "text": "Dock with ADCP\nDownload the tutorial data, then follow the re-docking tutorial:\nmv /mnt/c/Users/myUserName/Downloads/ADCP_tutorial_data.zip .\nunzip ADCP_tutorial_data.zip\ncd ADCP_tutorial_data/3Q47\n../../ADFR10/bin/reduce 3Q47_rec.pdb &gt; 3Q47_recH.pdb\n../../ADFR10/bin/reduce 3Q47_pep.pdb &gt; 3Q47_pepH.pdb\n../../ADFR10/bin/prepare_receptor -r 3Q47_recH.pdb\n../../ADFR10/bin/prepare_ligand -l 3Q47_pepH.pdb\n../../ADFR10/bin/agfr -r 3Q47_recH.pdbqt -l 3Q47_pepH.pdbqt -asv 1.1 -o 3Q47 -ng\n../../ADFR10/bin/adcp -t 3Q47.trg -s npisdvd -N 20 -n 1000000 -o 3Q47_redocking -ref 3Q47_pepH.pdb",
+    "crumbs": [
+      "Version 1.0 (deprecated)",
+      "Windows 10 (WSL)"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.0/windows.html#dock-with-adfr",
+    "href": "software/adcp/1.0/windows.html#dock-with-adfr",
+    "title": "ADCP 1.0 on Windows 10 and later (WSL)",
+    "section": "Dock with ADFR",
+    "text": "Dock with ADFR\nFrom the ADFR re-docking tutorial. Download the ADFR tutorial data, then:\nmv /mnt/c/Users/myUserName/Downloads/ADFRsuite-1.0_tutorial_data.zip .\nunzip ADFRsuite-1.0_tutorial_data.zip\n./ADFR10/bin/agfr -r data/4EK3_rec.pdbqt -l data/4EK4_lig.pdbqt -o ligPocket -ng\n./ADFR10/bin/adfr -l data/4EK4_random.pdbqt -t ligPocket.trg -J rigid -n 8 -e 20000 -O -s 1\n\n\n\n\n\n\nNoteReview note (prototype only)\n\n\n\n\n\nThe CCSB page linked to a WSL installation guide whose URL is broken (http://se-the-linux-bash-shell-on-windows-10/), so the link was dropped. Ubuntu 20.04 and the Control Panel steps are dated; current Windows installs WSL with wsl --install.",
+    "crumbs": [
+      "Version 1.0 (deprecated)",
+      "Windows 10 (WSL)"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.0/tutorials.html",
+    "href": "software/adcp/1.0/tutorials.html",
+    "title": "ADCP 1.0 tutorials",
+    "section": "",
+    "text": "WarningYou are viewing ADCP 1.0 (deprecated)\n\n\n\nThese pages describe version 1.0, distributed with ADFRsuite 1.0. For new work use ADCP 1.1.\n\n\n\n\n\nTutorial\nYou will learn to\n\n\n\n\nRe-docking a 7-mer peptide (PDB 3Q47)\nprepare PDBQT files, generate a target file, dock a peptide from its sequence, read the output\n\n\nRe-docking a cyclic peptide (PDB 5GRD)\ndock a peptide with a disulfide bond, cluster by native contacts\n\n\n\nBefore you start:\n\nDownload and install ADFRsuite 1.0.\nPut ADFRsuite-1.0/bin on your PATH (Linux or macOS shell).\nDownload and unzip the tutorial data (ADCP_tutorial_data.zip).\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Version 1.0 (deprecated)",
+      "Tutorials"
+    ]
+  },
+  {
+    "objectID": "software/adcp/index.html",
+    "href": "software/adcp/index.html",
+    "title": "AutoDock CrankPep (ADCP)",
+    "section": "",
+    "text": "AutoDock CrankPep (ADCP) is a docking engine specialized for peptides. It combines a protein folding technique with AutoDock’s efficient representation of a rigid receptor as affinity grids. A Monte Carlo search folds the peptide while it optimizes the peptide’s interaction with the receptor, which yields docked peptides. ADCP takes a peptide as a sequence string and has docked peptides of up to 20 amino acids successfully.\nADCP is part of the AutoDock Suite.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "software/adcp/index.html#versions",
+    "href": "software/adcp/index.html#versions",
+    "title": "AutoDock CrankPep (ADCP)",
+    "section": "Versions",
+    "text": "Versions\n\n\n\nVersion\nStatus\nPlatforms\nInstall\n\n\n\n\n1.1\ncurrent\nLinux (macOS through an Ubuntu virtual machine)\nmicromamba or conda, Download\n\n\n1.0\ndeprecated\nLinux, macOS (Windows through WSL)\nADFRsuite 1.0 installer, Download",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "software/adcp/index.html#what-changed-in-version-1.1",
+    "href": "software/adcp/index.html#what-changed-in-version-1.1",
+    "title": "AutoDock CrankPep (ADCP)",
+    "section": "What changed in version 1.1",
+    "text": "What changed in version 1.1\nVersion 1.1 adds support for non-standard amino acids and lets you minimize docked poses with OpenMM. In detail:\n\nStreamlined output. Docked poses are saved in a single multi-model PDB file, xxx_out.pdb, where xxx is the job name (or a default name), and a summary file xxx_summary.dlg is written.\nFull side chains. Docked poses contain all-atom side chains instead of a rotamer index.\nNumber of poses. Set how many docked poses to write with -m / --nmodes.\nCommand line changes. The target file is given with -T and can be a .trg file or a folder containing one. The new option -k keeps calculation details.\nRotamer libraries. Side-chain rotamers are loaded from .lib text files; system rotamer libraries are selected with -L.\nNon-standard amino acids. Rotamers for modified side chains can be added without recompiling. The syntax &lt;FOO&gt; names the side chain used for the full-atom representation, preceded by the letter of the coarse potential.\nD-amino acids. Write & before the coarse potential letter.\nHistidine protonation states. HIE and HID are supported.\nAutomatic affinity maps. ADCP loads affinity maps for every atom type detected in the peptide.\nMD refinement. Docked poses can be minimized with OpenMM, with options to control it.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "software/adcp/index.html#source-code",
+    "href": "software/adcp/index.html#source-code",
+    "title": "AutoDock CrankPep (ADCP)",
+    "section": "Source code",
+    "text": "Source code\nThe source code is on GitHub: ccsb-scripps/ADCP.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "software/adcp/index.html#how-to-cite",
+    "href": "software/adcp/index.html#how-to-cite",
+    "title": "AutoDock CrankPep (ADCP)",
+    "section": "How to cite",
+    "text": "How to cite\nIf you use ADCP in your work, please cite:\n\nZhang, Y.; Sanner, M. F. AutoDock CrankPep: combining folding and docking to predict protein–peptide complexes. Bioinformatics 2019. doi:10.1093/bioinformatics/btz459 (preprint PDF, supplementary PDF)\nZhang, Y.; Sanner, M. F. Docking flexible cyclic peptides with AutoDock CrankPep. J. Chem. Theory Comput. 2019. doi:10.1021/acs.jctc.9b00557",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.1/download.html",
+    "href": "software/adcp/1.1/download.html",
+    "title": "Download ADCP 1.1",
+    "section": "",
+    "text": "ADCP 1.1 runs on Linux. The installation script uses (or creates) a micromamba or conda environment called adcpsuite with Python 3.7. It installs everything ADCP 1.1 needs, plus agfrgui, the graphical tool for generating the target files that describe receptors.",
+    "crumbs": [
+      "Version 1.1 (latest)",
+      "Download"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.1/download.html#linux-with-micromamba",
+    "href": "software/adcp/1.1/download.html#linux-with-micromamba",
+    "title": "Download ADCP 1.1",
+    "section": "Linux with micromamba",
+    "text": "Linux with micromamba\n\n1. Install micromamba2. Install ADCP 1.13. Use the software\n\n\nIn a shell, go to your home folder and fetch the micromamba binary:\ncd ~; curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba\nInstall micromamba:\nbin/micromamba shell init -s bash -p `pwd`/micromamba\nActivate micromamba:\nsource ~/.bashrc\n\n\nDownload the installation script, or:\nwget https://ccsb.scripps.edu/mamba/scripts/adcpsuite_micromamba.sh\nRun it:\nsh ./adcpsuite_micromamba.sh\nThis installs ADCP 1.1 with all required packages and dependencies.\n\n\nActivate the environment:\nmicromamba activate adcpsuite\nYou can now run ADCP by typing adcp in your shell, and AGFRgui by typing agfrgui.",
+    "crumbs": [
+      "Version 1.1 (latest)",
+      "Download"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.1/download.html#linux-with-conda",
+    "href": "software/adcp/1.1/download.html#linux-with-conda",
+    "title": "Download ADCP 1.1",
+    "section": "Linux with conda",
+    "text": "Linux with conda\n\n1. Install conda2. Install ADCP 1.13. Use the software\n\n\nIf conda is not installed yet, follow the conda installation instructions.\n\n\nDownload the installation script, or:\nwget https://ccsb.scripps.edu/mamba/scripts/adcpsuite_conda.sh\nRun it:\nsh ./adcpsuite_conda.sh\nThis installs ADCP 1.1 with all required packages and dependencies.\n\n\nActivate the environment:\nmicromamba activate adcpsuite\nYou can now run ADCP by typing adcp in your shell, and AGFRgui by typing agfrgui.\n\n\n\n\n\n\n\n\n\nNoteReview note (prototype only)\n\n\n\n\n\nThe CCSB page uses micromamba activate in the conda instructions too. For a conda install this is presumably conda activate adcpsuite. Please confirm before the page goes live.",
+    "crumbs": [
+      "Version 1.1 (latest)",
+      "Download"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.1/download.html#macos",
+    "href": "software/adcp/1.1/download.html#macos",
+    "title": "Download ADCP 1.1",
+    "section": "macOS",
+    "text": "macOS\nADCP can run on macOS with Apple Silicon (M1/M2) at near-native speed inside an Ubuntu virtual machine. Follow these instructions to install the UTM virtualization app with an Ubuntu virtual machine running ADCP 1.1.",
+    "crumbs": [
+      "Version 1.1 (latest)",
+      "Download"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.1/download.html#next-steps",
+    "href": "software/adcp/1.1/download.html#next-steps",
+    "title": "Download ADCP 1.1",
+    "section": "Next steps",
+    "text": "Next steps\n\nDocumentation: example commands for the main features of ADCP 1.1.\nAGFR and AGFRgui tutorials for preparing target files.",
+    "crumbs": [
+      "Version 1.1 (latest)",
+      "Download"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.1/tutorials.html",
+    "href": "software/adcp/1.1/tutorials.html",
+    "title": "ADCP 1.1 tutorials",
+    "section": "",
+    "text": "This tutorial shows how to generate a rotamer library (.lib) file for a non-standard amino acid and use it in ADCP to dock peptides that contain it.\n\n\nDownload this zip file. It holds dummy non-standard amino acids and randomly generated Dunbrack-like rotamer files. Make a directory for the tutorial and unzip the file there:\nmkdir -p ~/ADCP_examples/genLib\ncd ~/ADCP_examples/genLib\nwget https://ccsb.scripps.edu/mamba/examples/libGenExample.zip\nunzip libGenExample.zip\nThe extracted input directory contains:\ninput/\n├── libfiles\n│   ├── FOO_random1.lib\n│   └── SOO_random1.lib\n├── pdbfiles\n│   ├── D\n│   │   ├── DFOO.pdb\n│   │   └── DSOO.pdb\n│   └── L\n│       ├── FOO.pdb\n│       └── SOO.pdb\n└── rotamer_details.dat\n\n\n\nextractRotamerInfo -l input/libfiles/ -p input/pdbfiles/ -i _random1.lib -r input/rotamer_details.dat -o rotamerinfo.py\nOutput:\nfile 'rotamerinfo.py' is created successfully. Run 'makeLibFile' to generate lib file.\n\n\n\nmakeLibFile -p input/pdbfiles -r input/rotamer_details.dat -t rotamerinfo.py -o my_foo_soo.lib\nOutput:\nUsing residue list from \"input/rotamer_details.dat\" for lib file generation!\nWorking on AA: FOO\nWorking on AA: SOO\nWorking on AA: DFOO\nWorking on AA: DSOO\nADCP acceptable lib file: 'my_foo_soo.lib' generated successfully\n\n\n\nDownload the example target file and run ADCP with the new library (-l):\nmkdir trialRun\ncd trialRun\nwget https://ccsb.scripps.edu/mamba/examples/3Q47.trg\nadcp -T 3Q47.trg -s \"toto&or\" -w testDir -o myfoo -l ../my_foo_soo.lib -O -n 2000 -m 5\n\n\n\n\n\n\nWarningReview note (prototype only)\n\n\n\nOn the CCSB page this sequence reads \"toto&or\". The non-standard residue names in chevrons (for example &lt;FOO&gt;) were most likely removed by WordPress, because it treats them as HTML tags. As written, the command docks only natural amino acids and does not use the new library. The correct sequence must come from the authors.\n\n\nThe run ends with a table of docked modes like this one (abridged):\nmode |  affinity  | ref. | clust. | rmsd | energy | best |\n     | (kcal/mol) | fnc  |  size  | stdv |  stdv  | run  |\n-----+------------+------+--------+------+--------+------+\n   1         -5.5      0.0      12      NA      NA    131\n   2         -5.4      0.0       7      NA      NA    155\n   3         -5.4      0.0      13      NA      NA    688\n   4         -5.2      0.0      10      NA      NA    255\n   5         -5.1      0.0      19      NA      NA    038",
+    "crumbs": [
+      "Version 1.1 (latest)",
+      "Tutorials"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.1/tutorials.html#generate-a-rotamer-library-for-a-non-standard-amino-acid",
+    "href": "software/adcp/1.1/tutorials.html#generate-a-rotamer-library-for-a-non-standard-amino-acid",
+    "title": "ADCP 1.1 tutorials",
+    "section": "",
+    "text": "This tutorial shows how to generate a rotamer library (.lib) file for a non-standard amino acid and use it in ADCP to dock peptides that contain it.\n\n\nDownload this zip file. It holds dummy non-standard amino acids and randomly generated Dunbrack-like rotamer files. Make a directory for the tutorial and unzip the file there:\nmkdir -p ~/ADCP_examples/genLib\ncd ~/ADCP_examples/genLib\nwget https://ccsb.scripps.edu/mamba/examples/libGenExample.zip\nunzip libGenExample.zip\nThe extracted input directory contains:\ninput/\n├── libfiles\n│   ├── FOO_random1.lib\n│   └── SOO_random1.lib\n├── pdbfiles\n│   ├── D\n│   │   ├── DFOO.pdb\n│   │   └── DSOO.pdb\n│   └── L\n│       ├── FOO.pdb\n│       └── SOO.pdb\n└── rotamer_details.dat\n\n\n\nextractRotamerInfo -l input/libfiles/ -p input/pdbfiles/ -i _random1.lib -r input/rotamer_details.dat -o rotamerinfo.py\nOutput:\nfile 'rotamerinfo.py' is created successfully. Run 'makeLibFile' to generate lib file.\n\n\n\nmakeLibFile -p input/pdbfiles -r input/rotamer_details.dat -t rotamerinfo.py -o my_foo_soo.lib\nOutput:\nUsing residue list from \"input/rotamer_details.dat\" for lib file generation!\nWorking on AA: FOO\nWorking on AA: SOO\nWorking on AA: DFOO\nWorking on AA: DSOO\nADCP acceptable lib file: 'my_foo_soo.lib' generated successfully\n\n\n\nDownload the example target file and run ADCP with the new library (-l):\nmkdir trialRun\ncd trialRun\nwget https://ccsb.scripps.edu/mamba/examples/3Q47.trg\nadcp -T 3Q47.trg -s \"toto&or\" -w testDir -o myfoo -l ../my_foo_soo.lib -O -n 2000 -m 5\n\n\n\n\n\n\nWarningReview note (prototype only)\n\n\n\nOn the CCSB page this sequence reads \"toto&or\". The non-standard residue names in chevrons (for example &lt;FOO&gt;) were most likely removed by WordPress, because it treats them as HTML tags. As written, the command docks only natural amino acids and does not use the new library. The correct sequence must come from the authors.\n\n\nThe run ends with a table of docked modes like this one (abridged):\nmode |  affinity  | ref. | clust. | rmsd | energy | best |\n     | (kcal/mol) | fnc  |  size  | stdv |  stdv  | run  |\n-----+------------+------+--------+------+--------+------+\n   1         -5.5      0.0      12      NA      NA    131\n   2         -5.4      0.0       7      NA      NA    155\n   3         -5.4      0.0      13      NA      NA    688\n   4         -5.2      0.0      10      NA      NA    255\n   5         -5.1      0.0      19      NA      NA    038",
+    "crumbs": [
+      "Version 1.1 (latest)",
+      "Tutorials"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.1/tutorials.html#version-1.0-tutorials",
+    "href": "software/adcp/1.1/tutorials.html#version-1.0-tutorials",
+    "title": "ADCP 1.1 tutorials",
+    "section": "Version 1.0 tutorials",
+    "text": "Version 1.0 tutorials\nThe ADCP 1.0 tutorials (re-docking a linear peptide, re-docking a cyclic peptide) were written for the 1.0 command line. In 1.1 the target file option is -T instead of -t and the output files differ; see what changed in 1.1.",
+    "crumbs": [
+      "Version 1.1 (latest)",
+      "Tutorials"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.1/documentation.html",
+    "href": "software/adcp/1.1/documentation.html",
+    "title": "ADCP 1.1 documentation",
+    "section": "",
+    "text": "Note\n\n\n\nThe CCSB page for this version says it is under construction. For now it gives a few example runs that show the new capabilities of version 1.1.\nTo run these examples, download the receptor and the ligand for PDB 3Q47.",
+    "crumbs": [
+      "Version 1.1 (latest)",
+      "Documentation"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.1/documentation.html#create-a-target-file",
+    "href": "software/adcp/1.1/documentation.html#create-a-target-file",
+    "title": "ADCP 1.1 documentation",
+    "section": "Create a target file",
+    "text": "Create a target file\nThis command computes the target file 3Q47.trg:\nagfr -r 3Q47_recH.pdbqt -l 3Q47_pepH.pdbqt -asv 1.1 -o 3Q47\nagfr runs AutoGridFR, which computes target files.\n\n\n\n\n\n\n\nOption\nMeaning\n\n\n\n\n-r\nthe receptor, here as a PDBQT file\n\n\n-l\nthe ligand, here the crystallographic peptide. When a ligand is given, agfr defines the docking box as the ligand’s bounding box with 4 Å padding.\n\n\n-asv 1.1\ncompute the preferred starting ligand positions in the box with AutoSite 1.1, rather than 1.0, which is meant for small molecules\n\n\n-o 3Q47\nname of the target file to write (3Q47.trg)\n\n\n\n\n\n\n\n\n\nNoteConsole output\n\n\n\n\n\nprocessing: 3Q47_recH.pdbqt\nloading ligand: 3Q47_pepH.pdbqt\n\nset box using ligand\n    Box center:    16.052     9.415     5.617\n    Box length:    20.250    21.000    21.000\n    Box size  :        54        56        56\n    padding   :     4.000\n    spacing   :     0.375\n\nidentifying pockets using AutoSite ....\nScanning at: -0.36 -0.792 -0.6\n0 #: 0\nScanning at: -0.315 -0.6930000000000001 -0.525\nclust.| Energy| # of |Rad. of | energy |   bns    |score   |\nnumber|       |points|gyration|per vol.|buriedness|v*b^2/rg|\n------+-------+------+--------+--------+----------+--------|\n    1   -33.10    59    2.50    -0.56     0.729     12.54 \nScanning at: -0.27 -0.5940000000000001 -0.44999999999999996\nclust.| Energy| # of |Rad. of | energy |   bns    |score   |\nnumber|       |points|gyration|per vol.|buriedness|v*b^2/rg|\n------+-------+------+--------+--------+----------+--------|\n    1   -46.45    88    2.95    -0.53     0.772     17.78 \n    2   -34.12    68    2.32    -0.50     0.756     16.79 \n    3   -46.16    84    2.74    -0.55     0.715     15.65 \nScanning at: -0.22499999999999998 -0.495 -0.375\nclust.| Energy| # of |Rad. of | energy |   bns    |score   |\nnumber|       |points|gyration|per vol.|buriedness|v*b^2/rg|\n------+-------+------+--------+--------+----------+--------|\n    1   -86.02   169    3.58    -0.51     0.741     25.87 \n    2   -66.14   140    3.26    -0.47     0.664     18.92 \n    3   -73.08   162    4.53    -0.45     0.689     16.97 \n    found 3 pocket(s)\n\n    pocket|  energy | # of |Rad. of | energy |   bns    | score  \n    number|         |points|gyration|per vol.|buriedness|v*b^2/rg\n    ------+---------+------+--------+--------+----------+---------\n        1   -102.22   260    4.15     -0.39      0.82      41.58\n        2    -83.99   236    4.02     -0.36      0.77      34.84\n        3    -92.58   265    4.92     -0.35      0.78      32.82\n    merging clusters ...\ndone. got 107 fill Points, in 1.80 (sec)\n\nsetting map types using: all to ['H', 'HD', 'HS', 'C', 'A', 'G', 'GA', 'J', 'Q', 'N', 'NA', 'NS', 'OA', 'OS', 'SA', 'S', 'P', 'F', 'Cl', 'Br', 'I', 'Mg', 'Ca', 'Mn', 'Fe', 'Zn', 'Z']\n\ncomputing maps for center=(16.052 9.415 5.617) size=(20.250 21.000 21.000) dims=(54 56 56) ...\n    106 points inside the box\n\n    maps computed in 1.93 (sec)\nmaking target file 3Q47.trg ...done.\n    done. 4.30 (sec)",
+    "crumbs": [
+      "Version 1.1 (latest)",
+      "Documentation"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.1/documentation.html#run-adcp-with-modified-amino-acids",
+    "href": "software/adcp/1.1/documentation.html#run-adcp-with-modified-amino-acids",
+    "title": "ADCP 1.1 documentation",
+    "section": "Run ADCP with modified amino acids",
+    "text": "Run ADCP with modified amino acids\nadcp -T 3Q47.trg -s \"n&lt;BHD&gt;pis&dvd\" -N 2 -n 2000 -L swiss -w testDir -o testNSAAandD\nIn version 1.1 the peptide sequence can contain non-natural amino acids, written as [&]x&lt;NAME&gt;:\n\nThe optional & makes the amino acid D instead of the default L chirality.\nx is the coarse bead that represents the side chain. Any one-letter code of a natural amino acid can be used here.\nThe modified side chain’s name goes between chevrons, &lt;&gt;.\n\nIn the example, the first amino acid is represented as an asparagine in the coarse model, and an asparagine derivative side chain (BHD) from the Swiss side-chain library is used for the full-atom representation. The peptide also contains a D-aspartic acid at position 5.\n\n\n\n\n\n\nTip\n\n\n\nThe modified side chain is loaded from a library file, here the Swiss library selected with -L swiss.\n\n\nThis example runs only 2 Monte Carlo searches (-N 2) of 2000 evaluations each, so that it finishes quickly; it is not meant to find real docked poses. It writes two files into the working directory testDir (-w):\n\ntestNSAAandD_out.pdb: a multi-model PDB file with the docked poses\ntestNSAAandD_summary.dlg: the docking log\n\n\n\n\n\n\n\nNoteConsole output\n\n\n\n\n\nInflating target file 3Q47.trg\nperforming MC searches with: /home/xxxxxxx/micromamba/envs/adcpsuite/lib/python3.7/site-packages/ADCP/CrankiteAD_Linux-x86_64_1.1 \ntarget data from file: 3Q47.trg\njob name: testNSAAandD, summary file testNSAAandD_summary.dlg, docked poses: testNSAAandD_out.pdb\nDetected 8 cores, using 8 cores.\nusing system rotamer libraries swiss from /home/xxxxxxx/micromamba/envs/adcpsuite/lib/python3.7/site-packages/ADCP/data/rotamers\nPerforming 2 MC searches using 2000 evals each using a random seed.\nPerforming search (2 ADCP runs with 2000 steps each) ...\n0%   10   20   30   40   50   60   70   80   90   100%\n|----|----|----|----|----|----|----|----|----|----|\nDocking performed in 2.03 seconds, i.e. 0 hours 00 minutes 02.030427 seconds \nbestEnergies [12.8321, 11.8518] \nbestEnergy in run 2 11.851800 (0)\nAnalyzing results ....\nconcatenating trajectories for run with best energy &lt; 31.851800\nconcatenated 2 trajectories\nClustering MC trajectories based in contacts using cutoff: 0.800000\nfinished calculating neighbors for 22 poses with 0.0 seconds\nmode |  affinity  | ref. | clust. | rmsd | energy | best |\n     | (kcal/mol) | fnc  |  size  | stdv |  stdv  | run  |\n-----+------------+------+--------+------+--------+------+\n   1          7.0      0.0       2      NA      NA    015 \n   2          7.6      0.0       2      NA      NA    008 \n   3         12.5      0.0       1      NA      NA    009 \nCalculations completed 2.12 seconds, i.e. 0 hours 00 minutes 02.030427 seconds \nMC search command: cd testDir/testNSAAandD; /home/xxxxxxx/micromamba/envs/adcpsuite/lib/python3.7/site-packages/ADCP/CrankiteAD_Linux-x86_64_1.1 -t 2 \"n&lt;BHD&gt;pis&dvd\" -L swiss -T /home/xxxxxxx/ADCP_examples/testDir/testNSAAandD/3Q47 -r 1x2000 -p Bias=NULL,external=5,constrains,1.0,1.0,Opt=1,0.25,0.75,0.0 -s 930583 -o run_1.pdb  \nseed: []\nremoving working folder testDir/testNSAAandD",
+    "crumbs": [
+      "Version 1.1 (latest)",
+      "Documentation"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.1/documentation.html#openmm-minimization",
+    "href": "software/adcp/1.1/documentation.html#openmm-minimization",
+    "title": "ADCP 1.1 documentation",
+    "section": "OpenMM minimization",
+    "text": "OpenMM minimization\nADCP 1.1 can minimize docked poses with OpenMM and re-rank them. These examples assume you already know the standard ADCP options.\n\nRe-ranking poses of standard amino acids\nThe option -nmin turns on OpenMM minimization of poses, followed by re-ranking. This example docks the peptide grctksicfpd into the receptor from 3Q47.trg and minimizes the top 5 docked solutions with OpenMM:\nadcp -O -T 3Q47.trg -s \"grctksicfpd\" -cyc -N 5 -n 100000 -w testDir1 -o example1 -nmin 5\n\n\n\n\n\n\nNoteConsole output\n\n\n\n\n\n------------------------------------------------------------------\nOpenMM minimization flag detected. This step takes more time than non-minimization calculations.\n\nDECLARATION (V1.1.0 build 15):\na: Support for OpenMM Minimization is still under development.\nb: Currently, it supports docking with \"-rmsd 0\" flag.\nc: Current version provides docking supports for peptides containing ~400 (L and D) NSTs and openMM support for 182 (182x2 for D and L) NSTs. \nd: Other unidentified non-standard amino acids can either be replaced by similar amino acids (pdbfixer v1.8), or if pdbfixer does not identify a non-standard amino acid, it can be replaced by ALA.\ne: Added support for external parameter input for non-standard amino acids.(from build 9)\n   \nInflating target file 3Q47.trg\nperforming MC searches with: /home/xxxxxxx/micromamba/envs/adcpsuite/lib/python3.7/site-packages/ADCP/CrankiteAD_Linux-x86_64_1.1 \ntarget data from file: 3Q47.trg\njob name: example1, summary file example1_summary.dlg, docked poses: example1_out.pdb\nDetected 8 cores, using 8 cores.\nPerforming 5 MC searches using 100000 evals each using a random seed.\nPerforming search (5 ADCP runs with 100000 steps each) ...\n0%   10   20   30   40   50   60   70   80   90   100%\n|----|----|----|----|----|----|----|----|----|----|\nDocking performed in 22.04 seconds, i.e. 0 hours 00 minutes 22.042032 seconds \nbestEnergies [-4.91352, -0.869985, -0.258118, -3.55476, -3.64629] \nbestEnergy in run 1 -4.913520 (0)\nAnalyzing results ....\nconcatenating trajectories for run with best energy &lt; 15.086480\nconcatenated 5 trajectories\nClustering MC trajectories based in contacts using cutoff: 0.800000\nfinished calculating neighbors for 125 poses with 0.6 seconds\nmode |  affinity  | ref. | clust. | rmsd | energy | best |\n     | (kcal/mol) | fnc  |  size  | stdv |  stdv  | run  |\n-----+------------+------+--------+------+--------+------+\n   1         -2.9      0.0      12      NA      NA    018 \n   2         -2.3      0.0       6      NA      NA    020 \n   3         -2.3      0.0       2      NA      NA    019 \n   4         -2.2      0.0      16      NA      NA    113 \n   5         -2.1      0.0       9      NA      NA    089 \n   6         -1.7      0.0       8      NA      NA    080 \n   7         -1.3      0.0       1      NA      NA    021 \n   8         -1.1      0.0      11      NA      NA    072 \n   9         -1.0      0.0       2      NA      NA    106 \n  10         -0.9      0.0       3      NA      NA    003 \n  11         -0.5      0.0       7      NA      NA    034 \n  12         -0.5      0.0       4      NA      NA    061 \nCalculations completed 22.77 seconds, i.e. 0 hours 00 minutes 22.042032 seconds \nMC search command: cd testDir1/example1; /home/xxxxxxx/micromamba/envs/adcpsuite/lib/python3.7/site-packages/ADCP/CrankiteAD_Linux-x86_64_1.1 -t 2 \"grctksicfpd\" -T /home/xxxxxxx/ADCP_examples/testDir1/example1/3Q47 -r 1x100000 -p Bias=NULL,external=5,constrains,1.0,1.0,external2=4,constrains,1.0,1.0,Opt=1,0.25,0.75,0.0 -s 390427 -o run_1.pdb  \nseed: []\nMinimizing docked poses ....\nRescoring clustered poses using OpenMM ..\nOpenMM minimization settings: Environment=\"in-vacuo\"; Max_itr=5\nOpenMM minimization settings: Cyclizing by backbone\nFrom total 44 models, minimizing top 5 ...\n\nOMM Energy: Working on #1 of 5 models\nCyclizing peptide (last chain) by adding a bond between GLY1@N and ASP11@C.\nOMM Energy: E_Complex =  -1201.00; E_Receptor =  -1586.36; E_Peptide  =    441.69\nOMM Energy: dE_Interaction =    -56.33; dE_Complex-Receptor =    385.36\n\nOMM Energy: Working on #2 of 5 models\nCyclizing peptide (last chain) by adding a bond between GLY1@N and ASP11@C.\nOMM Energy: E_Complex =  18295.22; E_Receptor =   1122.39; E_Peptide  =  17239.90\nOMM Energy: dE_Interaction =    -67.07; dE_Complex-Receptor =  17172.83\n\nOMM Energy: Working on #3 of 5 models\nCyclizing peptide (last chain) by adding a bond between GLY1@N and ASP11@C.\nOMM Energy: E_Complex =  -1721.60; E_Receptor =  -1855.51; E_Peptide  =    231.76\nOMM Energy: dE_Interaction =    -97.86; dE_Complex-Receptor =    133.91\n\nOMM Energy: Working on #4 of 5 models\nCyclizing peptide (last chain) by adding a bond between GLY1@N and ASP11@C.\nOMM Energy: E_Complex =  -1387.83; E_Receptor =  -1685.81; E_Peptide  =    327.20\nOMM Energy: dE_Interaction =    -29.22; dE_Complex-Receptor =    297.98\n\nOMM Energy: Working on #5 of 5 models\nCyclizing peptide (last chain) by adding a bond between GLY1@N and ASP11@C.\nOMM Energy: E_Complex =  -1784.56; E_Receptor =  -1940.05; E_Peptide  =    234.73\nOMM Energy: dE_Interaction =    -79.25; dE_Complex-Receptor =    155.48\n\nOMM Ranking:REARRANGING output poses using OpenMM (Ecomplex -Ereceptor) energy\nOMM Ranking:                     +&lt;-------OMMscore--------&gt;+&lt;-----------AutoDock CrankPep Scores--------------&gt;+\nOMM Ranking:-------+------+------+------------+------------+------------+------+--------+------+--------+------+\nOMM Ranking: Model | Rank | Rank | E_Complex  |  E_Complex |  affinity  | ref. | clust. | rmsd | energy | best |\nOMM Ranking: #     |OpenMM| ADCP |-E_Receptor |-E_rec-E_pep| (kcal/mol) | fnc  |  size  | stdv |  stdv  | run  |\nOMM Ranking:-------+------+------+------------+------------+------------+------+--------+------+--------+------+\nOMM Ranking:      1      1      3      133.9        -97.9          -2.3      0.0       2      NA      NA    019\nOMM Ranking:      2      2      5      155.5        -79.2          -2.1      0.0       9      NA      NA    089\nOMM Ranking:      3      3      4      298.0        -29.2          -2.2      0.0      16      NA      NA    113\nOMM Ranking:      4      4      1      385.4        -56.3          -2.9      0.0      12      NA      NA    018\nOMM Ranking:      5      5      2    17172.8        -67.1          -2.3      0.0       6      NA      NA    020\nOMM Ranking:-------+------+------+------------+------------+------------+------+--------+------+--------+------+\nremoving working folder testDir1/example1\n\n\n\nBesides the default ADCP output, this command writes:\n\nexample1_omm_rescored_out.pdb: the minimized and re-ranked top solutions (receptor + peptide)\ntestDir1/example1_omm_amber_parm/: Amber topology and coordinate files for each re-ranked solution, for further analysis or free-energy calculations with molecular dynamics or other molecular mechanics methods\n\n\n\nAdditional options\nThe number of minimization steps (-nitr), the solvent environment (-env) and the output order of re-ranked solutions (-dr) control the minimization. For example:\nadcp -O -T 3Q47.trg -s \"grctksicfpd\" -cyc -N 5 -n 100000 -w testDir1 -o example1 -nmin 5 -nitr 500 -env implicit -dr -reint\n\n\n\n\n\n\n\nOption\nMeaning\n\n\n\n\n-nitr 500\n500 minimization steps for each docked pose\n\n\n-env implicit\nminimize in implicit solvent (default: vacuum)\n\n\n-dr\nreport minimized solutions ordered by docking score, best to worst (default: OpenMM ranking score)\n\n\n-reint\nrank by interaction energy (Ecomplex − Ereceptor − Epeptide) instead of (Ecomplex − Ereceptor)\n\n\n\n\n\nMinimizing poses that are already docked\n\nPost-docking minimization (-pdmin) applies OpenMM minimization to poses that were already docked. ADCP skips docking and minimizes the poses from the earlier output file. Use the same target file (-T), job name (-o) and sequence (-s) as in the docking run.\nResume a failed minimization (-resumemin) continues an interrupted minimization and re-ranking. It works only together with -pdmin and without overwriting (-O).\n\n\n\nNon-standard amino acids\nThe default force-field parameters for OpenMM minimization lack most non-standard amino acids. ADCP therefore uses the “sannerlab” OpenMM parameter set for 182 non-standard amino acids and the “swiss” set for 20 non-terminal ones. These sets are designed for the Swiss non-standard amino acids and need proper licensing from the developer of the SwissSideChain database. The full list of supported residues is in ADCP/data/openMMff/AVAILABLE_PARAMETER.dat.\nWhen no OpenMM parameters exist for a non-standard amino acid, ADCP uses pdbfixer (v1.8) to replace it with a standard one. If pdbfixer cannot replace it, the residue is mutated to alanine for the OpenMM re-ranking.\n\n\n\n\n\n\n\nOption\nMeaning\n\n\n\n\n-F\nwhich OpenMM parameter sets to use from ADCP/data/openMMff (swiss, sannerlab or none); none turns off all system default sets\n\n\n-f\nuser-supplied OpenMM parameters for new or unlisted non-standard amino acids (see below)\n\n\n\n-f needs three files in the same directory with the same stem. For -f ./XXXX_ff.xml the program expects a force-field file ./XXXX_ff.xml, a bond definition file ./XXXX_residues.xml and a hydrogen definition file ./XXXX_hydrogen_def.xml.",
+    "crumbs": [
+      "Version 1.1 (latest)",
+      "Documentation"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.1/documentation.html#non-canonical-amino-acids",
+    "href": "software/adcp/1.1/documentation.html#non-canonical-amino-acids",
+    "title": "ADCP 1.1 documentation",
+    "section": "Non-canonical amino acids",
+    "text": "Non-canonical amino acids\nADCP 1.1 docks peptides that contain non-natural amino acids (NSAAs). Each NSAA has a name (for example PTR), and ADCP reads its side-chain parameters from library files given on the command line (-l and -L). ADCP ships with a library for the natural amino acids (always loaded) and a library of fluorinated amino acids.\nWe also developed parameters for all amino acids of SwissSideChain. Its license will be replaced by CC-BY 4.0, and we have been granted the right to distribute the ADCP library for this set of 209 amino acids in D and L forms.\nThe library covers 182 of the 209 SwissSideChain amino acids, in both L and D chirality. This lets ADCP handle every non-natural amino acid currently found in the Protein Data Bank. To use peptides with NSAAs at any position in OpenMM, we:\n\nComputed partial charges. SwissSideChain’s charges were designed for NSAAs away from the peptide termini, so we computed charges for terminal and non-terminal forms with the R.E.D. server (RESP ESP charge Derive), using GAMESS, following this tutorial. Each form was capped with ACE and/or NME.\nFound force-field parameters. parmchk2 from AmberTools identified the Amber parameters needed (bonds, angles, dihedrals, impropers, electrostatics, van der Waals) from the R.E.D. mol2 files, written as an frcmod file.\nBuilt FFXML files. ParmEd converted the frcmod and mol2 files into OpenMM FFXML files for each variant. These were merged into one file covering all parameters for 184 NSAAs, which OpenMM can load.\n\nTo use these parameters in OpenMM we also changed how each structure is loaded, cleaned and simulated:\n\nKept pdbfixer from removing or swapping NSAAs, by loading the residue definition file and editing pdbfixer.nonstandardResidues.\nAdded OXT to C-terminal NSAAs. pdbfixer adds hydrogens with Modeller and handles N-terminal residues correctly, but not terminal NSAAs.\nOverrode the default hydrogen definitions, to add NSAA-specific ones or apply specific parameter sets to residues with identical names (for example ORN).\nGave residues with identical molecular structures (for example THR and ALO) their own residue templates.\nOverrode PDB writing to handle 4-letter residue codes, with a modified PDB writer.\n\n\n\n\n\n\n\nNoteReview note (prototype only)\n\n\n\n\n\nThe CCSB text gives both 182 and 184 for the number of parameterized NSAAs, and 182 for the OpenMM-supported set. Please confirm the right number.",
+    "crumbs": [
+      "Version 1.1 (latest)",
+      "Documentation"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.0/tutorial-redocking.html",
+    "href": "software/adcp/1.0/tutorial-redocking.html",
+    "title": "Tutorial: re-docking a 7-mer peptide",
+    "section": "",
+    "text": "WarningYou are viewing ADCP 1.0 (deprecated)\n\n\n\nThese pages describe version 1.0, distributed with ADFRsuite 1.0. For new work use ADCP 1.1.\nThis tutorial re-docks a known peptide into its native receptor: a pseudophosphorylated Smad1 peptide into the TPR domain of CHIP (PDB 3Q47).\nYou will learn to:\nPrerequisites: ADFRsuite 1.0 installed with ADFRsuite-1.0/bin on your PATH, and the tutorial data downloaded (see Tutorials).",
+    "crumbs": [
+      "Version 1.0 (deprecated)",
+      "Tutorial: re-docking"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.0/tutorial-redocking.html#convert-pdb-files-to-pdbqt-files",
+    "href": "software/adcp/1.0/tutorial-redocking.html#convert-pdb-files-to-pdbqt-files",
+    "title": "Tutorial: re-docking a 7-mer peptide",
+    "section": "1. Convert PDB files to PDBQT files",
+    "text": "1. Convert PDB files to PDBQT files\nPDBQT is the file format of the AutoDock programs. It adds two columns to the PDB format: the partial charge and the AutoDock atom type.\nWe start from two separate PDB files for the receptor and the peptide, split from the 3Q47 entry. Both contain only protein atoms.\nUnzip the data and go to the directory for this tutorial:\nunzip ADCP_tutorial_data.zip\ncd ADCP_tutorial_data/3Q47\nAdd hydrogens to both files with reduce (included in ADFRsuite):\nreduce 3Q47_rec.pdb &gt; 3Q47_recH.pdb\nreduce 3Q47_pep.pdb &gt; 3Q47_pepH.pdb\nConvert the protonated PDB files into PDBQT files with prepare_receptor and prepare_ligand:\nprepare_receptor -r 3Q47_recH.pdb\nprepare_ligand -l 3Q47_pepH.pdb",
+    "crumbs": [
+      "Version 1.0 (deprecated)",
+      "Tutorial: re-docking"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.0/tutorial-redocking.html#generate-the-target-file",
+    "href": "software/adcp/1.0/tutorial-redocking.html#generate-the-target-file",
+    "title": "Tutorial: re-docking a 7-mer peptide",
+    "section": "2. Generate the target file",
+    "text": "2. Generate the target file\nA target file is a zipped file with everything needed for docking with ADFR and ADCP. It can be generated from the command line or a GUI.\nagfr -r 3Q47_recH.pdbqt -l 3Q47_pepH.pdbqt -asv 1.1 -o 3Q47\nThis puts the docking box around the given peptide with 4 Å padding. If you do not know the peptide binding site, see the agfrgui tutorials.\n\n\n\n\n\n\n\nOption\nMeaning\n\n\n\n\n-r\nthe receptor file (required)\n\n\n-l\nthe ligand file\n\n\n-asv\nAutoSite version, 1.0 or 1.1 (default 1.0 when -asv is not given)\n\n\n-o\nname for the target file\n\n\n\nDetails. agfr positions and sizes the docking box over the receptor pocket(s) where the ligand will be docked, and computes affinity maps for a list of AutoDock4 atom types. The maps are calculated by AutoGrid4.\n\nBox. The box can be set in several ways with -b/--boxMode. Here agfr uses the bounding box of the known ligand (-l/--ligand), with 4 Å of padding added on every side. Change the padding with -P/--padding.\nOutput. The target file (.trg) is saved under the name given by -o/--output; without it, a unique descriptive name is created. It contains the affinity maps, translational points for placing the ligand at sensible positions in the box, and metadata about the grid size, position and spacing, the receptor atoms involved and the maps. Inspect it with the about command.\nPockets. The translational points are computed by AutoSite, which clusters high-affinity grid points into potential binding pockets. -p/--pocketMode sets how multiple clusters are handled; when it is omitted, as here, all clusters are merged into one set of translational points.\nAtom types. By default maps are computed for all AutoDock4 atom types. Restrict them with -m/--mapTypes for smaller files and faster runs, but the target file then cannot dock ligands with atom types it has no map for.\n\n\n\n\n\n\n\nNoteConsole output (saved in 3Q47.log)\n\n\n\n\n\n#################################################################\n# If you used AGFR in your work, please cite:                   #\n#                                                               #\n# P.A. Ravindranath S. Forli, D.S. Goodsell, A.J. Olson and     #\n# M.F. Sanner                                                   #\n# AutoDockFR: Advances in Protein-Ligand Docking with           #\n# Explicitly Specified Binding Site Flexibility                 #\n# PLoS Comput Biol 11(12): e1004586                             #\n# DOI:10.1371/journal.pcbi.1004586                              #\n#                                                               #\n# P. Ananad Ravindranath and M.F. Sanner                        #\n# AutoSite: an automated approach for pseudoligands prediction  #\n# - From ligand binding sites identification to predicting key  #\n# ligand atoms                                                  #\n# Bioinformatics (2016)                                         #\n# DOI:10.1093/bioinformatics/btw367                             #\n#                                                               #\n# Please see http://adfr.scripps.edu for more information.      #\n#################################################################\n\nComputing grids on ambae a Linux-4.15.0-47-generic-x86_64-with-debian-buster-sid computer\nDate Mon Jun  3 16:04:22 2019\n\nloading receptor: 3Q47_recH.pdbqt\nloading ligand: 3Q47_pepH.pdbqt\n\nset box using ligand\n    Box center:    16.052     9.415     5.617\n    Box length:    20.250    21.000    21.000\n    Box size  :        54        56        56\n    padding   :     4.000\n    spacing   :     0.375\n\nidentifying pockets using AutoSite ....\nScanning at: -0.36 -0.792 -0.6\n0 #: 0\nScanning at: -0.315 -0.693 -0.525\nclust.| Energy| # of |Rad. of | energy |   bns    |score   |\nnumber|       |points|gyration|per vol.|buriedness|v*b^2/rg|\n------+-------+------+--------+--------+----------+--------|\n    1   -33.11    59    2.50    -0.56     0.729     12.54 \nScanning at: -0.27 -0.594 -0.45\nclust.| Energy| # of |Rad. of | energy |   bns    |score   |\nnumber|       |points|gyration|per vol.|buriedness|v*b^2/rg|\n------+-------+------+--------+--------+----------+--------|\n    1   -46.72    89    2.94    -0.52     0.773     18.09 \n    2   -34.13    68    2.32    -0.50     0.756     16.79 \n    3   -46.20    84    2.74    -0.55     0.715     15.65 \nScanning at: -0.225 -0.495 -0.375\nclust.| Energy| # of |Rad. of | energy |   bns    |score   |\nnumber|       |points|gyration|per vol.|buriedness|v*b^2/rg|\n------+-------+------+--------+--------+----------+--------|\n    1   -84.90   165    3.52    -0.51     0.747     26.14 \n    2   -66.18   140    3.26    -0.47     0.664     18.92 \n    3   -73.12   162    4.53    -0.45     0.689     16.97 \n    found 3 pocket(s)\n\n    pocket|  energy | # of |Rad. of | energy |   bns    | score  \n    number|         |points|gyration|per vol.|buriedness|v*b^2/rg\n    ------+---------+------+--------+--------+----------+---------\n        1   -100.51   251    4.08     -0.40      0.82      41.49\n        2    -84.03   236    4.02     -0.36      0.77      34.84\n        3    -92.62   265    4.92     -0.35      0.78      32.82\n    merging clusters ...\ndone. got 106 fill Points, in 5.07 (sec)\n\nsetting map types using: all to ['HS', 'Mg', 'HD', 'NA', 'Fe', 'Br', 'NS', 'A', 'C', 'Mn', 'G', 'F', 'I', 'H', 'J', 'N', 'Q', 'P', 'S', 'GA', 'Z', 'Zn', 'Cl', 'Ca', 'OA', 'SA', 'OS']\n\ncomputing maps for center=(16.052 9.415 5.617) size=(20.250 21.000 21.000) dims=(54 56 56) ...\n    104 points inside the box\n\n    maps computed in 3.02 (sec)\nmaking target file 3Q47.trg ...done.\n    done. 6.42 (sec)",
+    "crumbs": [
+      "Version 1.0 (deprecated)",
+      "Tutorial: re-docking"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.0/tutorial-redocking.html#dock-the-peptide-from-its-sequence",
+    "href": "software/adcp/1.0/tutorial-redocking.html#dock-the-peptide-from-its-sequence",
+    "title": "Tutorial: re-docking a 7-mer peptide",
+    "section": "3. Dock the peptide from its sequence",
+    "text": "3. Dock the peptide from its sequence\nadcp -t 3Q47.trg -s npisdvd -N 20 -n 1000000 -o 3Q47_redocking -ref 3Q47_pepH.pdb\nadcp detects the available cores and uses all of them by default. Here it runs 20 independent searches (-N, --nbRuns 20), each with up to 1,000,000 evaluations of the scoring function (-n, --numSteps). By default adcp runs 50 searches of 2.5 million evaluations each. Harder docking problems need more searches to raise the chance of finding the best pose (the global minimum of the scoring function).\nThe run writes:\n\n\n\n\n\n\n\nFile\nContent\n\n\n\n\n3Q47_redocking_ranked_*.pdb\nfinal solutions, ranked after clustering\n\n\n3Q47_redocking_*.pdb\nthe Monte Carlo trajectory of each replica\n\n\n3Q47_redocking_*.out\ndetailed output of each replica\n\n\n\n\n\n\n\n\n\nTipNotes\n\n\n\n\nThe search is stochastic: docking the same peptide into the same target twice can give different results with different random seeds. The energy landscape is the same in both runs; if both find its global minimum they give the same solution, whatever path the search took. Searches trapped in local minima give different poses. Setting the seed (--seed) makes a run reproducible for a given version of the code.\nIn general, run 100 replicas with 1 million steps per amino acid, starting from a mixture of extended and helical conformations.\n\n\n\nExample output (abridged; the full run lists 100 modes):\nDetected 8 cores, using 8 cores\nusing ramaprob.data in current folder\nPerforming search (20 ADCP runs with 1000000 steps each) ...\n0%   10   20   30   40   50   60   70   80   90   100%\n|----|----|----|----|----|----|----|----|----|----|\nDocking performed in 148.19 seconds, i.e. 0 hours 02 minutes 28.191412 seconds \nmode |  affinity  | clust. | ref. | clust. | rmsd | best | energy | best |\n     | (kcal/mol) | rmsd   | rmsd |  size  | avg. | rmsd |  avg.  | run  |\n-----+------------+--------+------+--------+------+------+--------+------+\n   1        -17.2     0.0     0.9     245     1.0   0.5   -13.5    923 \n   2        -14.7     2.2     2.5      82     2.7   2.4   -11.9    1834 \n   3        -13.1     6.3     6.7      46     7.0   6.2   -10.3    1174 \n   4        -12.9     9.3     9.3      24     9.3   9.2   -11.5    2505 \n   5        -12.5     7.6     7.5      22     7.8   7.5   -11.6    776 \n   6        -12.2     5.1     5.4      73     5.5   5.3    -9.6    1050 \n   7        -12.0     4.5     4.8       6     4.8   4.8   -11.8    2093 \n   8        -11.9     6.6     7.1      31     7.3   7.0   -11.0    2259 \n   9        -11.8     6.7     6.8      26     6.9   6.7   -10.9    517 \n  10        -11.7     4.2     4.3      22     3.5   3.1    -9.4    2088 \n  11        -11.6     6.8     7.2       2     6.7   6.2   -11.3    1179 \n  12        -11.5     2.0     2.1       1      NA      NA    382 \n  13        -11.5     9.5     9.4      28     9.7   9.4    -8.4    767 \n  14        -11.4     9.6     9.4      44     9.5   9.3    -9.8    2364 \n  15        -11.4     8.6     8.5      17     8.6   8.1   -10.0    1548 \n  16        -11.1     2.5     2.6      41     2.4   1.9    -9.6    227 \n  17        -11.0     3.0     3.2       2     3.2   3.2   -11.0    2084 \n  18        -10.8     5.6     5.9       1      NA      NA    1060 \n...\n\n\n\n\n\n\nNoteReview note (prototype only)\n\n\n\n\n\nThe CCSB text said each search uses “up to 2,500,000 evaluations (-n, --numSteps 2500000)”, which does not match the command (-n 1000000). Changed to 1,000,000 here.",
+    "crumbs": [
+      "Version 1.0 (deprecated)",
+      "Tutorial: re-docking"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.0/download.html",
+    "href": "software/adcp/1.0/download.html",
+    "title": "Download ADCP 1.0",
+    "section": "",
+    "text": "WarningYou are viewing ADCP 1.0 (deprecated)\n\n\n\nThese pages describe version 1.0, distributed with ADFRsuite 1.0. For new work use ADCP 1.1.\nADCP 1.0 is part of ADFRsuite 1.0, which runs on Linux and macOS. ADFRsuite contains everything needed to set up docking experiments for small molecules and peptides.",
+    "crumbs": [
+      "Version 1.0 (deprecated)",
+      "Download"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.0/download.html#adfrsuite-1.0-release-candidate-1",
+    "href": "software/adcp/1.0/download.html#adfrsuite-1.0-release-candidate-1",
+    "title": "Download ADCP 1.0",
+    "section": "ADFRsuite 1.0 (release candidate 1)",
+    "text": "ADFRsuite 1.0 (release candidate 1)\nContents:\n\nADFR 1.2 and associated scripts\nAGFR 1.2\nAutoSite 1.0 and 1.1\nADCP 1.0\nAutoGrid 4.2\nprepare_ligand\nprepare_receptor\n\n\n\n\nPlatform\nInstaller\nHow to install\n\n\n\n\nLinux 64-bit\ninstaller app\nchmod a+x ADFRsuite_Linux-x867_64_1.0_install.run./ADFRsuite_Linux-x867_64_1.0_install.run\n\n\nLinux 64-bit\ntarball\nsee Installing from a tarball\n\n\nmacOS\ntarball\nsee Installing from a tarball\n\n\n\nWindows users can run the Linux build under WSL; see ADCP on Windows.",
+    "crumbs": [
+      "Version 1.0 (deprecated)",
+      "Download"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.0/download.html#installation-notes",
+    "href": "software/adcp/1.0/download.html#installation-notes",
+    "title": "Download ADCP 1.0",
+    "section": "Installation notes",
+    "text": "Installation notes\n\nThe commercial installation does not install MSMS, the component that computes molecular surfaces. For a commercial MSMS license contact Dr. Michel Sanner. All other tools in the suite work fully in both installations.\nThe default install location is ~/ADFRsuite-1.0. If your home folder is not on a local disk, install to a folder on a local disk for better performance.\nADFRsuite ships its own Python interpreter (2.7), installed in the ADFRsuite-1.0 folder. It is isolated from your system Python and does not interfere with it. Start it with ADFRsuite-1.0/bin/pythonsh.",
+    "crumbs": [
+      "Version 1.0 (deprecated)",
+      "Download"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.0/download.html#installing-from-a-tarball",
+    "href": "software/adcp/1.0/download.html#installing-from-a-tarball",
+    "title": "Download ADCP 1.0",
+    "section": "Installing from a tarball",
+    "text": "Installing from a tarball\nThis example uses the macOS tarball; for another tarball change the file and folder names.\n# unpack the tar file\ntar zxvf ADFRsuite_x86_64Darwin_1.0.tar.gz\n\n# step into the folder created by unpacking\ncd ADFRsuite_x86_64Darwin_1.0\n\n# run the installation script\n#   -d destinationFolder  where to install ADFRsuite 1.0\n#   -c                    how to compile the Python files: 0 for .pyc, 1 for .pyo\n./install.sh -d myFolder -c 0\n\n\n\n\n\n\nNoteReview note (prototype only)\n\n\n\n\n\n\nThe installer file name ADFRsuite_Linux-x867_64_1.0_install.run is copied from the CCSB page; x867_64 looks like a typo for x86_64. Check against the real file name.\nThe CCSB comment said -s destinationFolder, but the command uses -d. Changed to -d here.\nLinks to ADFR versions 1.0 and 1.1 at adfr.scripps.edu were dropped: that site no longer responds.",
+    "crumbs": [
+      "Version 1.0 (deprecated)",
+      "Download"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.0/tutorial-cyclic.html",
+    "href": "software/adcp/1.0/tutorial-cyclic.html",
+    "title": "Tutorial: re-docking a cyclic peptide",
+    "section": "",
+    "text": "WarningYou are viewing ADCP 1.0 (deprecated)\n\n\n\nThese pages describe version 1.0, distributed with ADFRsuite 1.0. For new work use ADCP 1.1.\nThis tutorial re-docks a cyclic peptide with a disulfide bond into its native receptor: a 10-mer peptide from EBV into HLA-A*11:01 (PDB 5GRD).\nYou will learn to:\nPrerequisites: ADFRsuite 1.0 installed with ADFRsuite-1.0/bin on your PATH, and the tutorial data downloaded (see Tutorials).",
+    "crumbs": [
+      "Version 1.0 (deprecated)",
+      "Tutorial: cyclic peptide"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.0/tutorial-cyclic.html#generate-the-target-file",
+    "href": "software/adcp/1.0/tutorial-cyclic.html#generate-the-target-file",
+    "title": "Tutorial: re-docking a cyclic peptide",
+    "section": "1. Generate the target file",
+    "text": "1. Generate the target file\nGo to the directory for this tutorial:\ncd ADCP_tutorial_data/5GRD\nThis tutorial starts from PDBQT files. See the first tutorial for converting PDB files to PDBQT.\nagfr -r 5GRD_recH.pdbqt -l 5GRD_pepH.pdbqt -o 5GRD\n\n\n\n\n\n\nNoteConsole output\n\n\n\n\n\nMSMSLIB 1.4.4 started on ambae\nCopyright M.F. Sanner (March 2000)\nCompilation flags  \n#################################################################\n# If you used AGFR in your work, please cite:                   #\n#                                                               #\n# P.A. Ravindranath S. Forli, D.S. Goodsell, A.J. Olson and     #\n# M.F. Sanner                                                   #\n# AutoDockFR: Advances in Protein-Ligand Docking with           #\n# Explicitly Specified Binding Site Flexibility                 #\n# PLoS Comput Biol 11(12): e1004586                             #\n# DOI:10.1371/journal.pcbi.1004586                              #\n#                                                               #\n# P. Ananad Ravindranath and M.F. Sanner                        #\n# AutoSite: an automated approach for pseudoligands prediction  #\n# - From ligand binding sites identification to predicting key  #\n# ligand atoms                                                  #\n# Bioinformatics (2016)                                         #\n# DOI:10.1093/bioinformatics/btw367                             #\n#                                                               #\n# Please see http://adfr.scripps.edu for more information.      #\n#################################################################\n\nComputing grids on ambae a Linux-4.15.0-47-generic-x86_64-with-debian-buster-sid computer\nDate Mon Jun  3 16:54:32 2019\n\nloading receptor: 5GRD_recH.pdbqt\nloading ligand: 5GRD_pepH.pdbqt\n\nset box using ligand\n    Box center:    29.694   -16.993    -4.930\n    Box length:    24.750    33.750    19.500\n    Box size  :        66        90        52\n    padding   :     4.000\n    spacing   :     0.375\n\nidentifying pockets using AutoSite ....\nScanning at: -0.36 -0.792 -0.6\nclust.| Energy| # of |Rad. of | energy |   bns    |score   |\nnumber|       |points|gyration|per vol.|buriedness|v*b^2/rg|\n------+-------+------+--------+--------+----------+--------|\n    1   -39.92    73    3.10    -0.55     0.885     18.48 \nScanning at: -0.315 -0.693 -0.525\nclust.| Energy| # of |Rad. of | energy |   bns    |score   |\nnumber|       |points|gyration|per vol.|buriedness|v*b^2/rg|\n------+-------+------+--------+--------+----------+--------|\n    1   -53.04    82    2.87    -0.65     0.907     23.49 \n    2   -50.19    90    3.24    -0.56     0.890     22.01 \nScanning at: -0.27 -0.594 -0.45\nclust.| Energy| # of |Rad. of | energy |   bns    |score   |\nnumber|       |points|gyration|per vol.|buriedness|v*b^2/rg|\n------+-------+------+--------+--------+----------+--------|\n    1  -170.26   313    6.04    -0.54     0.801     33.26 \n    2   -95.79   169    4.19    -0.57     0.815     26.77 \n    3   -47.08    85    3.15    -0.55     0.684     12.61 \nScanning at: -0.225 -0.495 -0.375\nclust.| Energy| # of |Rad. of | energy |   bns    |score   |\nnumber|       |points|gyration|per vol.|buriedness|v*b^2/rg|\n------+-------+------+--------+--------+----------+--------|\n    1  -489.13   973   10.33    -0.50     0.739     51.37 \n    2   -32.07    54    2.10    -0.59     0.720     13.35 \n    found 4 pocket(s)\n\n    pocket|  energy | # of |Rad. of | energy |   bns    | score  \n    number|         |points|gyration|per vol.|buriedness|v*b^2/rg\n    ------+---------+------+--------+--------+----------+---------\n        1   -208.12   447    6.30     -0.47      0.84      49.87\n        2   -118.34   237    4.75     -0.50      0.88      38.23\n        3    -45.77    97    2.82     -0.47      0.83      23.59\n        4    -59.14   122    3.62     -0.48      0.82      22.42\n    merging clusters ...\ndone. got 119 fill Points, in 5.96 (sec)\n\nsetting map types using: all to ['HS', 'Mg', 'HD', 'NA', 'Fe', 'Br', 'NS', 'A', 'C', 'Mn', 'G', 'F', 'I', 'H', 'J', 'N', 'Q', 'P', 'S', 'GA', 'Z', 'Zn', 'Cl', 'Ca', 'OA', 'SA', 'OS']\n\ncomputing maps for center=(29.694 -16.993 -4.930) size=(24.750 33.750 19.500) dims=(66 90 52) ...\n    113 points inside the box\n\n    maps computed in 4.07 (sec)\nmaking target file 5GRD.trg ...done.\n    done. 9.11 (sec)",
+    "crumbs": [
+      "Version 1.0 (deprecated)",
+      "Tutorial: cyclic peptide"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.0/tutorial-cyclic.html#dock-the-cyclic-peptide",
+    "href": "software/adcp/1.0/tutorial-cyclic.html#dock-the-cyclic-peptide",
+    "title": "Tutorial: re-docking a cyclic peptide",
+    "section": "2. Dock the cyclic peptide",
+    "text": "2. Dock the cyclic peptide\nadcp -t 5GRD.trg -s sscsscplsk -N 20 -n 500000 -cys -o 5GRD_redocking -ref 5GRD_pepH.pdbqt -nc 0.8\nTwo options are added compared with the linear peptide:\n\n\n\n\n\n\n\nOption\nMeaning\n\n\n\n\n-cys\nenables the potential for disulfide bonds\n\n\n-nc 0.8\nclusters by native contacts; recommended for larger peptides\n\n\n\nThe run writes:\n\n\n\n\n\n\n\nFile\nContent\n\n\n\n\n5GRD_redocking_ranked_*.pdb\nfinal solutions, ranked after clustering\n\n\n5GRD_redocking_*.pdb\nthe Monte Carlo trajectory of each replica\n\n\n5GRD_redocking_*.out\ndetailed output of each replica\n\n\n\nExample output (abridged; the full run lists 100 modes):\nDetected 8 cores, using 8 cores\nusing ramaprob.data in current folder\nPerforming search (20 ADCP runs with 5000000 steps each) ...\n0%   10   20   30   40   50   60   70   80   90   100%\n|----|----|----|----|----|----|----|----|----|----|\nDocking performed in 687.79 seconds, i.e. 0 hours 11 minutes 27.785609 seconds \nfinish calculating neighbors for 2908 poses with 4.2 seconds\nmode |  affinity  | ref. | clust. | rmsd | energy | best |\n     | (kcal/mol) | fnc  |  size  | stdv |  stdv  | run  |\n-----+------------+------+--------+------+--------+------+\n   1        -27.1    0.975      12      NA      NA    493 \n   2        -25.6    1.000       8      NA      NA    484 \n   3        -24.2    0.975       3      NA      NA    476 \n   4        -23.9    0.875      22      NA      NA    1967 \n   5        -23.4    0.925       3      NA      NA    472 \n   6        -22.6    0.825      30      NA      NA    468 \n   7        -22.3    0.775       4      NA      NA    1975 \n   8        -21.5    0.800       1      NA      NA    498 \n   9        -21.4    0.600      46      NA      NA    2540 \n  10        -21.3    0.825       4      NA      NA    1944 \n  11        -21.1    0.775       1      NA      NA    500 \n  12        -20.6    0.675      17      NA      NA    1940 \n  13        -20.4    0.675       1      NA      NA    1977 \n  14        -20.4    0.700      10      NA      NA    436 \n  15        -20.4    0.075      30      NA      NA    1562 \n  16        -20.3    0.725      12      NA      NA    1968 \n  17        -20.2    0.725       1      NA      NA    494 \n  18        -19.9    0.725       1      NA      NA    502 \n...\n\n\n\n\n\n\nImportant\n\n\n\nDocking cyclic peptides is very hard. This tutorial only shows how to use ADCP; for production runs, use more replicas with more Monte Carlo steps.\n\n\n\n\n\n\n\n\nNoteReview note (prototype only)\n\n\n\n\n\nThe example output says “20 ADCP runs with 5000000 steps each”, but the command uses -n 500000. One of the two is wrong on the CCSB page.",
+    "crumbs": [
+      "Version 1.0 (deprecated)",
+      "Tutorial: cyclic peptide"
+    ]
+  },
+  {
+    "objectID": "software/adcp/license.html",
+    "href": "software/adcp/license.html",
+    "title": "License",
+    "section": "",
+    "text": "ADCP 1.1: see the license file in the GitHub repository.\nADFRsuite 1.0 (includes ADCP 1.0): the suite contains several programs and components. Unless otherwise specified, they are provided under the LGPL2 open-source license.\nThe one exception is the MSMS program and the MSLIB component, which compute molecular surfaces. They are free for academic research but need a license for commercial use. Of the suite’s programs, only agfrgui uses them, for surface calculation and display. They are not used by adfr, agfr, autosite, adcp, prepare_ligand or prepare_receptor.\nFor a commercial license for MSMS and MSLIB, contact Dr. Michel Sanner.\n\n\n\n Back to top",
+    "crumbs": [
+      "License"
+    ]
+  },
+  {
+    "objectID": "software/index.html",
+    "href": "software/index.html",
+    "title": "Software",
+    "section": "",
+    "text": "Software developed in the lab. Each tool has an overview, downloads, documentation and tutorials. Pages are being moved here from the CCSB website; tools marked moving still link there.\n\n\ncurrent: 1.1\n\nAutoDock CrankPep (ADCP)\nDocking of linear and cyclic peptides by combining folding and docking.\n\n\n\nmoving\n\nAutoDockFR (ADFR)\nProtein–ligand docking with explicitly specified receptor flexibility.\n\n\n\nmoving\n\nAutoGridFR (AGFR)\nPrepares receptors for docking: docking box, binding pockets, affinity maps and target files.\n\n\n\nmoving\n\nAutoSite\nIdentifies ligand-binding pockets from affinity maps.\n\n\n\ntest\n\nADapt\nPrepares receptor and ligand PDBQT files for AutoDock from a PDB entry, in a web browser.\n\n\n\nmoving\n\nMSMS\nComputes molecular surfaces. Free for academic use; commercial use needs a license.\n\n\n\nmoving\n\nMGLTools\nThe lab’s molecular graphics and modeling software, including PMV and AutoDockTools.\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "software/agfr.html",
+    "href": "software/agfr.html",
+    "title": "AutoGridFR (AGFR)",
+    "section": "",
+    "text": "AutoGridFR prepares a receptor for docking with AutoDockFR, AutoDock CrankPep and AutoDock4. It sets up the docking box, finds binding pockets with AutoSite, computes affinity maps with AutoGrid4 and saves them in a single target file (.trg). It supports flexible side chains, covalent docking and water maps for hydrated docking.\n\n\n\n\n\n\nNote\n\n\n\nThis page is being moved from the CCSB website. Until then, overview, downloads, documentation and tutorials are at ccsb.scripps.edu/agfr.\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "software/adapt.html",
+    "href": "software/adapt.html",
+    "title": "ADapt",
+    "section": "",
+    "text": "ADapt prepares receptor and ligand PDBQT files for AutoDock from a PDB entry, in a web browser.\nRead the ADapt documentation →\n\n\n\n\n\n\nWarning\n\n\n\nADapt is unreleased. These documentation pages are a test copy.\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Sanner Lab",
+    "section": "",
+    "text": "The Sanner Lab develops computational methods for predicting molecular interactions, including AutoDock4 and tools for docking small molecules, proteins and peptides. The lab also builds reusable software components that can be assembled quickly into custom applications, such as PMV, AutoDockTools and the visual programming environment Vision.\n\n\nSoftware\nAutoDock CrankPep, AutoDockFR, AutoGridFR, AutoSite, ADapt, MSMS and MGLTools: downloads, documentation and tutorials.\n\n\nLab\nWho we are.\n\n\nPublications\nPapers from the lab.\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "publications.html",
+    "href": "publications.html",
+    "title": "Publications",
+    "section": "",
+    "text": "44 journal and preprint papers by Michel Sanner and colleagues, newest first."
+  },
+  {
+    "objectID": "publications.html#section",
+    "href": "publications.html#section",
+    "title": "Publications",
+    "section": "2025",
+    "text": "2025\n\n\nSulfoxide-diazirine (SODA) as a Cleavable Photoaffinity Group To Enable the Identification of Photolabeled Modification Sites via LC–MS3Suyuan Chen, Michel F. Sanner, Denise-Liu′ Gracias Leone, Stefan Loroch, Stefano Forli, Steven H. L. Verhelst. Analytical Chemistry (2025)."
+  },
+  {
+    "objectID": "publications.html#section-1",
+    "href": "publications.html#section-1",
+    "title": "Publications",
+    "section": "2023",
+    "text": "2023\n\n\nDocking Peptides into HIV/FIV Protease with Deep Learning and Focused Peptide Docking MethodsKatherine Ge, Dayna Olson, Michel F. Sanner. arXiv (2023).\n\n\nPredicting Protein–Peptide Interactions: Benchmarking Deep Learning Techniques and a Comparison with Focused DockingSudhanshu Shanker, Michel F. Sanner. Journal of Chemical Information and Modeling (2023)."
+  },
+  {
+    "objectID": "publications.html#section-2",
+    "href": "publications.html#section-2",
+    "title": "Publications",
+    "section": "2021",
+    "text": "2021\n\n\nImproving Docking Power for Short Peptides Using Random ForestMichel F. Sanner, Leonard Dieguez, Stefano Forli, Ewa Lis. Journal of Chemical Information and Modeling (2021).\n\n\nCyclic Peptides as Protein Kinase Inhibitors: Structure–Activity Relationship and Molecular ModelingMichel F. Sanner, Khalid Zoghebi, Samara Hanna, Saghar Mozaffari, Simin Rahighi, Rakesh K. Tiwari, Keykavous Parang. Journal of Chemical Information and Modeling (2021).\n\n\nAccelerating AutoDock4 with GPUs and Gradient-Based Local SearchDiogo Santos-Martins, Leonardo Solis-Vasquez, Andreas F Tillack, Michel F Sanner, Andreas Koch, Stefano Forli. Journal of Chemical Theory and Computation (2021)."
+  },
+  {
+    "objectID": "publications.html#section-3",
+    "href": "publications.html#section-3",
+    "title": "Publications",
+    "section": "2020",
+    "text": "2020\n\n\nThe AutoDock suite at 30David S. Goodsell, Michel F. Sanner, Arthur J. Olson, Stefano Forli. Protein Science (2020).\n\n\nC‐terminal residues of activated protein C light chain contribute to its anticoagulant and cytoprotective activitiesAtsuki Yamashita, Yuqi Zhang, Michel F. Sanner, John H. Griffin, Laurent O. Mosnier. Journal of Thrombosis and Haemostasis (2020)."
+  },
+  {
+    "objectID": "publications.html#section-4",
+    "href": "publications.html#section-4",
+    "title": "Publications",
+    "section": "2019",
+    "text": "2019\n\n\nDocking Flexible Cyclic Peptides with AutoDock CrankPepYuqi Zhang, Michel F. Sanner. Journal of Chemical Theory and Computation (2019).\n\n\nAutoGridFR: Improvements on AutoDock Affinity Maps and Associated Software ToolsYuqi Zhang, Stefano Forli, Anna Omelchenko, Michel F. Sanner. Journal of Computational Chemistry (2019).\n\n\nAutoDock CrankPep: combining folding and docking to predict protein–peptide complexesYuqi Zhang, Michel F Sanner. Bioinformatics (2019)."
+  },
+  {
+    "objectID": "publications.html#section-5",
+    "href": "publications.html#section-5",
+    "title": "Publications",
+    "section": "2017",
+    "text": "2017\n\n\nActivated protein C light chain provides an extended binding surface for its anticoagulant cofactor, protein SJosé A. Fernández, Xiao Xu, Ranjeet K. Sinha, Laurent O. Mosnier, Michel F. Sanner, John H. Griffin. Blood Advances (2017)."
+  },
+  {
+    "objectID": "publications.html#section-6",
+    "href": "publications.html#section-6",
+    "title": "Publications",
+    "section": "2016",
+    "text": "2016\n\n\nAutoSite: an automated approach for pseudo-ligands prediction—from ligand-binding sites identification to predicting key ligand atomsPradeep Anand Ravindranath, Michel F. Sanner. Bioinformatics (2016).\n\n\nComputational protein–ligand docking and virtual drug screening with the AutoDock suiteStefano Forli, Ruth Huey, Michael E Pique, Michel F Sanner, David S Goodsell, Arthur J Olson. Nature Protocols (2016)."
+  },
+  {
+    "objectID": "publications.html#section-7",
+    "href": "publications.html#section-7",
+    "title": "Publications",
+    "section": "2015",
+    "text": "2015\n\n\nAutoDockFR: Advances in Protein-Ligand Docking with Explicitly Specified Binding Site FlexibilityPradeep Anand Ravindranath, Stefano Forli, David S. Goodsell, Arthur J. Olson, Michel F. Sanner. PLOS Computational Biology (2015)."
+  },
+  {
+    "objectID": "publications.html#section-8",
+    "href": "publications.html#section-8",
+    "title": "Publications",
+    "section": "2014",
+    "text": "2014\n\n\ncellPACK: a virtual mesoscope to model and visualize structural systems biologyGraham T Johnson, Ludovic Autin, Mostafa Al-Alusi, David S Goodsell, Michel F Sanner, Arthur J Olson. Nature Methods (2014).\n\n\n3D molecular models of whole HIV-1 virions generated with cellPACKGraham T. Johnson, David S. Goodsell, Ludovic Autin, Stefano Forli, Michel F. Sanner, Arthur J. Olson. Faraday Discuss. (2014)."
+  },
+  {
+    "objectID": "publications.html#section-9",
+    "href": "publications.html#section-9",
+    "title": "Publications",
+    "section": "2013",
+    "text": "2013\n\n\nProtein-Protein Docking with F2Dock 2.0 and GB-RerankRezaul Chowdhury, Muhibur Rasheed, Donald Keidel, Maysam Moussalem, Arthur Olson, Michel Sanner, Chandrajit Bajaj. PLoS ONE (2013)."
+  },
+  {
+    "objectID": "publications.html#section-10",
+    "href": "publications.html#section-10",
+    "title": "Publications",
+    "section": "2012",
+    "text": "2012\n\n\nuPy: A Ubiquitous CG Python API with Biological-Modeling ApplicationsL. Autin, G. Johnson, J. Hake, A. Olson, M. Sanner. IEEE Computer Graphics and Applications (2012)."
+  },
+  {
+    "objectID": "publications.html#section-11",
+    "href": "publications.html#section-11",
+    "title": "Publications",
+    "section": "2011",
+    "text": "2011\n\n\nePMV Embeds Molecular Modeling into Professional Animation Software EnvironmentsGraham T. Johnson, Ludovic Autin, David S. Goodsell, Michel F. Sanner, Arthur J. Olson. Structure (2011)."
+  },
+  {
+    "objectID": "publications.html#section-12",
+    "href": "publications.html#section-12",
+    "title": "Publications",
+    "section": "2009",
+    "text": "2009\n\n\nDerivation of a Retinoid X Receptor Scaffold from Peroxisome Proliferator‐Activated Receptor γ Ligand 1‐Di(1H‐indol‐3‐yl)methyl‐4‐trifluoromethylbenzeneMarcia I. Dawson, Mao Ye, Xihua Cao, Lulu Farhana, Qiong‐Ying Hu, Yong Zhao, Li Ping Xu, Alice Kiselyuk, Ricardo G. Correa, Li Yang, Tingjun Hou, John C. Reed, Pamela Itkin‐Ansari, Fred Levine, Michel F. Sanner, Joseph A. Fontana, Xiao‐Kun Zhang. ChemMedChem (2009).\n\n\nAutoDock4 and AutoDockTools4: Automated docking with selective receptor flexibilityGarrett M. Morris, Ruth Huey, William Lindstrom, Michel F. Sanner, Richard K. Belew, David S. Goodsell, Arthur J. Olson. Journal of Computational Chemistry (2009)."
+  },
+  {
+    "objectID": "publications.html#section-13",
+    "href": "publications.html#section-13",
+    "title": "Publications",
+    "section": "2008",
+    "text": "2008\n\n\nShape complementarity of protein–protein complexes at multiple resolutionsQing Zhang, Michel Sanner, Arthur J. Olson. Proteins: Structure, Function, and Bioinformatics (2008)."
+  },
+  {
+    "objectID": "publications.html#section-14",
+    "href": "publications.html#section-14",
+    "title": "Publications",
+    "section": "2007",
+    "text": "2007\n\n\nProtein–ligand docking with multiple flexible side chainsYong Zhao, Michel F. Sanner. Journal of Computer-Aided Molecular Design (2007).\n\n\nA dynamical study of antibody–antigen encounter reactionsLorenzo Bongini, Duccio Fanelli, Francesco Piazza, Paolo De Los Rios, Michel Sanner, Ulf Skoglund. Physical Biology (2007).\n\n\nFLIPDock: Docking flexible ligands into flexible receptorsYong Zhao, Michel F. Sanner. Proteins: Structure, Function, and Bioinformatics (2007)."
+  },
+  {
+    "objectID": "publications.html#section-15",
+    "href": "publications.html#section-15",
+    "title": "Publications",
+    "section": "2006",
+    "text": "2006\n\n\nHierarchical and multi-resolution representation of protein flexibilityYong Zhao, Daniel Stoffler, Michel Sanner. Bioinformatics (2006)."
+  },
+  {
+    "objectID": "publications.html#section-16",
+    "href": "publications.html#section-16",
+    "title": "Publications",
+    "section": "2005",
+    "text": "2005\n\n\nTangible Augmented Interfaces for Structural Molecular BiologyA. Gillet, M. Sanner, D. Stoffler, A. Olson. IEEE Computer Graphics and Applications (2005).\n\n\nA Component-Based Software Environment for Visualizing Large Macromolecular AssembliesMichel F. Sanner. Structure (2005).\n\n\nTangible Interfaces for Structural Molecular BiologyAlexandre Gillet, Michel Sanner, Daniel Stoffler, Arthur Olson. Structure (2005).\n\n\nVisualizing Nature at Work from the Nano to the Macro ScaleMichel F. Sanner, Martin Stolz, Peter Burkhard, Xiang-Peng Kong, Guangwei Min, Tung-Tien Sun, Sergey Driamov, Ueli Aebi, Daniel Stoffler. Nanobiotechnology (2005)."
+  },
+  {
+    "objectID": "publications.html#section-17",
+    "href": "publications.html#section-17",
+    "title": "Publications",
+    "section": "2002",
+    "text": "2002\n\n\nModel of the αLβ2 integrin I‐domain/ICAM‐1 DI interface suggests that subtle changes in loop orientation determine ligand specificityGlen B. Legge, Garrett M. Morris, Michel F. Sanner, Yoshikazu Takada, Arthur J. Olson, Flavio Grynszpan. Proteins: Structure, Function, and Bioinformatics (2002).\n\n\nEvolutionary analysis of HIV‐1 protease inhibitors: Methods for design of inhibitors that evade resistanceDaniel Stoffler, Michel F. Sanner, Garrett M. Morris, Arthur J. Olson, David S. Goodsell. Proteins: Structure, Function, and Bioinformatics (2002)."
+  },
+  {
+    "objectID": "publications.html#section-18",
+    "href": "publications.html#section-18",
+    "title": "Publications",
+    "section": "2001",
+    "text": "2001\n\n\nAutomated docking to multiple target structures: Incorporation of protein mobility and structural water heterogeneity in AutoDockFredrik Österberg, Garrett M. Morris, Michel F. Sanner, Arthur J. Olson, David S. Goodsell. Proteins: Structure, Function, and Bioinformatics (2001)."
+  },
+  {
+    "objectID": "publications.html#section-19",
+    "href": "publications.html#section-19",
+    "title": "Publications",
+    "section": "1999",
+    "text": "1999\n\n\nThe discovery of steroids and other novel FKBP inhibitors using a molecular docking programP. Burkhard, U. Hommel, M. Sanner, M.D. Walkinshaw. Journal of Molecular Biology (1999).\n\n\nPython: a programming language for software integration and development.M F Sanner. Journal of molecular graphics & modelling (1999)."
+  },
+  {
+    "objectID": "publications.html#section-20",
+    "href": "publications.html#section-20",
+    "title": "Publications",
+    "section": "1997",
+    "text": "1997\n\n\nRecognition of protein structure on coarse lattices with residue- residue energy functionsB. A. Reva, A. V. Finkelstein, M. Sanner, A. J. Olson, J. Skolnick. Protein Engineering Design and Selection (1997).\n\n\nResidue-residue mean-force potentials for protein structure recognitionB. A. Reva, A. V. Finkelstein, M. F. Sanner, A. J. Olson. Protein Engineering Design and Selection (1997).\n\n\nDesign and Synthesis of Transition State Analogs for Induction of Hydride Transfer Catalytic AntibodiesJosef Schröer, Michel Sanner, Jean-Louis Reymond. The Journal of Organic Chemistry (1997)."
+  },
+  {
+    "objectID": "publications.html#section-21",
+    "href": "publications.html#section-21",
+    "title": "Publications",
+    "section": "1996",
+    "text": "1996\n\n\nAdjusting potential energy functions for lattice models of chain moleculesBoris A. Reva, Alexei V. Finkelstein, Michel F. Sanner, Arthur J. Olson. Proteins: Structure, Function, and Genetics (1996).\n\n\nLattice modeling: Accuracy of energy calculationsBoris A. Reva, Michel F. Sanner, Arthur J. Olson, Alexei V. Finkelstein. Journal of Computational Chemistry (1996).\n\n\nReduced surface: An efficient way to compute molecular surfacesMichel F. Sanner, Arthur J. Olson, Jean-Claude Spehner. Biopolymers (1996)."
+  },
+  {
+    "objectID": "publications.html#section-22",
+    "href": "publications.html#section-22",
+    "title": "Publications",
+    "section": "1990",
+    "text": "1990\n\n\nConformational studies of cyclic peptide structures in solution from 1H‐Nmr data by distance geometry calculation and restrained energy minimizationHans Senn, Hans‐Rudolf Loosli, Michel Sanner, Werner Braun. Biopolymers (1990)."
+  },
+  {
+    "objectID": "publications.html#section-23",
+    "href": "publications.html#section-23",
+    "title": "Publications",
+    "section": "1989",
+    "text": "1989\n\n\nGEOM: A new tool for molecular modelling based on distance geometry calculations with NMR dataMichel Sanner, Armin Widmer, Hans Senn, Werner Braun. Journal of Computer-Aided Molecular Design (1989)."
+  }
+]
