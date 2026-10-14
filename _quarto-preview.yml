@@ -1,0 +1,13 @@
+# Profile for the test copy at https://sannerlab.github.io/preview/quarto/
+# Build with: quarto render --profile preview
+website:
+  site-url: https://sannerlab.github.io/preview/quarto
+  announcement:
+    content: "**Preview** of the new lab website. The current site is at [sannerlab.github.io](https://sannerlab.github.io)."
+    type: warning
+    dismissable: false
+    position: below-navbar
+format:
+  html:
+    include-in-header:
+      text: '<meta name="robots" content="noindex, nofollow">'

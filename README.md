@@ -8,6 +8,7 @@ versions). The live site is still the Jekyll site on `main`.
 
     quarto preview          # live preview, rebuilds on save
     quarto render           # full build into _site/
+    bash _scripts/deploy-preview.sh   # publish to sannerlab.github.io/preview/quarto/ (noindex, banner)
 
 `_scripts/publications.py` runs before every render and writes `publications.qmd` from
 `_data/citations.yaml` (copied from the Jekyll site; add DOIs to `_data/sources.yaml`).
