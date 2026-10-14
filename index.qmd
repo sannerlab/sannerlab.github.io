@@ -1,0 +1,30 @@
+---
+title: "Sanner Lab"
+subtitle: "Scripps Research, La Jolla"
+toc: false
+---
+
+The Sanner Lab develops computational methods for predicting molecular interactions, including
+AutoDock4 and tools for docking small molecules, proteins and peptides. The lab also builds
+reusable software components that can be assembled quickly into custom applications, such as PMV,
+AutoDockTools and the visual programming environment Vision.
+
+::: {.tool-grid}
+
+::: {.tool-card}
+### [Software](software/index.qmd)
+AutoDock CrankPep, AutoDockFR, AutoGridFR, AutoSite, ADapt, MSMS and MGLTools: downloads,
+documentation and tutorials.
+:::
+
+::: {.tool-card}
+### [Lab](lab.qmd)
+Who we are.
+:::
+
+::: {.tool-card}
+### [Publications](publications.qmd)
+Papers from the lab.
+:::
+
+:::

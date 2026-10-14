@@ -1,0 +1,10 @@
+---
+title: "AutoGridFR (AGFR)"
+---
+
+AutoGridFR prepares a receptor for docking with AutoDockFR, AutoDock CrankPep and AutoDock4. It sets up the docking box, finds binding pockets with AutoSite, computes affinity maps with AutoGrid4 and saves them in a single target file (.trg). It supports flexible side chains, covalent docking and water maps for hydrated docking.
+
+::: {.callout-note}
+This page is being moved from the CCSB website. Until then, overview, downloads, documentation
+and tutorials are at **[ccsb.scripps.edu/agfr](https://ccsb.scripps.edu/agfr/)**.
+:::

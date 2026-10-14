@@ -1,0 +1,92 @@
+---
+title: "ADCP 1.0 on Windows 10 and later (WSL)"
+---
+
+{{< include /_includes/adcp-1.0-banner.md >}}
+
+Since Windows 10 you can run a Linux subsystem on Windows (Windows Subsystem for Linux, WSL).
+With it enabled, you can install the Linux 64-bit build of ADFRsuite and run ADCP.
+
+This page shows how to enable WSL, install Ubuntu 20.04 and install ADFRsuite 1.0 to run ADCP.
+
+::: {.callout-note}
+This setup runs command-line programs only. Graphical interfaces such as AGFRGUI need an X server
+for Windows and will not work.
+:::
+
+## Enable WSL and install Ubuntu
+
+1. Control Panel → Programs → Turn Windows Features On Or Off. Enable "Windows Subsystem for
+   Linux" and click OK.
+2. Click "Restart now" to reboot Windows.
+3. Open the Microsoft Store (Start menu, type *store*), search for Ubuntu and get Ubuntu 20.04.
+4. Launch Ubuntu (Start → Ubuntu). The first time, you are asked for a UNIX user name and
+   password.
+
+You now have a working Ubuntu subsystem.
+
+::: {.callout-tip}
+Windows files are visible under `/mnt/c`. Files downloaded with a Windows browser are in
+`/mnt/c/Users/yourname/Downloads`.
+:::
+
+## Install ADFRsuite (Linux 64-bit)
+
+1. Get the [Linux 64-bit tarball](download.qmd).
+2. In the Ubuntu shell:
+
+```bash
+mv /mnt/c/Users/myUserName/Downloads/ADFRsuite_x86_64Linux_1.0.tar.gz .
+tar zxvf ADFRsuite_x86_64Linux_1.0.tar.gz
+cd ADFRsuite_x86_64Linux_1.0
+bash ./install.sh -d ../ADFR10 -c 0   # you must type "bash" for this to work
+cd ..
+sudo apt-get install libgomp1
+sudo apt-get install unzip
+```
+
+3. Replace `reduce` with a 64-bit version: download
+   [reduce64Bit.exe](https://ccsb.scripps.edu/adcp/wp-content/uploads/sites/38/2021/12/reduce64Bit.exe)
+   and move it into place. The `reduce` shipped with the installer is 32-bit and fails under WSL.
+
+```bash
+mv /mnt/c/Users/myUserName/Downloads/reduce64Bit.exe ADFR10/bin/reduce
+```
+
+You can now download the tutorial files and run dockings.
+
+## Dock with ADCP
+
+Download the [tutorial data](https://ccsb.scripps.edu/adcp/download/1063/), then follow the
+[re-docking tutorial](tutorial-redocking.qmd):
+
+```bash
+mv /mnt/c/Users/myUserName/Downloads/ADCP_tutorial_data.zip .
+unzip ADCP_tutorial_data.zip
+cd ADCP_tutorial_data/3Q47
+../../ADFR10/bin/reduce 3Q47_rec.pdb > 3Q47_recH.pdb
+../../ADFR10/bin/reduce 3Q47_pep.pdb > 3Q47_pepH.pdb
+../../ADFR10/bin/prepare_receptor -r 3Q47_recH.pdb
+../../ADFR10/bin/prepare_ligand -l 3Q47_pepH.pdb
+../../ADFR10/bin/agfr -r 3Q47_recH.pdbqt -l 3Q47_pepH.pdbqt -asv 1.1 -o 3Q47 -ng
+../../ADFR10/bin/adcp -t 3Q47.trg -s npisdvd -N 20 -n 1000000 -o 3Q47_redocking -ref 3Q47_pepH.pdb
+```
+
+## Dock with ADFR
+
+From the [ADFR re-docking tutorial](https://ccsb.scripps.edu/adfr/tutorial-redocking/). Download
+the [ADFR tutorial data](https://ccsb.scripps.edu/adfr/documentation), then:
+
+```bash
+mv /mnt/c/Users/myUserName/Downloads/ADFRsuite-1.0_tutorial_data.zip .
+unzip ADFRsuite-1.0_tutorial_data.zip
+./ADFR10/bin/agfr -r data/4EK3_rec.pdbqt -l data/4EK4_lig.pdbqt -o ligPocket -ng
+./ADFR10/bin/adfr -l data/4EK4_random.pdbqt -t ligPocket.trg -J rigid -n 8 -e 20000 -O -s 1
+```
+
+::: {.callout-note collapse="true"}
+## Review note (prototype only)
+The CCSB page linked to a WSL installation guide whose URL is broken
+(`http://se-the-linux-bash-shell-on-windows-10/`), so the link was dropped. Ubuntu 20.04 and
+the Control Panel steps are dated; current Windows installs WSL with `wsl --install`.
+:::

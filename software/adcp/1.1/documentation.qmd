@@ -1,0 +1,358 @@
+---
+title: "ADCP 1.1 documentation"
+---
+
+::: {.callout-note}
+The CCSB page for this version says it is under construction. For now it gives a few example
+runs that show the new capabilities of version 1.1.
+:::
+
+To run these examples, download the [receptor](https://ccsb.scripps.edu/adcpv11/download/436/)
+and the [ligand](https://ccsb.scripps.edu/adcpv11/download/471/) for PDB 3Q47.
+
+## Create a target file
+
+This command computes the target file `3Q47.trg`:
+
+```bash
+agfr -r 3Q47_recH.pdbqt -l 3Q47_pepH.pdbqt -asv 1.1 -o 3Q47
+```
+
+`agfr` runs AutoGridFR, which computes target files.
+
+| Option | Meaning |
+|---|---|
+| `-r` | the receptor, here as a PDBQT file |
+| `-l` | the ligand, here the crystallographic peptide. When a ligand is given, agfr defines the docking box as the ligand's bounding box with 4 Å padding. |
+| `-asv 1.1` | compute the preferred starting ligand positions in the box with AutoSite 1.1, rather than 1.0, which is meant for small molecules |
+| `-o 3Q47` | name of the target file to write (`3Q47.trg`) |
+
+::: {.callout-note collapse="true"}
+## Console output
+```
+processing: 3Q47_recH.pdbqt
+loading ligand: 3Q47_pepH.pdbqt
+
+set box using ligand
+    Box center:    16.052     9.415     5.617
+    Box length:    20.250    21.000    21.000
+    Box size  :        54        56        56
+    padding   :     4.000
+    spacing   :     0.375
+
+identifying pockets using AutoSite ....
+Scanning at: -0.36 -0.792 -0.6
+0 #: 0
+Scanning at: -0.315 -0.6930000000000001 -0.525
+clust.| Energy| # of |Rad. of | energy |   bns    |score   |
+number|       |points|gyration|per vol.|buriedness|v*b^2/rg|
+------+-------+------+--------+--------+----------+--------|
+    1   -33.10    59    2.50    -0.56     0.729     12.54 
+Scanning at: -0.27 -0.5940000000000001 -0.44999999999999996
+clust.| Energy| # of |Rad. of | energy |   bns    |score   |
+number|       |points|gyration|per vol.|buriedness|v*b^2/rg|
+------+-------+------+--------+--------+----------+--------|
+    1   -46.45    88    2.95    -0.53     0.772     17.78 
+    2   -34.12    68    2.32    -0.50     0.756     16.79 
+    3   -46.16    84    2.74    -0.55     0.715     15.65 
+Scanning at: -0.22499999999999998 -0.495 -0.375
+clust.| Energy| # of |Rad. of | energy |   bns    |score   |
+number|       |points|gyration|per vol.|buriedness|v*b^2/rg|
+------+-------+------+--------+--------+----------+--------|
+    1   -86.02   169    3.58    -0.51     0.741     25.87 
+    2   -66.14   140    3.26    -0.47     0.664     18.92 
+    3   -73.08   162    4.53    -0.45     0.689     16.97 
+    found 3 pocket(s)
+
+    pocket|  energy | # of |Rad. of | energy |   bns    | score  
+    number|         |points|gyration|per vol.|buriedness|v*b^2/rg
+    ------+---------+------+--------+--------+----------+---------
+        1   -102.22   260    4.15     -0.39      0.82      41.58
+        2    -83.99   236    4.02     -0.36      0.77      34.84
+        3    -92.58   265    4.92     -0.35      0.78      32.82
+    merging clusters ...
+done. got 107 fill Points, in 1.80 (sec)
+
+setting map types using: all to ['H', 'HD', 'HS', 'C', 'A', 'G', 'GA', 'J', 'Q', 'N', 'NA', 'NS', 'OA', 'OS', 'SA', 'S', 'P', 'F', 'Cl', 'Br', 'I', 'Mg', 'Ca', 'Mn', 'Fe', 'Zn', 'Z']
+
+computing maps for center=(16.052 9.415 5.617) size=(20.250 21.000 21.000) dims=(54 56 56) ...
+    106 points inside the box
+
+    maps computed in 1.93 (sec)
+making target file 3Q47.trg ...done.
+    done. 4.30 (sec)
+```
+:::
+
+## Run ADCP with modified amino acids
+
+```bash
+adcp -T 3Q47.trg -s "n<BHD>pis&dvd" -N 2 -n 2000 -L swiss -w testDir -o testNSAAandD
+```
+
+In version 1.1 the peptide sequence can contain non-natural amino acids, written as
+**`[&]x<NAME>`**:
+
+- The optional `&` makes the amino acid D instead of the default L chirality.
+- `x` is the coarse bead that represents the side chain. Any one-letter code of a natural amino
+  acid can be used here.
+- The modified side chain's name goes between chevrons, `<>`.
+
+In the example, the first amino acid is represented as an asparagine in the coarse model, and an
+asparagine derivative side chain (BHD) from the Swiss side-chain library is used for the
+full-atom representation. The peptide also contains a D-aspartic acid at position 5.
+
+::: {.callout-tip}
+The modified side chain is loaded from a library file, here the Swiss library selected with
+`-L swiss`.
+:::
+
+This example runs only 2 Monte Carlo searches (`-N 2`) of 2000 evaluations each, so that it
+finishes quickly; it is not meant to find real docked poses. It writes two files into the
+working directory `testDir` (`-w`):
+
+- `testNSAAandD_out.pdb`: a multi-model PDB file with the docked poses
+- `testNSAAandD_summary.dlg`: the docking log
+
+::: {.callout-note collapse="true"}
+## Console output
+```
+Inflating target file 3Q47.trg
+performing MC searches with: /home/xxxxxxx/micromamba/envs/adcpsuite/lib/python3.7/site-packages/ADCP/CrankiteAD_Linux-x86_64_1.1 
+target data from file: 3Q47.trg
+job name: testNSAAandD, summary file testNSAAandD_summary.dlg, docked poses: testNSAAandD_out.pdb
+Detected 8 cores, using 8 cores.
+using system rotamer libraries swiss from /home/xxxxxxx/micromamba/envs/adcpsuite/lib/python3.7/site-packages/ADCP/data/rotamers
+Performing 2 MC searches using 2000 evals each using a random seed.
+Performing search (2 ADCP runs with 2000 steps each) ...
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+Docking performed in 2.03 seconds, i.e. 0 hours 00 minutes 02.030427 seconds 
+bestEnergies [12.8321, 11.8518] 
+bestEnergy in run 2 11.851800 (0)
+Analyzing results ....
+concatenating trajectories for run with best energy < 31.851800
+concatenated 2 trajectories
+Clustering MC trajectories based in contacts using cutoff: 0.800000
+finished calculating neighbors for 22 poses with 0.0 seconds
+mode |  affinity  | ref. | clust. | rmsd | energy | best |
+     | (kcal/mol) | fnc  |  size  | stdv |  stdv  | run  |
+-----+------------+------+--------+------+--------+------+
+   1          7.0      0.0       2      NA      NA    015 
+   2          7.6      0.0       2      NA      NA    008 
+   3         12.5      0.0       1      NA      NA    009 
+Calculations completed 2.12 seconds, i.e. 0 hours 00 minutes 02.030427 seconds 
+MC search command: cd testDir/testNSAAandD; /home/xxxxxxx/micromamba/envs/adcpsuite/lib/python3.7/site-packages/ADCP/CrankiteAD_Linux-x86_64_1.1 -t 2 "n<BHD>pis&dvd" -L swiss -T /home/xxxxxxx/ADCP_examples/testDir/testNSAAandD/3Q47 -r 1x2000 -p Bias=NULL,external=5,constrains,1.0,1.0,Opt=1,0.25,0.75,0.0 -s 930583 -o run_1.pdb  
+seed: []
+removing working folder testDir/testNSAAandD
+```
+:::
+
+## OpenMM minimization
+
+ADCP 1.1 can minimize docked poses with OpenMM and re-rank them. These examples assume you
+already know the standard ADCP options.
+
+### Re-ranking poses of standard amino acids
+
+The option `-nmin` turns on OpenMM minimization of poses, followed by re-ranking. This example
+docks the peptide `grctksicfpd` into the receptor from `3Q47.trg` and minimizes the top 5 docked
+solutions with OpenMM:
+
+```bash
+adcp -O -T 3Q47.trg -s "grctksicfpd" -cyc -N 5 -n 100000 -w testDir1 -o example1 -nmin 5
+```
+
+::: {.callout-note collapse="true"}
+## Console output
+```
+------------------------------------------------------------------
+OpenMM minimization flag detected. This step takes more time than non-minimization calculations.
+
+DECLARATION (V1.1.0 build 15):
+a: Support for OpenMM Minimization is still under development.
+b: Currently, it supports docking with "-rmsd 0" flag.
+c: Current version provides docking supports for peptides containing ~400 (L and D) NSTs and openMM support for 182 (182x2 for D and L) NSTs. 
+d: Other unidentified non-standard amino acids can either be replaced by similar amino acids (pdbfixer v1.8), or if pdbfixer does not identify a non-standard amino acid, it can be replaced by ALA.
+e: Added support for external parameter input for non-standard amino acids.(from build 9)
+   
+Inflating target file 3Q47.trg
+performing MC searches with: /home/xxxxxxx/micromamba/envs/adcpsuite/lib/python3.7/site-packages/ADCP/CrankiteAD_Linux-x86_64_1.1 
+target data from file: 3Q47.trg
+job name: example1, summary file example1_summary.dlg, docked poses: example1_out.pdb
+Detected 8 cores, using 8 cores.
+Performing 5 MC searches using 100000 evals each using a random seed.
+Performing search (5 ADCP runs with 100000 steps each) ...
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+Docking performed in 22.04 seconds, i.e. 0 hours 00 minutes 22.042032 seconds 
+bestEnergies [-4.91352, -0.869985, -0.258118, -3.55476, -3.64629] 
+bestEnergy in run 1 -4.913520 (0)
+Analyzing results ....
+concatenating trajectories for run with best energy < 15.086480
+concatenated 5 trajectories
+Clustering MC trajectories based in contacts using cutoff: 0.800000
+finished calculating neighbors for 125 poses with 0.6 seconds
+mode |  affinity  | ref. | clust. | rmsd | energy | best |
+     | (kcal/mol) | fnc  |  size  | stdv |  stdv  | run  |
+-----+------------+------+--------+------+--------+------+
+   1         -2.9      0.0      12      NA      NA    018 
+   2         -2.3      0.0       6      NA      NA    020 
+   3         -2.3      0.0       2      NA      NA    019 
+   4         -2.2      0.0      16      NA      NA    113 
+   5         -2.1      0.0       9      NA      NA    089 
+   6         -1.7      0.0       8      NA      NA    080 
+   7         -1.3      0.0       1      NA      NA    021 
+   8         -1.1      0.0      11      NA      NA    072 
+   9         -1.0      0.0       2      NA      NA    106 
+  10         -0.9      0.0       3      NA      NA    003 
+  11         -0.5      0.0       7      NA      NA    034 
+  12         -0.5      0.0       4      NA      NA    061 
+Calculations completed 22.77 seconds, i.e. 0 hours 00 minutes 22.042032 seconds 
+MC search command: cd testDir1/example1; /home/xxxxxxx/micromamba/envs/adcpsuite/lib/python3.7/site-packages/ADCP/CrankiteAD_Linux-x86_64_1.1 -t 2 "grctksicfpd" -T /home/xxxxxxx/ADCP_examples/testDir1/example1/3Q47 -r 1x100000 -p Bias=NULL,external=5,constrains,1.0,1.0,external2=4,constrains,1.0,1.0,Opt=1,0.25,0.75,0.0 -s 390427 -o run_1.pdb  
+seed: []
+Minimizing docked poses ....
+Rescoring clustered poses using OpenMM ..
+OpenMM minimization settings: Environment="in-vacuo"; Max_itr=5
+OpenMM minimization settings: Cyclizing by backbone
+From total 44 models, minimizing top 5 ...
+
+OMM Energy: Working on #1 of 5 models
+Cyclizing peptide (last chain) by adding a bond between GLY1@N and ASP11@C.
+OMM Energy: E_Complex =  -1201.00; E_Receptor =  -1586.36; E_Peptide  =    441.69
+OMM Energy: dE_Interaction =    -56.33; dE_Complex-Receptor =    385.36
+
+OMM Energy: Working on #2 of 5 models
+Cyclizing peptide (last chain) by adding a bond between GLY1@N and ASP11@C.
+OMM Energy: E_Complex =  18295.22; E_Receptor =   1122.39; E_Peptide  =  17239.90
+OMM Energy: dE_Interaction =    -67.07; dE_Complex-Receptor =  17172.83
+
+OMM Energy: Working on #3 of 5 models
+Cyclizing peptide (last chain) by adding a bond between GLY1@N and ASP11@C.
+OMM Energy: E_Complex =  -1721.60; E_Receptor =  -1855.51; E_Peptide  =    231.76
+OMM Energy: dE_Interaction =    -97.86; dE_Complex-Receptor =    133.91
+
+OMM Energy: Working on #4 of 5 models
+Cyclizing peptide (last chain) by adding a bond between GLY1@N and ASP11@C.
+OMM Energy: E_Complex =  -1387.83; E_Receptor =  -1685.81; E_Peptide  =    327.20
+OMM Energy: dE_Interaction =    -29.22; dE_Complex-Receptor =    297.98
+
+OMM Energy: Working on #5 of 5 models
+Cyclizing peptide (last chain) by adding a bond between GLY1@N and ASP11@C.
+OMM Energy: E_Complex =  -1784.56; E_Receptor =  -1940.05; E_Peptide  =    234.73
+OMM Energy: dE_Interaction =    -79.25; dE_Complex-Receptor =    155.48
+
+OMM Ranking:REARRANGING output poses using OpenMM (Ecomplex -Ereceptor) energy
+OMM Ranking:                     +<-------OMMscore-------->+<-----------AutoDock CrankPep Scores-------------->+
+OMM Ranking:-------+------+------+------------+------------+------------+------+--------+------+--------+------+
+OMM Ranking: Model | Rank | Rank | E_Complex  |  E_Complex |  affinity  | ref. | clust. | rmsd | energy | best |
+OMM Ranking: #     |OpenMM| ADCP |-E_Receptor |-E_rec-E_pep| (kcal/mol) | fnc  |  size  | stdv |  stdv  | run  |
+OMM Ranking:-------+------+------+------------+------------+------------+------+--------+------+--------+------+
+OMM Ranking:      1      1      3      133.9        -97.9          -2.3      0.0       2      NA      NA    019
+OMM Ranking:      2      2      5      155.5        -79.2          -2.1      0.0       9      NA      NA    089
+OMM Ranking:      3      3      4      298.0        -29.2          -2.2      0.0      16      NA      NA    113
+OMM Ranking:      4      4      1      385.4        -56.3          -2.9      0.0      12      NA      NA    018
+OMM Ranking:      5      5      2    17172.8        -67.1          -2.3      0.0       6      NA      NA    020
+OMM Ranking:-------+------+------+------------+------------+------------+------+--------+------+--------+------+
+removing working folder testDir1/example1
+```
+:::
+
+Besides the default ADCP output, this command writes:
+
+- `example1_omm_rescored_out.pdb`: the minimized and re-ranked top solutions (receptor + peptide)
+- `testDir1/example1_omm_amber_parm/`: Amber topology and coordinate files for each re-ranked
+  solution, for further analysis or free-energy calculations with molecular dynamics or other
+  molecular mechanics methods
+
+### Additional options
+
+The number of minimization steps (`-nitr`), the solvent environment (`-env`) and the output order
+of re-ranked solutions (`-dr`) control the minimization. For example:
+
+```bash
+adcp -O -T 3Q47.trg -s "grctksicfpd" -cyc -N 5 -n 100000 -w testDir1 -o example1 -nmin 5 -nitr 500 -env implicit -dr -reint
+```
+
+| Option | Meaning |
+|---|---|
+| `-nitr 500` | 500 minimization steps for each docked pose |
+| `-env implicit` | minimize in implicit solvent (default: vacuum) |
+| `-dr` | report minimized solutions ordered by docking score, best to worst (default: OpenMM ranking score) |
+| `-reint` | rank by interaction energy (E~complex~ − E~receptor~ − E~peptide~) instead of (E~complex~ − E~receptor~) |
+
+### Minimizing poses that are already docked
+
+- **Post-docking minimization (`-pdmin`)** applies OpenMM minimization to poses that were already
+  docked. ADCP skips docking and minimizes the poses from the earlier output file. Use the same
+  target file (`-T`), job name (`-o`) and sequence (`-s`) as in the docking run.
+- **Resume a failed minimization (`-resumemin`)** continues an interrupted minimization and
+  re-ranking. It works only together with `-pdmin` and without overwriting (`-O`).
+
+### Non-standard amino acids
+
+The default force-field parameters for OpenMM minimization lack most non-standard amino acids.
+ADCP therefore uses the "sannerlab" OpenMM parameter set for 182 non-standard amino acids and the
+"swiss" set for 20 non-terminal ones. These sets are designed for the Swiss non-standard amino
+acids and need proper licensing from the developer of the SwissSideChain database. The full list
+of supported residues is in `ADCP/data/openMMff/AVAILABLE_PARAMETER.dat`.
+
+When no OpenMM parameters exist for a non-standard amino acid, ADCP uses pdbfixer (v1.8) to
+replace it with a standard one. If pdbfixer cannot replace it, the residue is mutated to alanine
+for the OpenMM re-ranking.
+
+| Option | Meaning |
+|---|---|
+| `-F` | which OpenMM parameter sets to use from `ADCP/data/openMMff` (`swiss`, `sannerlab` or `none`); `none` turns off all system default sets |
+| `-f` | user-supplied OpenMM parameters for new or unlisted non-standard amino acids (see below) |
+
+`-f` needs three files in the same directory with the same stem. For `-f ./XXXX_ff.xml` the
+program expects a force-field file `./XXXX_ff.xml`, a bond definition file
+`./XXXX_residues.xml` and a hydrogen definition file `./XXXX_hydrogen_def.xml`.
+
+## Non-canonical amino acids
+
+ADCP 1.1 docks peptides that contain non-natural amino acids (NSAAs). Each NSAA has a name (for
+example PTR), and ADCP reads its side-chain parameters from library files given on the command
+line (`-l` and `-L`). ADCP ships with a library for the natural amino acids (always loaded) and a
+library of fluorinated amino acids.
+
+We also developed parameters for all amino acids of
+[SwissSideChain](https://www.swisssidechain.ch/index.php). Its license will be replaced by
+CC-BY 4.0, and we have been granted the right to distribute the ADCP library for this set of
+[209 amino acids](https://www.swisssidechain.ch/data/family_table.pdf) in D and L forms.
+
+The library covers 182 of the 209 SwissSideChain amino acids, in both L and D chirality. This
+lets ADCP handle every non-natural amino acid currently found in the Protein Data Bank. To use
+peptides with NSAAs at any position in OpenMM, we:
+
+1. **Computed partial charges.** SwissSideChain's charges were designed for NSAAs away from the
+   peptide termini, so we computed charges for terminal and non-terminal forms with the R.E.D.
+   server (RESP ESP charge Derive), using GAMESS, following
+   [this tutorial](https://upjv.q4md-forcefieldtools.org/Tutorial/Tutorial-3.php#11). Each form
+   was capped with ACE and/or NME.
+2. **Found force-field parameters.** `parmchk2` from AmberTools identified the Amber parameters
+   needed (bonds, angles, dihedrals, impropers, electrostatics, van der Waals) from the R.E.D.
+   mol2 files, written as an frcmod file.
+3. **Built FFXML files.** ParmEd converted the frcmod and mol2 files into OpenMM FFXML files for
+   each variant. These were merged into one file covering all parameters for 184 NSAAs, which
+   OpenMM can load.
+
+To use these parameters in OpenMM we also changed how each structure is loaded, cleaned and
+simulated:
+
+1. Kept pdbfixer from removing or swapping NSAAs, by loading the residue definition file and
+   editing `pdbfixer.nonstandardResidues`.
+2. Added `OXT` to C-terminal NSAAs. pdbfixer adds hydrogens with Modeller and handles N-terminal
+   residues correctly, but not terminal NSAAs.
+3. Overrode the default hydrogen definitions, to add NSAA-specific ones or apply specific
+   parameter sets to residues with identical names (for example ORN).
+4. Gave residues with identical molecular structures (for example THR and ALO) their own residue
+   templates.
+5. Overrode PDB writing to handle 4-letter residue codes, with a modified PDB writer.
+
+::: {.callout-note collapse="true"}
+## Review note (prototype only)
+The CCSB text gives both 182 and 184 for the number of parameterized NSAAs, and 182 for the
+OpenMM-supported set. Please confirm the right number.
+:::

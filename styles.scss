@@ -1,0 +1,13 @@
+/*-- scss:defaults --*/
+$font-size-root: 17px;
+
+/*-- scss:rules --*/
+.version-note { font-size: 0.95rem; }
+.gallery img { width: 100%; height: 170px; object-fit: cover; border-radius: 6px; }
+.tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.tool-card { border: 1px solid rgba(128,128,128,.35); border-radius: 8px; padding: 1rem 1.1rem; }
+.tool-card h3 { margin-top: 0; font-size: 1.15rem; }
+.tool-card p { margin-bottom: .4rem; }
+.status { font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; opacity: .75; }
+.pub-list li { margin-bottom: .8rem; }
+.pub-venue { font-style: italic; }
