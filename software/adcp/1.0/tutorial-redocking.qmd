@@ -1,0 +1,237 @@
+---
+title: "Tutorial: re-docking a 7-mer peptide"
+---
+
+{{< include /_includes/adcp-1.0-banner.md >}}
+
+This tutorial re-docks a known peptide into its native receptor: a pseudophosphorylated Smad1
+peptide into the TPR domain of CHIP ([PDB 3Q47](https://www.rcsb.org/structure/3Q47)).
+
+**You will learn to:**
+
+- generate a target file for docking in a box defined by the known peptide
+- run ADCP to re-dock the peptide
+- understand the output of an ADCP docking run
+
+**Prerequisites:** ADFRsuite 1.0 installed with `ADFRsuite-1.0/bin` on your `PATH`, and the
+[tutorial data](https://ccsb.scripps.edu/adcp/download/1063/) downloaded
+(see [Tutorials](tutorials.qmd)).
+
+## 1. Convert PDB files to PDBQT files
+
+PDBQT is the file format of the AutoDock programs. It adds two columns to the PDB format: the
+partial charge and the AutoDock atom type.
+
+We start from two separate PDB files for the receptor and the peptide, split from the
+[3Q47 entry](https://www.rcsb.org/structure/3Q47). Both contain only protein atoms.
+
+Unzip the data and go to the directory for this tutorial:
+
+```bash
+unzip ADCP_tutorial_data.zip
+cd ADCP_tutorial_data/3Q47
+```
+
+Add hydrogens to both files with [reduce](http://kinemage.biochem.duke.edu/software/reduce.php)
+(included in ADFRsuite):
+
+```bash
+reduce 3Q47_rec.pdb > 3Q47_recH.pdb
+reduce 3Q47_pep.pdb > 3Q47_pepH.pdb
+```
+
+Convert the protonated PDB files into PDBQT files with `prepare_receptor` and `prepare_ligand`:
+
+```bash
+prepare_receptor -r 3Q47_recH.pdb
+prepare_ligand -l 3Q47_pepH.pdb
+```
+
+## 2. Generate the target file
+
+A target file is a zipped file with everything needed for docking with ADFR and ADCP. It can be
+generated from the command line or a GUI.
+
+```bash
+agfr -r 3Q47_recH.pdbqt -l 3Q47_pepH.pdbqt -asv 1.1 -o 3Q47
+```
+
+This puts the docking box around the given peptide with 4 Å padding. If you do not know the
+peptide binding site, see the [agfrgui tutorials](https://ccsb.scripps.edu/agfr/documentation/).
+
+| Option | Meaning |
+|---|---|
+| `-r` | the receptor file (required) |
+| `-l` | the ligand file |
+| `-asv` | AutoSite version, 1.0 or 1.1 (default 1.0 when `-asv` is not given) |
+| `-o` | name for the target file |
+
+**Details.** `agfr` positions and sizes the docking box over the receptor pocket(s) where the
+ligand will be docked, and computes affinity maps for a list of AutoDock4 atom types. The maps are
+calculated by AutoGrid4.
+
+- **Box.** The box can be set in several ways with `-b/--boxMode`. Here agfr uses the bounding box
+  of the known ligand (`-l/--ligand`), with 4 Å of padding added on every side. Change the padding
+  with `-P/--padding`.
+- **Output.** The target file (`.trg`) is saved under the name given by `-o/--output`; without
+  it, a unique descriptive name is created. It contains the affinity maps, translational points
+  for placing the ligand at sensible positions in the box, and metadata about the grid size,
+  position and spacing, the receptor atoms involved and the maps. Inspect it with the `about`
+  command.
+- **Pockets.** The translational points are computed by AutoSite, which clusters high-affinity
+  grid points into potential binding pockets. `-p/--pocketMode` sets how multiple clusters are
+  handled; when it is omitted, as here, all clusters are merged into one set of translational
+  points.
+- **Atom types.** By default maps are computed for all AutoDock4 atom types. Restrict them with
+  `-m/--mapTypes` for smaller files and faster runs, but the target file then cannot dock
+  ligands with atom types it has no map for.
+
+::: {.callout-note collapse="true"}
+## Console output (saved in 3Q47.log)
+```
+#################################################################
+# If you used AGFR in your work, please cite:                   #
+#                                                               #
+# P.A. Ravindranath S. Forli, D.S. Goodsell, A.J. Olson and     #
+# M.F. Sanner                                                   #
+# AutoDockFR: Advances in Protein-Ligand Docking with           #
+# Explicitly Specified Binding Site Flexibility                 #
+# PLoS Comput Biol 11(12): e1004586                             #
+# DOI:10.1371/journal.pcbi.1004586                              #
+#                                                               #
+# P. Ananad Ravindranath and M.F. Sanner                        #
+# AutoSite: an automated approach for pseudoligands prediction  #
+# - From ligand binding sites identification to predicting key  #
+# ligand atoms                                                  #
+# Bioinformatics (2016)                                         #
+# DOI:10.1093/bioinformatics/btw367                             #
+#                                                               #
+# Please see http://adfr.scripps.edu for more information.      #
+#################################################################
+
+Computing grids on ambae a Linux-4.15.0-47-generic-x86_64-with-debian-buster-sid computer
+Date Mon Jun  3 16:04:22 2019
+
+loading receptor: 3Q47_recH.pdbqt
+loading ligand: 3Q47_pepH.pdbqt
+
+set box using ligand
+    Box center:    16.052     9.415     5.617
+    Box length:    20.250    21.000    21.000
+    Box size  :        54        56        56
+    padding   :     4.000
+    spacing   :     0.375
+
+identifying pockets using AutoSite ....
+Scanning at: -0.36 -0.792 -0.6
+0 #: 0
+Scanning at: -0.315 -0.693 -0.525
+clust.| Energy| # of |Rad. of | energy |   bns    |score   |
+number|       |points|gyration|per vol.|buriedness|v*b^2/rg|
+------+-------+------+--------+--------+----------+--------|
+    1   -33.11    59    2.50    -0.56     0.729     12.54 
+Scanning at: -0.27 -0.594 -0.45
+clust.| Energy| # of |Rad. of | energy |   bns    |score   |
+number|       |points|gyration|per vol.|buriedness|v*b^2/rg|
+------+-------+------+--------+--------+----------+--------|
+    1   -46.72    89    2.94    -0.52     0.773     18.09 
+    2   -34.13    68    2.32    -0.50     0.756     16.79 
+    3   -46.20    84    2.74    -0.55     0.715     15.65 
+Scanning at: -0.225 -0.495 -0.375
+clust.| Energy| # of |Rad. of | energy |   bns    |score   |
+number|       |points|gyration|per vol.|buriedness|v*b^2/rg|
+------+-------+------+--------+--------+----------+--------|
+    1   -84.90   165    3.52    -0.51     0.747     26.14 
+    2   -66.18   140    3.26    -0.47     0.664     18.92 
+    3   -73.12   162    4.53    -0.45     0.689     16.97 
+    found 3 pocket(s)
+
+    pocket|  energy | # of |Rad. of | energy |   bns    | score  
+    number|         |points|gyration|per vol.|buriedness|v*b^2/rg
+    ------+---------+------+--------+--------+----------+---------
+        1   -100.51   251    4.08     -0.40      0.82      41.49
+        2    -84.03   236    4.02     -0.36      0.77      34.84
+        3    -92.62   265    4.92     -0.35      0.78      32.82
+    merging clusters ...
+done. got 106 fill Points, in 5.07 (sec)
+
+setting map types using: all to ['HS', 'Mg', 'HD', 'NA', 'Fe', 'Br', 'NS', 'A', 'C', 'Mn', 'G', 'F', 'I', 'H', 'J', 'N', 'Q', 'P', 'S', 'GA', 'Z', 'Zn', 'Cl', 'Ca', 'OA', 'SA', 'OS']
+
+computing maps for center=(16.052 9.415 5.617) size=(20.250 21.000 21.000) dims=(54 56 56) ...
+    104 points inside the box
+
+    maps computed in 3.02 (sec)
+making target file 3Q47.trg ...done.
+    done. 6.42 (sec)
+```
+:::
+
+## 3. Dock the peptide from its sequence
+
+```bash
+adcp -t 3Q47.trg -s npisdvd -N 20 -n 1000000 -o 3Q47_redocking -ref 3Q47_pepH.pdb
+```
+
+`adcp` detects the available cores and uses all of them by default. Here it runs 20 independent
+searches (`-N, --nbRuns 20`), each with up to 1,000,000 evaluations of the scoring function
+(`-n, --numSteps`). By default `adcp` runs 50 searches of 2.5 million evaluations each. Harder
+docking problems need more searches to raise the chance of finding the best pose (the global
+minimum of the scoring function).
+
+The run writes:
+
+| File | Content |
+|---|---|
+| `3Q47_redocking_ranked_*.pdb` | final solutions, ranked after clustering |
+| `3Q47_redocking_*.pdb` | the Monte Carlo trajectory of each replica |
+| `3Q47_redocking_*.out` | detailed output of each replica |
+
+::: {.callout-tip}
+## Notes
+- The search is stochastic: docking the same peptide into the same target twice can give
+  different results with different random seeds. The energy landscape is the same in both runs;
+  if both find its global minimum they give the same solution, whatever path the search took.
+  Searches trapped in local minima give different poses. Setting the seed (`--seed`) makes a
+  run reproducible for a given version of the code.
+- In general, run 100 replicas with 1 million steps per amino acid, starting from a mixture of
+  extended and helical conformations.
+:::
+
+Example output (abridged; the full run lists 100 modes):
+
+```
+Detected 8 cores, using 8 cores
+using ramaprob.data in current folder
+Performing search (20 ADCP runs with 1000000 steps each) ...
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+Docking performed in 148.19 seconds, i.e. 0 hours 02 minutes 28.191412 seconds 
+mode |  affinity  | clust. | ref. | clust. | rmsd | best | energy | best |
+     | (kcal/mol) | rmsd   | rmsd |  size  | avg. | rmsd |  avg.  | run  |
+-----+------------+--------+------+--------+------+------+--------+------+
+   1        -17.2     0.0     0.9     245     1.0   0.5   -13.5    923 
+   2        -14.7     2.2     2.5      82     2.7   2.4   -11.9    1834 
+   3        -13.1     6.3     6.7      46     7.0   6.2   -10.3    1174 
+   4        -12.9     9.3     9.3      24     9.3   9.2   -11.5    2505 
+   5        -12.5     7.6     7.5      22     7.8   7.5   -11.6    776 
+   6        -12.2     5.1     5.4      73     5.5   5.3    -9.6    1050 
+   7        -12.0     4.5     4.8       6     4.8   4.8   -11.8    2093 
+   8        -11.9     6.6     7.1      31     7.3   7.0   -11.0    2259 
+   9        -11.8     6.7     6.8      26     6.9   6.7   -10.9    517 
+  10        -11.7     4.2     4.3      22     3.5   3.1    -9.4    2088 
+  11        -11.6     6.8     7.2       2     6.7   6.2   -11.3    1179 
+  12        -11.5     2.0     2.1       1      NA      NA    382 
+  13        -11.5     9.5     9.4      28     9.7   9.4    -8.4    767 
+  14        -11.4     9.6     9.4      44     9.5   9.3    -9.8    2364 
+  15        -11.4     8.6     8.5      17     8.6   8.1   -10.0    1548 
+  16        -11.1     2.5     2.6      41     2.4   1.9    -9.6    227 
+  17        -11.0     3.0     3.2       2     3.2   3.2   -11.0    2084 
+  18        -10.8     5.6     5.9       1      NA      NA    1060 
+...
+```
+
+::: {.callout-note collapse="true"}
+## Review note (prototype only)
+The CCSB text said each search uses "up to 2,500,000 evaluations (`-n, --numSteps 2500000`)",
+which does not match the command (`-n 1000000`). Changed to 1,000,000 here.
+:::

@@ -1,0 +1,116 @@
+---
+title: "Download ADCP 1.1"
+---
+
+ADCP 1.1 runs on **Linux**. The installation script uses (or creates) a micromamba or conda
+environment called `adcpsuite` with Python 3.7. It installs everything ADCP 1.1 needs, plus
+[agfrgui](https://ccsb.scripps.edu/agfr), the graphical tool for generating the target files
+that describe receptors.
+
+## Linux with micromamba
+
+::: {.panel-tabset}
+
+### 1. Install micromamba
+
+In a shell, go to your home folder and fetch the micromamba binary:
+
+```bash
+cd ~; curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
+```
+
+Install micromamba:
+
+```bash
+bin/micromamba shell init -s bash -p `pwd`/micromamba
+```
+
+Activate micromamba:
+
+```bash
+source ~/.bashrc
+```
+
+### 2. Install ADCP 1.1
+
+Download the [installation script](https://ccsb.scripps.edu/mamba/scripts/adcpsuite_micromamba.sh), or:
+
+```bash
+wget https://ccsb.scripps.edu/mamba/scripts/adcpsuite_micromamba.sh
+```
+
+Run it:
+
+```bash
+sh ./adcpsuite_micromamba.sh
+```
+
+This installs ADCP 1.1 with all required packages and dependencies.
+
+### 3. Use the software
+
+Activate the environment:
+
+```bash
+micromamba activate adcpsuite
+```
+
+You can now run ADCP by typing `adcp` in your shell, and AGFRgui by typing `agfrgui`.
+
+:::
+
+## Linux with conda
+
+::: {.panel-tabset}
+
+### 1. Install conda
+
+If conda is not installed yet, follow
+[the conda installation instructions](https://docs.conda.io/projects/conda/en/stable/user-guide/install/linux.html).
+
+### 2. Install ADCP 1.1
+
+Download the [installation script](https://ccsb.scripps.edu/mamba/scripts/adcpsuite_conda.sh), or:
+
+```bash
+wget https://ccsb.scripps.edu/mamba/scripts/adcpsuite_conda.sh
+```
+
+Run it:
+
+```bash
+sh ./adcpsuite_conda.sh
+```
+
+This installs ADCP 1.1 with all required packages and dependencies.
+
+### 3. Use the software
+
+Activate the environment:
+
+```bash
+micromamba activate adcpsuite
+```
+
+You can now run ADCP by typing `adcp` in your shell, and AGFRgui by typing `agfrgui`.
+
+:::
+
+::: {.callout-note collapse="true"}
+## Review note (prototype only)
+The CCSB page uses `micromamba activate` in the conda instructions too. For a conda install this
+is presumably `conda activate adcpsuite`. Please confirm before the page goes live.
+:::
+
+## macOS
+
+ADCP can run on macOS with Apple Silicon (M1/M2) at near-native speed inside an Ubuntu virtual
+machine. Follow
+[these instructions](https://rwxayheee.github.io/ADCP-Suite-and-AGFRGUI-in-Ubuntu-VM-on-Apple-Silicon#install-the-adcp-suite)
+to install the UTM virtualization app with an Ubuntu virtual machine running ADCP 1.1.
+
+## Next steps
+
+- [Documentation](documentation.qmd): example commands for the main features of ADCP 1.1.
+- [AGFR and AGFRgui tutorials](https://ccsb.scripps.edu/agfr/documentation/) for preparing
+  target files.

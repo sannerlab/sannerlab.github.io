@@ -1,0 +1,17 @@
+---
+title: "ADCP 1.0 tutorials"
+---
+
+{{< include /_includes/adcp-1.0-banner.md >}}
+
+| Tutorial | You will learn to |
+|---|---|
+| [Re-docking a 7-mer peptide](tutorial-redocking.qmd) (PDB 3Q47) | prepare PDBQT files, generate a target file, dock a peptide from its sequence, read the output |
+| [Re-docking a cyclic peptide](tutorial-cyclic.qmd) (PDB 5GRD) | dock a peptide with a disulfide bond, cluster by native contacts |
+
+**Before you start:**
+
+- [Download and install ADFRsuite 1.0](download.qmd).
+- Put `ADFRsuite-1.0/bin` on your `PATH` (Linux or macOS shell).
+- Download and unzip the [tutorial data](https://ccsb.scripps.edu/adcp/download/1063/)
+  (`ADCP_tutorial_data.zip`).

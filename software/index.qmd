@@ -1,0 +1,61 @@
+---
+title: "Software"
+toc: false
+---
+
+Software developed in the lab. Each tool has an overview, downloads, documentation and tutorials.
+Pages are being moved here from the [CCSB website](https://ccsb.scripps.edu); tools marked
+*moving* still link there.
+
+::: {.tool-grid}
+
+::: {.tool-card}
+<span class="status">current: 1.1</span>
+
+### [AutoDock CrankPep (ADCP)](adcp/index.qmd)
+Docking of linear and cyclic peptides by combining folding and docking.
+:::
+
+::: {.tool-card}
+<span class="status">moving</span>
+
+### [AutoDockFR (ADFR)](adfr.qmd)
+Protein–ligand docking with explicitly specified receptor flexibility.
+:::
+
+::: {.tool-card}
+<span class="status">moving</span>
+
+### [AutoGridFR (AGFR)](agfr.qmd)
+Prepares receptors for docking: docking box, binding pockets, affinity maps and target files.
+:::
+
+::: {.tool-card}
+<span class="status">moving</span>
+
+### [AutoSite](autosite.qmd)
+Identifies ligand-binding pockets from affinity maps.
+:::
+
+::: {.tool-card}
+<span class="status">test</span>
+
+### [ADapt](adapt.qmd)
+Prepares receptor and ligand PDBQT files for AutoDock from a PDB entry, in a web browser.
+:::
+
+::: {.tool-card}
+<span class="status">moving</span>
+
+### [MSMS](msms.qmd)
+Computes molecular surfaces. Free for academic use; commercial use needs a license.
+:::
+
+::: {.tool-card}
+<span class="status">moving</span>
+
+### [MGLTools](mgltools.qmd)
+The lab's molecular graphics and modeling software, including PMV and AutoDockTools.
+:::
+
+:::

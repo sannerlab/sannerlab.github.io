@@ -1,0 +1,107 @@
+---
+title: "ADCP 1.1 tutorials"
+---
+
+## Generate a rotamer library for a non-standard amino acid
+
+This tutorial shows how to generate a rotamer library (`.lib`) file for a non-standard amino
+acid and use it in ADCP to dock peptides that contain it.
+
+### Step 1: get the example files
+
+Download [this zip file](https://ccsb.scripps.edu/mamba/examples/libGenExample.zip). It holds
+dummy non-standard amino acids and randomly generated Dunbrack-like rotamer files. Make a
+directory for the tutorial and unzip the file there:
+
+```bash
+mkdir -p ~/ADCP_examples/genLib
+cd ~/ADCP_examples/genLib
+wget https://ccsb.scripps.edu/mamba/examples/libGenExample.zip
+unzip libGenExample.zip
+```
+
+The extracted `input` directory contains:
+
+```
+input/
+├── libfiles
+│   ├── FOO_random1.lib
+│   └── SOO_random1.lib
+├── pdbfiles
+│   ├── D
+│   │   ├── DFOO.pdb
+│   │   └── DSOO.pdb
+│   └── L
+│       ├── FOO.pdb
+│       └── SOO.pdb
+└── rotamer_details.dat
+```
+
+### Step 2: extract rotamer information
+
+```bash
+extractRotamerInfo -l input/libfiles/ -p input/pdbfiles/ -i _random1.lib -r input/rotamer_details.dat -o rotamerinfo.py
+```
+
+Output:
+
+```
+file 'rotamerinfo.py' is created successfully. Run 'makeLibFile' to generate lib file.
+```
+
+### Step 3: generate the library file
+
+```bash
+makeLibFile -p input/pdbfiles -r input/rotamer_details.dat -t rotamerinfo.py -o my_foo_soo.lib
+```
+
+Output:
+
+```
+Using residue list from "input/rotamer_details.dat" for lib file generation!
+Working on AA: FOO
+Working on AA: SOO
+Working on AA: DFOO
+Working on AA: DSOO
+ADCP acceptable lib file: 'my_foo_soo.lib' generated successfully
+```
+
+### Step 4: dock with the new library
+
+Download the example [target file](https://ccsb.scripps.edu/mamba/examples/3Q47.trg) and run ADCP
+with the new library (`-l`):
+
+```bash
+mkdir trialRun
+cd trialRun
+wget https://ccsb.scripps.edu/mamba/examples/3Q47.trg
+adcp -T 3Q47.trg -s "toto&or" -w testDir -o myfoo -l ../my_foo_soo.lib -O -n 2000 -m 5
+```
+
+::: {.callout-warning}
+## Review note (prototype only)
+On the CCSB page this sequence reads `"toto&or"`. The non-standard residue names in chevrons
+(for example `<FOO>`) were most likely removed by WordPress, because it treats them as HTML tags.
+As written, the command docks only natural amino acids and does not use the new library. The
+correct sequence must come from the authors.
+:::
+
+The run ends with a table of docked modes like this one (abridged):
+
+```
+mode |  affinity  | ref. | clust. | rmsd | energy | best |
+     | (kcal/mol) | fnc  |  size  | stdv |  stdv  | run  |
+-----+------------+------+--------+------+--------+------+
+   1         -5.5      0.0      12      NA      NA    131
+   2         -5.4      0.0       7      NA      NA    155
+   3         -5.4      0.0      13      NA      NA    688
+   4         -5.2      0.0      10      NA      NA    255
+   5         -5.1      0.0      19      NA      NA    038
+```
+
+## Version 1.0 tutorials
+
+The [ADCP 1.0 tutorials](../1.0/tutorials.qmd) (re-docking a linear peptide, re-docking a
+cyclic peptide) were written for the 1.0 command line. In 1.1 the target file option is `-T`
+instead of `-t` and the output files differ; see
+[what changed in 1.1](../index.qmd#what-changed-in-version-1.1).

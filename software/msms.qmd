@@ -1,0 +1,10 @@
+---
+title: "MSMS"
+---
+
+MSMS computes molecular surfaces. It is free for academic research; commercial use needs a license (contact [Dr. Michel Sanner](mailto:sanner@scripps.edu)). MSMS is not open source.
+
+::: {.callout-note}
+This page is being moved from the CCSB website. Until then, overview, downloads, documentation
+and tutorials are at **[ccsb.scripps.edu/msms](https://ccsb.scripps.edu/msms/)**.
+:::

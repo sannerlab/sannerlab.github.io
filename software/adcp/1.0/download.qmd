@@ -1,0 +1,65 @@
+---
+title: "Download ADCP 1.0"
+---
+
+{{< include /_includes/adcp-1.0-banner.md >}}
+
+ADCP 1.0 is part of **ADFRsuite 1.0**, which runs on Linux and macOS. ADFRsuite contains
+everything needed to set up docking experiments for small molecules and peptides.
+
+## ADFRsuite 1.0 (release candidate 1)
+
+Contents:
+
+- ADFR 1.2 and associated scripts
+- AGFR 1.2
+- AutoSite 1.0 and 1.1
+- ADCP 1.0
+- AutoGrid 4.2
+- `prepare_ligand`
+- `prepare_receptor`
+
+| Platform | Installer | How to install |
+|---|---|---|
+| Linux 64-bit | [installer app](https://ccsb.scripps.edu/adfr/download/1028/) | `chmod a+x ADFRsuite_Linux-x867_64_1.0_install.run`<br>`./ADFRsuite_Linux-x867_64_1.0_install.run` |
+| Linux 64-bit | [tarball](https://ccsb.scripps.edu/adfr/download/1038/) | see [Installing from a tarball](#installing-from-a-tarball) |
+| macOS | [tarball](https://ccsb.scripps.edu/adfr/download/1033/) | see [Installing from a tarball](#installing-from-a-tarball) |
+
+Windows users can run the Linux build under WSL; see [ADCP on Windows](windows.qmd).
+
+## Installation notes
+
+- The commercial installation does **not** install MSMS, the component that computes molecular
+  surfaces. For a commercial MSMS license contact [Dr. Michel Sanner](mailto:sanner@scripps.edu).
+  All other tools in the suite work fully in both installations.
+- The default install location is `~/ADFRsuite-1.0`. If your home folder is not on a local disk,
+  install to a folder on a local disk for better performance.
+- ADFRsuite ships its own Python interpreter (2.7), installed in the `ADFRsuite-1.0` folder. It
+  is isolated from your system Python and does not interfere with it. Start it with
+  `ADFRsuite-1.0/bin/pythonsh`.
+
+## Installing from a tarball
+
+This example uses the macOS tarball; for another tarball change the file and folder names.
+
+```bash
+# unpack the tar file
+tar zxvf ADFRsuite_x86_64Darwin_1.0.tar.gz
+
+# step into the folder created by unpacking
+cd ADFRsuite_x86_64Darwin_1.0
+
+# run the installation script
+#   -d destinationFolder  where to install ADFRsuite 1.0
+#   -c                    how to compile the Python files: 0 for .pyc, 1 for .pyo
+./install.sh -d myFolder -c 0
+```
+
+::: {.callout-note collapse="true"}
+## Review note (prototype only)
+- The installer file name `ADFRsuite_Linux-x867_64_1.0_install.run` is copied from the CCSB page;
+  `x867_64` looks like a typo for `x86_64`. Check against the real file name.
+- The CCSB comment said `-s destinationFolder`, but the command uses `-d`. Changed to `-d` here.
+- Links to ADFR versions 1.0 and 1.1 at `adfr.scripps.edu` were dropped: that site no longer
+  responds.
+:::

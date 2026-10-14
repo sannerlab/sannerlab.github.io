@@ -1,0 +1,28 @@
+---
+title: "Lab"
+---
+
+## Principal investigator
+
+### Michel Sanner
+
+Professor of Molecular Biology, Department of Integrative Structural and Computational Biology,
+Scripps Research. [Faculty page](https://www.scripps.edu/faculty/sanner/) ·
+[Google Scholar](https://scholar.google.com/citations?user=lGVSqeYAAAAJ) ·
+[sanner@scripps.edu](mailto:sanner@scripps.edu)
+
+Michel Sanner received his Ph.D. in Computer Science from the University of Haute Alsace, France,
+in 1992. His laboratory develops computational methods for predicting molecular interactions,
+including the widely used AutoDock4 and tools for docking small molecules, proteins and peptides.
+He also has a long-standing interest in software engineering: the lab builds reusable software
+components that can be assembled quickly into custom applications, such as PMV, AutoDockTools
+and the visual programming environment Vision.
+
+## Postdoctoral fellows
+
+- **Kandarp Sojitra** · [GitHub](https://github.com/kandarpsojitra29)
+- **Jiahui Wang** · [GitHub](https://github.com/Jiahuiwang0614)
+
+## Research
+
+*To be written.*

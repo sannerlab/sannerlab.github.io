@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Getting started &middot; ADapt documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">ADapt<small>AutoDock preparation &amp; perception tool</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a class="here" href="start.html">Getting started</a></li>
+<li><a href="tree-3d.html">The tree and the 3D view</a></li>
+</ul>
+<h4>Cases</h4><ul>
+<li><a href="case-biomolecule.html">Biological assembly, not the ASU</a></li>
+<li><a href="case-assemblies.html">Choosing between assemblies</a></li>
+<li><a href="case-sidechains.html">Missing side chains</a></li>
+<li><a href="case-altlocs.html">Alternate locations</a></li>
+<li><a href="case-ligand.html">Ligands and other hetero groups</a></li>
+<li><a href="case-metals.html">Metals, ions, unsupported atoms</a></li>
+<li><a href="case-missing-residues.html">Missing residues</a></li>
+<li><a href="case-mutations.html">Mutating residues</a></li>
+</ul>
+<h4>Results</h4><ul>
+<li><a href="output.html">Writing the PDBQT files</a></li>
+<li><a href="provenance.html">Provenance in the PDBQT files</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="differences.html">ADapt and AGFRgui</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>Getting started</h1>
+<p class="lead">Start the server, open the page it prints, and load a PDB entry.</p>
+
+<h2>Requirements</h2>
+<ul>
+<li>The ADCP distribution's Python environment (<code>adcpsuite</code>). It provides ADFR,
+MolKit2, ProDy, Open Babel and <code>reduce</code>, which do all of the chemistry.
+<code>bin/adapt</code> finds it by itself: <code>$ADCPSUITE</code>, <code>$ADS_ROOT</code>, the
+environment of an <code>adcp</code> or <code>agfr</code> on your <code>PATH</code>, then the usual
+conda / micromamba locations. Set <code>ADCPSUITE=/path/to/env</code> to choose one.</li>
+<li>A current browser. In Chrome and Edge, <b>Open PDB…</b> remembers the folder you last opened
+a file from. Firefox and Safari work too, but their file dialog chooses its own starting folder.</li>
+<li>For <b>Fetch from RCSB</b>, access to <code>files.rcsb.org</code> from the machine that runs
+the server.</li>
+</ul>
+<p>Check the installation with:</p>
+<pre>bin/adapt check          # "ADapt is ready", or what is missing</pre>
+
+<h2>Start ADapt</h2>
+<pre>bin/adapt serve</pre>
+<p>The server prints a URL such as <code>http://127.0.0.1:8766/?t=…</code>. Open it; the token at
+the end is required, and the page refuses requests without it. The server listens on this machine
+only.</p>
+<p>To use ADapt from another computer, forward the port from that computer and open the same
+URL there:</p>
+<pre>ssh -L 8766:127.0.0.1:8766 &lt;host running ADapt&gt;</pre>
+<div class="tip"><b>Keep a fixed port.</b> The browser keeps what it remembers for a page (the
+Open PDB folder, the light or dark theme) per host <em>and port</em>. The default port 8766, or
+any <code>--port N</code>, keeps that memory; <code>--port 0</code> picks a new port on each run
+and the memory starts empty.</div>
+
+<h2>Load a structure</h2>
+<ul>
+<li><b>Fetch from RCSB</b>: type an id (e.g. <code>1FV1</code>) and press Enter. The file is
+downloaded once and kept in a cache under the output folder. Entries the RCSB distributes only as
+mmCIF (the largest assemblies) are reported rather than opened, because ADapt reads PDB-format
+files.</li>
+<li><b>Open PDB…</b> or drop a file on the page: <code>.pdb</code>, <code>.ent</code>,
+<code>.pdb.gz</code> or <code>.ent.gz</code>. Keep the PDB id as the file name
+(<code>6ggd.pdb</code>): ADFR looks up the known ligands of the entry by it.</li>
+</ul>
+<p>ADapt opens on <b>Biomol 1</b> when the file defines biological assemblies, otherwise on the
+ASU. ADFR's own test files are a good set of examples; <code>bin/adapt examples</code> prints
+where they are installed.</p>
+
+<h2 id="where">Where the files go</h2>
+<p>Each loaded file gets a session folder under the output folder (default
+<code>~/adapt_runs/</code>, or <code>--outdir</code>, or <code>$ADAPT_OUTDIR</code>; <code>/tmp</code> is refused):</p>
+<pre>6ggd_20260929-143042_9acda1/
+  6ggd.pdb              the input, as loaded
+  save_001_rec/         every save in its own numbered folder: nothing is overwritten
+    6ggd_rec.pdbqt
+    6ggd_rec_H.pdb      the receptor with all of reduce's hydrogens, and its His/Asn/Gln choices
+  save_002_lig/
+    6ggd_lig.pdbqt
+  session.json          ADFR version and source checksums, every edit in order, every file with its md5</pre>
+<p>See <a href="output.html">Writing the PDBQT files</a> for what the files and the record
+contain.</p>
+
+<h2 id="embed">Embedding ADapt</h2>
+<p>A program that starts ADapt, as ADCP_docking does, can open the page on a given entry or
+session, serve it under a path of its own, and fetch the files written.</p>
+<h3>Opening the page on an entry or a session</h3>
+<p>Next to the token, the page URL takes:</p>
+<table>
+<tr><th>Parameter</th><th>Effect</th></tr>
+<tr><td><code>pdb=6GGD</code></td><td>fetches the entry from the RCSB (or the cache) and opens
+it, as <b>Fetch from RCSB</b> does.</td></tr>
+<tr><td><code>session=&lt;id&gt;</code></td><td>opens a session the server already holds, for
+instance one made by a program through <code>/api/upload</code>.</td></tr>
+<tr><td><code>tab=Biomol%202</code></td><td>with either of the above, switches to that tab
+(<code>ASU</code>, <code>Biomol N</code>, …).</td></tr>
+</table>
+<pre>http://127.0.0.1:8766/?t=…&amp;pdb=6GGD&amp;tab=Biomol%202</pre>
+<p>Once a file is open, the address bar shows <code>session=</code> and <code>tab=</code>, so a
+reload, or the URL copied elsewhere, reopens the same session. Sessions live in the server's
+memory: after a restart, an old session id gets <i>no such session; load the PDB file again</i>
+(its folder and files are still on disk).</p>
+<h3>Requests</h3>
+<p>Every request carries the token, <code>t=…</code>.</p>
+<table>
+<tr><th>Request</th><th>Returns</th></tr>
+<tr><td><code>POST api/upload?name=6ggd.pdb</code>, the file as the body</td><td>a new session:
+its <code>session</code> id, tabs and tree.</td></tr>
+<tr><td><code>GET api/sessions</code></td><td>the sessions the server holds, newest first: id,
+PDB id, tabs, current tab, folder, number of saves.</td></tr>
+<tr><td><code>GET api/session?s=&lt;id&gt;</code></td><td>one session, as
+<code>api/upload</code> returns it, with the saves made so far and their files.</td></tr>
+<tr><td><code>POST api/save</code>, body
+<code>{"s": "&lt;id&gt;", "kind": "receptor"}</code> (or <code>"ligand"</code>)</td><td>writes the
+files of the current tab, as the save buttons do, and returns the save number and its
+files.</td></tr>
+<tr><td><code>GET api/download?s=&lt;id&gt;&amp;save=&lt;n&gt;&amp;file=&lt;name&gt;</code></td><td>one
+file of a save, e.g. <code>file=6ggd_rec_H.pdb</code>. Without <code>file</code>, a save of one
+file returns it, and a save of several returns a zip.</td></tr>
+</table>
+<h3>Under a path prefix</h3>
+<p>The page and its script use relative paths only (<code>api/…</code>,
+<code>static/…</code>, <code>docs/…</code>). A page served at <code>/adapt/?t=…</code> therefore
+sends its requests to <code>/adapt/api/…</code> by itself, and a proxy can forward
+<code>/adapt/…</code> to ADapt without rewriting anything. Two cases:</p>
+<ul>
+<li>A proxy that removes the prefix before forwarding needs nothing more; keep the slash in
+<code>/adapt/?t=…</code>.</li>
+<li>A proxy that forwards the full path: start ADapt with <code>--base-path /adapt</code> (or
+<code>ADAPT_BASE_PATH=/adapt</code>). ADapt then takes the prefix off each request, redirects
+<code>/adapt?t=…</code> to <code>/adapt/?t=…</code>, and prints its URL with the prefix. Requests
+without the prefix are still served.</li>
+</ul>
+<div class="pn"><a href="index.html">&larr; Overview</a><a href="tree-3d.html">The tree and the 3D view &rarr;</a></div>
+<footer class="page">ADapt documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of ADapt itself, made by <code>docs/make_screenshots.py</code>; the chemistry
+is ADFR's own code (ADCP distribution).</footer>
+</main></div></body></html>

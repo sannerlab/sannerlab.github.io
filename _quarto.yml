@@ -1,0 +1,99 @@
+project:
+  type: website
+  output-dir: _site
+  pre-render: _scripts/publications.py
+  resources:
+    - adapt/**
+    - .nojekyll
+
+website:
+  title: "Sanner Lab"
+  site-url: https://sannerlab.github.io
+  description: "Computational methods and software for molecular docking at Scripps Research."
+  page-navigation: true
+  back-to-top-navigation: true
+  search: true
+  navbar:
+    left:
+      - text: Home
+        href: index.qmd
+      - text: Lab
+        href: lab.qmd
+      - text: Software
+        menu:
+          - text: All software
+            href: software/index.qmd
+          - text: "---"
+          - text: AutoDock CrankPep (ADCP)
+            href: software/adcp/index.qmd
+          - text: AutoSite
+            href: software/autosite.qmd
+          - text: AutoDockFR (ADFR)
+            href: software/adfr.qmd
+          - text: AutoGridFR (AGFR)
+            href: software/agfr.qmd
+          - text: ADapt
+            href: software/adapt.qmd
+          - text: MSMS
+            href: software/msms.qmd
+          - text: MGLTools
+            href: software/mgltools.qmd
+      - text: Publications
+        href: publications.qmd
+      - text: Contact
+        href: contact.qmd
+    right:
+      - icon: github
+        href: https://github.com/sannerlab
+        aria-label: Sanner Lab on GitHub
+
+  sidebar:
+    - id: adcp
+      title: "AutoDock CrankPep"
+      style: docked
+      collapse-level: 2
+      contents:
+        - text: Overview
+          href: software/adcp/index.qmd
+        - section: "Version 1.1 (latest)"
+          contents:
+            - text: Download
+              href: software/adcp/1.1/download.qmd
+            - text: Documentation
+              href: software/adcp/1.1/documentation.qmd
+            - text: Tutorials
+              href: software/adcp/1.1/tutorials.qmd
+        - section: "Version 1.0 (deprecated)"
+          contents:
+            - text: Download
+              href: software/adcp/1.0/download.qmd
+            - text: Documentation
+              href: software/adcp/1.0/documentation.qmd
+            - text: Tutorials
+              href: software/adcp/1.0/tutorials.qmd
+            - text: "Tutorial: re-docking"
+              href: software/adcp/1.0/tutorial-redocking.qmd
+            - text: "Tutorial: cyclic peptide"
+              href: software/adcp/1.0/tutorial-cyclic.qmd
+            - text: Windows 10 (WSL)
+              href: software/adcp/1.0/windows.qmd
+        - text: License
+          href: software/adcp/license.qmd
+
+  page-footer:
+    left: "Sanner Lab · Department of Integrative Structural and Computational Biology · Scripps Research, La Jolla, CA"
+    right:
+      - icon: github
+        href: https://github.com/sannerlab
+
+format:
+  html:
+    theme:
+      light: [cosmo, styles.scss]
+      dark: [darkly, styles.scss]
+    toc: true
+    toc-depth: 3
+    code-copy: true
+    code-overflow: wrap
+    anchor-sections: true
+    link-external-newwindow: true
