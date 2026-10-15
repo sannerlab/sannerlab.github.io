@@ -6,6 +6,15 @@ title: "Lab"
 
 ## Principal investigator
 
+::: {.person}
+
+::: {.person-photo}
+![](images/people/michel-sanner.jpg){fig-alt="Portrait of Michel Sanner"}
+
+[Photo: Don Boomer, Scripps Research]{.photo-credit}
+:::
+
+::: {.person-text}
 ### Michel Sanner
 
 Professor of Molecular Biology, Department of Integrative Structural and Computational Biology,
@@ -19,6 +28,9 @@ including the widely used AutoDock4 and tools for docking small molecules, prote
 He also has a long-standing interest in software engineering: the lab builds reusable software
 components that can be assembled quickly into custom applications, such as PMV, AutoDockTools
 and the visual programming environment Vision.
+:::
+
+:::
 
 ## Postdoctoral fellows
 

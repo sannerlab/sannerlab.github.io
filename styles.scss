@@ -83,3 +83,14 @@ div.sourceCode { border-left: 4px solid rgba($primary, 0.55); }
 
 /* publications: year headings as coloured labels */
 .pub-list { border-left: 3px solid rgba($primary, 0.3); padding-left: 1.4rem; }
+
+/* lab page: photo beside the bio, stacked on narrow screens */
+.person { display: flex; gap: 1.6rem; align-items: flex-start; margin-bottom: 1.5rem; }
+.person-photo { flex: 0 0 220px; text-align: center; }
+.person-photo img { width: 220px; height: 220px; object-fit: cover; border-radius: 50%;
+  border: 4px solid var(--tc-lab); box-shadow: 0 4px 14px rgba(0,0,0,.15); }
+.person-photo .quarto-figure { margin: 0; }
+.photo-credit { display: block; font-size: .7rem; opacity: .65; margin-top: .4rem; }
+.person-text { flex: 1; }
+.person-text h3 { margin-top: 0; }
+@media (max-width: 700px) { .person { flex-direction: column; align-items: center; } }
