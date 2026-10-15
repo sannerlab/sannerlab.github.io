@@ -90,7 +90,17 @@ div.sourceCode { border-left: 4px solid rgba($primary, 0.55); }
 .person-photo img { width: 220px; height: 220px; object-fit: cover; border-radius: 50%;
   border: 4px solid var(--tc-lab); box-shadow: 0 4px 14px rgba(0,0,0,.15); }
 .person-photo .quarto-figure { margin: 0; }
-.photo-credit { display: block; font-size: .7rem; opacity: .65; margin-top: .4rem; }
 .person-text { flex: 1; }
 .person-text h3 { margin-top: 0; }
 @media (max-width: 700px) { .person { flex-direction: column; align-items: center; } }
+
+/* lab page: members in one row, photo (or placeholder) above name; room for a short description */
+.member-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; margin: 1rem 0 2rem; }
+.member { text-align: center; line-height: 1.45; }
+.member p { margin-bottom: .5rem; }
+.member-photo, .member img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover;
+  margin: 0 auto .75rem; border: 4px solid var(--tc-lab); box-shadow: 0 4px 12px rgba(0,0,0,.12); }
+.member-photo.placeholder { display: flex; align-items: center; justify-content: center;
+  background: rgba(11,122,111,.12); color: var(--tc-lab); font-size: 2.6rem; font-weight: 700; }
+.member-photo.placeholder p { margin: 0; }
+.member .quarto-figure { margin: 0; }

@@ -10,8 +10,6 @@ title: "Lab"
 
 ::: {.person-photo}
 ![](images/people/michel-sanner.jpg){fig-alt="Portrait of Michel Sanner"}
-
-[Photo: Don Boomer, Scripps Research]{.photo-credit}
 :::
 
 ::: {.person-text}
@@ -34,8 +32,31 @@ and the visual programming environment Vision.
 
 ## Postdoctoral fellows
 
-- **Kandarp Sojitra** · [GitHub](https://github.com/kandarpsojitra29)
-- **Jiahui Wang** · [GitHub](https://github.com/Jiahuiwang0614)
+<!-- To add a photo: put it in images/people/ and replace the placeholder div with
+     ![](images/people/<name>.jpg){fig-alt="Portrait of <name>"}
+     To add a description: write it in the empty paragraph under the name. -->
+
+::: {.member-row}
+
+::: {.member}
+::: {.member-photo .placeholder}
+KS
+:::
+**Kandarp Sojitra**<br>
+Postdoctoral Fellow<br>
+[GitHub](https://github.com/kandarpsojitra29)
+:::
+
+::: {.member}
+::: {.member-photo .placeholder}
+JW
+:::
+**Jiahui Wang**<br>
+Postdoctoral Fellow<br>
+[GitHub](https://github.com/Jiahuiwang0614)
+:::
+
+:::
 
 ## Research
 
