@@ -1,4 +1,6 @@
 ---
+title-block-banner: "#1f5fa6"
+title-block-banner-color: "#ffffff"
 title: "Software"
 toc: false
 ---
@@ -8,49 +10,49 @@ available, tutorials. Downloads are still served from the [CCSB website](https:/
 
 ::: {.tool-grid}
 
-::: {.tool-card}
+::: {.tool-card .tc-adcp}
 <span class="status">current: 1.1</span>
 
 ### [AutoDock CrankPep (ADCP)](adcp/index.qmd)
 Docking of linear and cyclic peptides by combining folding and docking.
 :::
 
-::: {.tool-card}
+::: {.tool-card .tc-adfr}
 <span class="status">in ADFRsuite 1.0</span>
 
 ### [AutoDockFR (ADFR)](adfr/index.qmd)
 Protein–ligand docking with explicitly specified receptor flexibility.
 :::
 
-::: {.tool-card}
+::: {.tool-card .tc-agfr}
 <span class="status">in ADFRsuite 1.0</span>
 
 ### [AutoGridFR (AGFR)](agfr/index.qmd)
 Prepares receptors for docking: docking box, binding pockets, affinity maps and target files.
 :::
 
-::: {.tool-card}
+::: {.tool-card .tc-autosite}
 <span class="status">in ADFRsuite 1.0</span>
 
 ### [AutoSite](autosite/index.qmd)
 Identifies ligand-binding pockets from affinity maps.
 :::
 
-::: {.tool-card}
+::: {.tool-card .tc-adapt}
 <span class="status">unreleased</span>
 
 ### [ADapt](adapt/index.qmd)
 Prepares receptor and ligand PDBQT files for AutoDock from a PDB entry, in a web browser.
 :::
 
-::: {.tool-card}
+::: {.tool-card .tc-msms}
 <span class="status">current: 2.6.1</span>
 
 ### [MSMS](msms/index.qmd)
 Computes molecular surfaces. Free for academic use; commercial use needs a license.
 :::
 
-::: {.tool-card}
+::: {.tool-card .tc-mgltools}
 <span class="status">current: 1.5.7</span>
 
 ### [MGLTools](mgltools/index.qmd)

@@ -30,6 +30,8 @@ def main():
     out = [
         "---",
         "title: Publications",
+        'title-block-banner: "#6a3fa0"',
+        'title-block-banner-color: "#ffffff"',
         "toc: false",
         "---",
         "",

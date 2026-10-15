@@ -1,4 +1,6 @@
 ---
+title-block-banner: "#163a63"
+title-block-banner-color: "#ffffff"
 title: "Sanner Lab"
 subtitle: "Scripps Research, La Jolla"
 toc: false
@@ -11,18 +13,18 @@ AutoDockTools and the visual programming environment Vision.
 
 ::: {.tool-grid}
 
-::: {.tool-card}
+::: {.tool-card .tc-software}
 ### [Software](software/index.qmd)
 AutoDock CrankPep, AutoDockFR, AutoGridFR, AutoSite, ADapt, MSMS and MGLTools: downloads,
 documentation and tutorials.
 :::
 
-::: {.tool-card}
+::: {.tool-card .tc-lab}
 ### [Lab](lab.qmd)
 Who we are.
 :::
 
-::: {.tool-card}
+::: {.tool-card .tc-pubs}
 ### [Publications](publications.qmd)
 Papers from the lab.
 :::

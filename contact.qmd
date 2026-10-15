@@ -1,4 +1,6 @@
 ---
+title-block-banner: "#163a63"
+title-block-banner-color: "#ffffff"
 title: "Contact"
 toc: false
 ---

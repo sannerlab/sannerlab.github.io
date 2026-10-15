@@ -1,4 +1,6 @@
 ---
+title-block-banner: "#b5561b"
+title-block-banner-color: "#ffffff"
 title: "AutoSite"
 subtitle: "Finding and characterizing binding pockets"
 ---

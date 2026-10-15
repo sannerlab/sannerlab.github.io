@@ -1,4 +1,6 @@
 ---
+title-block-banner: "#2d7d46"
+title-block-banner-color: "#ffffff"
 title: "MSMS"
 subtitle: "Fast computation of molecular surfaces"
 ---

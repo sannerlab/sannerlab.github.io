@@ -227,9 +227,11 @@ format:
       light:
       - cosmo
       - styles.scss
+      - styles-light.scss
       dark:
       - darkly
       - styles.scss
+      - styles-dark.scss
     toc: true
     toc-depth: 3
     code-copy: true

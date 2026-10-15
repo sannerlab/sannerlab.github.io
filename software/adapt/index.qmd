@@ -1,4 +1,6 @@
 ---
+title-block-banner: "#a8324a"
+title-block-banner-color: "#ffffff"
 title: "ADapt"
 subtitle: "AutoDock preparation & perception tool"
 ---

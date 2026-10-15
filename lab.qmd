@@ -1,4 +1,6 @@
 ---
+title-block-banner: "#0b7a6f"
+title-block-banner-color: "#ffffff"
 title: "Lab"
 ---
 

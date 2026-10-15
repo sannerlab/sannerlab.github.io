@@ -1,4 +1,6 @@
 ---
+title-block-banner: "#8a6d0b"
+title-block-banner-color: "#ffffff"
 title: "MGLTools"
 subtitle: "PMV, AutoDockTools and Vision"
 ---
