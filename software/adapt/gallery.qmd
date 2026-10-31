@@ -1,0 +1,18 @@
+---
+title: "ADapt gallery"
+toc: false
+lightbox: true
+---
+
+Images made with ADapt. Click an image to enlarge it.
+
+<!-- To add an image: put the file in software/adapt/img/ and add it inside the gallery block below,
+     one image per line with a blank line between images:
+     ![Optional caption](img/<file>.png){fig-alt="Short description of what the image shows"}
+     Then delete the "Images coming soon" line. -->
+
+*Images coming soon.*
+
+::: {.gallery layout-ncol="3"}
+
+:::

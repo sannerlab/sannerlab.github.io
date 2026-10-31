@@ -75,6 +75,8 @@ website:
         href: software/adcp/1.0/tutorial-cyclic.qmd
       - text: Windows 10 (WSL)
         href: software/adcp/1.0/windows.qmd
+    - text: Gallery
+      href: software/adcp/gallery.qmd
     - text: License
       href: software/adcp/license.qmd
   - id: autosite
@@ -92,6 +94,8 @@ website:
       contents:
       - text: Small-molecule binding site
         href: software/autosite/tutorial-small-molecule.qmd
+    - text: Gallery
+      href: software/autosite/gallery.qmd
   - id: adfr
     title: AutoDockFR
     style: docked
@@ -111,6 +115,8 @@ website:
         href: software/adfr/tutorial-flexible-receptor.qmd
       - text: Covalent docking
         href: software/adfr/tutorial-covalent.qmd
+    - text: Gallery
+      href: software/adfr/gallery.qmd
     - text: License
       href: software/adfr/license.qmd
   - id: agfr
@@ -138,6 +144,8 @@ website:
         href: software/agfr/tutorial-covalent.qmd
       - text: Visualizing maps
         href: software/agfr/tutorial-map-visualization.qmd
+    - text: Gallery
+      href: software/agfr/gallery.qmd
   - id: adapt
     title: ADapt
     style: docked
@@ -150,6 +158,8 @@ website:
       href: software/adapt/documentation.qmd
     - text: Tutorials
       href: software/adapt/tutorials.qmd
+    - text: Gallery
+      href: software/adapt/gallery.qmd
   - id: msms
     title: MSMS
     style: docked
@@ -160,6 +170,8 @@ website:
       href: software/msms/download.qmd
     - text: Documentation
       href: software/msms/documentation.qmd
+    - text: Gallery
+      href: software/msms/gallery.qmd
     - text: License
       href: software/msms/license.qmd
   - id: mgltools
