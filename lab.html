@@ -47,9 +47,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a1e11925cfe17e2996c88b540dc0fc56.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-41658f9e7d5a2c48293dfc567d2d29a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-a1e11925cfe17e2996c88b540dc0fc56.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1f50bfd4772df860ffd05bb8425db216.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-64c13772bb4a3ec71b1da7050e087e4e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-1f50bfd4772df860ffd05bb8425db216.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -79,26 +79,16 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>
 
-      .quarto-title-block .quarto-title-banner h1,
-      .quarto-title-block .quarto-title-banner h2,
-      .quarto-title-block .quarto-title-banner h3,
-      .quarto-title-block .quarto-title-banner h4,
-      .quarto-title-block .quarto-title-banner h5,
-      .quarto-title-block .quarto-title-banner h6
-      {
-        color: #ffffff;
-      }
-
       .quarto-title-block .quarto-title-banner {
-        color: #ffffff;
-background: #0b7a6f;
+        background-image: url(images/sannerpath_banner.jpg);
+background-size: cover;
       }
 </style>
 
 
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed lab-page quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -375,7 +365,19 @@ background: #0b7a6f;
   <ul>
   <li><a href="#principal-investigator" id="toc-principal-investigator" class="nav-link active" data-scroll-target="#principal-investigator">Principal investigator</a></li>
   <li><a href="#postdoctoral-fellows" id="toc-postdoctoral-fellows" class="nav-link" data-scroll-target="#postdoctoral-fellows">Postdoctoral fellows</a></li>
-  <li><a href="#research" id="toc-research" class="nav-link" data-scroll-target="#research">Research</a></li>
+  <li><a href="#research" id="toc-research" class="nav-link" data-scroll-target="#research">Research</a>
+  <ul class="collapse">
+  <li><a href="#peptide-docking" id="toc-peptide-docking" class="nav-link" data-scroll-target="#peptide-docking">Peptide docking</a></li>
+  <li><a href="#proteinligand-docking-and-binding-sites" id="toc-proteinligand-docking-and-binding-sites" class="nav-link" data-scroll-target="#proteinligand-docking-and-binding-sites">Protein–ligand docking and binding sites</a></li>
+  <li><a href="#molecular-surfaces" id="toc-molecular-surfaces" class="nav-link" data-scroll-target="#molecular-surfaces">Molecular surfaces</a></li>
+  <li><a href="#scientific-software-engineering" id="toc-scientific-software-engineering" class="nav-link" data-scroll-target="#scientific-software-engineering">Scientific software engineering</a></li>
+  </ul></li>
+  <li><a href="#alumni" id="toc-alumni" class="nav-link" data-scroll-target="#alumni">Alumni</a>
+  <ul class="collapse">
+  <li><a href="#postdoctoral-fellows-1" id="toc-postdoctoral-fellows-1" class="nav-link" data-scroll-target="#postdoctoral-fellows-1">Postdoctoral fellows</a></li>
+  <li><a href="#programmers" id="toc-programmers" class="nav-link" data-scroll-target="#programmers">Programmers</a></li>
+  <li><a href="#students-and-interns" id="toc-students-and-interns" class="nav-link" data-scroll-target="#students-and-interns">Students and interns</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -422,9 +424,61 @@ background: #0b7a6f;
 </section>
 <section id="research" class="level2">
 <h2 class="anchored" data-anchor-id="research">Research</h2>
-<p><em>To be written.</em></p>
+<p>The lab develops computational methods for predicting how biological molecules recognize and bind each other, and turns them into software that other researchers can use. Our work spans molecular surfaces, docking of small molecules and peptides, and the software engineering that lets these methods be combined into new applications. Papers are listed on the <a href="./publications.html">Publications</a> page.</p>
+<section id="peptide-docking" class="level3">
+<h3 class="anchored" data-anchor-id="peptide-docking">Peptide docking</h3>
+<p>Peptides are flexible, so predicting how one binds a protein means folding it and docking it at the same time. <a href="./software/adcp/index.html">AutoDock CrankPep (ADCP)</a> does both, combining physics-based folding with focused docking into a known binding region, and it handles linear and cyclic peptides. ADCP is regarded as a state-of-the-art physics-based peptide docking method. We have also shown that it complements deep-learning structure predictors: independent physics-based sampling and scoring can refine and re-rank AI-generated models of protein–peptide complexes.</p>
+</section>
+<section id="proteinligand-docking-and-binding-sites" class="level3">
+<h3 class="anchored" data-anchor-id="proteinligand-docking-and-binding-sites">Protein–ligand docking and binding sites</h3>
+<p>We contributed flexible receptor side chains to AutoDock4, one of the most widely used docking programs. <a href="./software/adfr/index.html">AutoDockFR (ADFR)</a> extends this with explicitly specified binding-site flexibility, <a href="./software/agfr/index.html">AGFR</a> prepares receptors and docking maps, and <a href="./software/autosite/index.html">AutoSite</a> finds ligand-binding sites and predicts where key ligand atoms are likely to sit.</p>
+</section>
+<section id="molecular-surfaces" class="level3">
+<h3 class="anchored" data-anchor-id="molecular-surfaces">Molecular surfaces</h3>
+<p><a href="./software/msms/index.html">MSMS</a> computes solvent-excluded molecular surfaces quickly and reliably. It is built into Chimera, VMD, MGLTools and many other programs and pipelines.</p>
+</section>
+<section id="scientific-software-engineering" class="level3">
+<h3 class="anchored" data-anchor-id="scientific-software-engineering">Scientific software engineering</h3>
+<p>Early computational biology programs were hard to reuse and maintain. We pioneered a component-based architecture built around Python, in which reusable modules for computation and visualization can be assembled quickly into new applications; the 1999 paper describing it has been cited more than 4,600 times. This approach produced the Python Molecular Viewer (PMV), AutoDockTools and the visual programming environment Vision, distributed together as <a href="./software/mgltools/index.html">MGLTools</a> to more than 20,000 registered users, and it has been reused in augmented reality, animation and cellular modeling, including CellPACK. Michel Sanner was also a founding member of the SciPy conference.</p>
+</section>
+</section>
+<section id="alumni" class="level2">
+<h2 class="anchored" data-anchor-id="alumni">Alumni</h2>
+<!-- Current positions and links were checked in October 2026; only verified ones are given. -->
+<section id="postdoctoral-fellows-1" class="level3">
+<h3 class="anchored" data-anchor-id="postdoctoral-fellows-1">Postdoctoral fellows</h3>
+<ul>
+<li><strong>Yong Zhao</strong>, until 2008, then CambridgeSoft</li>
+<li><strong>Donald Keidel</strong>, 2008–2011, then eMolecules</li>
+<li><strong>Matthew Danielson</strong>, 2011–2013, then Eli Lilly</li>
+<li><strong>Pradeep Ravindranath</strong>, 2013–2016. Founder and CEO, DynamWorks · <a href="https://www.linkedin.com/in/paravindranath/">LinkedIn</a> · <a href="https://scholar.google.com/citations?user=1DqFHq0AAAAJ">Google Scholar</a></li>
+<li><strong>Yuqi (Gary) Zhang</strong>, from 2017. Schrödinger, San Diego · <a href="https://orcid.org/0000-0001-7532-5369">ORCID</a></li>
+<li><strong>Vera Prytkova</strong></li>
+<li><strong>Sudhanshu Shanker</strong>, 2022–2023. Assistant Professor, Mahindra University · <a href="https://www.mahindrauniversity.edu.in/faculty/sudhanshu-shanker">Faculty page</a></li>
+</ul>
+</section>
+<section id="programmers" class="level3">
+<h3 class="anchored" data-anchor-id="programmers">Programmers</h3>
+<ul>
+<li><strong>Ruth Huey</strong>, 1999–2016 (in memoriam)</li>
+<li><strong>Sophie Coon</strong>, 2000–2004. Neurocrine Biosciences · <a href="https://www.linkedin.com/in/sophiecoon/">LinkedIn</a></li>
+<li><strong>Sargis Dallakyan</strong>, 2006–2014. Senior Software Engineer, Rady Children’s Hospital–San Diego · <a href="https://www.linkedin.com/in/sargis/">LinkedIn</a></li>
+<li><strong>Alexandre Gillet</strong>. Principal Software Engineer, PacBio · <a href="https://www.linkedin.com/in/alexandre-gillet-0bb0818/">LinkedIn</a></li>
+<li><strong>Anna Omelchenko</strong>, until 2021</li>
+</ul>
+</section>
+<section id="students-and-interns" class="level3">
+<h3 class="anchored" data-anchor-id="students-and-interns">Students and interns</h3>
+<ul>
+<li><strong>Chris Carrillo</strong>, La Jolla High School</li>
+<li><strong>Dagny Whall</strong>, 2021, La Jolla High School</li>
+<li><strong>Harpreet Singh Saluja</strong>, 2022, UC San Diego</li>
+<li><strong>Dayna Olson</strong>, 2022, Michigan State University</li>
+<li><strong>Katherine Ge</strong>, 2022, Stanford University</li>
+</ul>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
