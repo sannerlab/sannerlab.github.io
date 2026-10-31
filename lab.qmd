@@ -1,6 +1,7 @@
 ---
-title-block-banner: "#0b7a6f"
-title-block-banner-color: "#ffffff"
+# the banner picture carries its own title, so the "Lab" heading is hidden (see .lab-page in styles.scss)
+title-block-banner: images/sannerpath_banner.jpg
+body-classes: lab-page
 title: "Lab"
 ---
 
@@ -60,4 +61,79 @@ Postdoctoral Fellow<br>
 
 ## Research
 
-*To be written.*
+The lab develops computational methods for predicting how biological molecules recognize and
+bind each other, and turns them into software that other researchers can use. Our work spans
+molecular surfaces, docking of small molecules and peptides, and the software engineering that
+lets these methods be combined into new applications. Papers are listed on the
+[Publications](publications.qmd) page.
+
+### Peptide docking
+
+Peptides are flexible, so predicting how one binds a protein means folding it and docking it at
+the same time. [AutoDock CrankPep (ADCP)](software/adcp/index.qmd) does both, combining
+physics-based folding with focused docking into a known binding region, and it handles linear
+and cyclic peptides. ADCP is regarded as a state-of-the-art physics-based peptide docking method.
+We have also shown that it complements deep-learning structure predictors: independent
+physics-based sampling and scoring can refine and re-rank AI-generated models of
+protein–peptide complexes.
+
+### Protein–ligand docking and binding sites
+
+We contributed flexible receptor side chains to AutoDock4, one of the most widely used docking
+programs. [AutoDockFR (ADFR)](software/adfr/index.qmd) extends this with explicitly specified
+binding-site flexibility, [AGFR](software/agfr/index.qmd) prepares receptors and docking maps,
+and [AutoSite](software/autosite/index.qmd) finds ligand-binding sites and predicts where key
+ligand atoms are likely to sit.
+
+### Molecular surfaces
+
+[MSMS](software/msms/index.qmd) computes solvent-excluded molecular surfaces quickly and
+reliably. It is built into Chimera, VMD, MGLTools and many other programs and pipelines.
+
+### Scientific software engineering
+
+Early computational biology programs were hard to reuse and maintain. We pioneered a
+component-based architecture built around Python, in which reusable modules for computation
+and visualization can be assembled quickly into new applications; the 1999 paper describing it
+has been cited more than 4,600 times. This approach produced the Python Molecular Viewer (PMV),
+AutoDockTools and the visual programming environment Vision, distributed together as
+[MGLTools](software/mgltools/index.qmd) to more than 20,000 registered users, and it has been
+reused in augmented reality, animation and cellular modeling, including CellPACK. Michel Sanner
+was also a founding member of the SciPy conference.
+
+## Alumni
+
+<!-- Current positions and links were checked in October 2026; only verified ones are given. -->
+
+### Postdoctoral fellows
+
+- **Yong Zhao**, until 2008, then CambridgeSoft
+- **Donald Keidel**, 2008–2011, then eMolecules
+- **Matthew Danielson**, 2011–2013, then Eli Lilly
+- **Pradeep Ravindranath**, 2013–2016. Founder and CEO, DynamWorks ·
+  [LinkedIn](https://www.linkedin.com/in/paravindranath/) ·
+  [Google Scholar](https://scholar.google.com/citations?user=1DqFHq0AAAAJ)
+- **Yuqi (Gary) Zhang**, from 2017. Schrödinger, San Diego ·
+  [ORCID](https://orcid.org/0000-0001-7532-5369)
+- **Vera Prytkova**
+- **Sudhanshu Shanker**, 2022–2023. Assistant Professor, Mahindra University ·
+  [Faculty page](https://www.mahindrauniversity.edu.in/faculty/sudhanshu-shanker)
+
+### Programmers
+
+- **Ruth Huey**, 1999–2016 (in memoriam)
+- **Sophie Coon**, 2000–2004. Neurocrine Biosciences ·
+  [LinkedIn](https://www.linkedin.com/in/sophiecoon/)
+- **Sargis Dallakyan**, 2006–2014. Senior Software Engineer, Rady Children's Hospital–San Diego ·
+  [LinkedIn](https://www.linkedin.com/in/sargis/)
+- **Alexandre Gillet**. Principal Software Engineer, PacBio ·
+  [LinkedIn](https://www.linkedin.com/in/alexandre-gillet-0bb0818/)
+- **Anna Omelchenko**, until 2021
+
+### Students and interns
+
+- **Chris Carrillo**, La Jolla High School
+- **Dagny Whall**, 2021, La Jolla High School
+- **Harpreet Singh Saluja**, 2022, UC San Diego
+- **Dayna Olson**, 2022, Michigan State University
+- **Katherine Ge**, 2022, Stanford University

@@ -45,6 +45,14 @@ img.icon { height: 2.4em; width: auto; vertical-align: middle; margin: 0 .15em; 
 }
 .quarto-title-banner .subtitle { opacity: 0.9; }
 
+/* lab page: picture banner with its own title text, shown whole (Quarto's default crops it) on a
+   colour matching its edges; the "Lab" heading is kept for screen readers only */
+.lab-page .quarto-title-block .quarto-title-banner {
+  background-color: #061726; background-size: contain; background-repeat: no-repeat;
+  background-position: center; height: min(33.3vw, 560px); padding: 0;
+}
+.lab-page .quarto-title-banner .quarto-title { @include visually-hidden(); }
+
 /* headings */
 h2 { color: $primary; }
 main h2:not(.anchored) { border-bottom-color: rgba($primary, 0.3); }
