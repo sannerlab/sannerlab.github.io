@@ -223,15 +223,11 @@ website:
       href: https://github.com/sannerlab
 format:
   html:
+    # light only: white background, black text
     theme:
-      light:
       - cosmo
       - styles.scss
       - styles-light.scss
-      dark:
-      - darkly
-      - styles.scss
-      - styles-dark.scss
     toc: true
     toc-depth: 3
     code-copy: true

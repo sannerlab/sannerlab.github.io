@@ -1,22 +1,37 @@
 ---
-title-block-banner: "#163a63"
-title-block-banner-color: "#ffffff"
+# the banner picture carries its own title, so the heading is hidden (see .picture-banner in styles.scss)
+title-block-banner: images/sannerpath_banner_home.jpg
+body-classes: picture-banner
 title: "Sanner Lab"
 subtitle: "Scripps Research, La Jolla"
 toc: false
 ---
 
-The Sanner Lab develops computational methods for predicting molecular interactions, including
-AutoDock4 and tools for docking small molecules, proteins and peptides. The lab also builds
-reusable software components that can be assembled quickly into custom applications, such as PMV,
-AutoDockTools and the visual programming environment Vision.
+The main focus of the [Sanner Lab at Scripps Research in La Jolla](lab.qmd) is the development of
+computational methods for predicting, analyzing, visualizing and optimizing molecular
+interactions. We have contributed to the development of several widely used software tools,
+including MSMS for calculating molecular surfaces, AutoDock4 and AutoDockFR for docking small
+molecules into proteins, F2Dock for docking proteins and, most recently, AutoDock CrankPep, along
+with a variety of graphical user interfaces such as PMV, Vision, AutoDockTools, AutoGridFR and
+ADapt.
 
 ::: {.tool-grid}
 
-::: {.tool-card .tc-software}
+::: {.tool-card .tc-software .tool-card-wide}
 ### [Software](software/index.qmd)
-AutoDock CrankPep, AutoDockFR, AutoGridFR, AutoSite, ADapt, MSMS and MGLTools: downloads,
-documentation and tutorials.
+Downloads, documentation and tutorials. Click a picture to open that tool's page.
+
+::: {.tool-tiles}
+
+[![ADapt](images/tools/adapt.jpg)[Prepare molecules for docking starting from a PDB file]{.tile-text}](software/adapt/index.qmd)
+[![AutoDock CrankPep (ADCP)](images/tools/adcp.jpg)[Dock linear and cyclic peptides]{.tile-text}](software/adcp/index.qmd)
+[![AutoGridFR (AGFR)](images/tools/agfr.jpg)[Prepare receptors, pockets and affinity maps for docking]{.tile-text}](software/agfr/index.qmd)
+[![AutoSite](images/tools/autosite.jpg)[Find ligand-binding pockets on proteins]{.tile-text}](software/autosite/index.qmd)
+[![AutoDockFR (ADFR)](images/tools/adfr.jpg)[Dock small molecules into flexible receptors]{.tile-text}](software/adfr/index.qmd)
+[![MGLTools](images/tools/mgltools.jpg)[Visualize and analyze molecules with PMV, AutoDockTools and Vision]{.tile-text}](software/mgltools/index.qmd)
+[![MSMS](images/tools/msms.jpg)[Compute molecular surfaces]{.tile-text}](software/msms/index.qmd)
+
+:::
 :::
 
 ::: {.tool-card .tc-lab}

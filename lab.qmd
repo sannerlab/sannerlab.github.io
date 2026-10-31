@@ -1,7 +1,7 @@
 ---
-# the banner picture carries its own title, so the "Lab" heading is hidden (see .lab-page in styles.scss)
+# the banner picture carries its own title, so the "Lab" heading is hidden (see .picture-banner in styles.scss)
 title-block-banner: images/sannerpath_banner.jpg
-body-classes: lab-page
+body-classes: picture-banner
 title: "Lab"
 ---
 

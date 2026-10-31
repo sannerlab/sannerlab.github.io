@@ -45,13 +45,14 @@ img.icon { height: 2.4em; width: auto; vertical-align: middle; margin: 0 .15em; 
 }
 .quarto-title-banner .subtitle { opacity: 0.9; }
 
-/* lab page: picture banner with its own title text, shown whole (Quarto's default crops it) on a
-   colour matching its edges; the "Lab" heading is kept for screen readers only */
-.lab-page .quarto-title-block .quarto-title-banner {
-  background-color: #061726; background-size: contain; background-repeat: no-repeat;
+/* picture banners (home and lab pages, body-classes: picture-banner): the 3:1 picture carries its
+   own title text, so it is shown whole (Quarto's default crops it) on a colour matching its edges,
+   and the page heading is kept for screen readers only */
+.picture-banner .quarto-title-block .quarto-title-banner {
+  background-color: #03162d; background-size: contain; background-repeat: no-repeat;
   background-position: center; height: min(33.3vw, 560px); padding: 0;
 }
-.lab-page .quarto-title-banner .quarto-title { @include visually-hidden(); }
+.picture-banner .quarto-title-banner .quarto-title { @include visually-hidden(); }
 
 /* headings */
 h2 { color: $primary; }
@@ -85,6 +86,19 @@ div.sourceCode { border-left: 4px solid rgba($primary, 0.55); }
 .tc-autosite { --tc: var(--tc-autosite); } .tc-adapt { --tc: var(--tc-adapt); }
 .tc-msms { --tc: var(--tc-msms); } .tc-mgltools { --tc: var(--tc-mgltools); }
 .tc-lab { --tc: var(--tc-lab); } .tc-pubs { --tc: var(--tc-pubs); } .tc-software { --tc: var(--tc-software); }
+
+/* home page: Software card across the full row, one linked picture per tool (4 + 3, centred) */
+.tool-card-wide { grid-column: 1 / -1; }
+.tool-card-wide:hover { transform: none; }
+/* the linked images sit in one paragraph (so Pandoc does not turn them into captioned figures) */
+.tool-tiles p { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: .8rem 0 0; }
+.tool-tiles a { flex: 0 0 calc(25% - .75rem); display: block; border-radius: 10px; overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,.18); transition: box-shadow .15s, transform .15s;
+  background: #fff; color: #000; text-decoration: none; }
+.tool-tiles .tile-text { display: block; padding: .5rem .6rem .65rem; font-size: .8rem; line-height: 1.3; text-align: center; }
+.tool-tiles a:hover, .tool-tiles a:focus-visible { box-shadow: 0 8px 22px rgba(0,0,0,.28); transform: translateY(-3px) scale(1.03); }
+.tool-tiles img { display: block; width: 100%; height: auto; aspect-ratio: 1; border-radius: 0; }
+@media (max-width: 700px) { .tool-tiles a { flex-basis: calc(50% - .5rem); } }
 
 /* footer */
 .nav-footer { border-top: 4px solid var(--lab-navy); background: rgba($primary, 0.06); }
