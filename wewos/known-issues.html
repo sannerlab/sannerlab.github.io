@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Known issues &middot; WEWoS documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">WEWoS<small>Vision's visual programming, on the web</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="editor.html">Building a network</a></li>
+<li><a href="running.html">Running a network</a></li>
+</ul>
+<h4>Tutorials</h4><ul>
+<li><a href="tutorials.html">About the tutorials</a></li>
+<li><a href="tut-first.html">Your first network</a></li>
+<li><a href="tut-image.html">An image viewer</a></li>
+<li><a href="tut-movie.html">Playing a series of images</a></li>
+<li><a href="tut-macro.html">Indexing a list; macros</a></li>
+<li><a href="tut-molecule.html">A virus capsid from one protomer</a></li>
+<li><a href="tut-cage.html">An icosahedral cage</a></li>
+<li><a href="tut-volumes.html">Volumes: isosurfaces and slices</a></li>
+</ul>
+<h4>Viewing results</h4><ul>
+<li><a href="viewer.html">The 3D viewer</a></li>
+<li><a href="colormap.html">Color maps and legends</a></li>
+<li><a href="images.html">Images and plots</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="files.html">Saving, opening, importing</a></li>
+<li><a href="libraries.html">Node libraries</a></li>
+<li><a href="nodes.html">Writing your own nodes</a></li>
+<li><a href="vision.html">WEWoS and Vision</a></li>
+<li><a class="here" href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>Known issues</h1>
+<p class="lead">What is known to be missing or to behave differently.</p>
+
+<h2 id="page">In the page</h2>
+<ul>
+<li><b>Grab Image needs the page.</b> A viewer's picture is drawn by the browser, so Grab Image (and
+the nodes after it) can only run while a page shows the network, with the viewer panel open. Run
+without a page (<code>bin/wewos run</code>), it fails after 15 seconds.</li>
+<li><b>Mol*'s own panels.</b> What you add in Mol*'s panels (representations, measurements) is not
+saved, and the network's next change redraws the scene.</li>
+<li><b>Copy and paste</b> work within a network, not from one network to another.</li>
+<li><b>Widget options</b>: only number widgets have an options dialog (minimum, maximum, step, one turn,
+precision).</li>
+</ul>
+
+<h2 id="import">Importing Vision networks</h2>
+<ul>
+<li><b>Changes inside a library macro</b> (nodes or connections added in it) are not carried over; the
+macro is the library's. The import report lists them. The tutorial's <code>mol2plv_net.py</code> is an
+example: it added a translation inside Icosahedral1.</li>
+<li>A port that a Vision library macro gained for a geometry's parent (e.g. Lines Macro's
+<code>IndexedPolylines_parent</code>) has no counterpart; its connection is reported as not made.</li>
+<li>Nodes of libraries that are not ported (PMV, ADT, web services&hellip;) are placeholders that do
+not run.</li>
+<li>Widget values given by port number, rather than by name, are not imported.</li>
+</ul>
+
+<h2 id="notported">Not ported</h2>
+<p>User panels; saving a node to a user library from its menu; DejaVu's textures (ImageFigure), volume
+rendering, clip planes and stereo; QSlim; matplotlib's navigation toolbar. See
+<a href="vision.html#notported">WEWoS and Vision</a>.</p>
+<div class="pn"><a href="vision.html">&larr; WEWoS and Vision</a><span></span></div>
+<footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
+follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>
+</main></div></body></html>

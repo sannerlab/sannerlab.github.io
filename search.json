@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Sanner Lab",
     "section": "",
-    "text": "The main focus of the Sanner Lab at Scripps Research in La Jolla is the development of computational methods for predicting, analyzing, visualizing and optimizing molecular interactions. We have contributed to the development of several widely used software tools, including MSMS for calculating molecular surfaces, AutoDock4 and AutoDockFR for docking small molecules into proteins, F2Dock for docking proteins and, most recently, AutoDock CrankPep, along with a variety of graphical user interfaces such as PMV, Vision, AutoDockTools, AutoGridFR and ADapt.\n\n\nSoftware\nDownloads, documentation and tutorials. Click a picture to open that tool’s page.\n\nPrepare molecules for docking starting from a PDB file Dock linear and cyclic peptides Prepare receptors, pockets and affinity maps for docking Find ligand-binding pockets on proteins Dock small molecules into flexible receptors Visualize and analyze molecules with PMV, AutoDockTools and Vision Compute molecular surfaces\n\n\n\nLab\nWho we are.\n\n\nPublications\nPapers from the lab.\n\n\n\n\n\n Back to top"
+    "text": "The main focus of the Sanner Lab at Scripps Research in La Jolla is the development of computational methods for predicting, analyzing, visualizing and optimizing molecular interactions. We have contributed to the development of several widely used software tools, including MSMS for calculating molecular surfaces, AutoDock4 and AutoDockFR for docking small molecules into proteins, F2Dock for docking proteins and, most recently, AutoDock CrankPep, along with a variety of graphical user interfaces such as PMV, Vision, AutoDockTools, AutoGridFR, ADapt and WEWoS.\n\n\nSoftware\nDownloads, documentation and tutorials. Click a picture to open that tool’s page.\n\nPrepare molecules for docking starting from a PDB file Visual programming with Vision in a web browser Dock linear and cyclic peptides Prepare receptors, pockets and affinity maps for docking Find ligand-binding pockets on proteins Dock small molecules into flexible receptors Visualize and analyze molecules with PMV, AutoDockTools and Vision Compute molecular surfaces\n\n\n\nLab\nWho we are.\n\n\nPublications\nPapers from the lab.\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "contact.html",
@@ -55,7 +55,7 @@
     "href": "software/index.html",
     "title": "Software",
     "section": "",
-    "text": "Software developed in the lab. Each tool has an overview, downloads, documentation and, where available, tutorials. Downloads are still served from the CCSB website.\n\n\n\ncurrent: 1.1\n\nAutoDock CrankPep (ADCP)\nDocking of linear and cyclic peptides by combining folding and docking.\n\n\n\n\nin ADFRsuite 1.0\n\nAutoDockFR (ADFR)\nProtein–ligand docking with explicitly specified receptor flexibility.\n\n\n\n\nin ADFRsuite 1.0\n\nAutoGridFR (AGFR)\nPrepares receptors for docking: docking box, binding pockets, affinity maps and target files.\n\n\n\n\nin ADFRsuite 1.0\n\nAutoSite\nIdentifies ligand-binding pockets from affinity maps.\n\n\n\n\nunreleased\n\nADapt\nPrepares receptor and ligand PDBQT files for AutoDock from a PDB entry, in a web browser.\n\n\n\n\ncurrent: 2.6.1\n\nMSMS\nComputes molecular surfaces. Free for academic use; commercial use needs a license.\n\n\n\n\ncurrent: 1.5.7\n\nMGLTools\nThe lab’s molecular graphics and modeling software, including PMV and AutoDockTools.\n\n\n\n\n\n\n Back to top"
+    "text": "Software developed in the lab. Each tool has an overview, downloads, documentation and, where available, tutorials. Downloads are still served from the CCSB website.\n\n\n\ncurrent: 1.1\n\nAutoDock CrankPep (ADCP)\nDocking of linear and cyclic peptides by combining folding and docking.\n\n\n\n\nin ADFRsuite 1.0\n\nAutoDockFR (ADFR)\nProtein–ligand docking with explicitly specified receptor flexibility.\n\n\n\n\nin ADFRsuite 1.0\n\nAutoGridFR (AGFR)\nPrepares receptors for docking: docking box, binding pockets, affinity maps and target files.\n\n\n\n\nin ADFRsuite 1.0\n\nAutoSite\nIdentifies ligand-binding pockets from affinity maps.\n\n\n\n\nunreleased\n\nADapt\nPrepares receptor and ligand PDBQT files for AutoDock from a PDB entry, in a web browser.\n\n\n\n\nin development\n\nWEWoS\nVision’s visual programming in a web browser: connect nodes, see molecules, volumes, images and plots.\n\n\n\n\ncurrent: 2.6.1\n\nMSMS\nComputes molecular surfaces. Free for academic use; commercial use needs a license.\n\n\n\n\ncurrent: 1.5.7\n\nMGLTools\nThe lab’s molecular graphics and modeling software, including PMV and AutoDockTools.\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "software/autosite/index.html",
@@ -1100,6 +1100,36 @@
     ]
   },
   {
+    "objectID": "software/wewos/index.html",
+    "href": "software/wewos/index.html",
+    "title": "WEWoS",
+    "section": "",
+    "text": "Warning\n\n\n\nWEWoS is under development (version 0.1.0). These pages describe a test version.\nWEWoS brings Vision, the visual programming environment of MGLTools, to the web browser: build programs by connecting nodes, and see molecules, surfaces, volumes, images and plots as they run.\nA program is a network of nodes. Each node runs a small Python function; connections carry data from a node’s outputs to another node’s inputs, and when a node gets new data it runs and sends its results on. Inputs can have widgets (a dial, a number, a file name, a menu), so you can explore a computation by turning a dial and watching the result.",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "software/wewos/index.html#history",
+    "href": "software/wewos/index.html#history",
+    "title": "WEWoS",
+    "section": "History",
+    "text": "History\nVision began as ViPEr, a Visual Programming Environment for Python, written by Michel Sanner, Daniel Stoffler and Arthur Olson in the Molecular Graphics Lab of The Scripps Research Institute. It was presented at the 10th International Python Conference in February 2002, where it received the best paper award, and was later renamed Vision and distributed with MGLTools. WEWoS keeps the design the paper describes; the network of the paper’s figure 1 runs in WEWoS as the example ViPEr paper figure 1.\n\nSanner, M. F.; Stoffler, D.; Olson, A. J. ViPEr, a Visual Programming Environment for Python. Proceedings of the 10th International Python Conference, 2002. Paper",
+    "crumbs": [
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "software/wewos/gallery.html",
+    "href": "software/wewos/gallery.html",
+    "title": "WEWoS gallery",
+    "section": "",
+    "text": "Images made with WEWoS, from its documentation. Click an image to enlarge it.\n\n\n\n\n\n\nThe mol2plv tutorial network: a poliovirus capsid built from one protomer and its 60 icosahedral matrices, colored by x\n\n\n\n\n\n\n\nAn icosahedral cage built with the SymServer library\n\n\n\n\n\n\n\nA virus capsid isosurface with one octant cut away, colored by radius\n\n\n\n\n\n\n\n\n\nA CT scan of a head: an isosurface of the skull and three colored slices\n\n\n\n\n\n\n\nAn isosurface drawn as lines, colored by its distance to the origin\n\n\n\n\n\n\n\nA molecule blurred into a map with a Gaussian\n\n\n\n\n\n\n\n\n\nThe cut-away capsid isosurface drawn with Mol*: ambient occlusion and outlines\n\n\n\n\n\n\n\nMatPlotLib plots side by side under the network\n\n\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Gallery"
+    ]
+  },
+  {
     "objectID": "lab.html",
     "href": "lab.html",
     "title": "Lab",
@@ -1132,7 +1162,37 @@
     "href": "lab.html#alumni",
     "title": "Lab",
     "section": "Alumni",
-    "text": "Alumni\n\n\nPostdoctoral fellows\n\nYong Zhao, until 2008, then CambridgeSoft\nDonald Keidel, 2008–2011, then eMolecules\nMatthew Danielson, 2011–2013, then Eli Lilly\nPradeep Ravindranath, 2013–2016. Founder and CEO, DynamWorks · LinkedIn · Google Scholar\nYuqi (Gary) Zhang, from 2017. Schrödinger, San Diego · ORCID\nVera Prytkova\nSudhanshu Shanker, 2022–2023. Assistant Professor, Mahindra University · Faculty page\n\n\n\nProgrammers\n\nRuth Huey, 1999–2016 (in memoriam)\nSophie Coon, 2000–2004. Neurocrine Biosciences · LinkedIn\nSargis Dallakyan, 2006–2014. Senior Software Engineer, Rady Children’s Hospital–San Diego · LinkedIn\nAlexandre Gillet. Principal Software Engineer, PacBio · LinkedIn\nAnna Omelchenko, until 2021\n\n\n\nStudents and interns\n\nChris Carrillo, La Jolla High School\nDagny Whall, 2021, La Jolla High School\nHarpreet Singh Saluja, 2022, UC San Diego\nDayna Olson, 2022, Michigan State University\nKatherine Ge, 2022, Stanford University"
+    "text": "Alumni\n\n\nPostdoctoral fellows\n\nYong Zhao, until 2008, then CambridgeSoft\nDonald Keidel, 2008–2011, then eMolecules\nMatthew Danielson, 2011–2013, then Eli Lilly\nPradeep Ravindranath, 2013–2016. Founder and CEO, DynamWorks · LinkedIn · Google Scholar\nYuqi (Gary) Zhang, from 2017. Schrödinger, San Diego · ORCID\nVera Prytkova\nSudhanshu Shanker, 2022–2023. Assistant Professor, Mahindra University · Faculty page\n\n\n\nProgrammers\n\nRuth Huey, 1999–2016 (in memoriam)\nSophie Coon, 2000–2004. Neurocrine Biosciences · LinkedIn\nGuillaume Vareille, 2006–2009\nSargis Dallakyan, 2006–2014. Senior Software Engineer, Rady Children’s Hospital–San Diego · LinkedIn\nAlexandre Gillet. Principal Software Engineer, PacBio · LinkedIn\nAnna Omelchenko, until 2021\n\n\n\nStudents and interns\n\nChris Carrillo, La Jolla High School\nDagny Whall, 2021, La Jolla High School\nHarpreet Singh Saluja, 2022, UC San Diego\nDayna Olson, 2022, Michigan State University\nKatherine Ge, 2022, Stanford University"
+  },
+  {
+    "objectID": "software/wewos/tutorials.html",
+    "href": "software/wewos/tutorials.html",
+    "title": "WEWoS tutorials",
+    "section": "",
+    "text": "The tutorials follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008) step by step. Their networks and data come with WEWoS, in the example group Vision tutorial (MGLTools 1.5.3).\n\nAbout the tutorials\nYour first network\nAn image viewer\nPlaying a series of images\nIndexing a list; macros\nA virus capsid from one protomer\nAn icosahedral cage\nVolumes: isosurfaces and slices\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Tutorials"
+    ]
+  },
+  {
+    "objectID": "software/wewos/download.html",
+    "href": "software/wewos/download.html",
+    "title": "Download WEWoS",
+    "section": "",
+    "text": "WEWoS has no release yet. The source is on GitHub: github.com/sannerlab/WEWoS.\ngit clone https://github.com/sannerlab/WEWoS.git\ncd WEWoS\nbin/wewos check     # lists what is missing\nbin/wewos serve     # prints http://127.0.0.1:8767/?t=...  open it in a browser\nbin/wewos needs a Python 3 environment with numpy. The Molecules library also needs MolKit2, ProDy and mslib, which the adcpsuite environment of the ADCP distribution provides.\nThe server listens on 127.0.0.1 only. To use it from another machine, forward the port, ssh -L 8767:127.0.0.1:8767 host, then open the printed URL locally.\n\n\n\n Back to top",
+    "crumbs": [
+      "Download"
+    ]
+  },
+  {
+    "objectID": "software/wewos/documentation.html",
+    "href": "software/wewos/documentation.html",
+    "title": "WEWoS documentation",
+    "section": "",
+    "text": "The full documentation opens as its own set of pages. It is the same documentation the Docs button opens in WEWoS.\n\n\n\nPage\nWhat it covers\n\n\n\n\nOverview\nthe idea, the page and its parts\n\n\nGetting started\nstarting the server and opening the page\n\n\nBuilding a network\nadding and connecting nodes, widgets, macros\n\n\nRunning a network\nrun, run all, pause and stop\n\n\nThe 3D viewer\n3Dmol.js and Mol* viewers, picking, rendering\n\n\nColor maps and legends\nthe color map editor and legends\n\n\nImages and plots\nimage panels and MatPlotLib plots\n\n\nSaving, opening, importing\nnetwork files and importing Vision networks\n\n\nNode libraries\nthe libraries and their nodes\n\n\nWriting your own nodes\nnode code, ports and libraries of your own\n\n\nWEWoS and Vision\nwhat is kept and what changed from Vision\n\n\nKnown issues\nwhat is known to be wrong or missing\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Documentation"
+    ]
   },
   {
     "objectID": "software/adfr/tutorials.html",

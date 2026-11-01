@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WEWoS &middot; WEWoS documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">WEWoS<small>Vision's visual programming, on the web</small></a>
+<h4>Start here</h4><ul>
+<li><a class="here" href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="editor.html">Building a network</a></li>
+<li><a href="running.html">Running a network</a></li>
+</ul>
+<h4>Tutorials</h4><ul>
+<li><a href="tutorials.html">About the tutorials</a></li>
+<li><a href="tut-first.html">Your first network</a></li>
+<li><a href="tut-image.html">An image viewer</a></li>
+<li><a href="tut-movie.html">Playing a series of images</a></li>
+<li><a href="tut-macro.html">Indexing a list; macros</a></li>
+<li><a href="tut-molecule.html">A virus capsid from one protomer</a></li>
+<li><a href="tut-cage.html">An icosahedral cage</a></li>
+<li><a href="tut-volumes.html">Volumes: isosurfaces and slices</a></li>
+</ul>
+<h4>Viewing results</h4><ul>
+<li><a href="viewer.html">The 3D viewer</a></li>
+<li><a href="colormap.html">Color maps and legends</a></li>
+<li><a href="images.html">Images and plots</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="files.html">Saving, opening, importing</a></li>
+<li><a href="libraries.html">Node libraries</a></li>
+<li><a href="nodes.html">Writing your own nodes</a></li>
+<li><a href="vision.html">WEWoS and Vision</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>WEWoS</h1>
+<p class="lead">Vision, the visual programming environment of MGLTools, in a web browser: build
+programs by connecting nodes, and see molecules, surfaces, volumes, images and plots as they
+run.</p>
+
+<figure>
+<img src="img/overview.png" alt="WEWoS with the mol2plv tutorial network: the libraries on the left, the network in the middle, the selected node's parameters on the right, a 3D viewer under the network">
+<figcaption><b>WEWoS with the tutorial network <i>mol2plv</i>.</b> The poliovirus capsid is built
+from one protomer and its 60 icosahedral matrices, and colored by the x coordinate of its atoms.
+The numbered parts are explained <a href="#interface">below</a>.</figcaption>
+</figure>
+
+<h2 id="idea">The idea</h2>
+<p>A program is a <b>network</b> of <b>nodes</b>. Each node runs a small Python function. Its
+<b>input ports</b> are on its left edge and its <b>output ports</b> on its right edge. A
+<b>connection</b> carries data from an output to an input. When a node gets new data it runs and
+sends its results on, so data flows through the network from left to right.</p>
+<p>Inputs can have <b>widgets</b>: a dial, a number, a file name, a menu. Changing a widget runs
+the part of the network it feeds, so you can explore a computation by turning a dial and
+watching the result change. Nodes come in <b>libraries</b>: Standard (Python, lists, files,
+logic), 3D Visualization, Molecules, Volume, SymServer (symmetry), Imaging and MatPlotLib.</p>
+<p>Nothing needs to be compiled. Any node's code can be read and changed while the network is
+open, a set of nodes can be grouped into a <b>macro</b> node, and a <b>Generic</b> node with your
+own ports and code is a new node.</p>
+
+<h2 id="what">What WEWoS is</h2>
+<p>Vision was written by Michel Sanner, Daniel Stoffler and Arthur Olson at The Scripps Research
+Institute (first presented as <i>ViPEr</i> in 2002, see <a href="vision.html#history">the
+history</a>) and distributed with MGLTools. It ran on Python 2, drew its windows with Tk and its 3D
+views with DejaVu (OpenGL). WEWoS keeps Vision's design and its networks, and moves them to the
+web:</p>
+<ul>
+<li>a <b>Python 3 port of Vision's engine</b> (NetworkEditor) and of its node libraries runs on a
+small local server;</li>
+<li>the <b>browser</b> draws the network editor, the widgets and the 3D viewers, which use
+<a href="https://3dmol.csb.pitt.edu">3Dmol.js</a> or <a href="https://molstar.org">Mol*</a> in
+place of DejaVu;</li>
+<li>Vision's saved networks (<code>*_net.py</code> files) are <b>imported</b> without being run,
+so the networks written over the years still open (see <a href="files.html#import">importing</a>).</li>
+</ul>
+<p>The server listens on your machine only, and the address it prints carries a token that keeps
+other users of the machine out. Node code runs on the server with your rights, as it did in
+Vision.</p>
+
+<h2 id="interface">The interface</h2>
+<ol class="legend">
+<li><b>The libraries</b> of nodes, by category. Drag a node onto the network, or double-click it.
+<b>Libraries&hellip;</b> loads more of them.</li>
+<li><b>Find a node</b> by name in the loaded libraries.</li>
+<li><b>File</b> (new, open, save, import a Vision network, examples), <b>Edit</b> (copy, paste,
+macros, arrange) and <b>Libraries&hellip;</b></li>
+<li><b>Run</b> the nodes that have new data, <b>Run all</b>, <b>Pause</b> and <b>Stop</b>.</li>
+<li><b>run on change</b>: when checked, changing a widget runs what it feeds. Next to it, the
+network's state: idle or running.</li>
+<li>The <b>open networks</b>. Each has its own folder for its files.</li>
+<li>This documentation.</li>
+<li>The network's <b>tab</b>; each macro you open gets a tab next to it.</li>
+<li><b>The network editor.</b> The mouse wheel zooms, dragging the background pans, Shift-drag
+selects, <kbd>f</kbd> fits the network in view.</li>
+<li><b>A node</b>: its name in a bar of its library's color, inputs on the left, outputs on the
+right, widgets on the rows of their inputs.</li>
+<li><b>The parameter column</b>: the widgets, ports and code of the selected node.</li>
+<li><b>A 3D viewer</b>, in the row under the network that also holds images and plots.</li>
+<li>A <b>color map legend</b>, drawn over the 3D view.</li>
+<li>The <b>Log</b>: what nodes print, and errors.</li>
+<li>The <b>status line</b>.</li>
+</ol>
+<p>Right-click anything (a node, a port, a widget, a connection, the background, a legend) for its
+menu.</p>
+
+<h2 id="next">Where to go next</h2>
+<div class="cards">
+<a class="card" href="start.html"><img src="img/examples.png" alt=""><span><b>Getting started</b>
+Start the server, open the page, open an example.</span></a>
+<a class="card" href="tutorials.html"><img src="img/first_network.png" alt=""><span><b>Tutorials</b>
+Vision's tutorial, step by step, in WEWoS.</span></a>
+<a class="card" href="viewer.html"><img src="img/molstar.png" alt=""><span><b>The 3D viewer</b>
+3Dmol.js and Mol*, picking, silhouettes, pictures.</span></a>
+<a class="card" href="files.html"><img src="img/import_report.png" alt=""><span><b>Vision networks</b>
+Importing <code>*_net.py</code> files.</span></a>
+</div>
+<div class="pn"><span></span><a href="start.html">Getting started &rarr;</a></div>
+<footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
+follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>
+</main></div></body></html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Running a network &middot; WEWoS documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">WEWoS<small>Vision's visual programming, on the web</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="editor.html">Building a network</a></li>
+<li><a class="here" href="running.html">Running a network</a></li>
+</ul>
+<h4>Tutorials</h4><ul>
+<li><a href="tutorials.html">About the tutorials</a></li>
+<li><a href="tut-first.html">Your first network</a></li>
+<li><a href="tut-image.html">An image viewer</a></li>
+<li><a href="tut-movie.html">Playing a series of images</a></li>
+<li><a href="tut-macro.html">Indexing a list; macros</a></li>
+<li><a href="tut-molecule.html">A virus capsid from one protomer</a></li>
+<li><a href="tut-cage.html">An icosahedral cage</a></li>
+<li><a href="tut-volumes.html">Volumes: isosurfaces and slices</a></li>
+</ul>
+<h4>Viewing results</h4><ul>
+<li><a href="viewer.html">The 3D viewer</a></li>
+<li><a href="colormap.html">Color maps and legends</a></li>
+<li><a href="images.html">Images and plots</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="files.html">Saving, opening, importing</a></li>
+<li><a href="libraries.html">Node libraries</a></li>
+<li><a href="nodes.html">Writing your own nodes</a></li>
+<li><a href="vision.html">WEWoS and Vision</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>Running a network</h1>
+<p class="lead">How nodes run, the run buttons, and what a node does when it fails.</p>
+
+<figure class="mid">
+<img src="img/toolbar.png" alt="The run buttons at the top of the page">
+<figcaption><b>The run controls.</b> (1) Run, (2) Run all, (3) Pause, (4) Stop, (5) run on
+change, (6) the network's state.</figcaption>
+</figure>
+
+<h2 id="flow">How data flows</h2>
+<p>A node runs when all its required inputs have data and at least one of them has new data. Its
+outputs then carry new data to the nodes connected to them, which run in turn. The network is run
+breadth first, as in Vision: a node runs after all the nodes above it that are running in the
+same pass, so a node with two inputs fed by the same source runs once, with both values.</p>
+<ol class="steps">
+<li><b>Run</b> (Vision's run) runs the nodes that have new data, and what is below them. On a
+network just opened, that is everything.</li>
+<li><b>Run all</b> runs every node again, from the nodes that have no input connected.</li>
+<li><b>Pause</b> holds the run after the node that is running; press it again to go on.</li>
+<li><b>Stop</b> stops the run after the node that is running.</li>
+<li><b>run on change</b> (Vision's immediate mode): when it is checked, changing a widget, or
+connecting a node, runs the part of the network below it. Uncheck it to set several widgets, then
+press <b>Run</b>.</li>
+<li>The network's state: <i>idle</i> or <i>running</i>.</li>
+</ol>
+<p>One run happens at a time, on the server. Changing a widget while the network runs queues
+another run, which starts when this one ends. <b>Run this node</b> in a node's menu (or <b>Run
+node</b> in the parameter column) runs one node and what is below it.</p>
+
+<h2 id="loops">Loops and stops</h2>
+<p>Some nodes schedule the nodes below them several times: <b>iterate</b> sends the items of a list
+one at a time, and runs what is below it for each; <b>while</b> loops on a condition. A node whose
+code returns <code>'Stop'</code> stops the data there: the nodes below it do not run in this pass
+(<b>isTrue_Stop</b> does this on a condition). A <b>frozen</b> node does not run.</p>
+<p>The special ports order nodes that do not exchange data: a connection from a node's
+<code>trigger</code> port (bottom edge) to another node's <code>runNode</code> port (top edge) runs
+the second after the first.</p>
+
+<h2 id="status">What the nodes show</h2>
+<table>
+<tr><th>outline</th><th>the node</th></tr>
+<tr><td>orange, thick</td><td>is running</td></tr>
+<tr><td>red, dashed</td><td>failed: its code raised an error</td></tr>
+<tr><td>amber</td><td>stopped: it returned <code>'Stop'</code>, or a required input had no data</td></tr>
+<tr><td>light blue fill</td><td>is frozen</td></tr>
+<tr><td>red, on a pale node</td><td>is not available here (an imported Vision node that has no counterpart); it keeps its ports and code but does not run</td></tr>
+</table>
+<figure>
+<img src="img/node_error.png" alt="A Read Image node outlined in red, its error shown in the parameter column">
+<figcaption><b>A node that failed.</b> Read Image was given a file that does not exist. Selecting
+the node shows the error in the parameter column, with its traceback; the Log under the network
+has it too.</figcaption>
+</figure>
+<p>What nodes print goes to the <b>Log</b> under the network (click it to open it).</p>
+<div class="pn"><a href="editor.html">&larr; Building a network</a><a href="tutorials.html">About the tutorials &rarr;</a></div>
+<footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
+follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>
+</main></div></body></html>

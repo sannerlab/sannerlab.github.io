@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Node libraries &middot; WEWoS documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">WEWoS<small>Vision's visual programming, on the web</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="editor.html">Building a network</a></li>
+<li><a href="running.html">Running a network</a></li>
+</ul>
+<h4>Tutorials</h4><ul>
+<li><a href="tutorials.html">About the tutorials</a></li>
+<li><a href="tut-first.html">Your first network</a></li>
+<li><a href="tut-image.html">An image viewer</a></li>
+<li><a href="tut-movie.html">Playing a series of images</a></li>
+<li><a href="tut-macro.html">Indexing a list; macros</a></li>
+<li><a href="tut-molecule.html">A virus capsid from one protomer</a></li>
+<li><a href="tut-cage.html">An icosahedral cage</a></li>
+<li><a href="tut-volumes.html">Volumes: isosurfaces and slices</a></li>
+</ul>
+<h4>Viewing results</h4><ul>
+<li><a href="viewer.html">The 3D viewer</a></li>
+<li><a href="colormap.html">Color maps and legends</a></li>
+<li><a href="images.html">Images and plots</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="files.html">Saving, opening, importing</a></li>
+<li><a class="here" href="libraries.html">Node libraries</a></li>
+<li><a href="nodes.html">Writing your own nodes</a></li>
+<li><a href="vision.html">WEWoS and Vision</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>Node libraries</h1>
+<p class="lead">The libraries of nodes that come with WEWoS, loading them, and loading your
+own.</p>
+
+<h2 id="load">Loading libraries</h2>
+<p>Libraries load on demand, as in Vision. When the server starts, only <b>Standard</b> (and the
+libraries marked <i>at start</i>) is in the list; <b>Libraries&hellip;</b> (or <i>+ Load a
+library&hellip;</i> under the list) loads the others. Opening a network, an example or an imported
+Vision network loads the libraries it uses.</p>
+<figure class="mid">
+<img src="img/libraries.png" alt="The Libraries dialog: each library with Load or loaded, and an at start check box; a field to load your own">
+<figcaption><b>Libraries&hellip;</b> Each library can be loaded now, or every time the server starts.
+The field at the bottom loads a library of your own.</figcaption>
+</figure>
+
+<h2 id="list">The libraries</h2>
+<table>
+<tr><th>library</th><th>nodes</th><th>what is in it</th></tr>
+<tr><td><b>Standard</b></td><td>75</td><td>Vision's StandardNodes: input widgets (dials, thumbwheels,
+entries, file and folder browsers, check buttons, lists), file names and file lists, reading and
+writing lines and tables, Python (iterate, while, accum, eval, call method, getattr, map, range,
+zip&hellip;), filters (index, slice, select, cast, Op1/Op2/Op3), logic (if, isTrue, isTrue_Stop),
+numpy (ufuncs, astype), print and more</td></tr>
+<tr><td><b>3D Visualization</b></td><td>14</td><td>DejaVu's nodes (vizlib): the Viewer, One Redraw,
+Spheres, points, Cylinders, IndPolylines, IndPolygons, GlfLabels, box, axis, GeomContainer, Set Geom
+Options, Read Mesh, and Color Map with its editor and legend</td></tr>
+<tr><td><b>Molecules</b></td><td>16</td><td>MolKit2 and ProDy: Read Molecule, Fetch PDB, Assembly
+Matrices (a PDB file's biological assembly), Assign Radii, Extract Atom Property, Select, Sequence,
+Picked Atom, CPK, Sticks, Lines, Cartoon, Surface, MSMS, MSMS triangles, Write PDB</td></tr>
+<tr><td><b>Volume</b></td><td>57</td><td>MGLTools' Volume: reading maps (AutoGrid, CCP4, MRC, CNS/XPLOR,
+DX, Delphi, GRD, BRIX, SPIDER, UHBD, Rawiv, AVS/FLD, numpy), writing CCP4 and Rawiv, statistics,
+masks, clipping, transforms, resampling, Gaussian blurring of molecules, isocontouring (UTiso,
+UT-Isocontour) with its contour spectrum, signed distances, meshing, slices, boxes, and a coarse
+molecular surface macro (CoarseMolSurf)</td></tr>
+<tr><td><b>SymServer</b></td><td>30</td><td>symserv: n-fold axes (2- to 6-fold and N-fold), helix,
+super-helix, rotate, translate, orient, scale, merge, multiply, split, inverse, transpose, distance to
+a point, center of mass, the Icosahedral1 and IcosCage macros, reading and saving matrices</td></tr>
+<tr><td><b>Imaging</b></td><td>18</td><td>Pillow: read, show, save, grab a viewer's picture, filters,
+invert, split, masks, paste, blend, multiply, composite, rotate, transpose, scale, statistics</td></tr>
+<tr><td><b>MatPlotLib</b></td><td>41</td><td>Vision's matplotlib nodes (see <a href="images.html#plots">Images
+and plots</a>)</td></tr>
+</table>
+<p>Hovering over a node in the list shows what it does; the parameter column of a node has <i>About
+this node</i>.</p>
+
+<h2 id="yours">Your own libraries</h2>
+<p>A library of your own is a Python module, or a <code>.py</code> file on the server, that makes a
+<code>NodeLibrary</code> and adds nodes to it (see <a href="nodes.html#library">Writing your own
+nodes</a>). Type its module name or its path in the Libraries dialog, or choose the file with
+&hellip;, and press <b>Load</b>. WEWoS remembers it in <code>libraries.json</code>, in the folder of the
+networks, and offers it again at the next start.</p>
+<div class="note"><b>Not ported:</b> the other libraries of MGLTools (PMV, ADT, FlexTree, ImageMagick,
+web services&hellip;). Their nodes in an imported network are placeholders that do not run.</div>
+<div class="pn"><a href="files.html">&larr; Saving, opening, importing</a><a href="nodes.html">Writing your own nodes &rarr;</a></div>
+<footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
+follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>
+</main></div></body></html>

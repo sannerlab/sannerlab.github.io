@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>An image viewer &middot; WEWoS documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">WEWoS<small>Vision's visual programming, on the web</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="editor.html">Building a network</a></li>
+<li><a href="running.html">Running a network</a></li>
+</ul>
+<h4>Tutorials</h4><ul>
+<li><a href="tutorials.html">About the tutorials</a></li>
+<li><a href="tut-first.html">Your first network</a></li>
+<li><a class="here" href="tut-image.html">An image viewer</a></li>
+<li><a href="tut-movie.html">Playing a series of images</a></li>
+<li><a href="tut-macro.html">Indexing a list; macros</a></li>
+<li><a href="tut-molecule.html">A virus capsid from one protomer</a></li>
+<li><a href="tut-cage.html">An icosahedral cage</a></li>
+<li><a href="tut-volumes.html">Volumes: isosurfaces and slices</a></li>
+</ul>
+<h4>Viewing results</h4><ul>
+<li><a href="viewer.html">The 3D viewer</a></li>
+<li><a href="colormap.html">Color maps and legends</a></li>
+<li><a href="images.html">Images and plots</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="files.html">Saving, opening, importing</a></li>
+<li><a href="libraries.html">Node libraries</a></li>
+<li><a href="nodes.html">Writing your own nodes</a></li>
+<li><a href="vision.html">WEWoS and Vision</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>An image viewer</h1>
+<p class="lead">Read an image, scale it and show it; load a library; choose a file; add a
+filter.</p>
+
+<p>So far we used the Standard library, whose nodes are small utilities. Let's make a small
+application: an image viewer. Start from <b>start here</b> again (or <b>File &gt; New network</b>
+if you already have the tutorial data in a folder you know).</p>
+
+<h2>Load the Imaging library</h2>
+<ol class="steps">
+<li>Press <b>Libraries&hellip;</b> at the top and load <b>Imaging</b>. It appears in the list on
+the left, in its own color.</li>
+<li>Type <i>read</i> in <b>Find a node</b> and drag <b>Read Image</b> onto the network. Type
+<i>show</i> and drag <b>Show Image</b> to its right.</li>
+<li>Connect Read Image's <code>image</code> output to Show Image's <code>image</code> input.</li>
+</ol>
+
+<h2>Choose a file</h2>
+<p>Read Image's <code>filename</code> input has a file widget. Its &hellip; button opens a file
+browser on the server, in the network's folder; its &#8679; button uploads a file from your own
+computer into that folder.</p>
+<figure class="mid">
+<img src="img/file_picker.png" alt="The file browser in the network folder's cartoonMovie folder">
+<figcaption><b>The file browser</b>, in the network's <code>cartoonMovie</code> folder. A file in the
+network's folder is given relative to it (<code>cartoonMovie/crnCartoon0000.png</code>), so the
+network keeps working when its folder moves.</figcaption>
+</figure>
+<p>Open <code>cartoonMovie</code> and choose <code>crnCartoon0000.png</code>. The network runs, and
+the image appears in a <b>Show Image</b> panel in the row under the network.</p>
+
+<h2>Scale it</h2>
+<ol class="steps">
+<li>Add <b>Scale</b> (<b>Imaging &gt; Mapper</b>) between the two nodes. Show Image's input takes
+one connection: right-click the connection from Read Image and choose <b>Delete connection</b>.
+Then connect Read Image to Scale's <code>image</code>, and Scale's <code>scaledImage</code> to Show
+Image.</li>
+<li>Click Scale. Its widgets are in the parameter column on the right (and on its rows in the
+node): change <b>Scale</b> and watch the image.</li>
+</ol>
+<figure>
+<img src="img/image_viewer.png" alt="Read Image, Scale and Show Image connected; the image of a protein cartoon in a panel; Scale's parameters on the right">
+<figcaption><b>The image viewer.</b> The image panel's header gives the image's size and mode, a
+&#128190; button that saves it, and the buttons that size the row.</figcaption>
+</figure>
+<div class="checkpoint"><b>Checkpoint</b> cartoon0: an image viewer</div>
+<p><b>run on change</b> is Vision's immediate mode: when it is checked, every change of a widget runs
+the network. Uncheck it to change several things, then press <b>Run</b>.</p>
+
+<h2>Exercise: the contour</h2>
+<p>Find a way to extract the contour of the image with a node of the Imaging library, and show the
+image and its contour side by side.</p>
+<figure>
+<img src="img/contour.png" alt="Scale's output also goes to a Filter Image node set to CONTOUR, shown by a second Show Image">
+<figcaption><b>One solution.</b> <b>Filter Image</b> (<b>Imaging &gt; Filter</b>) with its filter set
+to <i>CONTOUR</i>, and a second Show Image. Each Show Image node has its own panel, side by side in
+the row.</figcaption>
+</figure>
+<div class="pn"><a href="tut-first.html">&larr; Your first network</a><a href="tut-movie.html">Playing a series of images &rarr;</a></div>
+<footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
+follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>
+</main></div></body></html>
