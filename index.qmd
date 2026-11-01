@@ -21,16 +21,25 @@ ADapt and WEWoS.
 ### [Software](software/index.qmd)
 Downloads, documentation and tutorials. Click a picture to open that tool's page.
 
+[Methods]{.tile-group}
+
+::: {.tool-tiles}
+
+[![AutoDock CrankPep (ADCP)](images/tools/adcp.jpg)[Dock linear and cyclic peptides]{.tile-text}](software/adcp/index.qmd)
+[![AutoDockFR (ADFR)](images/tools/adfr.jpg)[Dock small molecules into flexible receptors]{.tile-text}](software/adfr/index.qmd)
+[![AutoSite](images/tools/autosite.jpg)[Find ligand-binding pockets on proteins]{.tile-text}](software/autosite/index.qmd)
+[![MSMS](images/tools/msms.jpg)[Compute molecular surfaces]{.tile-text}](software/msms/index.qmd)
+
+:::
+
+[User interfaces]{.tile-group}
+
 ::: {.tool-tiles}
 
 [![ADapt](images/tools/adapt.jpg)[Prepare molecules for docking starting from a PDB file]{.tile-text}](software/adapt/index.qmd)
 [![WEWoS](images/tools/wewos.jpg)[Visual programming with Vision in a web browser]{.tile-text}](software/wewos/index.qmd)
-[![AutoDock CrankPep (ADCP)](images/tools/adcp.jpg)[Dock linear and cyclic peptides]{.tile-text}](software/adcp/index.qmd)
 [![AutoGridFR (AGFR)](images/tools/agfr.jpg)[Prepare receptors, pockets and affinity maps for docking]{.tile-text}](software/agfr/index.qmd)
-[![AutoSite](images/tools/autosite.jpg)[Find ligand-binding pockets on proteins]{.tile-text}](software/autosite/index.qmd)
-[![AutoDockFR (ADFR)](images/tools/adfr.jpg)[Dock small molecules into flexible receptors]{.tile-text}](software/adfr/index.qmd)
 [![MGLTools](images/tools/mgltools.jpg)[Visualize and analyze molecules with PMV, AutoDockTools and Vision]{.tile-text}](software/mgltools/index.qmd)
-[![MSMS](images/tools/msms.jpg)[Compute molecular surfaces]{.tile-text}](software/msms/index.qmd)
 
 :::
 :::

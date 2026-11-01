@@ -8,6 +8,10 @@ toc: false
 Software developed in the lab. Each tool has an overview, downloads, documentation and, where
 available, tutorials. Downloads are still served from the [CCSB website](https://ccsb.scripps.edu).
 
+## Methods
+
+Programs that compute: docking, pocket detection and molecular surfaces.
+
 ::: {.tool-grid}
 
 ::: {.tool-card .tc-adcp}
@@ -28,15 +32,6 @@ Docking of linear and cyclic peptides by combining folding and docking.
 Protein–ligand docking with explicitly specified receptor flexibility.
 :::
 
-::: {.tool-card .tc-agfr}
-[![](../images/tools/agfr.jpg){.tool-icon fig-alt=""}](agfr/index.qmd){.tool-icon-link aria-hidden="true" tabindex="-1"}
-
-<span class="status">in ADFRsuite 1.0</span>
-
-### [AutoGridFR (AGFR)](agfr/index.qmd)
-Prepares receptors for docking: docking box, binding pockets, affinity maps and target files.
-:::
-
 ::: {.tool-card .tc-autosite}
 [![](../images/tools/autosite.jpg){.tool-icon fig-alt=""}](autosite/index.qmd){.tool-icon-link aria-hidden="true" tabindex="-1"}
 
@@ -45,6 +40,23 @@ Prepares receptors for docking: docking box, binding pockets, affinity maps and 
 ### [AutoSite](autosite/index.qmd)
 Identifies ligand-binding pockets from affinity maps.
 :::
+
+::: {.tool-card .tc-msms}
+[![](../images/tools/msms.jpg){.tool-icon fig-alt=""}](msms/index.qmd){.tool-icon-link aria-hidden="true" tabindex="-1"}
+
+<span class="status">current: 2.6.1</span>
+
+### [MSMS](msms/index.qmd)
+Computes molecular surfaces. Free for academic use; commercial use needs a license.
+:::
+
+:::
+
+## User interfaces
+
+Graphical tools for preparing, running and looking at calculations.
+
+::: {.tool-grid}
 
 ::: {.tool-card .tc-adapt}
 [![](../images/tools/adapt.jpg){.tool-icon fig-alt=""}](adapt/index.qmd){.tool-icon-link aria-hidden="true" tabindex="-1"}
@@ -64,13 +76,13 @@ Prepares receptor and ligand PDBQT files for AutoDock from a PDB entry, in a web
 Vision's visual programming in a web browser: connect nodes, see molecules, volumes, images and plots.
 :::
 
-::: {.tool-card .tc-msms}
-[![](../images/tools/msms.jpg){.tool-icon fig-alt=""}](msms/index.qmd){.tool-icon-link aria-hidden="true" tabindex="-1"}
+::: {.tool-card .tc-agfr}
+[![](../images/tools/agfr.jpg){.tool-icon fig-alt=""}](agfr/index.qmd){.tool-icon-link aria-hidden="true" tabindex="-1"}
 
-<span class="status">current: 2.6.1</span>
+<span class="status">in ADFRsuite 1.0</span>
 
-### [MSMS](msms/index.qmd)
-Computes molecular surfaces. Free for academic use; commercial use needs a license.
+### [AutoGridFR (AGFR)](agfr/index.qmd)
+Prepares receptors for docking: docking box, binding pockets, affinity maps and target files.
 :::
 
 ::: {.tool-card .tc-mgltools}

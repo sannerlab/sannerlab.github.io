@@ -116,6 +116,9 @@ div.sourceCode { border-left: 4px solid rgba($primary, 0.55); }
 /* home page: Software card across the full row, one linked picture per tool (4 + 3, centred) */
 .tool-card-wide { grid-column: 1 / -1; }
 .tool-card-wide:hover { transform: none; }
+/* group labels above each row of tiles (Methods, User interfaces) */
+.tile-group { display: block; margin: 1.1rem 0 -.2rem; font-size: .8rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .06em; color: var(--tc-software); }
 /* the linked images sit in one paragraph (so Pandoc does not turn them into captioned figures) */
 .tool-tiles p { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: .8rem 0 0; }
 .tool-tiles a { flex: 0 0 calc(25% - .75rem); display: block; border-radius: 10px; overflow: hidden;
