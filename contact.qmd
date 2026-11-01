@@ -1,5 +1,7 @@
 ---
-title-block-banner: "#163a63"
+# photo banner with the title shown over it (see .photo-banner in styles.scss)
+title-block-banner: images/scripps-campus.jpg
+body-classes: photo-banner
 title-block-banner-color: "#ffffff"
 title: "Contact"
 toc: false
@@ -13,3 +15,11 @@ La Jolla, CA, USA
 Email: [sanner@scripps.edu](mailto:sanner@scripps.edu)
 
 For a commercial license for MSMS, contact Dr. Sanner by email.
+
+## Directions
+
+The lab is in room MB 207, on the 2nd floor of the Molecular Biology Building, Scripps Research, 10550 N. Torrey Pines Road, La Jolla, CA 92037.
+
+[![Map of the Scripps Research campus showing the driving route to Lot 4 and the walking route to the Sanner Lab, MB 207](images/sanner_lab_directions_reversed_loop.webp){fig-alt="Campus map with directions to the Sanner Lab, Molecular Biology Building room 207" width="100%"}](images/sanner_lab_directions_reversed_loop.webp)
+
+Arrange visitor parking and building access with your host before your visit; building doors require key-card access.

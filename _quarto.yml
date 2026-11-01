@@ -3,7 +3,7 @@ project:
   output-dir: _site
   pre-render: _scripts/publications.py
   resources:
-  - adapt/**
+  - /adapt/**
   - .nojekyll
 website:
   title: Sanner Lab
