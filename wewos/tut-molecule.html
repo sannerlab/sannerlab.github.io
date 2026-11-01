@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A virus capsid from one protomer &middot; WEWoS documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">WEWoS<small>Vision's visual programming, on the web</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="editor.html">Building a network</a></li>
+<li><a href="running.html">Running a network</a></li>
+</ul>
+<h4>Tutorials</h4><ul>
+<li><a href="tutorials.html">About the tutorials</a></li>
+<li><a href="tut-first.html">Your first network</a></li>
+<li><a href="tut-image.html">An image viewer</a></li>
+<li><a href="tut-movie.html">Playing a series of images</a></li>
+<li><a href="tut-macro.html">Indexing a list; macros</a></li>
+<li><a class="here" href="tut-molecule.html">A virus capsid from one protomer</a></li>
+<li><a href="tut-cage.html">An icosahedral cage</a></li>
+<li><a href="tut-volumes.html">Volumes: isosurfaces and slices</a></li>
+</ul>
+<h4>Viewing results</h4><ul>
+<li><a href="viewer.html">The 3D viewer</a></li>
+<li><a href="colormap.html">Color maps and legends</a></li>
+<li><a href="images.html">Images and plots</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="files.html">Saving, opening, importing</a></li>
+<li><a href="libraries.html">Node libraries</a></li>
+<li><a href="nodes.html">Writing your own nodes</a></li>
+<li><a href="vision.html">WEWoS and Vision</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>A virus capsid from one protomer</h1>
+<p class="lead">Read a molecule, draw its backbone, color it by a property of its atoms, and
+draw it 60 times with the icosahedral symmetry of the capsid.</p>
+
+<p>PDB entry 2PLV is poliovirus (type 1, Mahoney strain). The file holds one protomer of the capsid
+(the four proteins VP1 to VP4) placed in the icosahedral frame: the 60 rotations of an icosahedron
+build the whole capsid from it. Open <b>start here</b> (its folder holds <code>2plv.pdb</code>).</p>
+
+<h2>Read and draw the molecule</h2>
+<ol class="steps">
+<li>With <b>Libraries&hellip;</b>, load <b>Molecules</b> and <b>3D Visualization</b>.</li>
+<li>Drag a <b>Read Molecule</b> node (<b>Molecules &gt; Input</b>) and choose <code>2plv.pdb</code>
+with its file widget. Right-click its <code>mol</code> output and choose <b>Show data</b> to see
+what it sends: a MolKit2 molecule (Vision's <i>introspect data</i> showed its fields too).</li>
+<li>Drag a <b>Select</b> node (<b>Molecules &gt; Filter</b>), connect the molecule to its
+<code>nodes</code> input, and type <code>name CA C N</code>: the backbone atoms. (Select takes
+ProDy's selection language, or MolKit's.)</li>
+<li>Drag a <b>Lines</b> node (<b>Molecules &gt; Mapper</b>) and connect the selection to its
+<code>atoms</code>.</li>
+<li>Drag a <b>Viewer</b> node (<b>3D Visualization &gt; Output</b>) and connect Lines'
+<code>lines</code> to its <code>geometries</code>. A 3D panel opens under the network, and fits the
+molecule in its view.</li>
+</ol>
+<div class="tip"><b>In Vision</b> this was the <i>Lines Macro</i>, a macro that computed the bonds,
+selected the atoms, built the lines and made a geometry; its nodes were inside it, and coloring or
+copying the lines meant opening it and connecting inside. Here <b>Lines</b> is one node, with
+inputs for the colors, the opacity and the copies.</div>
+
+<h2>Color by the x coordinate</h2>
+<ol class="steps">
+<li>Drag an <b>Extract Atom Property</b> node (<b>Molecules &gt; Input</b>), connect the selection to
+its <code>atoms</code>, and choose the property <code>coords[0]</code>: the x coordinate of each
+atom.</li>
+<li>Drag a <b>Color Map</b> node (<b>3D Visualization &gt; Mapper</b>) and connect the property
+values to its <code>values</code>. It turns each value into a color, from blue (the smallest) to red
+(the largest).</li>
+<li>Connect Color Map's <code>colors</code> to Lines' <code>colors</code>. There are as many colors as
+atoms, so each atom gets its own.</li>
+<li>Connect Color Map's <code>legend</code> to the Viewer: the color bar and its range appear over
+the view. Drag it where you want it; right-click it for its options (see
+<a href="colormap.html">Color maps and legends</a>).</li>
+</ol>
+
+<h2>The capsid</h2>
+<ol class="steps">
+<li>Load the <b>SymServer</b> library and drag <b>Icosahedral1</b> (<b>SymServer &gt; Macro</b>).
+It outputs the 60 matrices of the icosahedral group.</li>
+<li>Connect its <code>Merge_outMatrices</code> to Lines' <code>instanceMatrices</code>. Lines draws
+one copy of the backbone per matrix: the whole capsid.</li>
+</ol>
+<figure>
+<img src="img/mol2plv.png" alt="The mol2plv network and the poliovirus capsid colored by x, with its legend">
+<figcaption><b>The poliovirus capsid.</b> 60 copies of the protomer's backbone, each atom colored by
+its x coordinate in the protomer: the copies show the same pattern turned by the symmetry.</figcaption>
+</figure>
+<div class="checkpoint"><b>Checkpoint</b> mol2plv: poliovirus with icosahedral symmetry</div>
+
+<h2>Inside Icosahedral1</h2>
+<p>Icosahedral1 is a macro of the SymServer library: double-click it. The 5-fold axis makes 5
+matrices, and the 3-fold axis turns them into 15. Three 2-fold axes then turn these 15 about three
+perpendicular axes (one of them also keeps the 15 it got), and <b>Merge</b> collects the 60.</p>
+<figure>
+<img src="img/icosahedral1.png" alt="The inside of the Icosahedral1 macro: 5-fold, 3-fold, three 2-fold nodes and Merge">
+<figcaption><b>Icosahedral1, opened in a tab.</b> Each symmetry node's axis and angle are its
+widgets; select one to see them.</figcaption>
+</figure>
+<div class="note"><b>The saved tutorial network</b> (<code>mol2plv_net.py</code>) also changed the
+inside of Icosahedral1, adding a translation driven by an iterate node to pull the copies apart
+frame by frame. The importer does not carry over changes made inside a library's macro; it reports
+them. The checkpoint network is the one this page builds.</div>
+<div class="pn"><a href="tut-macro.html">&larr; Indexing a list; macros</a><a href="tut-cage.html">An icosahedral cage &rarr;</a></div>
+<footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
+follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>
+</main></div></body></html>

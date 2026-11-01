@@ -1,0 +1,21 @@
+---
+title: "WEWoS documentation"
+---
+
+The full documentation opens as its own set of pages. It is the same documentation the **Docs**
+button opens in WEWoS.
+
+| Page | What it covers |
+|---|---|
+| [Overview](/wewos/index.html) | the idea, the page and its parts |
+| [Getting started](/wewos/start.html) | starting the server and opening the page |
+| [Building a network](/wewos/editor.html) | adding and connecting nodes, widgets, macros |
+| [Running a network](/wewos/running.html) | run, run all, pause and stop |
+| [The 3D viewer](/wewos/viewer.html) | 3Dmol.js and Mol\* viewers, picking, rendering |
+| [Color maps and legends](/wewos/colormap.html) | the color map editor and legends |
+| [Images and plots](/wewos/images.html) | image panels and MatPlotLib plots |
+| [Saving, opening, importing](/wewos/files.html) | network files and importing Vision networks |
+| [Node libraries](/wewos/libraries.html) | the libraries and their nodes |
+| [Writing your own nodes](/wewos/nodes.html) | node code, ports and libraries of your own |
+| [WEWoS and Vision](/wewos/vision.html) | what is kept and what changed from Vision |
+| [Known issues](/wewos/known-issues.html) | what is known to be wrong or missing |

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Building a network &middot; WEWoS documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">WEWoS<small>Vision's visual programming, on the web</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a class="here" href="editor.html">Building a network</a></li>
+<li><a href="running.html">Running a network</a></li>
+</ul>
+<h4>Tutorials</h4><ul>
+<li><a href="tutorials.html">About the tutorials</a></li>
+<li><a href="tut-first.html">Your first network</a></li>
+<li><a href="tut-image.html">An image viewer</a></li>
+<li><a href="tut-movie.html">Playing a series of images</a></li>
+<li><a href="tut-macro.html">Indexing a list; macros</a></li>
+<li><a href="tut-molecule.html">A virus capsid from one protomer</a></li>
+<li><a href="tut-cage.html">An icosahedral cage</a></li>
+<li><a href="tut-volumes.html">Volumes: isosurfaces and slices</a></li>
+</ul>
+<h4>Viewing results</h4><ul>
+<li><a href="viewer.html">The 3D viewer</a></li>
+<li><a href="colormap.html">Color maps and legends</a></li>
+<li><a href="images.html">Images and plots</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="files.html">Saving, opening, importing</a></li>
+<li><a href="libraries.html">Node libraries</a></li>
+<li><a href="nodes.html">Writing your own nodes</a></li>
+<li><a href="vision.html">WEWoS and Vision</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>Building a network</h1>
+<p class="lead">Add nodes, connect their ports, set their widgets, read and change their code,
+and group them into macros.</p>
+
+<h2 id="add">Add a node</h2>
+<p>Drag a node from the libraries on the left onto the network, or double-click it in the list.
+While you drag, the node itself is drawn under the cursor, with its ports and widgets, at the
+network's zoom and where it will land: dimmed over the libraries, solid over the network. To find
+a node, type part of its name in <b>Find a node</b>; hovering over a node in the list shows what
+it does.</p>
+<figure class="mid">
+<img src="img/drag_ghost.png" alt="A Dial node dragged from the library list over the network editor">
+<figcaption><b>A Dial dragged to the network.</b> The list was narrowed by typing
+<i>dial</i>; the dashed outline marks where the node will land.</figcaption>
+</figure>
+<p>Only the Standard library is loaded when the server starts. <b>Libraries&hellip;</b> loads the
+others (see <a href="libraries.html">Node libraries</a>); opening a network or an example loads the
+libraries it uses.</p>
+
+<h2 id="ports">Ports and data types</h2>
+<p>A node's inputs are on its left edge and its outputs on its right edge, one row each. The
+shape and color of a port show the type of data it takes or gives (float, int, string, list, image,
+geometry, molecule&hellip;); hovering over a port shows its name, its type, and whether it is
+optional. An input given a widget shows the widget on its row instead of a port icon.</p>
+<p>Two small squares are special ports: the one on the top edge (<code>runNode</code>) runs the node
+when a connection brings anything to it, and the one on the bottom edge (<code>trigger</code>)
+runs the nodes connected to it after this one.</p>
+
+<h2 id="connect">Connect</h2>
+<p>Drag from an output port to an input port. While you drag, the inputs that can take the data
+light up, and the others dim. An input that takes a single connection and already has one is
+dimmed too: disconnect it first.</p>
+<figure class="mid">
+<img src="img/connect.png" alt="A connection dragged from the Dial's value output; print's input and Op2's inputs are marked as able to take it">
+<figcaption><b>Connecting the Dial's <code>value</code>.</b> The inputs of print and Op2 accept a
+float.</figcaption>
+</figure>
+<p>To remove a connection, right-click it and choose <b>Delete connection</b>, or click it and press
+<kbd>Delete</kbd>. Right-clicking a port offers <b>Show data</b> (the value it holds now) and
+<b>Disconnect</b>.</p>
+
+<h2 id="widgets">Widgets</h2>
+<p>An input with a widget gets its value from the widget, shown on its row in the node or in the
+<a href="#panel">parameter column</a>. Right-click a widget for its menu:</p>
+<div class="pair">
+<figure><img src="img/widget_menu.png" alt="The menu of the operator widget of an Op2 node">
+<figcaption><b>A widget's menu</b>, then the node's own entries.</figcaption></figure>
+<figure><img src="img/node_menu.png" alt="The menu of the print node">
+<figcaption><b>A node's menu.</b> Double-clicking a node opens its code.</figcaption></figure>
+</div>
+<ul>
+<li><b>Show in the node</b> / <b>Show in the panel only</b> moves the widget between the node and
+the parameter column.</li>
+<li><b>Unbind (show the port)</b> removes the widget, so that the input becomes a port another node
+can feed. Right-click that port and choose <b>Rebind widget</b> to get the widget back. Some
+widgets are part of their node (a Dial's dial) and cannot be unbound.</li>
+</ul>
+<p><b>Numbers.</b> Scroll over a number (mouse wheel, or two fingers on a trackpad) to change it
+step by step: Shift makes the steps 10 times finer, Alt/Option 10 times coarser. Drag its &#8644;
+handle to change it continuously, or use its &#9650;&#9660; arrows. <i>Edit &gt; Reverse the
+scrolling direction on numbers</i> changes which way the wheel goes.</p>
+
+<h2 id="panel">The parameter column</h2>
+<figure class="small">
+<img src="img/panel.png" alt="The parameter column of an Op2 node">
+<figcaption><b>The selected node's parameters.</b> Its name (edit it to rename the node), its
+library and class, its widgets, buttons, and its ports, each with <i>data</i> (show the value) and
+&#10005; (delete the port); <i>unbind</i> removes an input's widget.</figcaption>
+</figure>
+<p>Click a node to select it. The column on the right shows its widgets, <b>Run node</b>, <b>Edit
+code&hellip;</b>, <b>Freeze</b> (a frozen node does not run, and stops the data there), its ports,
+and <b>Add a port</b>. Shift-click or Shift-drag selects several nodes; the column then offers to
+group or delete them.</p>
+
+<h2 id="code">A node's code</h2>
+<p>Every node is a Python function you can read and change. Double-click a node, or use <b>Edit
+code&hellip;</b>:</p>
+<figure class="mid">
+<img src="img/code_editor.png" alt="The code editor showing the compute function of a Filelist node">
+<figcaption><b>The code of a Filelist node</b> (in the tutorial network <i>cartoon1b</i>, which adds
+<code>values.sort()</code>). The arguments are the input ports, in order;
+<code>self.outputData(filelist=filenames)</code> sends a value out of the <code>filelist</code>
+port. <i>Save and run</i> keeps the new code and runs the node.</figcaption>
+</figure>
+<p>A changed node keeps its code in the network file. <a href="nodes.html">Writing your own nodes</a>
+explains the function, the ports and returning <code>'Stop'</code>.</p>
+
+<h2 id="select">Select, move, copy</h2>
+<table>
+<tr><th>to</th><th>do</th></tr>
+<tr><td>select a node</td><td>click it</td></tr>
+<tr><td>select several</td><td>Shift-drag a rectangle on the background, or Shift-click nodes</td></tr>
+<tr><td>move</td><td>drag a node (the selected nodes move together)</td></tr>
+<tr><td>pan, zoom</td><td>drag the background; mouse wheel</td></tr>
+<tr><td>copy, paste, delete</td><td><kbd>Ctrl-C</kbd>, <kbd>Ctrl-V</kbd>, <kbd>Delete</kbd> (or the Edit menu)</td></tr>
+<tr><td>see the whole network</td><td><kbd>f</kbd>, or <i>Edit &gt; Fit the network in view</i></td></tr>
+<tr><td>tidy it</td><td><i>Edit &gt; Arrange the nodes from left to right</i></td></tr>
+</table>
+
+<h2 id="macros">Macros</h2>
+<p>Select some nodes and choose <b>Group into a macro&hellip;</b> (node menu, Edit menu or the
+parameter column): they become one node, and the connections that crossed the group's edge become
+its ports. Double-click the macro node to open its network in a tab:</p>
+<figure>
+<img src="img/macro_tab.png" alt="The inside of the indexMax macro, open in a tab next to the network">
+<figcaption><b>The <i>indexMax</i> macro of the tutorial network cartoon2b, opened in a tab.</b> Its
+input ports come from the <i>input Ports</i> node on the left, its outputs go to the <i>output
+Ports</i> node on the right.</figcaption>
+</figure>
+<p>Inside a macro, connecting a node to the <code>new</code> port of <i>input Ports</i> or <i>output
+Ports</i> adds a port to the macro. <b>Explode macro</b> puts its nodes back in the network around
+it. Library macros (Icosahedral1, IcosCage, UTiso&hellip;) open the same way.</p>
+<div class="pn"><a href="start.html">&larr; Getting started</a><a href="running.html">Running a network &rarr;</a></div>
+<footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
+follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>
+</main></div></body></html>

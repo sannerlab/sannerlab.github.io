@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>An icosahedral cage &middot; WEWoS documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">WEWoS<small>Vision's visual programming, on the web</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="editor.html">Building a network</a></li>
+<li><a href="running.html">Running a network</a></li>
+</ul>
+<h4>Tutorials</h4><ul>
+<li><a href="tutorials.html">About the tutorials</a></li>
+<li><a href="tut-first.html">Your first network</a></li>
+<li><a href="tut-image.html">An image viewer</a></li>
+<li><a href="tut-movie.html">Playing a series of images</a></li>
+<li><a href="tut-macro.html">Indexing a list; macros</a></li>
+<li><a href="tut-molecule.html">A virus capsid from one protomer</a></li>
+<li><a class="here" href="tut-cage.html">An icosahedral cage</a></li>
+<li><a href="tut-volumes.html">Volumes: isosurfaces and slices</a></li>
+</ul>
+<h4>Viewing results</h4><ul>
+<li><a href="viewer.html">The 3D viewer</a></li>
+<li><a href="colormap.html">Color maps and legends</a></li>
+<li><a href="images.html">Images and plots</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="files.html">Saving, opening, importing</a></li>
+<li><a href="libraries.html">Node libraries</a></li>
+<li><a href="nodes.html">Writing your own nodes</a></li>
+<li><a href="vision.html">WEWoS and Vision</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>An icosahedral cage</h1>
+<p class="lead">The cage of the icosahedral symmetry around the poliovirus capsid: vertices,
+edges and faces made by a macro and sized with a dial.</p>
+
+<p>This is one of the <i>more Vision networks</i> of the tutorial. Open <b>icoscage: an icosahedral
+cage</b> from the group <b>Vision tutorial</b> and press <b>Run all</b>.</p>
+<figure>
+<img src="img/icoscage.png" alt="The icoscage network and the capsid inside a cage of pink spheres, salmon cylinders and translucent purple faces">
+<figcaption><b>The capsid in its cage.</b> The 12 vertices of the icosahedron are spheres, its 30
+edges cylinders and its 20 faces a translucent mesh; inside, the 60 copies of the protomer.</figcaption>
+</figure>
+
+<h2>How it is built</h2>
+<ul>
+<li><b>The capsid</b> is the network of the <a href="tut-molecule.html">previous tutorial</a>
+without the coloring: Read Molecule (<code>2plv.pdb</code>) &rarr; Lines (all atoms, colored by
+element) &rarr; Viewer, with the 60 matrices of <b>Icosahedral1</b> on Lines'
+<code>instanceMatrices</code>.</li>
+<li><b>IcosCage</b> (<b>SymServer &gt; Macro</b>) computes an icosahedron of the size given to its
+input: the coordinates of its vertices, the triangles of its faces and the pairs of its edges.</li>
+<li>Three geometry nodes of <b>3D Visualization</b> draw them from the same coordinates:
+<b>Spheres</b> (<i>cageVertices</i>), <b>Cylinders</b> (<i>cageEdges</i>, given the edges as
+indices) and <b>IndPolygons</b> (<i>cageFaces</i>, given the faces).</li>
+<li>A <b>Dial</b> sets the size: turn it to fit the cage around the capsid.</li>
+</ul>
+<p>The colors of the cage come from the network file: Vision kept them in the viewer's saved state,
+and the importer gave them to the geometry nodes, which keep them with the network.</p>
+
+<h2>Try this</h2>
+<ol class="steps">
+<li>Turn the Dial: the cage grows or shrinks, and the spheres and cylinders follow.</li>
+<li>Select <i>cageVertices</i> or <i>cageEdges</i> and change their radius; select
+<i>cageFaces</i> and change its opacity.</li>
+<li>Double-click <b>IcosCage</b> to see how it builds the icosahedron from its symmetry: one point
+on a 5-fold axis, scaled by the input, copied by the symmetry operators.</li>
+<li>Switch the viewer to <b>Mol*</b> (the menu in its header) for ambient occlusion and shadows (see
+<a href="viewer.html#molstar">The 3D viewer</a>).</li>
+</ol>
+<div class="pn"><a href="tut-molecule.html">&larr; A virus capsid from one protomer</a><a href="tut-volumes.html">Volumes: isosurfaces and slices &rarr;</a></div>
+<footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
+follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>
+</main></div></body></html>

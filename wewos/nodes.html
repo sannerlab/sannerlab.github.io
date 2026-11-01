@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Writing your own nodes &middot; WEWoS documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">WEWoS<small>Vision's visual programming, on the web</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="editor.html">Building a network</a></li>
+<li><a href="running.html">Running a network</a></li>
+</ul>
+<h4>Tutorials</h4><ul>
+<li><a href="tutorials.html">About the tutorials</a></li>
+<li><a href="tut-first.html">Your first network</a></li>
+<li><a href="tut-image.html">An image viewer</a></li>
+<li><a href="tut-movie.html">Playing a series of images</a></li>
+<li><a href="tut-macro.html">Indexing a list; macros</a></li>
+<li><a href="tut-molecule.html">A virus capsid from one protomer</a></li>
+<li><a href="tut-cage.html">An icosahedral cage</a></li>
+<li><a href="tut-volumes.html">Volumes: isosurfaces and slices</a></li>
+</ul>
+<h4>Viewing results</h4><ul>
+<li><a href="viewer.html">The 3D viewer</a></li>
+<li><a href="colormap.html">Color maps and legends</a></li>
+<li><a href="images.html">Images and plots</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="files.html">Saving, opening, importing</a></li>
+<li><a href="libraries.html">Node libraries</a></li>
+<li><a class="here" href="nodes.html">Writing your own nodes</a></li>
+<li><a href="vision.html">WEWoS and Vision</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>Writing your own nodes</h1>
+<p class="lead">A node is a Python function with ports. Make one in the page from a Generic node,
+or write a library of them.</p>
+
+<h2 id="function">The compute function</h2>
+<p>Every node runs a function named <code>doit</code>. Its arguments are the node itself, then its
+input ports, in order; it sends results with <code>self.outputData</code>:</p>
+<pre>def doit(self, x, k):
+    self.outputData(y=x * k)            # the value goes out of output port y</pre>
+<ul>
+<li>An optional input that got no data gives <code>None</code>.</li>
+<li>Returning <code>'Stop'</code> stops the data there: the nodes below do not run in this pass.</li>
+<li>What the function prints goes to the Log; an exception marks the node as failed and shows its
+traceback in the parameter column.</li>
+<li>The function runs on the server, in the network's folder (relative file names are in that folder),
+with your rights. It can import any module of the server's Python.</li>
+</ul>
+
+<h2 id="generic">A node in the page</h2>
+<ol class="steps">
+<li>Drag a <b>Generic</b> node (<b>Standard &gt; Input</b>): a node with no ports.</li>
+<li>Rename it in the parameter column (the name field at the top).</li>
+<li>Open <b>Add a port</b>: choose <i>input</i> or <i>output</i>, a name (a Python identifier), a type,
+and for an input whether it has a <i>widget</i> (a thumbwheel for numbers, a check button for
+booleans, an entry otherwise). The compute function gets one more argument for each input.</li>
+<li>Write the code: double-click the node, or <b>Edit code&hellip;</b>, and <b>Save and run</b>.</li>
+</ol>
+<figure class="small">
+<img src="img/add_port.png" alt="The parameter column of a Generic node renamed square, with ports x and y, and the Add a port form open">
+<figcaption><b>A node made in the page</b>: a Generic node renamed <i>square</i>, an input <code>x</code>,
+an output <code>y</code>, and the code <code>self.outputData(y=x * x)</code>.</figcaption>
+</figure>
+<p>The node, its ports and its code are saved with the network. Any node's code can be changed the same
+way, and its ports deleted with &#10005; in the parameter column.</p>
+
+<h2 id="library">A library of nodes</h2>
+<p>To use a node in many networks, write it in a library: a Python file that defines node classes and
+a <code>NodeLibrary</code>. The node classes use Vision's API: <code>inputPortsDescr</code>,
+<code>outputPortsDescr</code>, <code>widgetDescr</code> and <code>setFunction</code>.</p>
+<pre>from wewos.engine import NodeLibrary, NetworkNode
+
+
+class Square(NetworkNode):
+    """The square of a number."""
+
+    def __init__(self, name='square', **kw):
+        kw['name'] = name
+        NetworkNode.__init__(self, **kw)
+        self.inputPortsDescr.append(datatype='float', name='x')
+        self.widgetDescr['x'] = {'class': 'NEThumbWheel', 'master': 'node',
+                                 'initialValue': 2.0, 'labelCfg': {'text': 'x'}}
+        self.outputPortsDescr.append(datatype='float', name='y')
+        self.setFunction("""def doit(self, x):
+    self.outputData(y=x * x)
+""")
+
+
+mylib = NodeLibrary('My nodes', '#d08770')
+mylib.addNode(Square, 'square', 'Numbers')     # class, label in the list, category</pre>
+<p>Load it with <b>Libraries&hellip;</b>: type the file's path (or a module name, if it is on the
+server's Python path) and press <b>Load</b>. Its nodes appear in the list under <i>My nodes</i>, and
+it is loaded again at the next start. A network that uses its nodes loads it when it opens.</p>
+<h3>Widgets</h3>
+<table>
+<tr><th>class</th><th>widget</th></tr>
+<tr><td><code>NEThumbWheel</code>, <code>NEDial</code></td><td>a number (<code>'type': 'int'</code> or
+<code>'float'</code>; <code>'min'</code>, <code>'max'</code>, <code>'increment'</code>, <code>'oneTurn'</code>)</td></tr>
+<tr><td><code>NEEntry</code></td><td>a text</td></tr>
+<tr><td><code>NECheckButton</code></td><td>a check box</td></tr>
+<tr><td><code>NEComboBox</code></td><td>a menu (<code>'choices'</code>)</td></tr>
+<tr><td><code>NEEntryWithFileBrowser</code>, <code>NEEntryWithDirectoryBrowser</code></td><td>a file or
+folder on the server</td></tr>
+<tr><td><code>NEVectorGUI</code></td><td>a 3D vector</td></tr>
+<tr><td><code>NEColorMap</code></td><td>a color map editor</td></tr>
+</table>
+<p><code>'master': 'node'</code> shows the widget in the node; <code>'ParamPanel'</code> only in the
+parameter column. The nodes of <code>wewos/libs/*.py</code> are examples of all of these.</p>
+<div class="pn"><a href="libraries.html">&larr; Node libraries</a><a href="vision.html">WEWoS and Vision &rarr;</a></div>
+<footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
+follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>
+</main></div></body></html>

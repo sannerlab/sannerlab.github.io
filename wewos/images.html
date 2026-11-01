@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Images and plots &middot; WEWoS documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">WEWoS<small>Vision's visual programming, on the web</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="editor.html">Building a network</a></li>
+<li><a href="running.html">Running a network</a></li>
+</ul>
+<h4>Tutorials</h4><ul>
+<li><a href="tutorials.html">About the tutorials</a></li>
+<li><a href="tut-first.html">Your first network</a></li>
+<li><a href="tut-image.html">An image viewer</a></li>
+<li><a href="tut-movie.html">Playing a series of images</a></li>
+<li><a href="tut-macro.html">Indexing a list; macros</a></li>
+<li><a href="tut-molecule.html">A virus capsid from one protomer</a></li>
+<li><a href="tut-cage.html">An icosahedral cage</a></li>
+<li><a href="tut-volumes.html">Volumes: isosurfaces and slices</a></li>
+</ul>
+<h4>Viewing results</h4><ul>
+<li><a href="viewer.html">The 3D viewer</a></li>
+<li><a href="colormap.html">Color maps and legends</a></li>
+<li><a class="here" href="images.html">Images and plots</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="files.html">Saving, opening, importing</a></li>
+<li><a href="libraries.html">Node libraries</a></li>
+<li><a href="nodes.html">Writing your own nodes</a></li>
+<li><a href="vision.html">WEWoS and Vision</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>Images and plots</h1>
+<p class="lead">Show Image and the MatPlotLib nodes put their pictures in panels in the row under
+the network, next to the 3D viewers.</p>
+
+<h2 id="images">Images</h2>
+<p>The <b>Imaging</b> library works on Pillow images: <b>Read Image</b>, <b>Image from array</b>,
+<b>Grab Image</b> (a 3D viewer's picture), filters (blur, contour, edges, emboss, sharpen&hellip;),
+invert, split, masks, paste, blend, multiply, composite, rotate, transpose, scale, statistics, and
+<b>Save Image</b>. <b>Show Image</b> shows an image in a panel: its header gives the image's size and
+mode, and a &#128190; button saves it. Each Show Image node has its own panel. See the tutorial
+<a href="tut-image.html">An image viewer</a>.</p>
+
+<h2 id="plots">Plots</h2>
+<figure>
+<img src="img/plots.png" alt="The plots example: three MatPlotLib plots side by side under the network">
+<figcaption><b>The example <i>plots</i>.</b> Each MatPlotLib node draws its figure off screen, on the
+server, and its panel shows it.</figcaption>
+</figure>
+<p>The <b>MatPlotLib</b> library is Vision's matplotlib nodes: plot, scatter, histogram, bar and
+barh, pie, polar, fill, log plots, stem, error bars, box plots, contour and filled contour, pcolor,
+spectral plots (PSD, CSD, specgram, cohere), quiver, table, legend, text, color bar. <b>Figure</b> puts
+several plots side by side, <b>MultiPlot</b> draws plots over each other, and <b>Set Matplotlib
+Options</b> takes options as a dict. Saving a figure writes a file in the network's folder.</p>
+<p>The group <b>Vision matplotlib examples (MGLTools)</b> holds the 44 examples that came with
+Vision, with their data.</p>
+<div class="note"><b>Not ported:</b> Vision's matplotlib navigation toolbar (zoom and pan in the plot);
+the plots are pictures.</div>
+
+<h2 id="panels">The row of panels</h2>
+<p>3D viewers, images and plots share the row under the network, from left to right. Drag the divider
+above the row to make it taller; in a panel's header, &#8661; gives the row the network's height too,
+&#10530; fills the window with the panel (<kbd>Esc</kbd> comes back), and &#9662; folds it. The sizes
+are remembered by the browser.</p>
+<div class="pn"><a href="colormap.html">&larr; Color maps and legends</a><a href="files.html">Saving, opening, importing &rarr;</a></div>
+<footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
+follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>
+</main></div></body></html>

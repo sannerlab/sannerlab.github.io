@@ -32,6 +32,7 @@ Push to `main`. The `on-push` workflow:
 | `_includes/` | shared snippets (version banner) |
 | `_data/sources.yaml` | **add publications here** (`- id: doi:...`) |
 | `adapt/` | ADapt docs, synced automatically from `sannerlab/adapt-test` (do not edit here) |
+| `wewos/` | WEWoS docs, copied from `docs/` of `sannerlab/WEWoS` (sannerlab/WEWoS@9728584; do not edit here) |
 | `_cite/` | citation tool from the Greene Lab Lab Website Template (BSD-3, see `_cite/LICENSE.md`) |
 
 ADCP content was transferred from ccsb.scripps.edu/adcp and /adcpv11 on 2026-10-14. Callouts

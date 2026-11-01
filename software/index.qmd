@@ -55,6 +55,15 @@ Identifies ligand-binding pockets from affinity maps.
 Prepares receptor and ligand PDBQT files for AutoDock from a PDB entry, in a web browser.
 :::
 
+::: {.tool-card .tc-wewos}
+[![](../images/tools/wewos.jpg){.tool-icon fig-alt=""}](wewos/index.qmd){.tool-icon-link aria-hidden="true" tabindex="-1"}
+
+<span class="status">in development</span>
+
+### [WEWoS](wewos/index.qmd)
+Vision's visual programming in a web browser: connect nodes, see molecules, volumes, images and plots.
+:::
+
 ::: {.tool-card .tc-msms}
 [![](../images/tools/msms.jpg){.tool-icon fig-alt=""}](msms/index.qmd){.tool-icon-link aria-hidden="true" tabindex="-1"}
 

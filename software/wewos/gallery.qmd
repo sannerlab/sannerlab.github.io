@@ -1,0 +1,27 @@
+---
+title: "WEWoS gallery"
+toc: false
+lightbox: true
+---
+
+Images made with WEWoS, from its documentation. Click an image to enlarge it.
+
+::: {.gallery layout-ncol="3"}
+
+![The mol2plv tutorial network: a poliovirus capsid built from one protomer and its 60 icosahedral matrices, colored by x](img/wewos-overview.png){fig-alt="WEWoS with the mol2plv network and a poliovirus capsid colored from blue to red"}
+
+![An icosahedral cage built with the SymServer library](img/wewos-icoscage.png){fig-alt="The icoscage network and an icosahedral cage of pink cylinders and spheres around a molecule"}
+
+![A virus capsid isosurface with one octant cut away, colored by radius](img/wewos-regioncapsid.png){fig-alt="The regioncapsid network and a virus capsid isosurface with one octant cut away, colored by radius"}
+
+![A CT scan of a head: an isosurface of the skull and three colored slices](img/wewos-headandslice.png){fig-alt="The headandslice network and a CT scan of a head: a grey isosurface of the skull and three colored slices"}
+
+![An isosurface drawn as lines, colored by its distance to the origin](img/wewos-isorad.png){fig-alt="The isorad network: an isosurface drawn as lines, colored from blue to red by its distance to the origin, with a legend"}
+
+![A molecule blurred into a map with a Gaussian](img/wewos-blurgaussian.png){fig-alt="The blurgaussian network: an orange translucent blob around a molecule, in the box of its grid"}
+
+![The cut-away capsid isosurface drawn with Mol\*: ambient occlusion and outlines](img/wewos-molstar.png){fig-alt="A virus capsid isosurface with one octant cut away, colored from blue inside to red outside, drawn by the Mol* viewer with soft shadows"}
+
+![MatPlotLib plots side by side under the network](img/wewos-plots.png){fig-alt="The plots example: three MatPlotLib plots side by side under the network"}
+
+:::

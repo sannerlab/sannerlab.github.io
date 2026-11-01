@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Color maps and legends &middot; WEWoS documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">WEWoS<small>Vision's visual programming, on the web</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="editor.html">Building a network</a></li>
+<li><a href="running.html">Running a network</a></li>
+</ul>
+<h4>Tutorials</h4><ul>
+<li><a href="tutorials.html">About the tutorials</a></li>
+<li><a href="tut-first.html">Your first network</a></li>
+<li><a href="tut-image.html">An image viewer</a></li>
+<li><a href="tut-movie.html">Playing a series of images</a></li>
+<li><a href="tut-macro.html">Indexing a list; macros</a></li>
+<li><a href="tut-molecule.html">A virus capsid from one protomer</a></li>
+<li><a href="tut-cage.html">An icosahedral cage</a></li>
+<li><a href="tut-volumes.html">Volumes: isosurfaces and slices</a></li>
+</ul>
+<h4>Viewing results</h4><ul>
+<li><a href="viewer.html">The 3D viewer</a></li>
+<li><a class="here" href="colormap.html">Color maps and legends</a></li>
+<li><a href="images.html">Images and plots</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="files.html">Saving, opening, importing</a></li>
+<li><a href="libraries.html">Node libraries</a></li>
+<li><a href="nodes.html">Writing your own nodes</a></li>
+<li><a href="vision.html">WEWoS and Vision</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>Color maps and legends</h1>
+<p class="lead">The Color Map node turns numbers into colors, with Vision's color map editor, and
+draws its legend over the 3D view.</p>
+
+<p><b>Color Map</b> (<b>3D Visualization &gt; Mapper</b>) takes a list of numbers on its
+<code>values</code> input and sends one color per value on <code>colors</code>, ready for the
+<code>colors</code> input of a geometry or of a molecule's representation. The range of the values
+is mapped onto the ramp: by default from the smallest value to the largest, or between the
+<code>mini</code> and <code>maxi</code> given to its inputs or set in the editor.</p>
+
+<h2 id="editor">The color map editor</h2>
+<figure class="small">
+<img src="img/colormap_editor.png" alt="The parameter column of a Color Map node: the ramp, the curve editor in HSV with the hue curve, buttons, min, max, name and presets">
+<figcaption><b>Color Map's parameters.</b> The ramp, its curves (here the hue, in HSV), and the
+range, name, presets and files.</figcaption>
+</figure>
+<p>Select the Color Map node: its <code>ramp</code> input has Vision's editor in the parameter
+column.</p>
+<ul>
+<li><b>Draw the ramp's channels as curves</b>, in RGB, HSV or HSL, and its opacity: choose a channel
+and draw with the mouse. The left button draws freehand; Shift-click draws a straight segment from
+the last point; the right button draws a straight line.</li>
+<li><b>undo</b> (or <kbd>Ctrl/Cmd-Z</kbd>) and <b>reset</b>. With <b>continuous</b> checked the
+network follows the curve while you draw; otherwise it runs when you release the button.</li>
+<li><b>min</b> and <b>max</b>: the range of the values (empty: the range of the data).</li>
+<li><b>name</b>: the color map's name, shown as the legend's title.</li>
+<li><b>preset&hellip;</b>: WEWoS's ramps (rgb, rwb, grey, rainbow) and the color maps that came with
+MGLTools.</li>
+<li><b>read&hellip;</b> and <b>write&hellip;</b>: Vision's color map files (<code>*_map.py</code>),
+which Vision reads too.</li>
+</ul>
+<p>Transparent colors (opacity below 1) make transparent atoms and surfaces.</p>
+
+<h2 id="legend">The legend</h2>
+<p>Connect Color Map's <code>legend</code> output to a Viewer's <code>geometries</code>: a color bar
+with the range of the values and the color map's name appears over the view, in its top-right
+corner, as DejaVu's legend did.</p>
+<figure class="mid">
+<img src="img/legend_menu.png" alt="The legend over the 3D view and its right-click menu">
+<figcaption><b>The legend and its menu.</b> Drag the legend to move it; right-click it for its
+options.</figcaption>
+</figure>
+<ul>
+<li><b>Vertical</b> or <b>Horizontal</b>; <b>More</b> or <b>Fewer numbers</b> (5 by default; a color
+map with labels shows them instead); <b>Larger</b> or <b>Smaller</b>; the <b>Title</b> and the
+<b>Frame</b>; <b>Back to the corner</b>.</li>
+<li>Its place is kept as a fraction of the view, so it stays put when the panel is resized; its place
+and options are saved with the network.</li>
+<li>It is drawn over the view the same way with 3Dmol.js and Mol*, follows the light or dark theme,
+and is in the pictures (the &#128247; button, Grab Image).</li>
+</ul>
+<p>A Vision network whose Color Map's legend went to a Viewer imports with the legend.</p>
+<div class="pn"><a href="viewer.html">&larr; The 3D viewer</a><a href="images.html">Images and plots &rarr;</a></div>
+<footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
+follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>
+</main></div></body></html>

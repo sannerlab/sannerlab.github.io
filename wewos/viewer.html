@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The 3D viewer &middot; WEWoS documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">WEWoS<small>Vision's visual programming, on the web</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="editor.html">Building a network</a></li>
+<li><a href="running.html">Running a network</a></li>
+</ul>
+<h4>Tutorials</h4><ul>
+<li><a href="tutorials.html">About the tutorials</a></li>
+<li><a href="tut-first.html">Your first network</a></li>
+<li><a href="tut-image.html">An image viewer</a></li>
+<li><a href="tut-movie.html">Playing a series of images</a></li>
+<li><a href="tut-macro.html">Indexing a list; macros</a></li>
+<li><a href="tut-molecule.html">A virus capsid from one protomer</a></li>
+<li><a href="tut-cage.html">An icosahedral cage</a></li>
+<li><a href="tut-volumes.html">Volumes: isosurfaces and slices</a></li>
+</ul>
+<h4>Viewing results</h4><ul>
+<li><a class="here" href="viewer.html">The 3D viewer</a></li>
+<li><a href="colormap.html">Color maps and legends</a></li>
+<li><a href="images.html">Images and plots</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="files.html">Saving, opening, importing</a></li>
+<li><a href="libraries.html">Node libraries</a></li>
+<li><a href="nodes.html">Writing your own nodes</a></li>
+<li><a href="vision.html">WEWoS and Vision</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>The 3D viewer</h1>
+<p class="lead">The Viewer node draws the geometries connected to it, with 3Dmol.js or Mol*; it
+replaces DejaVu, Vision's OpenGL viewer.</p>
+
+<p>Each <b>Viewer</b> node (<b>3D Visualization &gt; Output</b>) has a panel in the row under the
+network. Connect geometries to its <code>geometries</code> input; it takes any number of them.
+The first time it gets a scene it fits it in the view; after that the view is yours, and it is
+saved with the network.</p>
+
+<h2 id="header">The panel</h2>
+<figure>
+<img src="img/viewer_header.png" alt="A viewer panel showing the regioncapsid map, its header buttons numbered">
+<figcaption><b>A viewer panel</b> (the tutorial network <i>regioncapsid</i>).</figcaption>
+</figure>
+<ol class="legend">
+<li><b>The renderer</b>: 3Dmol.js (the default) or Mol*.</li>
+<li><b>&#8982;</b> fits the scene in the view.</li>
+<li><b>&#128247;</b> saves a PNG of the view, legends included.</li>
+<li><b>&#9680;</b> shows the silhouettes and fog settings (<a href="#look">below</a>).</li>
+<li><b>&#8661;</b> gives the viewers the network's height too.</li>
+<li><b>&#10530;</b> fills the window with the panel; <kbd>Esc</kbd> comes back.</li>
+<li><b>&#9662;</b> folds the panel.</li>
+</ol>
+<p>Drag the divider above the row to share the height between the network and the panels. With
+3Dmol.js, drag to turn the scene, scroll (or Shift-drag, or drag with the right button) to zoom,
+and Ctrl-drag (or drag with the middle button) to move it. Mol* turns with the left button, moves
+with the right one and zooms with the wheel.</p>
+
+<h2 id="geometries">What it draws</h2>
+<table>
+<tr><th>from</th><th>nodes</th></tr>
+<tr><td>3D Visualization</td><td>Spheres, Cylinders (and arrows), IndPolylines (lines), IndPolygons
+(meshes), GlfLabels (text), box, axis; GeomContainer groups them; Set Geom Options sets their
+options</td></tr>
+<tr><td>Molecules</td><td>CPK, Sticks, Lines, Cartoon, Surface (3Dmol's), MSMS: each takes atoms,
+a coloring (by element, chain, residue, secondary structure&hellip;) or one color per atom, an
+opacity, and instance matrices</td></tr>
+<tr><td>Volume</td><td>isosurfaces (through IndPolygons), slices, bounding boxes</td></tr>
+<tr><td>Color Map</td><td>a color bar legend (<a href="colormap.html#legend">Color maps and legends</a>)</td></tr>
+</table>
+<p><b>Copies.</b> Every geometry node has an <code>instanceMatrices</code> input: given a list of
+4&times;4 matrices (from SymServer, or from <b>Assembly Matrices</b> for a PDB file's biological
+assembly), it is drawn once per matrix. The copies are made in the page, so 60 copies cost little
+more than one.</p>
+
+<h2 id="look">Silhouettes and fog</h2>
+<figure>
+<img src="img/rendering_strip.png" alt="The viewer with its silhouettes and fog settings shown">
+<figcaption><b>The &#9680; strip</b> with 3Dmol.js: silhouettes (their width and color) and fog
+(depth cueing: where it starts and ends, from the front to the back of the scene).</figcaption>
+</figure>
+<p>Silhouettes and fog are on by default, as in DejaVu. The settings are kept with the network; node
+code can set them with <code>viewer.setRendering(outline=True, outlineWidth=2, fog=True, ...)</code>.</p>
+
+<h2 id="molstar">Mol*</h2>
+<figure>
+<img src="img/molstar.png" alt="The same capsid drawn by Mol*, with ambient occlusion and its viewport buttons">
+<figcaption><b>The same scene in Mol*.</b> Ambient occlusion shades the creases; Mol*'s buttons on
+the right reset the view, take a screenshot, open Mol*'s own panels, set its rendering, and turn on
+its illumination mode.</figcaption>
+</figure>
+<p>Choose <b>Mol*</b> in the panel's menu (node code: <code>viewer.setRenderer('molstar')</code>).
+Mol* is loaded the first time a viewer uses it (1.5&nbsp;MB). It brings its rendering: ambient
+occlusion (on by default), shadows, outlines, depth of field, bloom, fog, and its illumination mode.
+The &#9680; strip has quick switches for the main ones; Mol*'s settings button has all of them.
+The choice of renderer, a camera for each renderer and Mol*'s settings are saved with the network.</p>
+<div class="note"><b>The scene is the network's.</b> What you add in Mol*'s own panels (other
+representations, measurements) is not saved, and the network's next change redraws the scene.</div>
+
+<h2 id="pick">Picking</h2>
+<p>Click an atom or a shape: the Viewer's <code>lastPick</code> output sends what was clicked (the
+geometry, and for a molecule the atom, its residue and chain) to the nodes connected to it, which
+run. <b>Picked Atom</b> (<b>Molecules &gt; Filter</b>) turns it into an atom selection; the example
+<i>pick a residue</i> draws the clicked residue's side chain as sticks. Picking works with both
+renderers.</p>
+
+<h2 id="pictures">Pictures and redraws</h2>
+<ul>
+<li>The &#128247; button saves the view as a PNG file in your browser's downloads.</li>
+<li><b>Grab Image</b> (<b>Imaging &gt; Input</b>) takes the viewer's picture into the network, as an
+image for the Imaging nodes (filters, Save Image&hellip;). The picture is made by the page, so the
+page must be open, with the viewer showing.</li>
+<li>Turning or zooming the view fires the Viewer's <code>redraw</code> output, as DejaVu's redraws
+did. Connect it to <b>One Redraw</b>, and that to Grab Image, to process each new view (see the
+example <i>ViPEr paper figure 1</i>).</li>
+</ul>
+<div class="pn"><a href="tut-volumes.html">&larr; Volumes: isosurfaces and slices</a><a href="colormap.html">Color maps and legends &rarr;</a></div>
+<footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
+follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>
+</main></div></body></html>

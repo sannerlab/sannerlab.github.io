@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Indexing a list; macros &middot; WEWoS documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">WEWoS<small>Vision's visual programming, on the web</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="editor.html">Building a network</a></li>
+<li><a href="running.html">Running a network</a></li>
+</ul>
+<h4>Tutorials</h4><ul>
+<li><a href="tutorials.html">About the tutorials</a></li>
+<li><a href="tut-first.html">Your first network</a></li>
+<li><a href="tut-image.html">An image viewer</a></li>
+<li><a href="tut-movie.html">Playing a series of images</a></li>
+<li><a class="here" href="tut-macro.html">Indexing a list; macros</a></li>
+<li><a href="tut-molecule.html">A virus capsid from one protomer</a></li>
+<li><a href="tut-cage.html">An icosahedral cage</a></li>
+<li><a href="tut-volumes.html">Volumes: isosurfaces and slices</a></li>
+</ul>
+<h4>Viewing results</h4><ul>
+<li><a href="viewer.html">The 3D viewer</a></li>
+<li><a href="colormap.html">Color maps and legends</a></li>
+<li><a href="images.html">Images and plots</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="files.html">Saving, opening, importing</a></li>
+<li><a href="libraries.html">Node libraries</a></li>
+<li><a href="nodes.html">Writing your own nodes</a></li>
+<li><a href="vision.html">WEWoS and Vision</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>Indexing a list; macros</h1>
+<p class="lead">A thumbwheel picks one frame of the list; three nodes that compute its range
+become one macro node.</p>
+
+<p>Start from <b>cartoon1b: iterate over a file list</b> (or your own network from the
+<a href="tut-movie.html">previous tutorial</a>). Instead of playing all the frames, we want to
+choose one with a thumbwheel, whose range follows the length of the list.</p>
+
+<h2>A thumbwheel that indexes the list</h2>
+<ol class="steps">
+<li>Delete the iterate node. Drag an <b>Index</b> node (<b>Standard &gt; Filter</b>): connect
+Filelist's <code>filelist</code> to its <code>data</code>, and its <code>data</code> output to Read
+Image's <code>filename</code>.</li>
+<li>Drag a <b>ThumbWheelInt</b> (<b>Standard &gt; Input</b>). Index's <code>index</code> input has a
+widget: right-click it and choose <b>Unbind (show the port)</b>, then connect the ThumbWheelInt's
+<code>value</code> to it. Turning the wheel now shows another frame.</li>
+<li>The largest index is the length of the list minus one. A <b>len</b> node (<b>Standard &gt;
+Python</b>) gives the length: connect Filelist to its <code>in1</code>.</li>
+<li>Subtract one with an <b>Op2</b> node (<b>Standard &gt; Filter</b>, operator <i>sub</i>), whose
+second operand comes from an <b>eval</b> node (<b>Standard &gt; Input</b>) that evaluates
+<code>1</code>. Connect len to Op2's <code>data1</code>, eval to its <code>data2</code>, and Op2's
+<code>result</code> to the ThumbWheelInt's <code>maxi</code> input.</li>
+<li>Right-click the thumbwheel and choose <b>Options&hellip;</b>: set its minimum to 0 (Vision's
+option panel). The same dialog sets its maximum, its step, and how much one turn changes it.</li>
+</ol>
+<figure>
+<img src="img/cartoon2.png" alt="Filelist, len, eval, Op2, ThumbWheelInt, Index, Read Image, Scale and Show Image; ThumbWheelInt selected">
+<figcaption><b>The thumbwheel picks the frame.</b> ThumbWheelInt is selected: its value and its
+<code>mini</code> and <code>maxi</code> inputs are in the parameter column.</figcaption>
+</figure>
+<div class="checkpoint"><b>Checkpoint</b> cartoon2: a thumbwheel indexes the list</div>
+
+<h2>Make a macro</h2>
+<p>len, eval and Op2 together compute "the last index of a list", which would be useful elsewhere.
+Let's make them one node.</p>
+<ol class="steps">
+<li>Shift-click <b>len</b>, <b>eval</b> and <b>Op2</b> to select the three of them.</li>
+<li>Right-click one of them and choose <b>Group into a macro&hellip;</b>; name it
+<code>indexMax</code>. The three nodes become one macro node. The connections that crossed the
+group's edge become its ports, named after the node and port they reach inside: an input from
+Filelist (<code>len_in1</code>) and an output to the ThumbWheelInt (<code>Op2_result</code>; in the
+tutorial's network, whose Op2 node is named <i>sub</i>, <code>sub_result</code>).</li>
+<li>Double-click indexMax to open it in a tab. Its inputs come out of the <b>input Ports</b> node on
+the left, its outputs go into the <b>output Ports</b> node on the right.</li>
+</ol>
+<figure>
+<img src="img/macro_tab.png" alt="The inside of indexMax: input Ports, len, the eval node, sub, output Ports">
+<figcaption><b>Inside indexMax.</b> Connecting a node to the <code>new</code> port of <i>input
+Ports</i> or <i>output Ports</i> adds a port to the macro.</figcaption>
+</figure>
+<figure>
+<img src="img/cartoon2b.png" alt="The network with the indexMax macro node between Filelist and ThumbWheelInt">
+<figcaption><b>The network with its macro.</b> The macro's name has a &#9635; mark.</figcaption>
+</figure>
+<div class="checkpoint"><b>Checkpoint</b> cartoon2b: the indexMax macro</div>
+<div class="tip"><b>In Vision</b> you made an empty macro from the Edit menu, cut the three nodes,
+pasted them inside, and connected them to the macro's input and output nodes yourself. <b>Group
+into a macro</b> does all of that; <b>Explode macro</b> undoes it.</div>
+
+<h2>Keeping nodes; making an application</h2>
+<p>Vision could save a changed node, or a macro, to a <i>user library</i> from the node's menu, and
+turn a network into an application with a <i>user panel</i> holding the widgets that matter. Neither
+is ported:</p>
+<ul>
+<li>to reuse a node, copy and paste it (<kbd>Ctrl-C</kbd> / <kbd>Ctrl-V</kbd>, within a network),
+or write it in a library file that WEWoS loads (see <a href="nodes.html#library">Writing your own
+nodes</a>);</li>
+<li>the parameter column plays the user panel's part: <b>Show in the panel only</b> moves a widget
+out of its node, and the column shows the selected node's widgets. A saved network also runs
+without the page: <code>bin/wewos run cartoon2b.wnet.json --set ThumbWheelInt.thumbwheel=42</code>.</li>
+</ul>
+<div class="pn"><a href="tut-movie.html">&larr; Playing a series of images</a><a href="tut-molecule.html">A virus capsid from one protomer &rarr;</a></div>
+<footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
+follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>
+</main></div></body></html>

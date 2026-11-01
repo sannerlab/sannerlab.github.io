@@ -1,0 +1,20 @@
+---
+title: "Download WEWoS"
+---
+
+WEWoS has no release yet. The source is on GitHub:
+[github.com/sannerlab/WEWoS](https://github.com/sannerlab/WEWoS).
+
+```bash
+git clone https://github.com/sannerlab/WEWoS.git
+cd WEWoS
+bin/wewos check     # lists what is missing
+bin/wewos serve     # prints http://127.0.0.1:8767/?t=...  open it in a browser
+```
+
+`bin/wewos` needs a Python 3 environment with numpy. The Molecules library also needs MolKit2,
+ProDy and mslib, which the `adcpsuite` environment of the [ADCP](../adcp/index.qmd) distribution
+provides.
+
+The server listens on 127.0.0.1 only. To use it from another machine, forward the port,
+`ssh -L 8767:127.0.0.1:8767 host`, then open the printed URL locally.

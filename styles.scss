@@ -44,7 +44,7 @@ img.icon { height: 2.4em; width: auto; vertical-align: middle; margin: 0 .15em; 
 :root {
   --lab-navy: #163a63;
   --tc-adcp: #1f5fa6; --tc-adfr: #0b7a6f; --tc-agfr: #6a3fa0; --tc-autosite: #b5561b;
-  --tc-adapt: #a8324a; --tc-msms: #2d7d46; --tc-mgltools: #8a6d0b;
+  --tc-adapt: #a8324a; --tc-wewos: #0e7490; --tc-msms: #2d7d46; --tc-mgltools: #8a6d0b;
   --tc-lab: #0b7a6f; --tc-pubs: #6a3fa0; --tc-software: #1f5fa6;
 }
 
@@ -109,7 +109,7 @@ div.sourceCode { border-left: 4px solid rgba($primary, 0.55); }
   background: var(--tc, #{$primary}); color: #fff; font-weight: 600;
 }
 .tc-adcp { --tc: var(--tc-adcp); } .tc-adfr { --tc: var(--tc-adfr); } .tc-agfr { --tc: var(--tc-agfr); }
-.tc-autosite { --tc: var(--tc-autosite); } .tc-adapt { --tc: var(--tc-adapt); }
+.tc-autosite { --tc: var(--tc-autosite); } .tc-adapt { --tc: var(--tc-adapt); } .tc-wewos { --tc: var(--tc-wewos); }
 .tc-msms { --tc: var(--tc-msms); } .tc-mgltools { --tc: var(--tc-mgltools); }
 .tc-lab { --tc: var(--tc-lab); } .tc-pubs { --tc: var(--tc-pubs); } .tc-software { --tc: var(--tc-software); }
 

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About the tutorials &middot; WEWoS documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">WEWoS<small>Vision's visual programming, on the web</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="editor.html">Building a network</a></li>
+<li><a href="running.html">Running a network</a></li>
+</ul>
+<h4>Tutorials</h4><ul>
+<li><a class="here" href="tutorials.html">About the tutorials</a></li>
+<li><a href="tut-first.html">Your first network</a></li>
+<li><a href="tut-image.html">An image viewer</a></li>
+<li><a href="tut-movie.html">Playing a series of images</a></li>
+<li><a href="tut-macro.html">Indexing a list; macros</a></li>
+<li><a href="tut-molecule.html">A virus capsid from one protomer</a></li>
+<li><a href="tut-cage.html">An icosahedral cage</a></li>
+<li><a href="tut-volumes.html">Volumes: isosurfaces and slices</a></li>
+</ul>
+<h4>Viewing results</h4><ul>
+<li><a href="viewer.html">The 3D viewer</a></li>
+<li><a href="colormap.html">Color maps and legends</a></li>
+<li><a href="images.html">Images and plots</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="files.html">Saving, opening, importing</a></li>
+<li><a href="libraries.html">Node libraries</a></li>
+<li><a href="nodes.html">Writing your own nodes</a></li>
+<li><a href="vision.html">WEWoS and Vision</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>About the tutorials</h1>
+<p class="lead">Vision's tutorial, followed step by step in WEWoS: from a dial and a print node
+to a virus capsid, a CT scan and an electron density map.</p>
+
+<p>These tutorials follow the Vision tutorial of MGLTools 1.5.3, written by Michel Sanner and
+Guillaume Vareille in 2008 and taught at the 2008 summer school in San Diego (<i>The Vision
+Environment and Advanced Workflow Management</i>, Guillaume Vareille and Michel Sanner). Its data
+and its saved networks come with WEWoS, so each step can be checked against the network the
+tutorial saved at that point.</p>
+
+<h2 id="how">How to follow them</h2>
+<ol class="steps">
+<li>Open <b>File &gt; Open an example&hellip;</b>, group <b>Vision tutorial (MGLTools 1.5.3)</b>,
+and choose <b>start here (an empty network with the tutorial data)</b>. This opens an empty network
+whose folder holds the tutorial's files: <code>cartoonMovie/</code> (101 frames of a cartoon of
+crambin turning), <code>2plv.pdb</code> (poliovirus), <code>nomegav1AS.pdb</code>,
+<code>ct_head.rawiv</code> (a CT scan), <code>lig.ccp4</code> and <code>nwv2.ccp4</code> (density
+maps).</li>
+<li>Build the network as the page describes. File names are relative to the network's folder, as
+they were to the tutorial's folder in Vision.</li>
+<li>Where the page says <span class="checkpoint" style="display:inline;padding:1px 8px;margin:0">
+<b>Checkpoint</b> cartoon0b</span>, the group has the network the tutorial saved at that point:
+open it to compare, or to go on from there.</li>
+</ol>
+
+<h2 id="list">The tutorials</h2>
+<div class="cards">
+<a class="card" href="tut-first.html"><img src="img/first_network.png" alt=""><span><b>Your first network</b>
+A dial, a print node, the run buttons, menus and data.</span></a>
+<a class="card" href="tut-image.html"><img src="img/image_viewer.png" alt=""><span><b>An image viewer</b>
+Read, scale and show an image; a contour filter.</span></a>
+<a class="card" href="tut-movie.html"><img src="img/cartoon1.png" alt=""><span><b>Playing a series of images</b>
+Unbinding widgets, file names, iterate, file lists, editing code.</span></a>
+<a class="card" href="tut-macro.html"><img src="img/cartoon2.png" alt=""><span><b>Indexing a list; macros</b>
+A thumbwheel browses the frames; three nodes become a macro.</span></a>
+<a class="card" href="tut-molecule.html"><img src="img/mol2plv.png" alt=""><span><b>A virus capsid from one protomer</b>
+A molecule, a color map, and 60 icosahedral copies.</span></a>
+<a class="card" href="tut-cage.html"><img src="img/icoscage.png" alt=""><span><b>An icosahedral cage</b>
+The cage of the capsid's symmetry, sized with a dial.</span></a>
+<a class="card" href="tut-volumes.html"><img src="img/headandslice.png" alt=""><span><b>Volumes</b>
+Isosurfaces, slices, a box cut and a molecule blurred into a map.</span></a>
+</div>
+
+<h2 id="differences">What changes from Vision</h2>
+<table>
+<tr><th>in Vision</th><th>in WEWoS</th></tr>
+<tr><td>inputs on top of a node, outputs at the bottom; data flows down</td><td>inputs on the left,
+outputs on the right; data flows from left to right</td></tr>
+<tr><td>move a node with the middle button</td><td>drag it with the left button</td></tr>
+<tr><td>left-drag a rectangle to select</td><td>Shift-drag (a plain drag pans the network)</td></tr>
+<tr><td>the parameter panel, opened from the node's menu</td><td>the parameter column on the right,
+for the selected node</td></tr>
+<tr><td>the immediate mode (the tap icon, <kbd>Ctrl-F</kbd>)</td><td><b>run on change</b></td></tr>
+<tr><td>the green and yellow lightning buttons</td><td><b>Run</b> and <b>Run all</b></td></tr>
+<tr><td>a DejaVu window per Viewer node; a Tk window per Show Image</td><td>panels in the row
+under the network</td></tr>
+<tr><td>loading a library from the toolbar</td><td><b>Libraries&hellip;</b></td></tr>
+<tr><td>the user panel (<i>Edit &gt; Build user panel</i>), to make a network an application</td><td>not
+ported; the parameter column holds the widgets you move out of the nodes</td></tr>
+<tr><td>saving a node's source to a user library from its menu</td><td>write the node in a library
+file (see <a href="nodes.html#library">Writing your own nodes</a>)</td></tr>
+</table>
+<div class="note"><b>Not ported:</b> the tutorial's last three networks (hemoglobin, msmsGen,
+runningsurface) drive PMV, the Python Molecule Viewer, which is not part of WEWoS. They import,
+but their PMV nodes do not run.</div>
+<div class="pn"><a href="running.html">&larr; Running a network</a><a href="tut-first.html">Your first network &rarr;</a></div>
+<footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
+follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>
+</main></div></body></html>

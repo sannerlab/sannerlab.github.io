@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Volumes: isosurfaces and slices &middot; WEWoS documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">WEWoS<small>Vision's visual programming, on the web</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="editor.html">Building a network</a></li>
+<li><a href="running.html">Running a network</a></li>
+</ul>
+<h4>Tutorials</h4><ul>
+<li><a href="tutorials.html">About the tutorials</a></li>
+<li><a href="tut-first.html">Your first network</a></li>
+<li><a href="tut-image.html">An image viewer</a></li>
+<li><a href="tut-movie.html">Playing a series of images</a></li>
+<li><a href="tut-macro.html">Indexing a list; macros</a></li>
+<li><a href="tut-molecule.html">A virus capsid from one protomer</a></li>
+<li><a href="tut-cage.html">An icosahedral cage</a></li>
+<li><a class="here" href="tut-volumes.html">Volumes: isosurfaces and slices</a></li>
+</ul>
+<h4>Viewing results</h4><ul>
+<li><a href="viewer.html">The 3D viewer</a></li>
+<li><a href="colormap.html">Color maps and legends</a></li>
+<li><a href="images.html">Images and plots</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="files.html">Saving, opening, importing</a></li>
+<li><a href="libraries.html">Node libraries</a></li>
+<li><a href="nodes.html">Writing your own nodes</a></li>
+<li><a href="vision.html">WEWoS and Vision</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>Volumes: isosurfaces and slices</h1>
+<p class="lead">Four networks of the Volume library: a CT scan cut by three slices, a map colored
+by radius, a capsid map cut open, and a molecule blurred into a map.</p>
+
+<p>These are the tutorial's <i>more Vision networks</i>. Each opens from the group <b>Vision
+tutorial</b>; press <b>Run all</b>. They use the <b>Volume</b> library, a Python 3 port of
+MGLTools' Volume package: map readers, the UT isocontouring code, slices, boxes and masks.</p>
+
+<h2 id="headandslice">A CT scan: isosurface and slices</h2>
+<figure>
+<img src="img/headandslice.png" alt="The headandslice network and a CT scan of a head: a grey isosurface of the skull and three colored slices">
+<figcaption><b>headandslice.</b> <code>ct_head.rawiv</code>, a CT scan of a head, read by
+<b>ReadAnyMap</b>. <b>UT-Isocontour</b> makes the isosurface at the value 65.5, drawn by
+<b>IndPolygons</b>; three <b>OrthoSlice</b> nodes cut the volume along x, y and z and
+color the values; <b>Grid3DBB</b> draws the box of the grid.</figcaption>
+</figure>
+<ul>
+<li>Select <i>UT-Isocontour</i> and change its isovalue: the surface moves between the skin and the
+bone.</li>
+<li>Select an OrthoSlice and move its slice number to scan through the head.</li>
+</ul>
+
+<h2 id="isorad">An isosurface colored by radius</h2>
+<figure>
+<img src="img/isorad.png" alt="The isorad network: an isosurface drawn as lines, colored from blue to red by its distance to the origin, with a legend">
+<figcaption><b>isorad.</b> <code>lig.ccp4</code> read by <b>ReadCCP4</b>. The isosurface's vertices go
+to <b>DistanceToPoint</b> (SymServer), which gives their distance to the point that an <b>eval</b>
+node gives, <code>[0,0,0]</code>; <b>Color Map</b> turns the distances into colors, and its legend
+gives the range. <b>Set Geom Options</b> draws the surface as lines
+(<code>{'frontPolyMode': 'line'}</code>).</figcaption>
+</figure>
+<p>Coloring a surface by its distance to the center is how the depth of a virus capsid's surface is
+shown: the same idea in the next network.</p>
+
+<h2 id="regioncapsid">A capsid map cut open</h2>
+<figure>
+<img src="img/regioncapsid.png" alt="The regioncapsid network and a virus capsid isosurface with one octant cut away, colored by radius">
+<figcaption><b>regioncapsid.</b> <code>nwv2.ccp4</code>, the density of a virus capsid.
+<b>RegionBox</b> places a box on one octant of the map (<i>FrontI</i>), and <b>FillMapWithBox</b>
+fills it with 0, so the isosurface opens there and shows the inside of the shell. The macro
+<b>radialColoring</b> holds DistanceToPoint, the point (0,0,0) and a Color Map.</figcaption>
+</figure>
+<ul>
+<li>Select <i>RegionBox</i> and choose another placement: an octant (<i>FrontI</i> to
+<i>BackIV</i>) or a half.</li>
+<li>Double-click <i>radialColoring</i> to open the macro, and change the color map of its Color Map
+node.</li>
+</ul>
+
+<h2 id="blurgaussian">A molecule blurred into a map</h2>
+<figure>
+<img src="img/blurgaussian.png" alt="The blurgaussian network: an orange translucent blob around a molecule, in the box of its grid">
+<figcaption><b>blurgaussian.</b> <code>nomegav1AS.pdb</code> (17,189 atoms) read by Read Molecule.
+<b>Gaussians Mask</b> puts a Gaussian on each atom of the selection into a grid (3 &Aring; per
+voxel, 3 &Aring; resolution): a low-resolution map of the molecule. <b>Isocontour</b> makes its
+surface, translucent over the molecule's lines; <b>Grid3DBB</b> draws the grid's box.</figcaption>
+</figure>
+<ul>
+<li>Lower the isovalue to see the surface grow; change the resolution of Gaussians Mask for a smoother
+or a more detailed map.</li>
+<li>Type a selection in <i>Select Nodes</i> (for example <code>chain A</code>) to blur only part of
+the molecule.</li>
+</ul>
+<div class="note"><b>Not ported:</b> Vision's Volume library also rendered volumes directly (UTVolRen)
+and simplified meshes (QSlim); neither is in WEWoS. Slices and isosurfaces are drawn as meshes.</div>
+<div class="pn"><a href="tut-cage.html">&larr; An icosahedral cage</a><a href="viewer.html">The 3D viewer &rarr;</a></div>
+<footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
+follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>
+</main></div></body></html>

@@ -4,6 +4,7 @@ project:
   pre-render: _scripts/publications.py
   resources:
   - /adapt/**
+  - /wewos/**
   - .nojekyll
 website:
   title: Sanner Lab
@@ -33,6 +34,8 @@ website:
         href: software/agfr/index.qmd
       - text: ADapt
         href: software/adapt/index.qmd
+      - text: WEWoS
+        href: software/wewos/index.qmd
       - text: MSMS
         href: software/msms/index.qmd
       - text: MGLTools
@@ -160,6 +163,20 @@ website:
       href: software/adapt/tutorials.qmd
     - text: Gallery
       href: software/adapt/gallery.qmd
+  - id: wewos
+    title: WEWoS
+    style: docked
+    contents:
+    - text: Overview
+      href: software/wewos/index.qmd
+    - text: Download
+      href: software/wewos/download.qmd
+    - text: Documentation
+      href: software/wewos/documentation.qmd
+    - text: Tutorials
+      href: software/wewos/tutorials.qmd
+    - text: Gallery
+      href: software/wewos/gallery.qmd
   - id: msms
     title: MSMS
     style: docked

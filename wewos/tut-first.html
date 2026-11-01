@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your first network &middot; WEWoS documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">WEWoS<small>Vision's visual programming, on the web</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="editor.html">Building a network</a></li>
+<li><a href="running.html">Running a network</a></li>
+</ul>
+<h4>Tutorials</h4><ul>
+<li><a href="tutorials.html">About the tutorials</a></li>
+<li><a class="here" href="tut-first.html">Your first network</a></li>
+<li><a href="tut-image.html">An image viewer</a></li>
+<li><a href="tut-movie.html">Playing a series of images</a></li>
+<li><a href="tut-macro.html">Indexing a list; macros</a></li>
+<li><a href="tut-molecule.html">A virus capsid from one protomer</a></li>
+<li><a href="tut-cage.html">An icosahedral cage</a></li>
+<li><a href="tut-volumes.html">Volumes: isosurfaces and slices</a></li>
+</ul>
+<h4>Viewing results</h4><ul>
+<li><a href="viewer.html">The 3D viewer</a></li>
+<li><a href="colormap.html">Color maps and legends</a></li>
+<li><a href="images.html">Images and plots</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="files.html">Saving, opening, importing</a></li>
+<li><a href="libraries.html">Node libraries</a></li>
+<li><a href="nodes.html">Writing your own nodes</a></li>
+<li><a href="vision.html">WEWoS and Vision</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>Your first network</h1>
+<p class="lead">A dial and a print node: adding, connecting, running, and looking inside a
+node.</p>
+
+<p>Open the example <b>start here (an empty network with the tutorial data)</b> from the group
+<b>Vision tutorial</b> (see <a href="tutorials.html#how">how to follow the tutorials</a>).</p>
+
+<h2>Add two nodes</h2>
+<ol class="steps">
+<li>In the libraries on the left, open <b>Standard &gt; Input</b>. Hover over a node to read what
+it does.</li>
+<li>Drag <b>Dial</b> onto the network. Its dial is the widget of its <code>dial</code> input; its
+output is <code>value</code>, on its right edge.</li>
+<li>Drag <b>print</b> (<b>Standard &gt; Output</b>) to the right of the Dial. Its one input,
+<code>in1</code>, has type <i>None</i>: it accepts anything.</li>
+<li>Hover over a port: its name, its type, and whether it is required. The shape and color of a
+port show its type.</li>
+</ol>
+
+<h2>Connect and run</h2>
+<ol class="steps">
+<li>Drag from the Dial's <code>value</code> to print's <code>in1</code>. While you drag, the inputs
+that can take a float light up.</li>
+<li>Press <b>Run</b>. The Dial sends its value, print prints it: open the <b>Log</b> under the
+network to read <code>0.0</code>.</li>
+<li>Turn the dial: scroll over the number, drag its &#8644; handle, or type a value. With <b>run on
+change</b> checked, each change runs the network again, and print prints the new value.</li>
+</ol>
+<figure>
+<img src="img/first_network.png" alt="The Dial connected to print, and the Log showing the values printed">
+<figcaption><b>The first network.</b> The dial was set to 0.25, 0.5 and 1.0; print wrote each value
+to the Log.</figcaption>
+</figure>
+<div class="checkpoint"><b>Checkpoint</b> dial and print</div>
+<p><b>Run</b> runs the nodes that have new data (the Dial, the first time) and what is below them;
+<b>Run all</b> runs everything again. See <a href="running.html">Running a network</a>.</p>
+
+<h2>Look inside</h2>
+<p>Right-click the Dial's <code>value</code> port and choose <b>Show data</b>: the value it sent,
+and its type.</p>
+<figure class="mid">
+<img src="img/show_data.png" alt="The data of the Dial's value port: 1.0, a float">
+<figcaption><b>Show data</b> on the <code>value</code> port.</figcaption>
+</figure>
+<p>When a node runs, it runs its <b>compute function</b>. Double-click print (or right-click it and
+choose <b>Edit code&hellip;</b>) to see it: a function whose arguments are the input ports.
+Change it, for example to <code>print('value:', in1)</code>, and press <b>Save and run</b>.</p>
+<figure class="mid">
+<img src="img/print_code.png" alt="The code of the print node: def doit(self, in1): print(in1)">
+<figcaption><b>print's compute function.</b> Nodes with outputs call
+<code>self.outputData(port=value)</code> to send their results.</figcaption>
+</figure>
+
+<h2>Select and delete</h2>
+<ol class="steps">
+<li>Shift-drag a rectangle around both nodes to select them; drag one of them to move both.</li>
+<li>Right-click print and choose <b>Delete</b>: the node goes, and its connection with it. To
+delete only a connection, right-click it and choose <b>Delete connection</b>.</li>
+</ol>
+<div class="tip"><b>In Vision</b> the inputs were on top of a node and the outputs at the bottom,
+nodes were moved with the middle button, and a plain drag selected. Here data flows from left to
+right, the left button moves nodes, and a plain drag pans the network.</div>
+<div class="pn"><a href="tutorials.html">&larr; About the tutorials</a><a href="tut-image.html">An image viewer &rarr;</a></div>
+<footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
+follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>
+</main></div></body></html>

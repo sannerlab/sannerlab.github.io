@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Playing a series of images &middot; WEWoS documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">WEWoS<small>Vision's visual programming, on the web</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="editor.html">Building a network</a></li>
+<li><a href="running.html">Running a network</a></li>
+</ul>
+<h4>Tutorials</h4><ul>
+<li><a href="tutorials.html">About the tutorials</a></li>
+<li><a href="tut-first.html">Your first network</a></li>
+<li><a href="tut-image.html">An image viewer</a></li>
+<li><a class="here" href="tut-movie.html">Playing a series of images</a></li>
+<li><a href="tut-macro.html">Indexing a list; macros</a></li>
+<li><a href="tut-molecule.html">A virus capsid from one protomer</a></li>
+<li><a href="tut-cage.html">An icosahedral cage</a></li>
+<li><a href="tut-volumes.html">Volumes: isosurfaces and slices</a></li>
+</ul>
+<h4>Viewing results</h4><ul>
+<li><a href="viewer.html">The 3D viewer</a></li>
+<li><a href="colormap.html">Color maps and legends</a></li>
+<li><a href="images.html">Images and plots</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="files.html">Saving, opening, importing</a></li>
+<li><a href="libraries.html">Node libraries</a></li>
+<li><a href="nodes.html">Writing your own nodes</a></li>
+<li><a href="vision.html">WEWoS and Vision</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>Playing a series of images</h1>
+<p class="lead">Feed an input from another node instead of its widget, make file names from
+numbers, loop with iterate, and change a node's code.</p>
+
+<p>The folder <code>cartoonMovie</code> holds 101 frames, <code>crnCartoon0000.png</code> to
+<code>crnCartoon0100.png</code>. We will turn the image viewer of the
+<a href="tut-image.html">previous tutorial</a> into a movie player. Start from your image viewer,
+or open <b>cartoon0: an image viewer</b>.</p>
+<p>File names in widgets are relative to the network's folder, so <code>cartoonMovie/...</code>
+works wherever the folder is.</p>
+
+<h2>A file name from a dial</h2>
+<ol class="steps">
+<li>Drag a <b>Filename</b> node (<b>Standard &gt; Input</b>). It makes a file name from a number and
+a format, with Python's <code>%</code> formatting: set its format to
+<code>cartoonMovie/crnCartoon%04d.png</code> (<code>%04d</code>: the number on 4 digits).</li>
+<li>Now, how do we bring its output to Read Image, whose file name comes from its widget? Right-click
+Read Image's <b>image file</b> widget and choose <b>Unbind (show the port)</b>. The widget goes, and
+<code>filename</code> becomes a port.
+<figure class="tiny">
+<img src="img/unbind_menu.png" alt="The menu of Read Image's file widget, with Unbind (show the port)">
+</figure></li>
+<li>Connect Filename's <code>filename</code> output to Read Image's <code>filename</code>. Filename
+stops: its <code>number</code> input is required and has no data yet.</li>
+<li>Drag a <b>DialInt</b> (<b>Standard &gt; Input</b>) and connect its <code>value</code> to
+Filename's <code>number</code>. Turning the dial now makes a file name, reads the image, scales it
+and shows it.</li>
+</ol>
+<figure>
+<img src="img/cartoon0b.png" alt="DialInt, Filename, Read Image, Scale and Show Image, frame 6 shown">
+<figcaption><b>The dial chooses the frame.</b> DialInt at 6 gives
+<code>cartoonMovie/crnCartoon0006.png</code>.</figcaption>
+</figure>
+<div class="checkpoint"><b>Checkpoint</b> cartoon0b: a file name from a dial</div>
+<p>To give the widget back, right-click the <code>filename</code> port and choose <b>Rebind
+widget</b>.</p>
+
+<h2>Loop with iterate</h2>
+<p>Rather than turning a dial, let's play the frames one after the other.</p>
+<ol class="steps">
+<li>Delete the DialInt. Drag an <b>iterate</b> node (<b>Standard &gt; Python</b>) and connect its
+<code>oneItem</code> output to Filename's <code>number</code>.</li>
+<li>iterate needs a list to loop over: drag a <b>range</b> node (<b>Standard &gt; Python</b>), set it
+from 0 to 99 by 1, and connect its <code>data</code> to iterate's <code>listToLoopOver</code>.</li>
+<li>Press <b>Run</b>. iterate sends the numbers one at a time, and runs the nodes below it for each
+one: the movie plays in the Show Image panel. <b>Stop</b> stops it after the current frame.</li>
+</ol>
+<figure>
+<img src="img/cartoon1.png" alt="range, iterate, Filename, Read Image, Scale and Show Image; range's parameters in the column">
+<figcaption><b>iterate over a range.</b> range is selected: its from, to and step are in the
+parameter column. iterate is a scheduling node: it runs what is below it once per item.</figcaption>
+</figure>
+<div class="checkpoint"><b>Checkpoint</b> cartoon1: iterate over a range</div>
+<p>A widget can be in the node, or only in the parameter column: right-click range's <b>step</b>
+widget and choose <b>Show in the panel only</b>. Uncheck <b>run on change</b> while you set several
+widgets, so the movie does not start each time.</p>
+<div class="tip"><b>Try this:</b> change range to play every other frame.</div>
+
+<h2>A list of files</h2>
+<p>Instead of making file names from numbers, we can list the files.</p>
+<ol class="steps">
+<li>Delete range and Filename. Drag a <b>Filelist</b> node (<b>Standard &gt; Input</b>), set its
+directory to <code>cartoonMovie</code> and its match string to <code>crnCartoon*.png</code>
+(or <code>crnCartoon????.png</code>; the wildcards are the shell's).</li>
+<li>Connect its <code>filelist</code> to iterate's <code>listToLoopOver</code>, and iterate's
+<code>oneItem</code> straight to Read Image's <code>filename</code>.</li>
+<li>Run. The frames may play out of order: the files come in the order the folder lists them. The
+list is a Python list, which has a <code>sort</code> method: insert a <b>call method</b> node
+(<b>Standard &gt; Python</b>) between Filelist and iterate and type <code>sort</code> in its
+signature.</li>
+</ol>
+<div class="checkpoint"><b>Checkpoint</b> cartoon3: sort the list with call method</div>
+<p>Don't we have a way to change the Python code instead? Delete the call method node, double-click
+Filelist to open its code, and add <code>values.sort()</code> after the line that makes the list:</p>
+<pre>    try:
+        values = glob.glob(match_str)
+        values.sort()
+        filenames = [ os.path.join(directory, x) for x in values ]
+        self.outputData(filelist=filenames)</pre>
+<p>Press <b>Save and run</b>. Save the network (<b>File &gt; Save</b>), close it and open it again:
+the changed code is saved with the network, as every change made to a node is.</p>
+<figure>
+<img src="img/cartoon1b.png" alt="Filelist, iterate, Read Image, Scale and Show Image">
+<figcaption><b>iterate over a file list.</b> Filelist's code sorts the names.</figcaption>
+</figure>
+<div class="checkpoint"><b>Checkpoint</b> cartoon1b: iterate over a file list</div>
+
+<h2>Exercise: play it backwards</h2>
+<p>Add an input port named <code>reverse</code> to the Filelist node, with a check button widget.
+When it is checked, the list is reversed and the movie plays backwards.</p>
+<ol class="steps">
+<li>Select Filelist; in the parameter column open <b>Add a port</b>: <i>input</i>, name
+<code>reverse</code>, type <i>boolean</i>, and check <i>widget</i>. Press <b>Add port</b>.</li>
+<li>The compute function gets a <code>reverse</code> argument. Edit the code:
+<pre>        values.sort()
+        if reverse:
+            values.reverse()</pre></li>
+</ol>
+<div class="pn"><a href="tut-image.html">&larr; An image viewer</a><a href="tut-macro.html">Indexing a list; macros &rarr;</a></div>
+<footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
+follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>
+</main></div></body></html>

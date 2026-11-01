@@ -12,8 +12,8 @@ computational methods for predicting, analyzing, visualizing and optimizing mole
 interactions. We have contributed to the development of several widely used software tools,
 including MSMS for calculating molecular surfaces, AutoDock4 and AutoDockFR for docking small
 molecules into proteins, F2Dock for docking proteins and, most recently, AutoDock CrankPep, along
-with a variety of graphical user interfaces such as PMV, Vision, AutoDockTools, AutoGridFR and
-ADapt.
+with a variety of graphical user interfaces such as PMV, Vision, AutoDockTools, AutoGridFR,
+ADapt and WEWoS.
 
 ::: {.tool-grid}
 
@@ -24,6 +24,7 @@ Downloads, documentation and tutorials. Click a picture to open that tool's page
 ::: {.tool-tiles}
 
 [![ADapt](images/tools/adapt.jpg)[Prepare molecules for docking starting from a PDB file]{.tile-text}](software/adapt/index.qmd)
+[![WEWoS](images/tools/wewos.jpg)[Visual programming with Vision in a web browser]{.tile-text}](software/wewos/index.qmd)
 [![AutoDock CrankPep (ADCP)](images/tools/adcp.jpg)[Dock linear and cyclic peptides]{.tile-text}](software/adcp/index.qmd)
 [![AutoGridFR (AGFR)](images/tools/agfr.jpg)[Prepare receptors, pockets and affinity maps for docking]{.tile-text}](software/agfr/index.qmd)
 [![AutoSite](images/tools/autosite.jpg)[Find ligand-binding pockets on proteins]{.tile-text}](software/autosite/index.qmd)

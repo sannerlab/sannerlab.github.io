@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Saving, opening, importing &middot; WEWoS documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">WEWoS<small>Vision's visual programming, on the web</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="editor.html">Building a network</a></li>
+<li><a href="running.html">Running a network</a></li>
+</ul>
+<h4>Tutorials</h4><ul>
+<li><a href="tutorials.html">About the tutorials</a></li>
+<li><a href="tut-first.html">Your first network</a></li>
+<li><a href="tut-image.html">An image viewer</a></li>
+<li><a href="tut-movie.html">Playing a series of images</a></li>
+<li><a href="tut-macro.html">Indexing a list; macros</a></li>
+<li><a href="tut-molecule.html">A virus capsid from one protomer</a></li>
+<li><a href="tut-cage.html">An icosahedral cage</a></li>
+<li><a href="tut-volumes.html">Volumes: isosurfaces and slices</a></li>
+</ul>
+<h4>Viewing results</h4><ul>
+<li><a href="viewer.html">The 3D viewer</a></li>
+<li><a href="colormap.html">Color maps and legends</a></li>
+<li><a href="images.html">Images and plots</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a class="here" href="files.html">Saving, opening, importing</a></li>
+<li><a href="libraries.html">Node libraries</a></li>
+<li><a href="nodes.html">Writing your own nodes</a></li>
+<li><a href="vision.html">WEWoS and Vision</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>Saving, opening, importing</h1>
+<p class="lead">Networks are saved as <code>.wnet.json</code> files in their folders; Vision's
+<code>*_net.py</code> files are imported without being run.</p>
+
+<h2 id="save">Save and open</h2>
+<table>
+<tr><th>File menu</th><th>what it does</th></tr>
+<tr><td>Save / Save as&hellip;</td><td>writes <code>&lt;name&gt;.wnet.json</code> in the network's folder</td></tr>
+<tr><td>Open network (.wnet.json)&hellip;</td><td>opens a network file from your computer as a new network
+(dropping the file on the page does the same)</td></tr>
+<tr><td>Download the network file</td><td>the <code>.wnet.json</code>, to your computer</td></tr>
+<tr><td>Download the network folder (zip)</td><td>the network with the files its nodes read and wrote</td></tr>
+<tr><td>Rename network&hellip;</td><td>its name, shown in its tab and in the open networks menu</td></tr>
+</table>
+<p>Each network also writes <code>autosave.wnet.json</code> in its folder after every change. A
+network file is JSON: the nodes (library, class, name, place), their widget values and options, the
+code of the nodes you changed, the ports you added, the macros and their insides, the connections,
+and the state of the viewers (camera, renderer, rendering, legends). Data is not saved: running the
+network makes it again.</p>
+<p>Files that nodes read are found relative to the network's folder. To bring a file from your own
+computer, use the &#8679; button of a file widget, or <b>Upload from this computer&hellip;</b> in the
+file browser: the file is copied into the network's folder.</p>
+
+<h2 id="import">Importing Vision networks</h2>
+<p><b>File &gt; Import a Vision network (*_net.py)&hellip;</b>, or drop the file on the page, or, without
+the page:</p>
+<pre>bin/wewos import old_net.py -o new.wnet.json</pre>
+<p>Vision saved a network as a Python program that rebuilt it. WEWoS does <b>not run</b> that
+program: it converts its Python 2 syntax to Python 3, reads it, and interprets only what Vision's
+generated files do: load libraries, create nodes, set widget values and options, change code, add
+ports, build macros, and connect.</p>
+<figure class="mid">
+<img src="img/import_report.png" alt="The report shown after importing cartoon2b_net.py">
+<figcaption><b>The import report</b> of the tutorial's <code>cartoon2b_net.py</code>: what was
+imported, and what was not carried over.</figcaption>
+</figure>
+<h3>How nodes come across</h3>
+<ul>
+<li>The nodes of Vision's Standard library, DejaVu (vizlib), MolKit, symserv, Volume, Imaging (PIL)
+and matplotlib libraries become the nodes of the WEWoS libraries, with their port names mapped
+where WEWoS's differ. Library macros that are one node here (Lines Macro, CPK Macro, MSMS Macro)
+become that node.</li>
+<li>A node changed in Vision keeps its code, converted to Python 3.</li>
+<li>Settings made inside a library macro (Icosahedral1's axes, UTiso's isovalue) come along.
+<b>Nodes or connections added inside a library macro</b> do not: the macro is the library's, and
+the report says so.</li>
+<li>Vision kept the opacity and the color of each object in the viewer's saved state; they are given
+to the geometry nodes, which keep them with the network.</li>
+<li>A node with no counterpart here (PMV's, ADT's, web services&hellip;) becomes a placeholder: it
+keeps its name, ports, connections and code, is drawn in red, and does not run.</li>
+<li>Vision drew data flowing down the page. Imported networks, and the macros of the libraries, are
+laid out again from left to right (<i>Edit &gt; Arrange the nodes from left to right</i> does the
+same for any network).</li>
+</ul>
+<p>The data files a Vision network reads are not part of its <code>_net.py</code>: upload them into the
+imported network's folder (the &#8679; button of a file widget), or give their full path on the
+server.</p>
+<div class="pn"><a href="images.html">&larr; Images and plots</a><a href="libraries.html">Node libraries &rarr;</a></div>
+<footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
+follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>
+</main></div></body></html>
