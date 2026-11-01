@@ -46,7 +46,10 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-97d3ced1090437fc9b3ebb9055998827.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-8c5430f6cffc576741e33ca73084fba7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -254,10 +257,26 @@ ul.task-list li input[type="checkbox"] {
 <!-- To add an image: put the file in software/autosite/img/ and add it inside the gallery block below,
      one image per line with a blank line between images:
      ![Optional caption](img/<file>.png){fig-alt="Short description of what the image shows"}
-     Then delete the "Images coming soon" line. -->
-<p><em>Images coming soon.</em></p>
+     -->
 <div class="gallery quarto-layout-panel" data-layout-ncol="3">
-
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/autosite-pocket-fill-points-4ek3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="AutoSite fill points (green) mark the predicted ligand-binding pocket of receptor 4EK3, shown with the bound ligand and affinity-map contours. Source: AGFR website."><img src="img/autosite-pocket-fill-points-4ek3.png" class="img-fluid figure-img" alt="Teal protein ribbons with green pocket points around a yellow ligand and red mesh contours"></a></p>
+<figcaption>AutoSite fill points (green) mark the predicted ligand-binding pocket of receptor 4EK3, shown with the bound ligand and affinity-map contours. <em>Source: AGFR website.</em></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/autosite-pocket-affinity-slice-4ek3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="An affinity-map slice cuts through receptor 4EK3 next to the AutoSite pocket points surrounding the bound ligand. Source: AGFR website."><img src="img/autosite-pocket-affinity-slice-4ek3.png" class="img-fluid figure-img" alt="Protein ribbons in a grid box with a red and blue map slice and green pocket points"></a></p>
+<figcaption>An affinity-map slice cuts through receptor 4EK3 next to the AutoSite pocket points surrounding the bound ligand. <em>Source: AGFR website.</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -698,6 +717,38 @@ ul.task-list li input[type="checkbox"] {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

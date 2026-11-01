@@ -46,7 +46,10 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-97d3ced1090437fc9b3ebb9055998827.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-8c5430f6cffc576741e33ca73084fba7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -284,10 +287,26 @@ ul.task-list li input[type="checkbox"] {
 <!-- To add an image: put the file in software/agfr/img/ and add it inside the gallery block below,
      one image per line with a blank line between images:
      ![Optional caption](img/<file>.png){fig-alt="Short description of what the image shows"}
-     Then delete the "Images coming soon" line. -->
-<p><em>Images coming soon.</em></p>
+     -->
 <div class="gallery quarto-layout-panel" data-layout-ncol="3">
-
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/agfr-gui-flexible-residues-pocket.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Early AGFR interface showing a docking box, an AutoSite pocket and two flexible lysine side chains around a ligand. Source: AGFR page, adfr.scripps.edu."><img src="img/agfr-gui-flexible-residues-pocket.png" class="img-fluid figure-img" alt="Screenshot of AGFR v0.1: control panel on the left and a 3D view with a white docking box, green pocket points, a yellow ligand and orange flexible side chains."></a></p>
+<figcaption>Early AGFR interface showing a docking box, an AutoSite pocket and two flexible lysine side chains around a ligand. <em>Source: AGFR page, adfr.scripps.edu.</em></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/agfr-gui-docking-box-pocket.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="AGFR places a docking box around the top-ranked AutoSite pocket of a kinase receptor. Source: AGFR website."><img src="img/agfr-gui-docking-box-pocket.png" class="img-fluid figure-img" alt="Screenshot of AGFR 1.1 with a teal ribbon protein, a docking box, and green AutoSite pocket points next to a ligand."></a></p>
+<figcaption>AGFR places a docking box around the top-ranked AutoSite pocket of a kinase receptor. <em>Source: AGFR website.</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -728,6 +747,38 @@ ul.task-list li input[type="checkbox"] {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

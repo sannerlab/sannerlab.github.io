@@ -11,7 +11,14 @@
     "href": "contact.html",
     "title": "Contact",
     "section": "",
-    "text": "Michel Sanner Department of Integrative Structural and Computational Biology Scripps Research La Jolla, CA, USA\nEmail: sanner@scripps.edu\nFor a commercial license for MSMS, contact Dr. Sanner by email.\n\n\n\n Back to top"
+    "text": "Michel Sanner Department of Integrative Structural and Computational Biology Scripps Research La Jolla, CA, USA\nEmail: sanner@scripps.edu\nFor a commercial license for MSMS, contact Dr. Sanner by email."
+  },
+  {
+    "objectID": "contact.html#directions",
+    "href": "contact.html#directions",
+    "title": "Contact",
+    "section": "Directions",
+    "text": "Directions\nThe lab is in room MB 207, on the 2nd floor of the Molecular Biology Building, Scripps Research, 10550 N. Torrey Pines Road, La Jolla, CA 92037.\n\n\n\nMap of the Scripps Research campus showing the driving route to Lot 4 and the walking route to the Sanner Lab, MB 207\n\n\nArrange visitor parking and building access with your host before your visit; building doors require key-card access."
   },
   {
     "objectID": "software/msms/index.html",
@@ -48,7 +55,7 @@
     "href": "software/index.html",
     "title": "Software",
     "section": "",
-    "text": "Software developed in the lab. Each tool has an overview, downloads, documentation and, where available, tutorials. Downloads are still served from the CCSB website.\n\n\ncurrent: 1.1\n\nAutoDock CrankPep (ADCP)\nDocking of linear and cyclic peptides by combining folding and docking.\n\n\n\nin ADFRsuite 1.0\n\nAutoDockFR (ADFR)\nProtein–ligand docking with explicitly specified receptor flexibility.\n\n\n\nin ADFRsuite 1.0\n\nAutoGridFR (AGFR)\nPrepares receptors for docking: docking box, binding pockets, affinity maps and target files.\n\n\n\nin ADFRsuite 1.0\n\nAutoSite\nIdentifies ligand-binding pockets from affinity maps.\n\n\n\nunreleased\n\nADapt\nPrepares receptor and ligand PDBQT files for AutoDock from a PDB entry, in a web browser.\n\n\n\ncurrent: 2.6.1\n\nMSMS\nComputes molecular surfaces. Free for academic use; commercial use needs a license.\n\n\n\ncurrent: 1.5.7\n\nMGLTools\nThe lab’s molecular graphics and modeling software, including PMV and AutoDockTools.\n\n\n\n\n\n\n Back to top"
+    "text": "Software developed in the lab. Each tool has an overview, downloads, documentation and, where available, tutorials. Downloads are still served from the CCSB website.\n\n\n\ncurrent: 1.1\n\nAutoDock CrankPep (ADCP)\nDocking of linear and cyclic peptides by combining folding and docking.\n\n\n\n\nin ADFRsuite 1.0\n\nAutoDockFR (ADFR)\nProtein–ligand docking with explicitly specified receptor flexibility.\n\n\n\n\nin ADFRsuite 1.0\n\nAutoGridFR (AGFR)\nPrepares receptors for docking: docking box, binding pockets, affinity maps and target files.\n\n\n\n\nin ADFRsuite 1.0\n\nAutoSite\nIdentifies ligand-binding pockets from affinity maps.\n\n\n\n\nunreleased\n\nADapt\nPrepares receptor and ligand PDBQT files for AutoDock from a PDB entry, in a web browser.\n\n\n\n\ncurrent: 2.6.1\n\nMSMS\nComputes molecular surfaces. Free for academic use; commercial use needs a license.\n\n\n\n\ncurrent: 1.5.7\n\nMGLTools\nThe lab’s molecular graphics and modeling software, including PMV and AutoDockTools.\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "software/autosite/index.html",
@@ -584,7 +591,7 @@
     "href": "software/adcp/gallery.html",
     "title": "ADCP gallery",
     "section": "",
-    "text": "Images made with AutoDock CrankPep (ADCP). Click an image to enlarge it.\n\nImages coming soon.\n\n\n\n\n\n\n Back to top",
+    "text": "Images made with AutoDock CrankPep (ADCP). Click an image to enlarge it.\n\n\n\n\n\n\n\nA helical peptide docked by ADCP (cyan) closely overlays the crystal structure (magenta) on the receptor surface. Source: ADCP preprint (Zhang & Sanner, 2019), Fig. 4.\n\n\n\n\n\n\n\nADCP’s top-ranked pose for a 16-residue peptide (cyan) compared with the experimental structure (magenta) in its receptor pocket. Source: ADCP preprint (Zhang & Sanner, 2019), Fig. 4.\n\n\n\n\n\n\n\nCRANKITE Monte Carlo moves used by ADCP: a crankshaft rotation about two C-alpha atoms and a rotation near the chain end. Source: ADCP preprint (Zhang & Sanner, 2019), Fig. 1.\n\n\n\n\n\n\n\n\n\nThe AutoGridFR docking box defines where ADCP can place the peptide; orange points mark promising positions for the peptide root atom. Source: ADCP preprint (Zhang & Sanner, 2019), Fig. S1.\n\n\n\n\n\n\n\nNon-standard residues (2AS, 0AF) in a peptide shown next to the standard residues (Asp, Ala) they correspond to, illustrating ADCP 1.1 support for non-canonical amino acids. Source: ADCP 1.1 website.\n\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Gallery"
     ]
@@ -1010,7 +1017,7 @@
     "href": "software/adfr/gallery.html",
     "title": "ADFR gallery",
     "section": "",
-    "text": "Images made with AutoDockFR (ADFR). Click an image to enlarge it.\n\nImages coming soon.\n\n\n\n\n\n\n Back to top",
+    "text": "Images made with AutoDockFR (ADFR). Click an image to enlarge it.\n\n\n\n\n\n\n\nADFR encodes ligand position, orientation and torsions together with receptor side-chain chi angles in a single genome. Source: Ravindranath et al., PLoS Comput Biol 2015, Fig. 1, CC BY 4.0.\n\n\n\n\n\n\n\nCross-section of a carbon affinity map before and after adding the gradient that pushes ligand atoms out of the receptor interior. Source: Ravindranath et al., PLoS Comput Biol 2015, Fig. 2, CC BY 4.0.\n\n\n\n\n\n\n\nTranslational points derived from the affinity maps cover grooves and cavities where a ligand can be placed. Source: Ravindranath et al., PLoS Comput Biol 2015, Fig. 4, CC BY 4.0.\n\n\n\n\n\n\n\n\n\nSide-chain conformations of CDK2 binding-site residues differ between the apo and ligand-bound structures. Source: Ravindranath et al., PLoS Comput Biol 2015, Fig. 8, CC BY 4.0.\n\n\n\n\n\n\n\nDocking into apo CDK2 with 12 flexible side chains, ADFR recovers both the ligand pose and the holo side-chain conformations. Source: Ravindranath et al., PLoS Comput Biol 2015, Fig. 8, CC BY 4.0.\n\n\n\n\n\n\n\nA ligand placed in the apo receptor clashes with Lys33 and Lys89, the side chains ADFR makes flexible. Source: ADFR tutorial, adfr.scripps.edu (2016).\n\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Gallery"
     ]
@@ -1419,7 +1426,7 @@
     "href": "software/agfr/gallery.html",
     "title": "AGFR gallery",
     "section": "",
-    "text": "Images made with AutoGridFR (AGFR). Click an image to enlarge it.\n\nImages coming soon.\n\n\n\n\n\n\n Back to top",
+    "text": "Images made with AutoGridFR (AGFR). Click an image to enlarge it.\n\n\n\n\n\n\n\nEarly AGFR interface showing a docking box, an AutoSite pocket and two flexible lysine side chains around a ligand. Source: AGFR page, adfr.scripps.edu.\n\n\n\n\n\n\n\nAGFR places a docking box around the top-ranked AutoSite pocket of a kinase receptor. Source: AGFR website.\n\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Gallery"
     ]
@@ -1899,7 +1906,7 @@
     "href": "software/mgltools/gallery.html",
     "title": "MGLTools gallery",
     "section": "",
-    "text": "Images made with MGLTools, from the CCSB MGLTools gallery. Click an image to enlarge it.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top",
+    "text": "Images made with MGLTools, from the CCSB MGLTools gallery and the original MGLTools website. Click an image to enlarge it.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPMV rendering of a two-domain protein with transparent molecular surfaces over ribbons and sticks. Source: MGLTools website, mgltools.scripps.edu.\n\n\n\n\n\n\n\nAutoDockTools setting up a docking calculation with the ligand in the receptor binding site. Source: MGLTools website, mgltools.scripps.edu.\n\n\n\n\n\n\n\n\n\nA Vision visual-programming network wiring nodes together to build a computation. Source: MGLTools website, mgltools.scripps.edu.\n\n\n\n\n\n\n\nPMV displaying a molecular surface colored by electrostatic potential. Source: MGLTools website, mgltools.scripps.edu.\n\n\n\n\n\n\n\nA complete icosahedral virus capsid (PDB 1cwp) rendered in PMV. Source: MGLTools website, mgltools.scripps.edu.\n\n\n\n\n\n\n\n\n\nThe bluetongue virus core assembled and colored by subunit in PMV. Source: MGLTools website, mgltools.scripps.edu.\n\n\n\n\n\n\n\nElectrostatic isocontours around superoxide dismutase (PDB 2sod) computed and displayed in PMV. Source: MGLTools website, mgltools.scripps.edu.\n\n\n\n\n\n\n\nThe GroEL chaperonin rendered in PMV with translucent surfaces over its subunits. Source: MGLTools website, mgltools.scripps.edu.\n\n\n\n\n\n\n\n\n\nVolume rendering of a CT scan of a human head with PMV’s volume tools. Source: MGLTools website, mgltools.scripps.edu.\n\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Gallery"
     ]
@@ -2071,7 +2078,7 @@
     "href": "software/autosite/gallery.html",
     "title": "AutoSite gallery",
     "section": "",
-    "text": "Images made with AutoSite. Click an image to enlarge it.\n\nImages coming soon.\n\n\n\n\n\n\n Back to top",
+    "text": "Images made with AutoSite. Click an image to enlarge it.\n\n\n\n\n\n\n\nAutoSite fill points (green) mark the predicted ligand-binding pocket of receptor 4EK3, shown with the bound ligand and affinity-map contours. Source: AGFR website.\n\n\n\n\n\n\n\nAn affinity-map slice cuts through receptor 4EK3 next to the AutoSite pocket points surrounding the bound ligand. Source: AGFR website.\n\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Gallery"
     ]
@@ -2144,7 +2151,7 @@
     "href": "software/msms/gallery.html",
     "title": "MSMS gallery",
     "section": "",
-    "text": "Images made with MSMS. Click an image to enlarge it.\n\nImages coming soon.\n\n\n\n\n\n\n Back to top",
+    "text": "Images made with MSMS. Click an image to enlarge it.\n\n\n\n\n\n\n\nThe Molecular Surface Viewer, MSMS’s early companion viewer, showing the crambin surface colored by position. Source: Molecular Surface Viewer page, mgl.scripps.edu.\n\n\n\n\n\n\n\nAn MSMS surface rendered in PMV with outlines and pastel coloring by atom type. Source: MGLTools screenshots, mgltools.scripps.edu.\n\n\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Gallery"
     ]
