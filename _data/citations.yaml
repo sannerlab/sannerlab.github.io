@@ -581,3 +581,14 @@
   link: https://doi.org/d2jtn4
   plugin: sources.py
   file: sources.yaml
+- title: ViPEr, a Visual Programming Environment for Python
+  authors:
+  - Michel F. Sanner
+  - Daniel Stoffler
+  - Arthur J. Olson
+  publisher: Proceedings of the 10th International Python Conference (Python 10)
+  date: '2002-02-04'
+  link: https://legacy.python.org/workshops/2002-02/papers/10/index.htm
+  award: Best paper award
+  plugin: sources.py
+  file: sources.yaml

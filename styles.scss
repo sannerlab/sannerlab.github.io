@@ -26,6 +26,8 @@ $footer-bg: transparent;
 .status { font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; opacity: .75; }
 .pub-list li { margin-bottom: .8rem; }
 .pub-venue { font-style: italic; }
+.pub-award { display: inline-block; margin-left: .3rem; padding: .05rem .5rem; border-radius: 999px;
+  background: #ffd27a; color: #4a3500; font-size: .75rem; font-weight: 600; white-space: nowrap; }
 /* small GUI button screenshots shown inline in text and tables */
 img.icon { height: 2.4em; width: auto; vertical-align: middle; margin: 0 .15em; }
 /* thumbnails on tutorial cards */

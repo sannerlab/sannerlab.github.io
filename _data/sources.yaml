@@ -1,5 +1,5 @@
 # Michel Sanner's journal and arXiv publications, from his Google Scholar profile (2026-10-09).
-# Excluded: conference abstracts/proceedings, theses, book chapters, duplicates, and the
+# Excluded (except the entries without a DOI at the end): conference abstracts/proceedings, theses, book chapters, duplicates, and the
 # Israel J Chem 2023 Richard Lerner tribute. The update-citations workflow fills in the details.
 - id: doi:10.1021/acs.analchem.5c02409
 # arXiv preprint, cited by its DataCite DOI: Manubot's arxiv: lookup failed on 2026-10-14.
@@ -48,3 +48,15 @@
 - id: doi:10.1002/(sici)1097-0282(199603)38:3<305::aid-bip4>3.0.co;2-y
 - id: doi:10.1002/bip.360291006
 - id: doi:10.1007/bf01533068
+
+# Conference paper with no DOI: no id, so Manubot is skipped and these fields are used as-is.
+# Python 10 was held 4-7 February 2002; the paper page gives no date, so the first day is used.
+- title: ViPEr, a Visual Programming Environment for Python
+  authors:
+  - Michel F. Sanner
+  - Daniel Stoffler
+  - Arthur J. Olson
+  publisher: Proceedings of the 10th International Python Conference (Python 10)
+  date: 2002-02-04
+  link: https://legacy.python.org/workshops/2002-02/papers/10/index.htm
+  award: Best paper award
