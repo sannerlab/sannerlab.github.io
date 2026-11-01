@@ -124,6 +124,7 @@ was also a founding member of the SciPy conference.
 - **Ruth Huey**, 1999–2016 (in memoriam)
 - **Sophie Coon**, 2000–2004. Neurocrine Biosciences ·
   [LinkedIn](https://www.linkedin.com/in/sophiecoon/)
+- **Frédéric Giacometti**, 2001–2003
 - **Guillaume Vareille**, 2006–2009
 - **Sargis Dallakyan**, 2006–2014. Senior Software Engineer, Rady Children's Hospital–San Diego ·
   [LinkedIn](https://www.linkedin.com/in/sargis/)
