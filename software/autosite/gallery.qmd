@@ -9,10 +9,12 @@ Images made with AutoSite. Click an image to enlarge it.
 <!-- To add an image: put the file in software/autosite/img/ and add it inside the gallery block below,
      one image per line with a blank line between images:
      ![Optional caption](img/<file>.png){fig-alt="Short description of what the image shows"}
-     Then delete the "Images coming soon" line. -->
-
-*Images coming soon.*
+     -->
 
 ::: {.gallery layout-ncol="3"}
+
+![AutoSite fill points (green) mark the predicted ligand-binding pocket of receptor 4EK3, shown with the bound ligand and affinity-map contours. *Source: AGFR website.*](img/autosite-pocket-fill-points-4ek3.png){fig-alt="Teal protein ribbons with green pocket points around a yellow ligand and red mesh contours"}
+
+![An affinity-map slice cuts through receptor 4EK3 next to the AutoSite pocket points surrounding the bound ligand. *Source: AGFR website.*](img/autosite-pocket-affinity-slice-4ek3.png){fig-alt="Protein ribbons in a grid box with a red and blue map slice and green pocket points"}
 
 :::

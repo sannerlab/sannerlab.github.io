@@ -9,10 +9,12 @@ Images made with AutoGridFR (AGFR). Click an image to enlarge it.
 <!-- To add an image: put the file in software/agfr/img/ and add it inside the gallery block below,
      one image per line with a blank line between images:
      ![Optional caption](img/<file>.png){fig-alt="Short description of what the image shows"}
-     Then delete the "Images coming soon" line. -->
-
-*Images coming soon.*
+     -->
 
 ::: {.gallery layout-ncol="3"}
+
+![Early AGFR interface showing a docking box, an AutoSite pocket and two flexible lysine side chains around a ligand. *Source: AGFR page, adfr.scripps.edu.*](img/agfr-gui-flexible-residues-pocket.png){fig-alt="Screenshot of AGFR v0.1: control panel on the left and a 3D view with a white docking box, green pocket points, a yellow ligand and orange flexible side chains."}
+
+![AGFR places a docking box around the top-ranked AutoSite pocket of a kinase receptor. *Source: AGFR website.*](img/agfr-gui-docking-box-pocket.png){fig-alt="Screenshot of AGFR 1.1 with a teal ribbon protein, a docking box, and green AutoSite pocket points next to a ligand."}
 
 :::

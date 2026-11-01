@@ -4,7 +4,7 @@ toc: false
 lightbox: true
 ---
 
-Images made with MGLTools, from the CCSB MGLTools gallery. Click an image to enlarge it.
+Images made with MGLTools, from the CCSB MGLTools gallery and the original MGLTools website. Click an image to enlarge it.
 
 ::: {.gallery layout-ncol="3"}
 
@@ -39,5 +39,23 @@ Images made with MGLTools, from the CCSB MGLTools gallery. Click an image to enl
 ![](img/chaosad1.jpg){fig-alt="chaosAD1"}
 
 ![](img/anewdefault.jpg){fig-alt="anewdefault"}
+
+![PMV rendering of a two-domain protein with transparent molecular surfaces over ribbons and sticks. *Source: MGLTools website, mgltools.scripps.edu.*](img/pmv-1hsl-surface-ribbons.png){fig-alt="Two lobes of a protein shown as translucent red and blue molecular surfaces with ribbon and stick models inside."}
+
+![AutoDockTools setting up a docking calculation with the ligand in the receptor binding site. *Source: MGLTools website, mgltools.scripps.edu.*](img/autodocktools-screenshot.jpg){fig-alt="AutoDockTools window with a ribbon receptor and a stick ligand in its binding pocket on a black background."}
+
+![A Vision visual-programming network wiring nodes together to build a computation. *Source: MGLTools website, mgltools.scripps.edu.*](img/vision-network-screenshot.jpg){fig-alt="Vision editor with a node library on top and connected nodes, including a color wheel node, on the canvas."}
+
+![PMV displaying a molecular surface colored by electrostatic potential. *Source: MGLTools website, mgltools.scripps.edu.*](img/pmv-electrostatic-surface-screenshot.jpg){fig-alt="PMV window showing a protein surface colored red, white and blue by electrostatic potential with a color map legend."}
+
+![A complete icosahedral virus capsid (PDB 1cwp) rendered in PMV. *Source: MGLTools website, mgltools.scripps.edu.*](img/pmv-1cwp-virus-capsid.jpg){fig-alt="Spherical virus capsid made of green and red subunits forming a pattern of pentamers on a black background."}
+
+![The bluetongue virus core assembled and colored by subunit in PMV. *Source: MGLTools website, mgltools.scripps.edu.*](img/pmv-bluetongue-virus-core.jpg){fig-alt="Large spherical virus core built of many translucent surface subunits in purple, blue, green and red."}
+
+![Electrostatic isocontours around superoxide dismutase (PDB 2sod) computed and displayed in PMV. *Source: MGLTools website, mgltools.scripps.edu.*](img/pmv-2sod-electrostatic-isocontours.jpg){fig-alt="Transparent red and blue electrostatic isosurfaces around a protein drawn as sticks and spheres, in a viewer window."}
+
+![The GroEL chaperonin rendered in PMV with translucent surfaces over its subunits. *Source: MGLTools website, mgltools.scripps.edu.*](img/pmv-groel-chaperonin.jpg){fig-alt="Top-down view of the barrel-shaped GroEL complex with gray translucent surfaces and purple and green subunits inside."}
+
+![Volume rendering of a CT scan of a human head with PMV's volume tools. *Source: MGLTools website, mgltools.scripps.edu.*](img/pmv-volume-rendering-head.png){fig-alt="Gray translucent volume rendering of a human head in profile, showing skull and spine."}
 
 :::

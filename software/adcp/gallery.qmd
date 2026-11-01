@@ -9,10 +9,18 @@ Images made with AutoDock CrankPep (ADCP). Click an image to enlarge it.
 <!-- To add an image: put the file in software/adcp/img/ and add it inside the gallery block below,
      one image per line with a blank line between images:
      ![Optional caption](img/<file>.png){fig-alt="Short description of what the image shows"}
-     Then delete the "Images coming soon" line. -->
-
-*Images coming soon.*
+     -->
 
 ::: {.gallery layout-ncol="3"}
+
+![A helical peptide docked by ADCP (cyan) closely overlays the crystal structure (magenta) on the receptor surface. *Source: ADCP preprint (Zhang & Sanner, 2019), Fig. 4.*](img/adcp-docked-helix-1cm1.png){fig-alt="Cyan docked helical peptide overlaid on magenta crystal peptide in a receptor groove"}
+
+![ADCP's top-ranked pose for a 16-residue peptide (cyan) compared with the experimental structure (magenta) in its receptor pocket. *Source: ADCP preprint (Zhang & Sanner, 2019), Fig. 4.*](img/adcp-docked-peptide-2ivz.png){fig-alt="Docked and crystal peptide backbones curled in a polarity-colored receptor pocket"}
+
+![CRANKITE Monte Carlo moves used by ADCP: a crankshaft rotation about two C-alpha atoms and a rotation near the chain end. *Source: ADCP preprint (Zhang & Sanner, 2019), Fig. 1.*](img/adcp-crankshaft-moves.png){fig-alt="Peptide backbone sticks with rotation axes drawn through C-alpha atoms"}
+
+![The AutoGridFR docking box defines where ADCP can place the peptide; orange points mark promising positions for the peptide root atom. *Source: ADCP preprint (Zhang & Sanner, 2019), Fig. S1.*](img/adcp-search-box-translation-points.png){fig-alt="Receptor molecular surface inside a docking box with orange grid points and green peptide fragments"}
+
+![Non-standard residues (2AS, 0AF) in a peptide shown next to the standard residues (Asp, Ala) they correspond to, illustrating ADCP 1.1 support for non-canonical amino acids. *Source: ADCP 1.1 website.*](img/adcp-noncanonical-residues.png){fig-alt="Two peptide stick models with arrows linking non-standard residues 2AS and 0AF to ASP and ALA"}
 
 :::

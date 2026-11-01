@@ -9,10 +9,12 @@ Images made with MSMS. Click an image to enlarge it.
 <!-- To add an image: put the file in software/msms/img/ and add it inside the gallery block below,
      one image per line with a blank line between images:
      ![Optional caption](img/<file>.png){fig-alt="Short description of what the image shows"}
-     Then delete the "Images coming soon" line. -->
-
-*Images coming soon.*
+     -->
 
 ::: {.gallery layout-ncol="3"}
+
+![The Molecular Surface Viewer, MSMS's early companion viewer, showing the crambin surface colored by position. *Source: Molecular Surface Viewer page, mgl.scripps.edu.*](img/msv-molecular-surface-viewer-crambin.png){fig-alt="Screenshot of the Molecular Surface Viewer V0.1a window with a smooth green-to-blue crambin molecular surface, wireframe torus and sphere, and a cone."}
+
+![An MSMS surface rendered in PMV with outlines and pastel coloring by atom type. *Source: MGLTools screenshots, mgltools.scripps.edu.*](img/pmv-msms-surface-outline-rendering.jpg){fig-alt="Close-up of a white molecular surface with black outline edges and pink, red and blue patches, in a Molecule Viewer window."}
 
 :::
