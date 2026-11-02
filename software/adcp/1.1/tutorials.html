@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-638cc7f68157a3fc5e1b4f2a4b39a337.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-64058dd827d57c1268d91db93139f518.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -408,29 +408,53 @@ ADCP acceptable lib file: 'my_foo_soo.lib' generated successfully</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> trialRun</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> trialRun</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://github.com/sannerlab/downloads/releases/download/adcp-1.1/3Q47.trg</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">adcp</span> <span class="at">-T</span> 3Q47.trg <span class="at">-s</span> <span class="st">"toto&amp;or"</span> <span class="at">-w</span> testDir <span class="at">-o</span> myfoo <span class="at">-l</span> ../my_foo_soo.lib <span class="at">-O</span> <span class="at">-n</span> 2000 <span class="at">-m</span> 5</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Sequence incomplete
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The sequence <code>"toto&amp;or"</code> in this command is incomplete: the non-standard residue names in chevrons (for example <code>&lt;FOO&gt;</code>) were lost from the original version of this tutorial. As written, the command docks only natural amino acids and does not use the new library.</p>
-</div>
-</div>
-<p>The run ends with a table of docked modes like this one (abridged):</p>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">adcp</span> <span class="at">-T</span> 3Q47.trg <span class="at">-s</span> <span class="st">"F&lt;FOO&gt;R&lt;SOO&gt;&amp;F&lt;FOO&gt;&amp;R&lt;SOO&gt;G"</span> <span class="at">-w</span> testDir <span class="at">-o</span> myfoo <span class="at">-l</span> ../my_foo_soo.lib <span class="at">-O</span> <span class="at">-n</span> 2000 <span class="at">-m</span> 5</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The peptide uses all four residues of the new library, followed by a glycine (ADCP needs more than 4 amino acids):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>In the sequence</th>
+<th>Residue</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>F&lt;FOO&gt;</code></td>
+<td>FOO, with a phenylalanine bead in the coarse model</td>
+</tr>
+<tr class="even">
+<td><code>R&lt;SOO&gt;</code></td>
+<td>SOO, with an arginine bead</td>
+</tr>
+<tr class="odd">
+<td><code>&amp;F&lt;FOO&gt;</code></td>
+<td>D-FOO: the <code>&amp;</code> makes it D, and ADCP takes its rotamers from DFOO in the library</td>
+</tr>
+<tr class="even">
+<td><code>&amp;R&lt;SOO&gt;</code></td>
+<td>D-SOO, rotamers from DSOO</td>
+</tr>
+<tr class="odd">
+<td><code>G</code></td>
+<td>glycine</td>
+</tr>
+</tbody>
+</table>
+<p>The bead letters come from <code>input/rotamer_details.dat</code> (<code>FOO F DFOO …</code>, <code>SOO R DSOO …</code>). Write them in upper case: with a user rotamer library, a lower-case bead letter in front of a residue name makes the searches fail.</p>
+<p>The run ends with a table of docked modes like this one; the values change from run to run:</p>
 <pre><code>mode |  affinity  | ref. | clust. | rmsd | energy | best |
      | (kcal/mol) | fnc  |  size  | stdv |  stdv  | run  |
 -----+------------+------+--------+------+--------+------+
-   1         -5.5      0.0      12      NA      NA    131
-   2         -5.4      0.0       7      NA      NA    155
-   3         -5.4      0.0      13      NA      NA    688
-   4         -5.2      0.0      10      NA      NA    255
-   5         -5.1      0.0      19      NA      NA    038</code></pre>
+   1         -7.3      0.0       4      NA      NA    121
+   2         -7.0      0.0       9      NA      NA    845
+   3         -6.8      0.0      17      NA      NA    219
+   4         -6.4      0.0       5      NA      NA    119
+   5         -6.4      0.0       8      NA      NA    729</code></pre>
+<p>The docked poses are in <code>testDir/myfoo_out.pdb</code>, where residues 1 to 4 are named FOO, SOO, FOO and SOO.</p>
 </section>
 </section>
 <section id="version-1.0-tutorials" class="level2">
