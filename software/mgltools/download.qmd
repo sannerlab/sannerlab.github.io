@@ -47,37 +47,3 @@ These patched builds supersede the latest stable releases of 1.5.6 and 1.5.7.
 | macOS | [mgltools_i86Darwin9_1.5.6.tar.gz](https://github.com/sannerlab/downloads/releases/download/mgltools-1.5.6/mgltools_i86Darwin9_1.5.6.tar.gz) (tarball, 63 MB) |
 | Linux 64-bit | [mgltools_Linux-x86_64_1.5.6_Install](https://github.com/sannerlab/downloads/releases/download/mgltools-1.5.6/mgltools_Linux-x86_64_1.5.6_install) (GUI installer, 70 MB) |
 | Linux 64-bit | [mgltools_x86_64Linux2_1.5.6.tar.gz](https://github.com/sannerlab/downloads/releases/download/mgltools-1.5.6/mgltools_x86_64Linux2_1.5.6.tar.gz) (tarball, 68 MB) |
-
-## Fixing registration
-
-The MGLTools registration can be patched to work again:
-
-1. Download the patch script [patchRegistration.py](https://github.com/sannerlab/downloads/releases/download/mgltools-1.5.7/patchRegistration.py).
-2. Run it with the MGLTools Python interpreter:
-
-::: {.panel-tabset}
-### Linux
-```bash
-$WhereYouInstalledMGLtools/bin/pythonsh patchRegistration.py ccsbserver
-```
-### macOS
-```bash
-/Library/MGLTools/1.5.6/bin/pythonsh patchRegistration.py ccsbserver
-```
-### Windows
-```
-C:\Program Files (X86)\MGLTools-1.5.6\bin\python patchRegistration.py ccsbserver
-```
-:::
-
-The program should display:
-
-```
-patching file: $WhereYouInstalledMGLtools/ … /mglutil/splashregister/register.py
-line xxx replacing: mgldev.scripps.edu:80 by orca.scripps.edu:80
-line xxx replacing: www.scripps.edu:80 by orca.scripps.edu:80
-do you wish to proceed Y/[n]
-```
-
-If the substitutions look the same, press `y`. The original file is kept with a `.bak` extension.
-Then start PMV and register.
