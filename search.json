@@ -374,16 +374,6 @@
     ]
   },
   {
-    "objectID": "software/mgltools/download.html#fixing-registration",
-    "href": "software/mgltools/download.html#fixing-registration",
-    "title": "Download MGLTools",
-    "section": "Fixing registration",
-    "text": "Fixing registration\nThe MGLTools registration can be patched to work again:\n\nDownload the patch script patchRegistration.py.\nRun it with the MGLTools Python interpreter:\n\n\nLinuxmacOSWindows\n\n\n$WhereYouInstalledMGLtools/bin/pythonsh patchRegistration.py ccsbserver\n\n\n/Library/MGLTools/1.5.6/bin/pythonsh patchRegistration.py ccsbserver\n\n\nC:\\Program Files (X86)\\MGLTools-1.5.6\\bin\\python patchRegistration.py ccsbserver\n\n\n\nThe program should display:\npatching file: $WhereYouInstalledMGLtools/ … /mglutil/splashregister/register.py\nline xxx replacing: mgldev.scripps.edu:80 by orca.scripps.edu:80\nline xxx replacing: www.scripps.edu:80 by orca.scripps.edu:80\ndo you wish to proceed Y/[n]\nIf the substitutions look the same, press y. The original file is kept with a .bak extension. Then start PMV and register.",
-    "crumbs": [
-      "Download"
-    ]
-  },
-  {
     "objectID": "software/adapt/documentation.html",
     "href": "software/adapt/documentation.html",
     "title": "ADapt documentation",
