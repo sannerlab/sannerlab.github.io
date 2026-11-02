@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-64058dd827d57c1268d91db93139f518.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-638cc7f68157a3fc5e1b4f2a4b39a337.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -366,10 +366,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This tutorial shows how to generate a rotamer library (<code>.lib</code>) file for a non-standard amino acid and use it in ADCP to dock peptides that contain it.</p>
 <section id="step-1-get-the-example-files" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-get-the-example-files">Step 1: get the example files</h3>
-<p>Download <a href="https://ccsb.scripps.edu/mamba/examples/libGenExample.zip">this zip file</a>. It holds dummy non-standard amino acids and randomly generated Dunbrack-like rotamer files. Make a directory for the tutorial and unzip the file there:</p>
+<p>Download <a href="https://github.com/sannerlab/downloads/releases/download/adcp-1.1/libGenExample.zip">this zip file</a>. It holds dummy non-standard amino acids and randomly generated Dunbrack-like rotamer files. Make a directory for the tutorial and unzip the file there:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/ADCP_examples/genLib</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/ADCP_examples/genLib</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://ccsb.scripps.edu/mamba/examples/libGenExample.zip</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://github.com/sannerlab/downloads/releases/download/adcp-1.1/libGenExample.zip</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span> libGenExample.zip</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The extracted <code>input</code> directory contains:</p>
 <pre><code>input/
@@ -404,10 +404,10 @@ ADCP acceptable lib file: 'my_foo_soo.lib' generated successfully</code></pre>
 </section>
 <section id="step-4-dock-with-the-new-library" class="level3">
 <h3 class="anchored" data-anchor-id="step-4-dock-with-the-new-library">Step 4: dock with the new library</h3>
-<p>Download the example <a href="https://ccsb.scripps.edu/mamba/examples/3Q47.trg">target file</a> and run ADCP with the new library (<code>-l</code>):</p>
+<p>Download the example <a href="https://github.com/sannerlab/downloads/releases/download/adcp-1.1/3Q47.trg">target file</a> and run ADCP with the new library (<code>-l</code>):</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> trialRun</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> trialRun</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://ccsb.scripps.edu/mamba/examples/3Q47.trg</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://github.com/sannerlab/downloads/releases/download/adcp-1.1/3Q47.trg</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">adcp</span> <span class="at">-T</span> 3Q47.trg <span class="at">-s</span> <span class="st">"toto&amp;or"</span> <span class="at">-w</span> testDir <span class="at">-o</span> myfoo <span class="at">-l</span> ../my_foo_soo.lib <span class="at">-O</span> <span class="at">-n</span> 2000 <span class="at">-m</span> 5</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -415,11 +415,11 @@ ADCP acceptable lib file: 'my_foo_soo.lib' generated successfully</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Review note (prototype only)
+<span class="screen-reader-only">Warning</span>Sequence incomplete
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>On the CCSB page this sequence reads <code>"toto&amp;or"</code>. The non-standard residue names in chevrons (for example <code>&lt;FOO&gt;</code>) were most likely removed by WordPress, because it treats them as HTML tags. As written, the command docks only natural amino acids and does not use the new library. The correct sequence must come from the authors.</p>
+<p>The sequence <code>"toto&amp;or"</code> in this command is incomplete: the non-standard residue names in chevrons (for example <code>&lt;FOO&gt;</code>) were lost from the original version of this tutorial. As written, the command docks only natural amino acids and does not use the new library.</p>
 </div>
 </div>
 <p>The run ends with a table of docked modes like this one (abridged):</p>

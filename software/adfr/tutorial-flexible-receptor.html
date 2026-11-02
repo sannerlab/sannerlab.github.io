@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-64058dd827d57c1268d91db93139f518.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-638cc7f68157a3fc5e1b4f2a4b39a337.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -328,7 +328,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>compute affinity maps for a pocket with flexible receptor side chains</li>
 <li>run ADFR to re-dock the ligand into the receptor with flexible side chains</li>
 </ul>
-<p><strong>Prerequisites:</strong> ADFRsuite 1.0 installed with <code>ADFRsuite-1.0/bin</code> on your <code>PATH</code>, and the <a href="https://ccsb.scripps.edu/agfr/download/551/">tutorial data</a> downloaded and unzipped (see <a href="../../software/adfr/tutorials.html">Tutorials</a>).</p>
+<p><strong>Prerequisites:</strong> ADFRsuite 1.0 installed with <code>ADFRsuite-1.0/bin</code> on your <code>PATH</code>, and the <a href="https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0-tutorials/ADFRsuite-1.0_tutorial_data.zip">tutorial data</a> downloaded and unzipped (see <a href="../../software/adfr/tutorials.html">Tutorials</a>).</p>
 <section id="generate-the-target-file" class="level2">
 <h2 class="anchored" data-anchor-id="generate-the-target-file">1. Generate the target file</h2>
 <p>Flexible residues are given on the command line with the <code>-f/--flexRes</code> option and a selection string, for example <code>"A:ILE10,VAL32;B:SER48"</code>.</p>
@@ -663,28 +663,6 @@ Termination status
    3         -5.9     4.9    -1.0       2     0.6     0.0    007
    4         -5.1     6.8    -1.0       1      NA      NA    008</code></pre>
 <p>Here the 8 searches found 4 distinct solutions, sorted by predicted affinity, best first. The top solution was found by 4 of the 8 searches (<em>clust. size</em>), and its best pose came from search 3 (<em>best run</em>). The second solution was found once and is 2.8 Å RMSD from the top solution (<em>clust. rmsd</em>). With a reference ligand (<code>--reference</code>), the <em>ref. rmsd</em> column would give the RMSD of each pose to the reference instead of −1.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Review note
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li>The CCSB “you will learn” list says 3 flexible side chains; the commands make 2 flexible (A:ILE10, A:LYS33). Written as 2 here.</li>
-<li>The CCSB text said the target file was for “PDB id 1EK3”; the files are 4EK3. Corrected.</li>
-<li>The CCSB text says the command also uses “the AutoSite 1.0 algorithm -as”, but no such option appears in the command. Dropped.</li>
-<li>The CCSB output file names used <code>flexRec</code>; the job name and the console output use <code>flexRes</code>. Corrected to <code>flexRes</code>.</li>
-<li>The CCSB text said “up to 20’000 evaluations (<code>--maxEvals 2000</code>)”; the command uses 20000.</li>
-</ul>
-</div>
-</div>
-</div>
 
 
 </section>

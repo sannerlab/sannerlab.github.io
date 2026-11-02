@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-64058dd827d57c1268d91db93139f518.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-638cc7f68157a3fc5e1b4f2a4b39a337.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -373,10 +373,10 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The CCSB page for this version says it is under construction. For now it gives a few example runs that show the new capabilities of version 1.1.</p>
+<p>The documentation for this version is under construction. For now it gives a few example runs that show the new capabilities of version 1.1.</p>
 </div>
 </div>
-<p>To run these examples, download the <a href="https://ccsb.scripps.edu/adcpv11/download/436/">receptor</a> and the <a href="https://ccsb.scripps.edu/adcpv11/download/471/">ligand</a> for PDB 3Q47.</p>
+<p>To run these examples, download the <a href="https://github.com/sannerlab/downloads/releases/download/adcp-1.1/3Q47_recH.pdbqt">receptor</a> and the <a href="https://github.com/sannerlab/downloads/releases/download/adcp-1.1/3Q47_pepH.pdbqt">ligand</a> for PDB 3Q47.</p>
 <section id="create-a-target-file" class="level2">
 <h2 class="anchored" data-anchor-id="create-a-target-file">Create a target file</h2>
 <p>This command computes the target file <code>3Q47.trg</code>:</p>
@@ -757,22 +757,6 @@ removing working folder testDir1/example1</code></pre>
 <li>Gave residues with identical molecular structures (for example THR and ALO) their own residue templates.</li>
 <li>Overrode PDB writing to handle 4-letter residue codes, with a modified PDB writer.</li>
 </ol>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Review note (prototype only)
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The CCSB text gives both 182 and 184 for the number of parameterized NSAAs, and 182 for the OpenMM-supported set. Please confirm the right number.</p>
-</div>
-</div>
-</div>
 
 
 </section>

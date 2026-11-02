@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-64058dd827d57c1268d91db93139f518.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-638cc7f68157a3fc5e1b4f2a4b39a337.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -331,7 +331,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>run ADFR to re-dock the ligand</li>
 <li>understand the output of an ADFR docking run</li>
 </ul>
-<p><strong>Prerequisites:</strong> ADFRsuite 1.0 installed with <code>ADFRsuite-1.0/bin</code> on your <code>PATH</code>, and the <a href="https://ccsb.scripps.edu/agfr/download/551/">tutorial data</a> downloaded and unzipped (see <a href="../../software/adfr/tutorials.html">Tutorials</a>). Run the commands from the folder that contains <code>data/</code>.</p>
+<p><strong>Prerequisites:</strong> ADFRsuite 1.0 installed with <code>ADFRsuite-1.0/bin</code> on your <code>PATH</code>, and the <a href="https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0-tutorials/ADFRsuite-1.0_tutorial_data.zip">tutorial data</a> downloaded and unzipped (see <a href="../../software/adfr/tutorials.html">Tutorials</a>). Run the commands from the folder that contains <code>data/</code>.</p>
 <section id="generate-the-target-file" class="level2">
 <h2 class="anchored" data-anchor-id="generate-the-target-file">1. Generate the target file</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">agfr</span> <span class="at">-r</span> data/4EK3_rec.pdbqt <span class="at">-l</span> data/4EK4_lig.pdbqt <span class="at">-o</span> ligPocket</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -787,25 +787,6 @@ Termination status
 4EK4_random_rigid1_dro/dockingDetails/rigid10007.dlg:END bestScore: -7.798 RMSD: 0.75 nbgen: 162 nbEvals   881594 time 11.150
 4EK4_random_rigid1_dro/dockingDetails/rigid10008.dlg:END bestScore: -7.994 RMSD: 0.60 nbgen:  54 nbEvals   258364 time 2.693</code></pre>
 <p>The <code>nbEvals</code> column shows the searches used different numbers of evaluations, from 258,364 to 1,374,668; search 004, which found the best solution, used 861,056.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Review note
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li>The CCSB text said each search uses “up to 200’000 evaluations (<code>--maxEvals 2000</code>)”; the command uses <code>--maxEvals 20000</code>. Changed to 20,000 here.</li>
-<li>The CCSB text calls the reference option <code>-r/referenceLigand</code> in the tutorial and <code>-r/--reference</code> in the exercise answer; the command uses <code>--reference</code>. Please confirm the name.</li>
-</ul>
 </div>
 </div>
 </div>

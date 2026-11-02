@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-64058dd827d57c1268d91db93139f518.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-638cc7f68157a3fc5e1b4f2a4b39a337.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -422,14 +422,14 @@ Tip
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install libgomp1</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install unzip</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="3" type="1">
-<li>Replace <code>reduce</code> with a 64-bit version: download <a href="https://ccsb.scripps.edu/adcp/wp-content/uploads/sites/38/2021/12/reduce64Bit.exe">reduce64Bit.exe</a> and move it into place. The <code>reduce</code> shipped with the installer is 32-bit and fails under WSL.</li>
+<li>Replace <code>reduce</code> with a 64-bit version: download <a href="https://github.com/sannerlab/downloads/releases/download/adcp-1.0/reduce64Bit.exe">reduce64Bit.exe</a> and move it into place. The <code>reduce</code> shipped with the installer is 32-bit and fails under WSL.</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> /mnt/c/Users/myUserName/Downloads/reduce64Bit.exe ADFR10/bin/reduce</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You can now download the tutorial files and run dockings.</p>
 </section>
 <section id="dock-with-adcp" class="level2">
 <h2 class="anchored" data-anchor-id="dock-with-adcp">Dock with ADCP</h2>
-<p>Download the <a href="https://ccsb.scripps.edu/adcp/download/1063/">tutorial data</a>, then follow the <a href="../../../software/adcp/1.0/tutorial-redocking.html">re-docking tutorial</a>:</p>
+<p>Download the <a href="https://github.com/sannerlab/downloads/releases/download/adcp-1.0/ADCP_tutorial_data.zip">tutorial data</a>, then follow the <a href="../../../software/adcp/1.0/tutorial-redocking.html">re-docking tutorial</a>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> /mnt/c/Users/myUserName/Downloads/ADCP_tutorial_data.zip .</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span> ADCP_tutorial_data.zip</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ADCP_tutorial_data/3Q47</span>
@@ -447,22 +447,6 @@ Tip
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span> ADFRsuite-1.0_tutorial_data.zip</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">./ADFR10/bin/agfr</span> <span class="at">-r</span> data/4EK3_rec.pdbqt <span class="at">-l</span> data/4EK4_lig.pdbqt <span class="at">-o</span> ligPocket <span class="at">-ng</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">./ADFR10/bin/adfr</span> <span class="at">-l</span> data/4EK4_random.pdbqt <span class="at">-t</span> ligPocket.trg <span class="at">-J</span> rigid <span class="at">-n</span> 8 <span class="at">-e</span> 20000 <span class="at">-O</span> <span class="at">-s</span> 1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Review note (prototype only)
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The CCSB page linked to a WSL installation guide whose URL is broken (<code>http://se-the-linux-bash-shell-on-windows-10/</code>), so the link was dropped. Ubuntu 20.04 and the Control Panel steps are dated; current Windows installs WSL with <code>wsl --install</code>.</p>
-</div>
-</div>
-</div>
 
 
 </section>
