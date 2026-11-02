@@ -14,7 +14,7 @@ peptide from EBV into HLA-A*11:01 ([PDB 5GRD](https://www.rcsb.org/structure/5GR
 - understand the output of an ADCP docking run
 
 **Prerequisites:** ADFRsuite 1.0 installed with `ADFRsuite-1.0/bin` on your `PATH`, and the
-[tutorial data](https://ccsb.scripps.edu/adcp/download/1063/) downloaded
+[tutorial data](https://github.com/sannerlab/downloads/releases/download/adcp-1.0/ADCP_tutorial_data.zip) downloaded
 (see [Tutorials](tutorials.qmd)).
 
 ## 1. Generate the target file
@@ -177,10 +177,4 @@ mode |  affinity  | ref. | clust. | rmsd | energy | best |
 ::: {.callout-important}
 Docking cyclic peptides is very hard. This tutorial only shows how to use ADCP; for production
 runs, use more replicas with more Monte Carlo steps.
-:::
-
-::: {.callout-note collapse="true"}
-## Review note (prototype only)
-The example output says "20 ADCP runs with 5000000 steps each", but the command uses
-`-n 500000`. One of the two is wrong on the CCSB page.
 :::

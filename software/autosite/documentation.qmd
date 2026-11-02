@@ -23,9 +23,3 @@ computing target files (option `-asv` selects AutoSite 1.0 or 1.1).
 ## Step-by-step tutorial
 
 - [Small-molecule binding site identification](tutorial-small-molecule.qmd) (PDB 1STP)
-
-::: {.callout-note collapse="true"}
-## Review note
-The CCSB documentation page only lists the tutorial. The "Running AutoSite" section above is
-taken from that tutorial; no other AutoSite command-line options are documented on the CCSB site.
-:::

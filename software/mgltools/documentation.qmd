@@ -2,7 +2,7 @@
 title: "MGLTools documentation"
 ---
 
-The latest version of MGLTools is [1.5.7](1.5.7/index.qmd). The CCSB site has no separate
+The latest version of MGLTools is [1.5.7](1.5.7/index.qmd). There is no separate
 documentation for 1.5.7; the most recent documentation is for version 1.5.6.
 
 ## MGLTools 1.5.6

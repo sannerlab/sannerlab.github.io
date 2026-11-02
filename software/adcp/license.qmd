@@ -3,7 +3,7 @@ title: "License"
 ---
 
 **ADCP 1.1:** see the license file in the
-[GitHub repository](https://github.com/ccsb-scripps/ADCP).
+[GitHub repository](https://github.com/sannerlab/ADCP/blob/main/LICENSE).
 
 **ADFRsuite 1.0 (includes ADCP 1.0):** the suite contains several programs and components.
 Unless otherwise specified, they are provided under the LGPL2 open-source license.

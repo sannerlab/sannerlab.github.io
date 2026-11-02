@@ -46,7 +46,7 @@ sudo apt-get install unzip
 ```
 
 3. Replace `reduce` with a 64-bit version: download
-   [reduce64Bit.exe](https://ccsb.scripps.edu/adcp/wp-content/uploads/sites/38/2021/12/reduce64Bit.exe)
+   [reduce64Bit.exe](https://github.com/sannerlab/downloads/releases/download/adcp-1.0/reduce64Bit.exe)
    and move it into place. The `reduce` shipped with the installer is 32-bit and fails under WSL.
 
 ```bash
@@ -57,7 +57,7 @@ You can now download the tutorial files and run dockings.
 
 ## Dock with ADCP
 
-Download the [tutorial data](https://ccsb.scripps.edu/adcp/download/1063/), then follow the
+Download the [tutorial data](https://github.com/sannerlab/downloads/releases/download/adcp-1.0/ADCP_tutorial_data.zip), then follow the
 [re-docking tutorial](tutorial-redocking.qmd):
 
 ```bash
@@ -83,10 +83,3 @@ unzip ADFRsuite-1.0_tutorial_data.zip
 ./ADFR10/bin/agfr -r data/4EK3_rec.pdbqt -l data/4EK4_lig.pdbqt -o ligPocket -ng
 ./ADFR10/bin/adfr -l data/4EK4_random.pdbqt -t ligPocket.trg -J rigid -n 8 -e 20000 -O -s 1
 ```
-
-::: {.callout-note collapse="true"}
-## Review note (prototype only)
-The CCSB page linked to a WSL installation guide whose URL is broken
-(`http://se-the-linux-bash-shell-on-windows-10/`), so the link was dropped. Ubuntu 20.04 and
-the Control Panel steps are dated; current Windows installs WSL with `wsl --install`.
-:::

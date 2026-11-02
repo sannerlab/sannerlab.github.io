@@ -99,10 +99,3 @@ ADFR is released under the LGPL v2 open-source license. See [License](license.qm
 - Zhao, Y.; Stoffler, D.; Sanner, M. Hierarchical and multi-resolution representation of protein
   flexibility. *Bioinformatics* **2006**, 22 (22), 2768–2774.
   [doi:10.1093/bioinformatics/btl481](https://doi.org/10.1093/bioinformatics/btl481)
-
-::: {.callout-note collapse="true"}
-## Review note
-- The CCSB home page says it is "under active development to replace the legacy AutoDockFR site"
-  at `adfr.scripps.edu`; that site no longer responds, so the link was dropped.
-- The CCSB `/adfr/overview` page is the **AutoGridFR** overview, not ADFR's. It was not used here.
-:::

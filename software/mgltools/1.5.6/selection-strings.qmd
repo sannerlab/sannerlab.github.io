@@ -75,11 +75,3 @@ Selection strings can be used in the select from String command, which is access
 or through the [dashboard](dashboard.qmd) using the Sel. Entry field:
 
 ![](../img/screenshot-2011-59.png){fig-alt="Screenshot of PMV"}
-
-::: {.callout-note collapse="true"}
-## Review note
-- The text says `[1235]` matches "the numbers 1 through five"; as a regular expression it matches
-  1, 2, 3 or 5. Kept as on the original page.
-- WordPress turned `...` into a single ellipsis character in the example `::...[23].`; restored
-  to three dots here.
-:::

@@ -4,7 +4,7 @@ title: "Tutorial: maps for flexible receptor side chains"
 
 In this scenario we have a receptor and a known ligand available in the PDBQT format and we define a docking box centered on the ligand.
 
-We will use the cyclin-dependent kinase 2 (CDK2, PDB 4EK3) and a ligand from PDB 1YKR. The files 4EK3_rec.pdbqt and 1YKR_lig.pdbqt are available in the [tutorial data file](https://ccsb.scripps.edu/adfr/download/1063/).
+We will use the cyclin-dependent kinase 2 (CDK2, PDB 4EK3) and a ligand from PDB 1YKR. The files 4EK3_rec.pdbqt and 1YKR_lig.pdbqt are available in the [tutorial data file](https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0-tutorials/ADFRsuite-1.0_tutorial_data.zip).
 
 Start the graphical interface with `ADFRsuite-1.0/bin/agfrgui`.
 
@@ -57,7 +57,6 @@ The padding can be adjusted using the spin box in the “docking box” section.
 This particular ligand overlaps with side chains of the receptor’s apo conformation. Label the receptor residues in the docking box by clicking in the ![](img/word-image-16.png){.icon} button in the tool bar, and zoom in and rotate to observe the overlap of lysine 33 and lysine 89 with the ligand.
 
 ![](img/word-image.jpg)
-
 
 **Notes:**
 
@@ -142,11 +141,3 @@ Pressing the “Save” button will start the calculation in a separate thread, 
 ![](img/screen-shot-2019-04-15-at-11-33-22-am.png)
 
 **Note:** a target file can be inspected from the command line using the *about* command (`ADFRsuite-1.0/bin/about`)
-
-::: {.callout-note collapse="true"}
-## Review note
-- The CCSB text read “type ‘,88’ … en press the key”; the key name was most likely removed by WordPress (treated as an HTML tag). Written here as the Enter key.
-- The ligand step says the map list was set from the ligand to “A C Cl HD N NA OA”, the same atom types as the 4EK4 ligand in the first tutorial; check against 1YKR.
-- Notes give two different limits for flexible side chains: “below 15” and “below 10 to 15”.
-- `ADFRsuite-1.0/bin/about` was written `AutoDockSuite-1.0/bin/about` on the CCSB page; changed to the ADFRsuite folder name. Please confirm.
-:::

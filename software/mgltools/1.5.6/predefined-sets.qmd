@@ -54,11 +54,3 @@ TYR=Y, VAL=V, XAA=X, SEL=U
 
 Source of the one-letter table, as given on the original page:
 `www.ensembl.org/Docs/Pdoc/bioperllive/Bio/SeqUtils.htm`
-
-::: {.callout-note collapse="true"}
-## Review note
-- On the CCSB page the residue lists for `water`, `ions`, `DNA`, `RNA` and `ligand` are empty.
-  Their definitions appear only on the Dashboard page (selection menu).
-- `polar` lists "sln", most likely a typo for gln. `acyclic` has "leu." with a period. Both kept
-  as on the original page.
-:::

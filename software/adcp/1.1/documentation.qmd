@@ -3,12 +3,12 @@ title: "ADCP 1.1 documentation"
 ---
 
 ::: {.callout-note}
-The CCSB page for this version says it is under construction. For now it gives a few example
+The documentation for this version is under construction. For now it gives a few example
 runs that show the new capabilities of version 1.1.
 :::
 
-To run these examples, download the [receptor](https://ccsb.scripps.edu/adcpv11/download/436/)
-and the [ligand](https://ccsb.scripps.edu/adcpv11/download/471/) for PDB 3Q47.
+To run these examples, download the [receptor](https://github.com/sannerlab/downloads/releases/download/adcp-1.1/3Q47_recH.pdbqt)
+and the [ligand](https://github.com/sannerlab/downloads/releases/download/adcp-1.1/3Q47_pepH.pdbqt) for PDB 3Q47.
 
 ## Create a target file
 
@@ -350,9 +350,3 @@ simulated:
 4. Gave residues with identical molecular structures (for example THR and ALO) their own residue
    templates.
 5. Overrode PDB writing to handle 4-letter residue codes, with a modified PDB writer.
-
-::: {.callout-note collapse="true"}
-## Review note (prototype only)
-The CCSB text gives both 182 and 184 for the number of parameterized NSAAs, and 182 for the
-OpenMM-supported set. Please confirm the right number.
-:::

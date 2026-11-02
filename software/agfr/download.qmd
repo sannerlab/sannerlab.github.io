@@ -21,12 +21,4 @@ The [AutoDock CrankPep 1.1](/software/adcp/1.1/download.qmd) installer also inst
 ## Tutorial data
 
 The tutorials use the ADFRsuite tutorial data:
-[ADFRsuite-1.0_tutorial_data.zip](https://ccsb.scripps.edu/adfr/download/1063/).
-
-::: {.callout-note collapse="true"}
-## Review note
-- The CCSB AGFR download page lists Linux and Windows installers without links, and its Mac OS
-  link (`ccsb.scripps.edu/adcp/download/99/`) returns 404. This page points to the ADFRsuite
-  download page instead.
-- The CCSB pages do not say which AGFR version the ADCP 1.1 installer includes.
-:::
+[ADFRsuite-1.0_tutorial_data.zip](https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0-tutorials/ADFRsuite-1.0_tutorial_data.zip).

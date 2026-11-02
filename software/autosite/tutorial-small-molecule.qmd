@@ -11,7 +11,7 @@ This tutorial identifies binding pockets in the biotin-binding protein streptavi
 - find and understand the output files AutoSite generates
 
 **Prerequisites:** ADFRsuite 1.0 [installed](download.qmd) with `ADFRsuite-1.0/bin` on your
-`PATH`, and the [tutorial data](https://ccsb.scripps.edu/autosite/wp-content/uploads/sites/50/2021/10/1STP.tgz)
+`PATH`, and the [tutorial data](https://github.com/sannerlab/downloads/releases/download/autosite-tutorials/1STP.tgz)
 downloaded.
 
 ## 1. Run AutoSite
@@ -74,13 +74,3 @@ The output files are written in the folder where AutoSite runs.
     - a CSV file with the cluster scoring function values for each cluster (`1STP_summary.csv`)
     - the AutoGrid input file used to compute the grids (`rigidReceptor.gpf`)
     - the AutoGrid output files (`rigidReceptor.glg`, `rigidReceptor.x.map`)
-
-::: {.callout-note collapse="true"}
-## Review note
-- The cluster file pattern is written `1STP._CL.xxx.pdb` on the CCSB page, unlike the feature
-  point pattern `1STP_fp_xxx.pdb`. Check the real file names.
-- The CCSB page wrote the CSV file as `91STP_summary.csv` (a typo for "(1STP_summary.csv"); fixed.
-- The console output points to `http://adfr.scripps.edu/AutoDockFR/autosite.html`, which no
-  longer responds. Kept as printed by the program.
-- The CCSB page does not explain the feature-point columns (D, A, Other) of the table.
-:::

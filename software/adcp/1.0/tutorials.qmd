@@ -13,5 +13,5 @@ title: "ADCP 1.0 tutorials"
 
 - [Download and install ADFRsuite 1.0](download.qmd).
 - Put `ADFRsuite-1.0/bin` on your `PATH` (Linux or macOS shell).
-- Download and unzip the [tutorial data](https://ccsb.scripps.edu/adcp/download/1063/)
+- Download and unzip the [tutorial data](https://github.com/sannerlab/downloads/releases/download/adcp-1.0/ADCP_tutorial_data.zip)
   (`ADCP_tutorial_data.zip`).

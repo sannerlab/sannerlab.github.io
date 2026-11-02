@@ -70,14 +70,3 @@ The `agfr` program also asks you to cite:
   prediction, from ligand-binding sites identification to predicting key ligand atoms.
   *Bioinformatics* **2016**.
   [doi:10.1093/bioinformatics/btw367](https://doi.org/10.1093/bioinformatics/btw367)
-
-::: {.callout-note collapse="true"}
-## Review note
-- The CCSB home page says ADFRsuite is available for Linux, Mac OS and **Windows**; the ADFRsuite
-  1.0 download page offers Linux and macOS only (Windows through WSL). Windows left out here.
-- The CCSB pages say "We plan to add direct support for target files in the next release of
-  AutoDock4" (written 2019). Left out; please say whether this happened.
-- Dead links on the CCSB page: `adfr.scripps.edu` (AutoDockFR) and
-  `htpps://ccsb.scripps.edu/autodock` (typo, and ccsb.scripps.edu/autodock is gone). AutoDock4
-  now links to autodock.scripps.edu.
-:::

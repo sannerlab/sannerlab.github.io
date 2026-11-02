@@ -4,7 +4,7 @@ title: "Tutorial: maps for covalent docking"
 
 In this scenario we have a receptor with a covalently attached ligand and we will prepare the receptor for docking covalent ligands. We use chain A of PDB entry 3C9W. The file (3c9w_A_H.pdbqt) is in the tutorial data:
 
-[ADFRTutorialData.zip](https://ccsb.scripps.edu/agfr/download/551/).
+[ADFRTutorialData.zip](https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0-tutorials/ADFRsuite-1.0_tutorial_data.zip).
 
 **3c9w_A_H.pdbqt was created as follows:**
 
@@ -139,9 +139,3 @@ Pressing the “Save” button will start the calculation in a separate thread, 
 ![](img/screen-shot-2019-04-15-at-11-33-22-am.png)
 
 **Note:** a target file can be inspected from the command line using the *about* command (`ADFRsuite-1.0/bin/about`)
-
-::: {.callout-note collapse="true"}
-## Review note
-- One toolbar icon (word-image-53.png) is missing on the CCSB server and was dropped.
-- `ADFRsuite-1.0/bin/about` was written `AutoDockSuite-1.0/bin/about` on the CCSB page; changed to the ADFRsuite folder name. Please confirm.
-:::

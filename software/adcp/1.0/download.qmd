@@ -21,9 +21,9 @@ Contents:
 
 | Platform | Installer | How to install |
 |---|---|---|
-| Linux 64-bit | [installer app](https://ccsb.scripps.edu/adfr/download/1028/) | `chmod a+x ADFRsuite_Linux-x867_64_1.0_install.run`<br>`./ADFRsuite_Linux-x867_64_1.0_install.run` |
-| Linux 64-bit | [tarball](https://ccsb.scripps.edu/adfr/download/1038/) | see [Installing from a tarball](#installing-from-a-tarball) |
-| macOS | [tarball](https://ccsb.scripps.edu/adfr/download/1033/) | see [Installing from a tarball](#installing-from-a-tarball) |
+| Linux 64-bit | [installer app](https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0/ADFRsuite_Linux-x86_64_1.0_install) | `chmod a+x ADFRsuite_Linux-x867_64_1.0_install.run`<br>`./ADFRsuite_Linux-x867_64_1.0_install.run` |
+| Linux 64-bit | [tarball](https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0/ADFRsuite_x86_64Linux_1.0.tar.gz) | see [Installing from a tarball](#installing-from-a-tarball) |
+| macOS | [tarball](https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0/ADFRsuite_x86_64Darwin_1.0.tar.gz) | see [Installing from a tarball](#installing-from-a-tarball) |
 
 Windows users can run the Linux build under WSL; see [ADCP on Windows](windows.qmd).
 
@@ -54,12 +54,3 @@ cd ADFRsuite_x86_64Darwin_1.0
 #   -c                    how to compile the Python files: 0 for .pyc, 1 for .pyo
 ./install.sh -d myFolder -c 0
 ```
-
-::: {.callout-note collapse="true"}
-## Review note (prototype only)
-- The installer file name `ADFRsuite_Linux-x867_64_1.0_install.run` is copied from the CCSB page;
-  `x867_64` looks like a typo for `x86_64`. Check against the real file name.
-- The CCSB comment said `-s destinationFolder`, but the command uses `-d`. Changed to `-d` here.
-- Links to ADFR versions 1.0 and 1.1 at `adfr.scripps.edu` were dropped: that site no longer
-  responds.
-:::

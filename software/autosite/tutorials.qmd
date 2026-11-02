@@ -10,5 +10,5 @@ title: "AutoSite tutorials"
 
 - [Download and install ADFRsuite 1.0](download.qmd).
 - Put `ADFRsuite-1.0/bin` on your `PATH` (Linux or macOS shell).
-- Download and unpack the [tutorial data](https://ccsb.scripps.edu/autosite/wp-content/uploads/sites/50/2021/10/1STP.tgz)
+- Download and unpack the [tutorial data](https://github.com/sannerlab/downloads/releases/download/autosite-tutorials/1STP.tgz)
   (`1STP.tgz`).

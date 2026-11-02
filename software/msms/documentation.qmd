@@ -162,19 +162,3 @@ msms -if myset.xyzr -de 3.0 -prob 1.4 -of myset
 
 Michel F. Sanner, The Scripps Research Institute, La Jolla, California. Manual page last
 modified February 5, 1996.
-
-::: {.callout-note collapse="true"}
-## Review note
-- **Description:** the CCSB text is garbled here ("can run in standalone or server mode – if
-  filename )"); the standalone-mode sentence is missing. The text above keeps only what is
-  readable.
-- **`-noh`:** the original reads "Used to skip atoms with radius 1.2…???? (I know !)". Please give
-  a proper description (probably: skip hydrogen atoms, identified by radius 1.2 Å).
-- **Second example:** the CCSB page says "Compute all components of the surfaces", but the command
-  has no `-all_components`. The description above was changed to match the command; add
-  `-all_components` if all components were meant.
-- **"FILES" section** listed `pdb_to_xyzr(1)`, which is a related program; shown as "See also".
-  `pdb_to_xyzr` is not described or linked anywhere on the CCSB site.
-- **`-one_cavity`:** the original sentence is missing a word ("specified in followed by").
-- The synopsis on the CCSB page has broken markup; it was rebuilt from the option list.
-:::

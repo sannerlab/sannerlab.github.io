@@ -33,10 +33,10 @@ source ~/.bashrc
 
 ### 2. Install ADCP 1.1
 
-Download the [installation script](https://ccsb.scripps.edu/mamba/scripts/adcpsuite_micromamba.sh), or:
+Download the [installation script](https://github.com/sannerlab/downloads/releases/download/adcp-1.1/adcpsuite_micromamba.sh), or:
 
 ```bash
-wget https://ccsb.scripps.edu/mamba/scripts/adcpsuite_micromamba.sh
+wget https://github.com/sannerlab/downloads/releases/download/adcp-1.1/adcpsuite_micromamba.sh
 ```
 
 Run it:
@@ -70,10 +70,10 @@ If conda is not installed yet, follow
 
 ### 2. Install ADCP 1.1
 
-Download the [installation script](https://ccsb.scripps.edu/mamba/scripts/adcpsuite_conda.sh), or:
+Download the [installation script](https://github.com/sannerlab/downloads/releases/download/adcp-1.1/adcpsuite_conda.sh), or:
 
 ```bash
-wget https://ccsb.scripps.edu/mamba/scripts/adcpsuite_conda.sh
+wget https://github.com/sannerlab/downloads/releases/download/adcp-1.1/adcpsuite_conda.sh
 ```
 
 Run it:
@@ -94,12 +94,6 @@ micromamba activate adcpsuite
 
 You can now run ADCP by typing `adcp` in your shell, and AGFRgui by typing `agfrgui`.
 
-:::
-
-::: {.callout-note collapse="true"}
-## Review note (prototype only)
-The CCSB page uses `micromamba activate` in the conda instructions too. For a conda install this
-is presumably `conda activate adcpsuite`. Please confirm before the page goes live.
 :::
 
 ## macOS

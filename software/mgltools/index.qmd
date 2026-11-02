@@ -6,13 +6,12 @@ subtitle: "PMV, AutoDockTools and Vision"
 ---
 
 ::: {.callout-warning}
-**macOS users:** MGLTools does not work under macOS Catalina (10.15). The CCSB site advises not
+**macOS users:** MGLTools does not work under macOS Catalina (10.15). We advise not
 upgrading to Catalina; if you already use it, install
 [VirtualBox](https://www.virtualbox.org/wiki/Downloads) and run MGLTools inside a virtual machine.
 :::
 
-The MGLTools software suite was developed in the Sanner lab at the Center for Computational
-Structural Biology (CCSB), formerly the Molecular Graphics Laboratory (MGL), at Scripps Research,
+The MGLTools software suite was developed in the Sanner lab at the Molecular Graphics Laboratory (MGL) at Scripps Research,
 for the visualization and analysis of molecular structures. MGLTools comprises:
 
 - the **Python Molecular Viewer (PMV)**, a general-purpose molecular viewer
@@ -43,12 +42,3 @@ page.
 
 MSMS, the molecular surface program, can be downloaded separately from MGLTools:
 [MSMS downloads](/software/msms/download.qmd).
-
-::: {.callout-note collapse="true"}
-## Review note
-- The Catalina warning dates from 2019 and says an email will go to the mailing list when a fix
-  exists; check whether it still reflects the current state on newer macOS versions.
-- The CCSB page links AGFR to `http://agfr.scripps.edu`, which no longer responds; linked to
-  the AGFR page on this site instead.
-- The CCSB page names the center "CCRB"; written as CCSB here.
-:::

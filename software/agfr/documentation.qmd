@@ -100,11 +100,3 @@ file : NativeCDK2BindingSite_rigid/translationPoints.npy
 >
 
 ```
-
-::: {.callout-note collapse="true"}
-## Review note
-- The FAQ on CCSB refers to `AutoDockSuite-$VERSION/bin/agfrgui` and `.../bin/about`; the install
-  folder is `ADFRsuite-1.0`. Written as ADFRsuite here; please confirm.
-- An image at the end of the CCSB overview page (`Picture1-200x175.png`) is missing on the CCSB
-  server and was dropped.
-:::

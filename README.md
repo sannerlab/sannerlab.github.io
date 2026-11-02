@@ -28,12 +28,13 @@ Push to `main`. The `on-push` workflow:
 |---|---|
 | `_quarto.yml` | navbar, per-tool sidebars (versions), theme |
 | `software/adcp/` | ADCP: `index.qmd` overview, `1.1/` and `1.0/` version pages |
-| `software/*.qmd` | other tools, stubs pointing to ccsb.scripps.edu until moved |
+| `software/*.qmd` | other tools; their installers and data are in the releases of `sannerlab/downloads` |
 | `_includes/` | shared snippets (version banner) |
 | `_data/sources.yaml` | **add publications here** (`- id: doi:...`) |
 | `adapt/` | ADapt docs, synced automatically from `sannerlab/adapt-test` (do not edit here) |
 | `wewos/` | WEWoS docs, synced automatically from `sannerlab/WEWoS` (do not edit here) |
 | `_cite/` | citation tool from the Greene Lab Lab Website Template (BSD-3, see `_cite/LICENSE.md`) |
 
-ADCP content was transferred from ccsb.scripps.edu/adcp and /adcpv11 on 2026-10-14. Callouts
-titled "Review note" mark problems found in the source pages, pending review.
+Downloads (installers, tutorial data, PDFs) are attached to the releases of
+[sannerlab/downloads](https://github.com/sannerlab/downloads/releases); the ADCP 1.1 Python packages
+are served as a pip index by [sannerlab/pip](https://github.com/sannerlab/pip).

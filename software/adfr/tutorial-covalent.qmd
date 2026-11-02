@@ -4,7 +4,7 @@ title: "Tutorial: docking a covalently bound ligand"
 
 This tutorial re-docks the native covalent ligand of [PDB 3C9W](https://www.rcsb.org/structure/3C9W).
 The receptor (`3c9w.pdbqt`) and the ligand (`3c9w_ligandWithSideChain_random.pdbqt`) are in the
-[tutorial data](https://ccsb.scripps.edu/agfr/download/551/).
+[tutorial data](https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0-tutorials/ADFRsuite-1.0_tutorial_data.zip).
 
 For covalent docking, the receptor and the covalent ligand must share 3 atoms, as shown below:
 2 atoms (green) form the covalent bond, and 1 atom (yellow) is an anchor on the receptor side.
@@ -322,13 +322,4 @@ docking result file
     covLig   : [1, 2, 3]
 
 ```
-:::
-
-::: {.callout-note collapse="true"}
-## Review note
-- The CCSB text calls the receptor file `3cw9.pdbqt` in two places; the files and commands use
-  `3c9w`. Corrected.
-- The CCSB text said "up to 100'000 evaluations (`--maxEvals 100'00`)"; the command uses 100000.
-- The CCSB page does not explain `-C 1 2 3`; the explanation above (ligand atoms matching the
-  receptor's covalent attachment atoms) is read from the figure. Please confirm.
 :::

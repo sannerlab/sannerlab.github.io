@@ -12,7 +12,7 @@ title: "ADFR tutorials"
 
 - [Download and install ADFRsuite 1.0](download.qmd).
 - Put `ADFRsuite-1.0/bin` on your `PATH` (Linux or macOS shell).
-- Download and unzip the [tutorial data](https://ccsb.scripps.edu/agfr/download/551/)
+- Download and unzip the [tutorial data](https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0-tutorials/ADFRsuite-1.0_tutorial_data.zip)
   (`ADFRsuite-1.0_tutorial_data.zip`).
 
 To generate target files with the graphical interface instead of the command line, see the

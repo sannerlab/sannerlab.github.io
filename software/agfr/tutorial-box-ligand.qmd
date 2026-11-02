@@ -4,7 +4,7 @@ title: "Tutorial: docking box from a known ligand"
 
 In this scenario we have a receptor and a known ligand in the PDBQT format and we define a docking box centered on the ligand.
 
-We will use the cyclin-dependent kinase 2 (CDK2, PDB 4EK3) and one of its ligands (PDB 4EK4). The files 4EK3_rec.pdbqt and 4EK4_lig.pdbqt are available in the [tutorial data file](https://ccsb.scripps.edu/adfr/download/1063/).
+We will use the cyclin-dependent kinase 2 (CDK2, PDB 4EK3) and one of its ligands (PDB 4EK4). The files 4EK3_rec.pdbqt and 4EK4_lig.pdbqt are available in the [tutorial data file](https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0-tutorials/ADFRsuite-1.0_tutorial_data.zip).
 
 Start the graphical interface with `ADFRsuite-1.0/bin/agfrgui`.
 
@@ -60,7 +60,6 @@ The padding can be adjusted using the spin box in the “docking box” section.
 - Click the ![](img/word-image-7.png){.icon} button to display the “box parameters” user interface. This interface provides widgets to modify the box center coordinates, and box size along the 3 dimensions. NOTE: the mouse scroll wheel can be used to alter values while the mouse pointer is over the widget displaying numerical values.
 
 ![](img/word-image-8.png)
-
 
 The spacing widget sets the distance between the grid points at which affinity values are calculated.
 
@@ -150,9 +149,3 @@ agfr -r data/4EK3_rec.pdbqt -l data/4EK4_lig.pdbqt -as
 The command provided above produces the following output:
 
 ![](img/screen-shot-2019-04-17-at-9-21-21-am.png)
-
-::: {.callout-note collapse="true"}
-## Review note
-- `ADFRsuite-1.0/bin/about` was written `AutoDockSuite-1.0/bin/about` on the CCSB page; changed to the ADFRsuite folder name used everywhere else. Please confirm.
-- The command-line output is only available as a screenshot on the CCSB page.
-:::

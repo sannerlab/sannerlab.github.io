@@ -6,7 +6,8 @@ toc: false
 ---
 
 Software developed in the lab. Each tool has an overview, downloads, documentation and, where
-available, tutorials. Downloads are still served from the [CCSB website](https://ccsb.scripps.edu).
+available, tutorials. The installers and data files are on GitHub, in
+[sannerlab/downloads](https://github.com/sannerlab/downloads/releases).
 
 ## Methods
 

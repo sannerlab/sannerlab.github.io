@@ -4,7 +4,7 @@ toc: false
 lightbox: true
 ---
 
-Images made with MGLTools, from the CCSB MGLTools gallery and the original MGLTools website. Click an image to enlarge it.
+Images made with MGLTools, from the MGLTools galleries and the original MGLTools website. Click an image to enlarge it.
 
 ::: {.gallery layout-ncol="3"}
 

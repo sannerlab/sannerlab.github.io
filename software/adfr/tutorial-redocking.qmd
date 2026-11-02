@@ -13,7 +13,7 @@ structure [PDB 4EK3](https://www.rcsb.org/structure/4EK3).
 - understand the output of an ADFR docking run
 
 **Prerequisites:** ADFRsuite 1.0 installed with `ADFRsuite-1.0/bin` on your `PATH`, and the
-[tutorial data](https://ccsb.scripps.edu/agfr/download/551/) downloaded and unzipped
+[tutorial data](https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0-tutorials/ADFRsuite-1.0_tutorial_data.zip) downloaded and unzipped
 (see [Tutorials](tutorials.qmd)). Run the commands from the folder that contains `data/`.
 
 ## 1. Generate the target file
@@ -461,12 +461,4 @@ grep END 4EK4_random_rigid1_dro/dockingDetails/rigid1000*.dlg
 
 The `nbEvals` column shows the searches used different numbers of evaluations, from 258,364 to
 1,374,668; search 004, which found the best solution, used 861,056.
-:::
-
-::: {.callout-note collapse="true"}
-## Review note
-- The CCSB text said each search uses "up to 200'000 evaluations (`--maxEvals 2000`)"; the command
-  uses `--maxEvals 20000`. Changed to 20,000 here.
-- The CCSB text calls the reference option `-r/referenceLigand` in the tutorial and
-  `-r/--reference` in the exercise answer; the command uses `--reference`. Please confirm the name.
 :::

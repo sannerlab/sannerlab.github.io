@@ -2,9 +2,9 @@
 title: "MGLTools 1.5.6 tutorials"
 ---
 
-The tutorials are PDF versions of PowerPoint slides, served from ccsb.scripps.edu.
+The tutorials are PDF versions of PowerPoint slides.
 
 | Tutorial | File |
 |---|---|
-| PMV tutorial | [PmvTut1page-1.pdf](https://ccsb.scripps.edu/mgltools/wp-content/uploads/sites/42/2019/07/PmvTut1page-1.pdf) (47 MB) |
-| Vision tutorial | [VisionTut1Page.pdf](https://ccsb.scripps.edu/mgltools/wp-content/uploads/sites/42/2019/07/VisionTut1Page.pdf) (15.8 MB) |
+| PMV tutorial | [PmvTut1page-1.pdf](https://github.com/sannerlab/downloads/releases/download/mgltools-tutorials/PmvTut1page-1.pdf) (47 MB) |
+| Vision tutorial | [VisionTut1Page.pdf](https://github.com/sannerlab/downloads/releases/download/mgltools-tutorials/VisionTut1Page.pdf) (15.8 MB) |

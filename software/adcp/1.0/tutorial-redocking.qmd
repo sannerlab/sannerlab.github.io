@@ -14,7 +14,7 @@ peptide into the TPR domain of CHIP ([PDB 3Q47](https://www.rcsb.org/structure/3
 - understand the output of an ADCP docking run
 
 **Prerequisites:** ADFRsuite 1.0 installed with `ADFRsuite-1.0/bin` on your `PATH`, and the
-[tutorial data](https://ccsb.scripps.edu/adcp/download/1063/) downloaded
+[tutorial data](https://github.com/sannerlab/downloads/releases/download/adcp-1.0/ADCP_tutorial_data.zip) downloaded
 (see [Tutorials](tutorials.qmd)).
 
 ## 1. Convert PDB files to PDBQT files
@@ -229,9 +229,3 @@ mode |  affinity  | clust. | ref. | clust. | rmsd | best | energy | best |
   18        -10.8     5.6     5.9       1      NA      NA    1060 
 ...
 ```
-
-::: {.callout-note collapse="true"}
-## Review note (prototype only)
-The CCSB text said each search uses "up to 2,500,000 evaluations (`-n, --numSteps 2500000`)",
-which does not match the command (`-n 1000000`). Changed to 1,000,000 here.
-:::

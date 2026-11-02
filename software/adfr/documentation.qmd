@@ -19,7 +19,7 @@ built from [reusable software components](#implementation).
 
 - [Download and install ADFRsuite 1.0](download.qmd).
 - Put `ADFRsuite-1.0/bin` on your `PATH` (Linux or macOS shell).
-- Download and unzip the [tutorial data](https://ccsb.scripps.edu/agfr/download/551/)
+- Download and unzip the [tutorial data](https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0-tutorials/ADFRsuite-1.0_tutorial_data.zip)
   (`ADFRsuite-1.0_tutorial_data.zip`).
 
 ## FAQ
@@ -89,7 +89,7 @@ Located in `$WHERE_YOU_INSTALLED/ADFRsuite-1.0/CCSBpckgs/`.
 | mslib | C | Python wrapper of the MSMS library for computing molecular surfaces | |
 | opengltk | C | Python wrapper of the OpenGL library | |
 | PmvApp | Python | Generic molecular visualization application | |
-| prody | Python | CCSB version of the ProDy package | |
+| prody | Python | Modified version of the ProDy package | |
 | PyBabel | Python | Legacy package used by `prepare_ligand` and `prepare_receptor` | |
 | pyglf | C | Python wrapper for OpenGL fonts | |
 | Support | Python | | |
@@ -112,12 +112,3 @@ Located in `$WHERE_YOU_INSTALLED/ADFRsuite-1.0/lib/python2.7/site-packages/`.
 | openbabel | Small molecules | 2.4.1 |
 | PIL | Python Imaging Library | 4.3.0 |
 | PySide | Python wrapper for Qt 4.8 | 1.2.2 |
-
-::: {.callout-note collapse="true"}
-## Review note
-- The link to the `reduce` README at `kinemage.biochem.duke.edu` returns 404; it now points to the
-  Richardson lab's GitHub repository.
-- The CCSB implementation table lists nlopt as "linear optimization"; NLopt is a nonlinear
-  optimization library, so it reads "Nonlinear optimization" here. Please confirm.
-- The `reduce` example reads from `~/Download/`; on most systems the folder is `~/Downloads/`.
-:::

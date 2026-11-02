@@ -4,7 +4,7 @@ title: "Tutorial: docking box from an AutoSite pocket"
 
 In this scenario we have a receptor but no ligand binding site information. We use *AutoSite* to identify possible binding pockets that we use to define the docking box and calculate maps.
 
-We will illustrate this use case with cyclin-dependent kinase 2 (CDK2, PDB 4EK3). The receptor file 4EK3_rec.pdbqt is available in the [tutorial data file](https://ccsb.scripps.edu/adfr/download/1063/).
+We will illustrate this use case with cyclin-dependent kinase 2 (CDK2, PDB 4EK3). The receptor file 4EK3_rec.pdbqt is available in the [tutorial data file](https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0-tutorials/ADFRsuite-1.0_tutorial_data.zip).
 
 Start the graphical interface with `ADFRsuite-1.0/bin/agfrgui`.
 
@@ -107,9 +107,3 @@ Pressing the “Save” button will start the calculation in a separate thread, 
 ![](img/screen-shot-2019-04-15-at-11-33-22-am.png)
 
 **Note:** a target file can be inspected from the command line using the *about* command (`ADFRsuite-1.0/bin/about`)
-
-::: {.callout-note collapse="true"}
-## Review note
-- Step “Maps parameters” says loading the ligand set the map list to “A C Cl HD N NA OA”, but this tutorial loads no ligand (text copied from the known-ligand tutorial).
-- `ADFRsuite-1.0/bin/about` was written `AutoDockSuite-1.0/bin/about` on the CCSB page; changed to the ADFRsuite folder name. Please confirm.
-:::

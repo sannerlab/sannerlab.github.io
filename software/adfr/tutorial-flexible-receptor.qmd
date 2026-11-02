@@ -13,7 +13,7 @@ CDK2 ([PDB 4EK3](https://www.rcsb.org/structure/4EK3)) and one of its ligands
 - run ADFR to re-dock the ligand into the receptor with flexible side chains
 
 **Prerequisites:** ADFRsuite 1.0 installed with `ADFRsuite-1.0/bin` on your `PATH`, and the
-[tutorial data](https://ccsb.scripps.edu/agfr/download/551/) downloaded and unzipped
+[tutorial data](https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0-tutorials/ADFRsuite-1.0_tutorial_data.zip) downloaded and unzipped
 (see [Tutorials](tutorials.qmd)).
 
 ## 1. Generate the target file
@@ -312,15 +312,3 @@ solution was found by 4 of the 8 searches (*clust. size*), and its best pose cam
 (*best run*). The second solution was found once and is 2.8 Å RMSD from the top solution
 (*clust. rmsd*). With a reference ligand (`--reference`), the *ref. rmsd* column would give the
 RMSD of each pose to the reference instead of −1.
-
-::: {.callout-note collapse="true"}
-## Review note
-- The CCSB "you will learn" list says 3 flexible side chains; the commands make 2 flexible
-  (A:ILE10, A:LYS33). Written as 2 here.
-- The CCSB text said the target file was for "PDB id 1EK3"; the files are 4EK3. Corrected.
-- The CCSB text says the command also uses "the AutoSite 1.0 algorithm -as", but no such option
-  appears in the command. Dropped.
-- The CCSB output file names used `flexRec`; the job name and the console output use `flexRes`.
-  Corrected to `flexRes`.
-- The CCSB text said "up to 20'000 evaluations (`--maxEvals 2000`)"; the command uses 20000.
-:::

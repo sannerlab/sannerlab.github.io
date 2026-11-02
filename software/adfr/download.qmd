@@ -19,10 +19,10 @@ Release candidate 1 of ADFRsuite 1.0 contains:
 
 | Platform | Installer | How to install |
 |---|---|---|
-| Linux 64-bit | [installer app](https://ccsb.scripps.edu/adfr/download/1028/) | `chmod a+x ADFRsuite_Linux-x86_64_1.0_install`<br>`./ADFRsuite_Linux-x86_64_1.0_install` |
-| Linux 64-bit | [tarball](https://ccsb.scripps.edu/adfr/download/1038/) | see [Installing from a tarball](#installing-from-a-tarball) |
-| macOS | [tarball](https://ccsb.scripps.edu/adfr/download/1033/) | see [Installing from a tarball](#installing-from-a-tarball) |
-| Windows | [installer app](https://ccsb.scripps.edu/adfr/download/1067/) | double-click the downloaded installer |
+| Linux 64-bit | [installer app](https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0/ADFRsuite_Linux-x86_64_1.0_install) | `chmod a+x ADFRsuite_Linux-x86_64_1.0_install`<br>`./ADFRsuite_Linux-x86_64_1.0_install` |
+| Linux 64-bit | [tarball](https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0/ADFRsuite_x86_64Linux_1.0.tar.gz) | see [Installing from a tarball](#installing-from-a-tarball) |
+| macOS | [tarball](https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0/ADFRsuite_x86_64Darwin_1.0.tar.gz) | see [Installing from a tarball](#installing-from-a-tarball) |
+| Windows | [installer app](https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0/ADFRsuite_win32_1.0_Setup.exe) | double-click the downloaded installer |
 
 ### Installation notes
 
@@ -77,16 +77,3 @@ A development build of ADFRsuite 1.1 is available for Linux 64-bit:
 chmod a+x ADFRsuite_Linux-x86_64_1.1dev_Install
 ./ADFRsuite_Linux-x86_64_1.1dev_Install
 ```
-
-::: {.callout-note collapse="true"}
-## Review note
-- The CCSB "Version 1.1rc1" table labels its installers "ADFRsuite 1.0" and gives 1.0 install
-  commands. Only the Linux installer link is a 1.1 build (SourceForge, `1.1dev`). Its Linux tarball,
-  macOS and Windows links are relative links to the 1.0 files that resolve to
-  `ccsb.scripps.edu/download/...` and return 404. Only the working 1.1 Linux installer is listed
-  here, and its install commands use the real file name; please confirm.
-- The CCSB tarball comment said `-s destinationFolder`, but the command uses `-d`. Changed to `-d`.
-- The known-issue error message mentions `ADFRsuite-1.1`, while the fix uses `ADFRsuite-1.0`.
-- The links "Version 1.1rc1" and "Version 1.0" pointed to `adfr.scripps.edu`, which no longer
-  responds; they were dropped.
-:::

@@ -12,7 +12,7 @@ A Monte Carlo search folds the peptide while it optimizes the peptide's interact
 receptor, which yields docked peptides. ADCP takes a peptide as a sequence string and has
 docked peptides of up to 20 amino acids successfully.
 
-ADCP is part of the [AutoDock Suite](https://ccsb.scripps.edu/autodocksuite).
+ADCP is part of the [AutoDock Suite](https://autodock.scripps.edu).
 
 ::: {.gallery layout-ncol="3"}
 
@@ -62,7 +62,8 @@ OpenMM. In detail:
 
 ## Source code
 
-The source code is on GitHub: [ccsb-scripps/ADCP](https://github.com/ccsb-scripps/ADCP).
+The source code is on GitHub: [sannerlab/ADCP](https://github.com/sannerlab/ADCP). The source of
+ADCP as published in 2019 is archived at [sannerlab/ADCP-2019](https://github.com/sannerlab/ADCP-2019).
 
 ## How to cite
 
@@ -71,8 +72,8 @@ If you use ADCP in your work, please cite:
 - Zhang, Y.; Sanner, M. F. AutoDock CrankPep: combining folding and docking to predict
   protein–peptide complexes. *Bioinformatics* **2019**.
   [doi:10.1093/bioinformatics/btz459](https://doi.org/10.1093/bioinformatics/btz459)
-  ([preprint PDF](https://ccsb.scripps.edu/adcp/wp-content/uploads/sites/38/2019/06/ADCP_Sanner_chemRxiv.pdf),
-  [supplementary PDF](https://ccsb.scripps.edu/adcp/wp-content/uploads/sites/38/2019/06/ADCP_Sanner_SI_chemRxiv.pdf))
+  ([preprint PDF](https://github.com/sannerlab/downloads/releases/download/adcp-papers/ADCP_Sanner_chemRxiv.pdf),
+  [supplementary PDF](https://github.com/sannerlab/downloads/releases/download/adcp-papers/ADCP_Sanner_SI_chemRxiv.pdf))
 - Zhang, Y.; Sanner, M. F. Docking flexible cyclic peptides with AutoDock CrankPep.
   *J. Chem. Theory Comput.* **2019**.
   [doi:10.1021/acs.jctc.9b00557](https://doi.org/10.1021/acs.jctc.9b00557)
