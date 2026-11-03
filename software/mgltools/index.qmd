@@ -38,6 +38,11 @@ affinity maps.
 Patched builds of both versions (October 2022) are listed first on the [Download](download.qmd)
 page.
 
+## License
+
+MGLTools is distributed under the [Sannerlab MIT-like Source-Available License](/software/license.qmd). The MSMS library it uses to compute molecular
+surfaces is free for non-commercial use only; see the [MSMS license](../msms/license.qmd).
+
 ## MSMS
 
 MSMS, the molecular surface program, can be downloaded separately from MGLTools:

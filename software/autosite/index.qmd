@@ -36,6 +36,10 @@ In AGFR the version is chosen with `-asv 1.0` or `-asv 1.1`. The AGFR documentat
 version 1.0 as meant for small molecules, and version 1.1 as somewhat slower but giving better
 pocket descriptions for larger ligands such as peptides.
 
+## License
+
+AutoSite is distributed under the [Sannerlab MIT-like Source-Available License](/software/license.qmd).
+
 ## How to cite
 
 If you use AutoSite in your work, please cite:

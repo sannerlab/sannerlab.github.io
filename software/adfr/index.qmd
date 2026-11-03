@@ -91,7 +91,7 @@ ADFR 1.2 is available on the [Download page](download.qmd) as part of ADFRsuite 
 
 ## License
 
-ADFR is released under the LGPL v2 open-source license. See [License](license.qmd).
+ADFR is distributed under the [Sannerlab MIT-like Source-Available License](/software/license.qmd). See [License](license.qmd).
 
 ## Publications
 

@@ -2,7 +2,7 @@
 title: "Download MSMS"
 ---
 
-The current release is **MSMS 2.6.1**. MSMS is free for academic research and teaching;
+The current release is **MSMS 2.6.1**. MSMS is free for non-commercial use;
 commercial use needs a license (see [License](license.qmd)).
 
 | Platform | File | Unpack with |

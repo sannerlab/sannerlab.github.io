@@ -68,6 +68,10 @@ OpenMM. In detail:
 The source code is on GitHub: [sannerlab/ADCP](https://github.com/sannerlab/ADCP). The source of
 ADCP as published in 2019 is archived at [sannerlab/ADCP-2019](https://github.com/sannerlab/ADCP-2019).
 
+## License
+
+ADCP is distributed under the [Sannerlab MIT-like Source-Available License](/software/license.qmd). See [License](license.qmd).
+
 ## How to cite
 
 If you use ADCP in your work, please cite:

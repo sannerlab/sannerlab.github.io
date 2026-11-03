@@ -2,7 +2,8 @@
 title: "License"
 ---
 
-MSMS is free to use for academic research and teaching. For commercial research, contact
-[Dr. Michel Sanner](mailto:sanner@scripps.edu).
+MSMS is distributed under the [Sannerlab MIT-like Source-Available License](/software/license.qmd) for **non-commercial use only**. This covers the standalone
+MSMS program and the MSLIB library that ADFRsuite and MGLTools use to compute molecular surfaces.
 
-MSMS is not open source.
+Commercial use of MSMS needs a separate commercial license: contact
+[Dr. Michel Sanner](mailto:sanner@scripps.edu).

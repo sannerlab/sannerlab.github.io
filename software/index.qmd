@@ -9,6 +9,9 @@ Software developed in the lab. Each tool has an overview, downloads, documentati
 available, tutorials. The installers and data files are on GitHub, in
 [sannerlab/downloads](https://github.com/sannerlab/downloads/releases).
 
+All the tools are distributed under the [Sannerlab MIT-like Source-Available License](/software/license.qmd); MSMS is covered by it for non-commercial use
+only.
+
 ## Methods
 
 Programs that compute: docking, pocket detection and molecular surfaces.
@@ -48,7 +51,7 @@ Identifies ligand-binding pockets from affinity maps.
 <span class="status">current: 2.6.1</span>
 
 ### [MSMS](msms/index.qmd)
-Computes molecular surfaces. Free for academic use; commercial use needs a license.
+Computes molecular surfaces. Free for non-commercial use; commercial use needs a license.
 :::
 
 :::

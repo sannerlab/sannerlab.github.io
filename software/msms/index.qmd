@@ -17,8 +17,8 @@ It is available as a [standalone program](download.qmd), and as a library with P
 the MGLTools and ADFRsuite distributions.
 
 ::: {.callout-note}
-MSMS is free for academic research and teaching. Commercial use needs a license; see
-[License](license.qmd). MSMS is not open source.
+MSMS is free for non-commercial use, under the [Sannerlab MIT-like Source-Available License](/software/license.qmd). Commercial use needs a separate
+license; see [License](license.qmd).
 :::
 
 ::: {.gallery layout-ncol="3"}

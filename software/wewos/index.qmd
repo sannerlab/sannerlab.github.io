@@ -33,6 +33,11 @@ computation by turning a dial and watching the result.
 - [Tutorials](tutorials.qmd)
 - [Download](download.qmd)
 
+## License
+
+WEWoS is distributed under the [Sannerlab MIT-like Source-Available License](/software/license.qmd). Its MSMS node library uses MSMS, which is free for
+non-commercial use only; see the [MSMS license](../msms/license.qmd).
+
 ## History
 
 Vision began as **ViPEr**, a Visual Programming Environment for Python, written by Michel Sanner,

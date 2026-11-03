@@ -2,7 +2,7 @@
 title: "ADFR documentation"
 ---
 
-AutoDockFR (ADFR) is an open-source program for
+AutoDockFR (ADFR) is a program for
 [docking](https://en.wikipedia.org/wiki/Docking_(molecular)) flexible ligands into receptors with
 selective flexibility. It is distributed as part of the [ADFR software suite](download.qmd) and
 built from [reusable software components](#implementation).

@@ -43,6 +43,9 @@ website:
         href: software/agfr/index.qmd
       - text: MGLTools
         href: software/mgltools/index.qmd
+      - text: '---'
+      - text: License
+        href: software/license.qmd
     - text: Publications
       href: publications.qmd
     - text: Contact

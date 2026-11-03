@@ -2,7 +2,7 @@
 title: "MGLTools 1.5.6"
 ---
 
-MGLTools 1.5.6 is an open-source software suite comprising:
+MGLTools 1.5.6 is a software suite comprising:
 
 - **PMV**, the Python Molecular Viewer
 - **ADT**, a graphical front end for AutoDock

@@ -2,7 +2,7 @@
 title: "AutoSite documentation"
 ---
 
-AutoSite is an open-source program for identifying and characterizing binding pockets in
+AutoSite is a program for identifying and characterizing binding pockets in
 biological macromolecules.
 
 ## Running AutoSite

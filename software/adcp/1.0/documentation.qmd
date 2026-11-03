@@ -4,7 +4,7 @@ title: "ADCP 1.0 documentation"
 
 {{< include /_includes/adcp-1.0-banner.md >}}
 
-AutoDock CrankPep (ADCP) is an open-source program for
+AutoDock CrankPep (ADCP) is a program for
 [docking](https://en.wikipedia.org/wiki/Docking_(molecular)) flexible peptides into receptors. The
 source of this version, as published in 2019, is archived on
 [GitHub](https://github.com/sannerlab/ADCP-2019).

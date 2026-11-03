@@ -28,3 +28,7 @@ choices as defaults, and shows each chain as a tree linked to a 3D view.
 - [Documentation](documentation.qmd)
 - [Tutorials: worked cases](tutorials.qmd)
 - [Download](download.qmd)
+
+## License
+
+ADapt is distributed under the [Sannerlab MIT-like Source-Available License](/software/license.qmd).

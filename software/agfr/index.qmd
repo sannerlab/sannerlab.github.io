@@ -57,6 +57,12 @@ reproducibility. Target files can be unzipped and the maps extracted for use wit
 | [Documentation](documentation.qmd) | the graphical interface, a GUI reference, FAQ |
 | [Tutorials](tutorials.qmd) | six step-by-step tutorials with the graphical interface |
 
+## License
+
+AGFR is distributed under the [Sannerlab MIT-like Source-Available License](/software/license.qmd). ADFRsuite's MSMS component, which `agfrgui`
+uses to compute surfaces, is free for non-commercial use only; see the
+[ADFR license page](../adfr/license.qmd).
+
 ## How to cite
 
 If you use AGFR in your work, please cite:
