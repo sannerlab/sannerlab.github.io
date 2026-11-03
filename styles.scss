@@ -7,6 +7,9 @@ $navbar-bg: $lab-navy;
 $navbar-fg: #ffffff;
 $navbar-hl: #ffd27a;
 $footer-bg: transparent;
+// set explicitly: Quarto derives the footer text colour from $footer-bg, and with a transparent
+// background that comes out as invisible white
+$footer-fg: #4a5560;
 
 /*-- scss:rules --*/
 /* larger text in the side navigation, page outline and menus (Quarto defaults are 0.875-0.925rem) */
@@ -129,8 +132,12 @@ div.sourceCode { border-left: 4px solid rgba($primary, 0.55); }
 .tool-tiles img { display: block; width: 100%; height: auto; aspect-ratio: 1; border-radius: 0; }
 @media (max-width: 700px) { .tool-tiles a { flex-basis: calc(50% - .5rem); } }
 
+/* lab page funding table: keep award numbers, institute and years on one line */
+#funding td:nth-child(-n+3) { white-space: nowrap; }
+
 /* footer */
 .nav-footer { border-top: 4px solid var(--lab-navy); background: rgba($primary, 0.06); }
+.nav-footer a { color: $link-color; }
 
 /* publications: year headings as coloured labels */
 .pub-list { border-left: 3px solid rgba($primary, 0.3); padding-left: 1.4rem; }

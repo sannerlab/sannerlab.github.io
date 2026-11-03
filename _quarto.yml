@@ -250,6 +250,7 @@ website:
   page-footer:
     left: Sanner Lab · Department of Integrative Structural and Computational Biology · Scripps Research,
       La Jolla, CA
+    center: Supported by the National Institutes of Health ([funding](/lab.html#funding))
     right:
     - icon: github
       href: https://github.com/sannerlab

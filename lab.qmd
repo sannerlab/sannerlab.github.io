@@ -101,6 +101,22 @@ AutoDockTools and the visual programming environment Vision, distributed togethe
 reused in augmented reality, animation and cellular modeling, including CellPACK. Michel Sanner
 was also a founding member of the SciPy conference.
 
+## Funding
+
+The lab's work, including the software on this site, is supported by the National Institutes
+of Health (NIH):
+
+| Award | NIH institute | Years | Project |
+|---|---|---|---|
+| [R35 GM152084](https://reporter.nih.gov/project-details/11311801) | NIGMS | 2024–2029 | Structure-based in-silico prediction of peptide interactions |
+| [R01 GM096888](https://reporter.nih.gov/project-details/10653086) | NIGMS | 2011–2025 | AutoDockFR and flexible receptor docking, then in-silico prediction of protein–peptide interactions |
+| [P41 RR008605](https://reporter.nih.gov/project-details/8362789) (subproject) | NCRR | 2004–2012 | Visualization environments for multi-scale biomedical modeling |
+| [R21/R33 GM065609](https://reporter.nih.gov/project-details/7070659) | NIGMS | 2003–2010 | Representation of flexible biomolecular shapes |
+
+NIGMS: National Institute of General Medical Sciences. NCRR: National Center for Research
+Resources. The content of this website is solely the responsibility of the authors and does not
+necessarily represent the official views of the National Institutes of Health.
+
 ## Alumni
 
 <!-- Current positions and links were checked in October 2026; only verified ones are given. -->
