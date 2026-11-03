@@ -4,6 +4,9 @@ title-block-banner-color: "#ffffff"
 title: "AutoDock CrankPep (ADCP)"
 subtitle: "Peptide docking that combines folding and docking"
 toc: true
+body-classes: adcp-logo-banner
+resources:
+  - img/adcp-logo.png
 ---
 
 **AutoDock CrankPep** (ADCP) is a docking engine specialized for peptides. It combines a protein
