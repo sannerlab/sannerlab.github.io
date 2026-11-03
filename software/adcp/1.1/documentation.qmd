@@ -7,6 +7,9 @@ The documentation for this version is under construction. For now it gives a few
 runs that show the new capabilities of version 1.1.
 :::
 
+For general advice (how many runs and steps, which starting conformation, clashes and caps in
+the output), see the [ADCP FAQ](../1.0/documentation.qmd#faq); it applies to version 1.1 too.
+
 To run these examples, download the [receptor](https://github.com/sannerlab/downloads/releases/download/adcp-1.1/3Q47_recH.pdbqt)
 and the [ligand](https://github.com/sannerlab/downloads/releases/download/adcp-1.1/3Q47_pepH.pdbqt) for PDB 3Q47.
 
@@ -157,7 +160,8 @@ already know the standard ADCP options.
 
 The option `-nmin` turns on OpenMM minimization of poses, followed by re-ranking. This example
 docks the peptide `grctksicfpd` into the receptor from `3Q47.trg` and minimizes the top 5 docked
-solutions with OpenMM:
+solutions with OpenMM. The peptide is cyclic: `-cyc` closes it through its backbone (head to
+tail), while `-cys` would close it through a disulfide bond between two cysteines.
 
 ```bash
 adcp -O -T 3Q47.trg -s "grctksicfpd" -cyc -N 5 -n 100000 -w testDir1 -o example1 -nmin 5
@@ -335,8 +339,9 @@ peptides with NSAAs at any position in OpenMM, we:
    needed (bonds, angles, dihedrals, impropers, electrostatics, van der Waals) from the R.E.D.
    mol2 files, written as an frcmod file.
 3. **Built FFXML files.** ParmEd converted the frcmod and mol2 files into OpenMM FFXML files for
-   each variant. These were merged into one file covering all parameters for 184 NSAAs, which
-   OpenMM can load.
+   each variant. These were merged into one file that OpenMM can load.
+   `ADCP/data/openMMff/AVAILABLE_PARAMETER.dat` lists the residues it covers: 182 NSAAs in their
+   internal, N-terminal and C-terminal forms.
 
 To use these parameters in OpenMM we also changed how each structure is loaded, cleaned and
 simulated:

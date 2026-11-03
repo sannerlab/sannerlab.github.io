@@ -24,7 +24,9 @@ source of this version, as published in 2019, is archived on
 **Should I start from a helix, an extended structure, or a mixture?**
 : If you know something about the peptide's conformation, start from that conformation. Starting
   from one conformation does not prevent sampling of others with different secondary structure.
-  If nothing is known, start from a mixture of 80% extended and 20% helical conformations.
+  If nothing is known, start from a mixture of 80% extended and 20% helical conformations with
+  `-p 20` (the percentage of runs that start as a helix). Without `-p`, the case of the sequence
+  given with `-s` sets the start: lower case for extended (coil), UPPER case for helix.
 
 **Why are there clashes in the output structure?**
 : ADCP builds side chains from a discrete rotamer library and uses a coarse-grained scoring

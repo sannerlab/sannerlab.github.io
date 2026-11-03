@@ -23,8 +23,13 @@ reproducibility. Target files can be unzipped and the maps extracted for use wit
   - receptors with **flexible side chains**
   - **covalent docking**
 - Water maps for **hydrated docking**
-- Automatic **binding pocket detection** (with [AutoSite](/software/autosite/index.qmd))
-- **Affinity gradients** added to the maps
+- Automatic **binding pocket detection** with [AutoSite](/software/autosite/index.qmd) (versions
+  1.0 and 1.1), which also computes **translational points**: promising grid locations that the
+  ligand uses to explore the docking box during docking
+- **Affinity gradients** added to the maps: the map values inside the receptor are modified to
+  create a gradient pointing toward the receptor surface. The gradient improves the performance
+  of gradient-based search during docking, and does not change the score of poses that do not
+  overlap the receptor.
 - Graphical user interface and command line
 - Support for data provenance and reproducibility
 

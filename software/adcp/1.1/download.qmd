@@ -89,7 +89,7 @@ This installs ADCP 1.1 with all required packages and dependencies.
 Activate the environment:
 
 ```bash
-micromamba activate adcpsuite
+conda activate adcpsuite
 ```
 
 You can now run ADCP by typing `adcp` in your shell, and AGFRgui by typing `agfrgui`.

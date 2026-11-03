@@ -135,14 +135,14 @@ Pressing the “Save” button will start the calculation in a separate thread, 
 The target file produced by this tutorial can also be generated from the command line:
 
 ```bash
-agfr -r data/4EK3_rec.pdbqt -l data/4EK4_lig.pdbqt -as
+agfr -r data/4EK3_rec.pdbqt -l data/4EK4_lig.pdbqt -asv 1.0
 ```
 
 | Option | Meaning |
 |---|---|
 | `-r` | the receptor file |
 | `-l` | the ligand file |
-| `-as` | use the original AutoSite algorithm (1.0) rather than version 1.1 |
+| `-asv 1.0` | use AutoSite 1.0 (the default; `-asv 1.1` selects version 1.1) |
 
 **Note:** By default, when a ligand is specified on the command line, *AGFR* will use this ligand to position and size the box. For more options run `agfr -h` (or `agfr --help`).
 

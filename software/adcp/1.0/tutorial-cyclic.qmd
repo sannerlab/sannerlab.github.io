@@ -122,7 +122,7 @@ making target file 5GRD.trg ...done.
 ## 2. Dock the cyclic peptide
 
 ```bash
-adcp -t 5GRD.trg -s sscsscplsk -N 20 -n 500000 -cys -o 5GRD_redocking -ref 5GRD_pepH.pdbqt -nc 0.8
+adcp -t 5GRD.trg -s sscsscplsk -N 20 -n 5000000 -cys -o 5GRD_redocking -ref 5GRD_pepH.pdbqt -nc 0.8
 ```
 
 Two options are added compared with the linear peptide:

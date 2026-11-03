@@ -15,7 +15,7 @@ matched at the level of the elements they contain.
 | `RNA` | |
 | `ligand` | |
 | `acidic` | asp, glu |
-| `acyclic` | ala, arg, asn, asp, cys, glu, gln, gly, ile, leu. lys, met, ser, thr, val |
+| `acyclic` | ala, arg, asn, asp, cys, glu, gln, gly, ile, leu, lys, met, ser, thr, val |
 | `aliphatic` | ala, gly, ile, leu, val |
 | `aromatic` | his, phe, trp, tyr |
 | `basic` | arg, his, lys |
@@ -27,7 +27,7 @@ matched at the level of the elements they contain.
 | `medium` | asn, asp, cys, pro, thr, val |
 | `negative` | asp, glu |
 | `neutral` | ala, asn, cys, gln, gly, his, ile, leu, met, phe, pro, ser, thr, trp, tyr, val |
-| `polar` | arg, asn, asp, cys, glu, sln, his, lys, ser, thr |
+| `polar` | arg, asn, asp, cys, glu, gln, his, lys, ser, thr |
 | `positive` | arg, his, lys |
 | `small` | ala, gly, ser |
 | `surface` | arg, asn, asp, glu, gln, gly, his, lys, pro, ser, thr, tyr |

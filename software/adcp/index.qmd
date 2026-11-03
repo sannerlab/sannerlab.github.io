@@ -9,8 +9,8 @@ toc: true
 **AutoDock CrankPep** (ADCP) is a docking engine specialized for peptides. It combines a protein
 folding technique with AutoDock's efficient representation of a rigid receptor as affinity grids.
 A Monte Carlo search folds the peptide while it optimizes the peptide's interaction with the
-receptor, which yields docked peptides. ADCP takes a peptide as a sequence string and has
-docked peptides of up to 20 amino acids successfully.
+receptor, which yields docked peptides. ADCP takes a peptide as a sequence string, or as a 3D
+structure in a PDB file (`-i`), and has docked peptides of up to 20 amino acids successfully.
 
 ADCP is part of the [AutoDock Suite](https://autodock.scripps.edu).
 

@@ -136,10 +136,12 @@ Triangulate the solvent excluded surface of a set of spheres and save the triang
 msms -if myset.xyzr -of myset
 ```
 
-Compute the surface for a probe radius of 1.4 Å and triangulate it with a density of 3.0:
+Compute all components of the surface for a probe radius of 1.4 Å and triangulate them with a
+density of 3.0. The external component is written to `myset.vert` and `myset.face`, and each
+other component *n* to `myset_n.vert` and `myset_n.face`:
 
 ```bash
-msms -if myset.xyzr -de 3.0 -prob 1.4 -of myset
+msms -if myset.xyzr -de 3.0 -prob 1.4 -all_components -of myset
 ```
 
 ## See also

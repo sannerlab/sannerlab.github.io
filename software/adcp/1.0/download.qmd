@@ -21,7 +21,7 @@ Contents:
 
 | Platform | Installer | How to install |
 |---|---|---|
-| Linux 64-bit | [installer app](https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0/ADFRsuite_Linux-x86_64_1.0_install) | `chmod a+x ADFRsuite_Linux-x867_64_1.0_install.run`<br>`./ADFRsuite_Linux-x867_64_1.0_install.run` |
+| Linux 64-bit | [installer app](https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0/ADFRsuite_Linux-x86_64_1.0_install) | `chmod a+x ADFRsuite_Linux-x86_64_1.0_install`<br>`./ADFRsuite_Linux-x86_64_1.0_install` |
 | Linux 64-bit | [tarball](https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0/ADFRsuite_x86_64Linux_1.0.tar.gz) | see [Installing from a tarball](#installing-from-a-tarball) |
 | macOS | [tarball](https://github.com/sannerlab/downloads/releases/download/adfrsuite-1.0/ADFRsuite_x86_64Darwin_1.0.tar.gz) | see [Installing from a tarball](#installing-from-a-tarball) |
 
