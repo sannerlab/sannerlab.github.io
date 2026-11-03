@@ -350,7 +350,7 @@ The longer the peptide, the harder the docking problem, so run more replicas wit
 </dd>
 <dt><strong>Should I start from a helix, an extended structure, or a mixture?</strong></dt>
 <dd>
-If you know something about the peptide’s conformation, start from that conformation. Starting from one conformation does not prevent sampling of others with different secondary structure. If nothing is known, start from a mixture of 80% extended and 20% helical conformations.
+If you know something about the peptide’s conformation, start from that conformation. Starting from one conformation does not prevent sampling of others with different secondary structure. If nothing is known, start from a mixture of 80% extended and 20% helical conformations with <code>-p 20</code> (the percentage of runs that start as a helix). Without <code>-p</code>, the case of the sequence given with <code>-s</code> sets the start: lower case for extended (coil), UPPER case for helix.
 </dd>
 <dt><strong>Why are there clashes in the output structure?</strong></dt>
 <dd>

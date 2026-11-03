@@ -376,6 +376,7 @@ Note
 <p>The documentation for this version is under construction. For now it gives a few example runs that show the new capabilities of version 1.1.</p>
 </div>
 </div>
+<p>For general advice (how many runs and steps, which starting conformation, clashes and caps in the output), see the <a href="../../../software/adcp/1.0/documentation.html#faq">ADCP FAQ</a>; it applies to version 1.1 too.</p>
 <p>To run these examples, download the <a href="https://github.com/sannerlab/downloads/releases/download/adcp-1.1/3Q47_recH.pdbqt">receptor</a> and the <a href="https://github.com/sannerlab/downloads/releases/download/adcp-1.1/3Q47_pepH.pdbqt">ligand</a> for PDB 3Q47.</p>
 <section id="create-a-target-file" class="level2">
 <h2 class="anchored" data-anchor-id="create-a-target-file">Create a target file</h2>
@@ -556,7 +557,7 @@ removing working folder testDir/testNSAAandD</code></pre>
 <p>ADCP 1.1 can minimize docked poses with OpenMM and re-rank them. These examples assume you already know the standard ADCP options.</p>
 <section id="re-ranking-poses-of-standard-amino-acids" class="level3">
 <h3 class="anchored" data-anchor-id="re-ranking-poses-of-standard-amino-acids">Re-ranking poses of standard amino acids</h3>
-<p>The option <code>-nmin</code> turns on OpenMM minimization of poses, followed by re-ranking. This example docks the peptide <code>grctksicfpd</code> into the receptor from <code>3Q47.trg</code> and minimizes the top 5 docked solutions with OpenMM:</p>
+<p>The option <code>-nmin</code> turns on OpenMM minimization of poses, followed by re-ranking. This example docks the peptide <code>grctksicfpd</code> into the receptor from <code>3Q47.trg</code> and minimizes the top 5 docked solutions with OpenMM. The peptide is cyclic: <code>-cyc</code> closes it through its backbone (head to tail), while <code>-cys</code> would close it through a disulfide bond between two cysteines.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">adcp</span> <span class="at">-O</span> <span class="at">-T</span> 3Q47.trg <span class="at">-s</span> <span class="st">"grctksicfpd"</span> <span class="at">-cyc</span> <span class="at">-N</span> 5 <span class="at">-n</span> 100000 <span class="at">-w</span> testDir1 <span class="at">-o</span> example1 <span class="at">-nmin</span> 5</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
@@ -747,7 +748,7 @@ removing working folder testDir1/example1</code></pre>
 <ol type="1">
 <li><strong>Computed partial charges.</strong> SwissSideChain’s charges were designed for NSAAs away from the peptide termini, so we computed charges for terminal and non-terminal forms with the R.E.D. server (RESP ESP charge Derive), using GAMESS, following <a href="https://upjv.q4md-forcefieldtools.org/Tutorial/Tutorial-3.php#11">this tutorial</a>. Each form was capped with ACE and/or NME.</li>
 <li><strong>Found force-field parameters.</strong> <code>parmchk2</code> from AmberTools identified the Amber parameters needed (bonds, angles, dihedrals, impropers, electrostatics, van der Waals) from the R.E.D. mol2 files, written as an frcmod file.</li>
-<li><strong>Built FFXML files.</strong> ParmEd converted the frcmod and mol2 files into OpenMM FFXML files for each variant. These were merged into one file covering all parameters for 184 NSAAs, which OpenMM can load.</li>
+<li><strong>Built FFXML files.</strong> ParmEd converted the frcmod and mol2 files into OpenMM FFXML files for each variant. These were merged into one file that OpenMM can load. <code>ADCP/data/openMMff/AVAILABLE_PARAMETER.dat</code> lists the residues it covers: 182 NSAAs in their internal, N-terminal and C-terminal forms.</li>
 </ol>
 <p>To use these parameters in OpenMM we also changed how each structure is loaded, cleaned and simulated:</p>
 <ol type="1">

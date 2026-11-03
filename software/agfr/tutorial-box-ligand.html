@@ -452,7 +452,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="same-result-from-the-command-line" class="level2">
 <h2 class="anchored" data-anchor-id="same-result-from-the-command-line">8. Same result from the command line</h2>
 <p>The target file produced by this tutorial can also be generated from the command line:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">agfr</span> <span class="at">-r</span> data/4EK3_rec.pdbqt <span class="at">-l</span> data/4EK4_lig.pdbqt <span class="at">-as</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">agfr</span> <span class="at">-r</span> data/4EK3_rec.pdbqt <span class="at">-l</span> data/4EK4_lig.pdbqt <span class="at">-asv</span> 1.0</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -474,8 +474,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>the ligand file</td>
 </tr>
 <tr class="odd">
-<td><code>-as</code></td>
-<td>use the original AutoSite algorithm (1.0) rather than version 1.1</td>
+<td><code>-asv 1.0</code></td>
+<td>use AutoSite 1.0 (the default; <code>-asv 1.1</code> selects version 1.1)</td>
 </tr>
 </tbody>
 </table>
