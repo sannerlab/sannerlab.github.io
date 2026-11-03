@@ -23,4 +23,6 @@ Images made with AutoDock CrankPep (ADCP). Click an image to enlarge it.
 
 ![Non-standard residues (2AS, 0AF) in a peptide shown next to the standard residues (Asp, Ala) they correspond to, illustrating ADCP 1.1 support for non-canonical amino acids. *Source: ADCP 1.1 website.*](img/adcp-noncanonical-residues.png){fig-alt="Two peptide stick models with arrows linking non-standard residues 2AS and 0AF to ASP and ALA"}
 
+![The cyclic peptide of PDB 3AV9 on the molecular surface of its receptor, colored from blue to red along the chain; a second view of the example shown on the ADCP overview page. *Source: ADCP 1.1 website.*](img/adcp-cyclic-peptide-3av9-view2.png){fig-alt="Rainbow-colored cyclic peptide sticks lying on a white receptor surface, partly hidden behind it"}
+
 :::

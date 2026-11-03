@@ -17,4 +17,6 @@ Images made with AutoGridFR (AGFR). Click an image to enlarge it.
 
 ![AGFR places a docking box around the top-ranked AutoSite pocket of a kinase receptor. *Source: AGFR website.*](img/agfr-gui-docking-box-pocket.png){fig-alt="Screenshot of AGFR 1.1 with a teal ribbon protein, a docking box, and green AutoSite pocket points next to a ligand."}
 
+![AGFR 1.2 with receptor 4EK3: pocket 5 found by AutoSite 1.0 is selected, and its fill points (magenta) lie inside the docking box. *Source: AGFR website.*](img/agfr-gui-autosite-pocket-4ek3.png){fig-alt="Screenshot of AGFR 1.2: control panel with the AutoSite pocket table on the left, and a 3D view of receptor 4EK3 in lines with magenta pocket points inside a white docking box."}
+
 :::
