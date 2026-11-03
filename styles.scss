@@ -58,14 +58,17 @@ img.icon { height: 2.4em; width: auto; vertical-align: middle; margin: 0 .15em; 
 }
 .quarto-title-banner .subtitle { opacity: 0.9; }
 
-/* tool logo at the right of the banner, in line with the text column (body-classes: adcp-logo-banner) */
-.adcp-logo-banner .quarto-title-banner .quarto-title {
+/* tool logo at the right of the banner, in line with the text column
+   (body-classes: logo-banner <tool>-logo; the page lists the logo under `resources`) */
+.adcp-logo { --logo: url("/software/adcp/img/adcp-logo.png"); }
+.adfr-logo { --logo: url("/software/adfr/img/adfr-logo.png"); }
+.logo-banner .quarto-title-banner .quarto-title {
   --logo-size: 140px;
-  background: url("/software/adcp/img/adcp-logo.png") no-repeat right center / var(--logo-size);
+  background: var(--logo) no-repeat right center / var(--logo-size);
   min-height: var(--logo-size); padding-right: calc(var(--logo-size) + 1rem);
   display: flex; flex-direction: column; justify-content: center;
 }
-@media (max-width: 600px) { .adcp-logo-banner .quarto-title-banner .quarto-title { --logo-size: 80px; } }
+@media (max-width: 600px) { .logo-banner .quarto-title-banner .quarto-title { --logo-size: 80px; } }
 
 /* picture banners (home and lab pages, body-classes: picture-banner): the 3:1 picture carries its
    own title text, so it is shown whole (Quarto's default crops it) on a colour matching its edges,

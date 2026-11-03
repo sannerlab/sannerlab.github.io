@@ -4,7 +4,7 @@ title-block-banner-color: "#ffffff"
 title: "AutoDock CrankPep (ADCP)"
 subtitle: "Peptide docking that combines folding and docking"
 toc: true
-body-classes: adcp-logo-banner
+body-classes: logo-banner adcp-logo
 resources:
   - img/adcp-logo.png
 ---

@@ -3,6 +3,9 @@ title-block-banner: "#0b7a6f"
 title-block-banner-color: "#ffffff"
 title: "AutoDockFR (ADFR)"
 subtitle: "Protein–ligand docking with selective receptor flexibility"
+body-classes: logo-banner adfr-logo
+resources:
+  - img/adfr-logo.png
 ---
 
 ![](img/adfr-home.png){width="75%" fig-align="center" fig-alt="A docked ligand, shown as a mesh surface, surrounded by labeled receptor side chains of CDK2 (ILE10, VAL18, LYS33, PHE80, PHE82, GLN85, ASP86, LYS89, ASN132, LEU134, ASP145)"}
