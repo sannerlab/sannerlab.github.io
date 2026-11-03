@@ -23,7 +23,7 @@ Questions about the license: contact [Dr. Michel Sanner](mailto:sanner@scripps.e
 
 ---
 
-Copyright © 2026 Prof. Michel F. Sanner
+Copyright © 2026 Prof. Michel F. Sanner and Scripps Research
 
 All rights reserved except as expressly granted under this License.
 
