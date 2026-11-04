@@ -15,8 +15,6 @@ A Monte Carlo search folds the peptide while it optimizes the peptide's interact
 receptor, which yields docked peptides. ADCP takes a peptide as a sequence string, or as a 3D
 structure in a PDB file (`-i`), and has docked peptides of up to 20 amino acids successfully.
 
-ADCP is part of the [AutoDock Suite](https://autodock.scripps.edu).
-
 ::: {.gallery layout-ncol="3"}
 
 ![](img/helix.jpg){fig-alt="Two superimposed helical peptide poses in a receptor pocket"}
