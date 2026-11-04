@@ -9,8 +9,8 @@ subtitle: "AutoDock preparation & perception tool"
 ADapt is not released yet. These pages describe a test version.
 :::
 
-ADapt takes a PDB entry to receptor and ligand files ready for docking with the AutoDock suite,
-in a web browser.
+ADapt works in a web browser. It takes a PDB entry to receptor and ligand files ready for docking
+with AutoDock4, AutoDock Vina, AutoDockFR and AutoDock CrankPep.
 
 A PDB file records a crystallographic experiment, not a molecule ready for docking. Preparing a
 receptor from it means making a series of choices: the asymmetric unit or a biological assembly,
