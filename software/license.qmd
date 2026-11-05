@@ -356,7 +356,7 @@ This License is a custom permissive source-available software license.
 It is not the MIT License, the BSD License, or an Open Source Initiative-approved open-source
 license.
 
-The restrictions in Sections 2 and 3 intentionally distinguish this License from licenses satisfying
+The restrictions in Sections 2 and 4 intentionally distinguish this License from licenses satisfying
 the Open Source Definition.
 
 ## 13. Reservation of Rights
