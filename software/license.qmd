@@ -56,10 +56,8 @@ No rights are granted to Excluded Persons or Excluded Organizations.
 For purposes of this License, an "Excluded Person" means any individual who, at the time of the
 activity in question, falls within one or more of the following categories:
 
-For Schrödinger personnel and members of the Forli Lab, this exclusion applies only during the
-individual's current employment, appointment, or formal laboratory affiliation. For external
-collaborators of the Forli Lab, exclusion is limited to the collaborative-project activities
-specified in Section 2.1(b).
+This exclusion applies only during the period of the individual's employment, appointment, or
+formal laboratory affiliation.
 
 #### (a) Schrödinger Personnel
 
@@ -74,66 +72,22 @@ subsidiaries, or controlled affiliates (collectively, "Schrödinger"), including
 
 - Other individuals working under an employment relationship with Schrödinger.
 
+This exclusion applies regardless of whether the individual's proposed use of the Software is
+professional, academic, commercial, or personal.
+
 Former employees of Schrödinger are not excluded solely because of their previous employment.
 
-#### (b) Forli Lab Personnel and External Collaborators
-
-Any individual currently employed by, appointed to, or formally affiliated as research personnel
-with the laboratory headed by Dr. Stefano Forli at Scripps Research, La Jolla, California (the
-"Forli Lab"), including:
-
-- Research scientists and staff scientists;
-
-- Postdoctoral researchers;
-
-- Graduate students and research assistants;
-
-- Laboratory technicians;
-
-- Visiting scientists and visiting researchers;
-
-- Other individuals formally appointed to or working as members of the Forli Lab.
-
-For individuals who are members of the Forli Lab, this exclusion applies regardless of whether the
-proposed use of the Software is professional, academic, commercial, or personal.
-
-Former members of the Forli Lab are not excluded solely because of their previous affiliation.
-
-External collaborators of the Forli Lab: An individual who is not a member of the Forli Lab but
-participates in a research project conducted in collaboration with the Forli Lab is an Excluded
-Person solely for activities involving the Software that are performed as part of, or in direct
-support of, that collaborative project. This includes acquiring, executing, modifying, evaluating,
-benchmarking, or otherwise using the Software to perform work or generate results for that project,
-whether directly or through an intermediary.
-
-Such an external collaborator is not an Excluded Person for other research projects that are
-independent of the Forli Lab collaboration. The collaborator may exercise all rights granted under
-Section 1 for those unrelated projects, including during the same period in which the individual is
-collaborating with the Forli Lab, provided that the Software or results generated using it are not
-used to conduct or support the restricted collaborative project.
-
-The mere existence of a collaboration with the Forli Lab does not exclude an individual from all use
-of the Software. For purposes of this paragraph, a collaborative project is a research project in
-which the Forli Lab directly participates as a research collaborator; general professional contact,
-shared affiliation with Scripps Research, or citation of published work does not by itself establish
-such a project.
-
-Independent contractors, consultants, scientific advisers, and external research collaborators are
-not Excluded Persons solely because of those relationships. External research collaborators are
-subject only to the project-specific exclusion described above, unless they also qualify as Forli
-Lab personnel under this Section. Activities undertaken on behalf of an Excluded Organization remain
-subject to Sections 2.2 and 4.
+Independent contractors, consultants, and scientific advisers are not Excluded Persons solely
+because of those relationships unless they are also employees as defined above. Activities
+undertaken on behalf of an Excluded Organization remain subject to Sections 2.2 and 4.
 
 ### 2.2. Excluded Organizations
 
 The following are designated "Excluded Organizations":
 
-\(a\) The Forli Lab at Scripps Research, solely in its capacity as the identified research
-laboratory.
+\(a\) Schrödinger, Inc., including its parent companies, subsidiaries, and controlled affiliates.
 
-\(b\) Schrödinger, Inc., including its parent companies, subsidiaries, and controlled affiliates.
-
-\(c\) Any legal entity acting as an agent of, or under the direction of, an Excluded Organization
+\(b\) Any legal entity acting as an agent of, or under the direction of, an Excluded Organization
 for the purpose of acquiring, operating, evaluating, or otherwise using the Software on behalf of
 that Excluded Organization.
 
@@ -142,10 +96,8 @@ employees, and students, are not excluded solely by virtue of their Scripps affi
 
 ### 2.3. Duration of Individual Exclusion
 
-An individual's status as an Excluded Person shall be determined at the time of the relevant
-activity involving the Software. An external collaborator of the Forli Lab is an Excluded Person
-only with respect to activities falling within the collaborative-project restriction in Section
-2.1(b).
+An individual's status as an Excluded Person shall be determined at the time the individual
+undertakes the relevant activity involving the Software.
 
 An individual who ceases to meet the definition of an Excluded Person may thereafter exercise the
 rights granted under this License, provided that the individual otherwise complies with its terms.
@@ -161,8 +113,6 @@ personnel.
 Notwithstanding any other provision of this License, no license, permission, or authorization is
 granted to an Excluded Person or Excluded Organization to exercise copyright-controlled rights in
 the Software for activities from which that person or organization is excluded under Section 2.
-External collaborators retain the rights granted in Section 1 for independent projects outside the
-restriction in Section 2.1(b).
 
 This exclusion applies to activities undertaken directly or indirectly, whether for commercial,
 academic, scientific, educational, nonprofit, internal evaluation, personal, or other purposes.
@@ -204,9 +154,7 @@ following reference(s) for the program used:
 
 To the maximum extent permitted by applicable law, and insofar as the copyright holder possesses the
 legal right to restrict the activity, Excluded Persons and Excluded Organizations are not authorized
-to engage in the following activities to the extent prohibited by Section 2. In particular, the
-restrictions apply to an external Forli Lab collaborator only in connection with collaborative
-projects described in Section 2.1(b), and not to that collaborator's unrelated independent projects.
+to engage in the following activities to the extent prohibited by Section 2.
 
 ### 4.1. Downloading and Acquisition
 
@@ -301,11 +249,8 @@ intermediary.
 \(d\) Arranging for another party to acquire, modify, or distribute the Software on behalf of an
 Excluded Person or Excluded Organization.
 
-This provision does not prohibit independent research by otherwise authorized users, including
-external Forli Lab collaborators working on unrelated projects, merely because its published
-findings may subsequently be read or cited by an Excluded Person. It does prohibit arranging for
-Software use or Software-generated results to be supplied for a restricted Forli Lab collaborative
-project through an intermediary.
+This provision does not prohibit independent research by otherwise authorized users merely because
+its published findings may subsequently be read or cited by an Excluded Person.
 
 ### 4.7. Restrictions on Licensees
 
@@ -361,9 +306,7 @@ The rights granted to a licensee under this License automatically terminate upon
 violation of its terms.
 
 A person who becomes an Excluded Person during the term of this License shall have no authorization
-to undertake activities restricted by Sections 2 and 4 while that excluded status continues. An
-external collaborator of the Forli Lab remains authorized to undertake unrelated independent
-projects as provided in Section 2.1(b).
+to undertake activities restricted by Sections 2 and 4 while that excluded status continues.
 
 An individual who ceases to be an Excluded Person may subsequently exercise the rights granted under
 this License, subject to compliance with its terms.
