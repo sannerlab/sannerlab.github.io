@@ -91,9 +91,6 @@ The following are designated "Excluded Organizations":
 for the purpose of acquiring, operating, evaluating, or otherwise using the Software on behalf of
 that Excluded Organization.
 
-For clarity, Scripps Research as an institution, and its other laboratories, departments, faculty,
-employees, and students, are not excluded solely by virtue of their Scripps affiliation.
-
 ### 2.3. Duration of Individual Exclusion
 
 An individual's status as an Excluded Person shall be determined at the time the individual
