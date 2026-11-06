@@ -161,11 +161,14 @@ div.sourceCode { border-left: 4px solid rgba($primary, 0.55); }
 .news-desc { display: block; font-size: .9rem; line-height: 1.4; color: #4a5560; }
 @media (max-width: 700px) { .news-latest li { grid-template-columns: 1fr; } .news-date { padding-top: 0; } }
 
-/* "Follow on Bluesky" box (_includes/follow-bluesky.md): News page and the end of each news post */
-.follow-bluesky { margin: 1.5rem 0 1rem; padding: .6rem .9rem; border-left: 4px solid #1185fe;
+/* "Follow on Bluesky or LinkedIn" box (_includes/follow-us.md): News page and the end of each
+   news post; icons in each platform's own blue */
+.follow-us { margin: 1.5rem 0 1rem; padding: .6rem .9rem; border-left: 4px solid #1185fe;
   background: rgba(17,133,254,.07); border-radius: 0 6px 6px 0; font-size: .95rem; }
-.follow-bluesky p { margin: 0; }
-.follow-bluesky .bi { color: #1185fe; margin-right: .25rem; }
+.follow-us p { margin: 0; }
+.follow-us .bi { margin-right: .3rem; }
+.follow-us .bi-bluesky { color: #1185fe; }
+.follow-us .bi-linkedin { color: #0a66c2; }
 /* News page: RSS icon before the feed link, in the usual feed orange */
 .rss-icon { color: #f26522; margin-right: .2rem; }
 

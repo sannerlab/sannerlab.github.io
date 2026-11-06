@@ -15,4 +15,4 @@ together:
 - the lab's [publications](../../publications.qmd).
 - [who we are](../../lab.qmd): current members, alumni and funding.
 
-{{< include /_includes/follow-bluesky.md >}}
+{{< include /_includes/follow-us.md >}}

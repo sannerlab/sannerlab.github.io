@@ -66,6 +66,9 @@ website:
     - icon: bluesky
       href: https://bsky.app/profile/did:plc:xnwalwj7goqgasajc3shg2cg
       aria-label: Sanner Lab on Bluesky
+    - icon: linkedin
+      href: https://www.linkedin.com/company/144103051
+      aria-label: Sanner Lab on LinkedIn
   sidebar:
   - id: adcp
     title: AutoDock CrankPep
@@ -274,6 +277,9 @@ website:
     - icon: bluesky
       href: https://bsky.app/profile/did:plc:xnwalwj7goqgasajc3shg2cg
       aria-label: Sanner Lab on Bluesky
+    - icon: linkedin
+      href: https://www.linkedin.com/company/144103051
+      aria-label: Sanner Lab on LinkedIn
 format:
   html:
     # light only: white background, black text

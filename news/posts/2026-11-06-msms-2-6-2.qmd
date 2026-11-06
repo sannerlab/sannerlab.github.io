@@ -25,4 +25,4 @@ The macOS and Windows downloads are still version 2.6.1.
 [Download MSMS 2.6.2](../../software/msms/download.qmd) ·
 [Release notes](../../software/msms/release-notes.qmd)
 
-{{< include /_includes/follow-bluesky.md >}}
+{{< include /_includes/follow-us.md >}}

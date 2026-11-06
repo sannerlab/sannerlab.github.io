@@ -32,8 +32,8 @@ Push to `main`. The `on-push` workflow:
      LinkedIn;
    - `image`: for a software release, the tool's icon (`../../images/tools/<tool>.jpg`).
 3. Write the body: what changed, plus links to the download and release-notes pages. Keep the
-   last line, `{{< include /_includes/follow-bluesky.md >}}`: it adds the "Follow the Sanner Lab
-   on Bluesky" box.
+   last line, `{{< include /_includes/follow-us.md >}}`: it adds the "Follow the Sanner Lab
+   on Bluesky or LinkedIn" box.
 4. Push. The home page shows the 3 newest posts, `news/index.qmd` lists all of them, and the
    RSS feed (`news/index.xml`) updates.
 5. Once the site is deployed, paste the post's URL into a Bluesky post and a LinkedIn post. Both

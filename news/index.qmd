@@ -15,7 +15,7 @@ listing:
     title: "Sanner Lab news"
 ---
 
-{{< include /_includes/follow-bluesky.md >}}
+{{< include /_includes/follow-us.md >}}
 
 <i class="bi bi-rss-fill rss-icon" aria-hidden="true"></i> [RSS feed](index.xml): copy this link into
 your feed reader.
