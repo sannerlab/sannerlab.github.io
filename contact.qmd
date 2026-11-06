@@ -12,7 +12,8 @@ Department of Integrative Structural and Computational Biology<br>
 Scripps Research<br>
 La Jolla, CA, USA
 
-Email: [sanner@scripps.edu](mailto:sanner@scripps.edu)
+Email: [sanner@scripps.edu](mailto:sanner@scripps.edu)<br>
+Bluesky: [Sanner Lab](https://bsky.app/profile/did:plc:xnwalwj7goqgasajc3shg2cg)
 
 For a commercial license for MSMS, contact Dr. Sanner by email.
 

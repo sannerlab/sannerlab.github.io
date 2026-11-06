@@ -15,4 +15,6 @@ listing:
     title: "Sanner Lab news"
 ---
 
+{{< include /_includes/follow-bluesky.md >}}
+
 To follow the news in a feed reader, subscribe to the [RSS feed](index.xml).

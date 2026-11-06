@@ -14,3 +14,5 @@ together:
   [sannerlab/downloads](https://github.com/sannerlab/downloads/releases) on GitHub.
 - the lab's [publications](../../publications.qmd).
 - [who we are](../../lab.qmd): current members, alumni and funding.
+
+{{< include /_includes/follow-bluesky.md >}}
