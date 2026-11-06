@@ -166,6 +166,8 @@ div.sourceCode { border-left: 4px solid rgba($primary, 0.55); }
   background: rgba(17,133,254,.07); border-radius: 0 6px 6px 0; font-size: .95rem; }
 .follow-bluesky p { margin: 0; }
 .follow-bluesky .bi { color: #1185fe; margin-right: .25rem; }
+/* News page: RSS icon before the feed link, in the usual feed orange */
+.rss-icon { color: #f26522; margin-right: .2rem; }
 
 /* lab page funding table: keep award numbers, institute and years on one line */
 #funding td:nth-child(-n+3) { white-space: nowrap; }

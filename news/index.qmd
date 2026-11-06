@@ -17,7 +17,5 @@ listing:
 
 {{< include /_includes/follow-bluesky.md >}}
 
-To get new posts in a feed reader, such as Feedly, Inoreader, NetNewsWire or Thunderbird, add
-`https://sannerlab.github.io/news/` to the reader; it finds the RSS feed on its own. If the reader
-asks for the feed itself, use `https://sannerlab.github.io/news/index.xml`. Browsers show the feed
-as raw XML: it is meant for feed readers.
+<i class="bi bi-rss-fill rss-icon" aria-hidden="true"></i> [RSS feed](index.xml): copy this link into
+your feed reader.
