@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../software/msms/gallery.html" rel="next">
-<link href="../../software/msms/download.html" rel="prev">
+<link href="../../software/msms/release-notes.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-2fc211eb9354378d0fa53eac58225ad4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-c9665dce2cc72e5e423f74c74f3b3799.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -243,6 +243,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../software/msms/release-notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Release notes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../software/msms/documentation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Documentation</span></a>
   </div>
@@ -329,7 +335,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <dl>
 <dt><code>-if filename</code></dt>
 <dd>
-The file from which the sphere set <em>S</em> is read. Each line holds the center (<em>x, y, z</em>) and the radius <em>r</em> of one sphere, in free format. Lines starting with <code>#</code> are comments and are skipped. This is the only required option in standalone mode.
+The file from which the sphere set <em>S</em> is read. Each line holds the center (<em>x, y, z</em>) and the radius <em>r</em> of one sphere, in free format. Lines starting with <code>#</code> are comments and are skipped. This is the only required option in standalone mode. Since version 2.6.2, spheres with identical centers are merged: MSMS keeps the largest one and prints a warning for each sphere it merges. Output files still use the numbering of the input file.
 </dd>
 <dt><code>-of filename</code></dt>
 <dd>
@@ -381,7 +387,7 @@ Search for free vertices of the reduced surface (not done by default).
 </dd>
 <dt><code>-all_components</code></dt>
 <dd>
-Compute all components of the molecular surfaces (reduced and solvent excluded). By default only the external component is computed. With <code>-of filename</code>, a <code>.vert</code> and a <code>.face</code> file are written for each component.
+Compute all components of the molecular surfaces (reduced and solvent excluded). By default only the external component is computed. With <code>-of filename</code>, a <code>.vert</code> and a <code>.face</code> file are written for each component. Since version 2.6.2, part of this computation runs in parallel; the <code>OMP_NUM_THREADS</code> environment variable sets the number of threads (by default, all cores). The output is the same for any number of threads.
 </dd>
 <dt><code>-one_cavity #atoms at1 [at2] [at3]</code></dt>
 <dd>
@@ -852,8 +858,8 @@ Puts MSMS in server mode when it is started by the internet daemon, so that MSMS
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../software/msms/download.html" class="pagination-link" aria-label="Download">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Download</span>
+      <a href="../../software/msms/release-notes.html" class="pagination-link" aria-label="Release notes">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Release notes</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

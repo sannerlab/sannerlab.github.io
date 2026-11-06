@@ -36,7 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../software/msms/documentation.html" rel="next">
+<link href="../../software/msms/release-notes.html" rel="next">
 <link href="../../software/msms/index.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -47,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-2fc211eb9354378d0fa53eac58225ad4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-c9665dce2cc72e5e423f74c74f3b3799.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -208,6 +208,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../software/msms/release-notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Release notes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../software/msms/documentation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Documentation</span></a>
   </div>
@@ -254,11 +260,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The current release is <strong>MSMS 2.6.1</strong>. MSMS is free for non-commercial use; commercial use needs a license (see <a href="../../software/msms/license.html">License</a>).</p>
+<p>The current release is <strong>MSMS 2.6.2</strong> (November 2026). It fixes crashes on large or unusual inputs, merges duplicate atoms instead of stopping, and runs <code>-all_components</code> in parallel. For inputs that 2.6.1 handled, the output is unchanged. See the <a href="../../software/msms/release-notes.html">release notes</a>.</p>
+<p>MSMS is free for non-commercial use; commercial use needs a license (see <a href="../../software/msms/license.html">License</a>).</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Platform</th>
+<th>Version</th>
 <th>File</th>
 <th>Unpack with</th>
 </tr>
@@ -266,32 +274,51 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>Linux 64-bit</td>
-<td><a href="https://github.com/sannerlab/downloads/releases/download/msms-2.6.1/msms_i86_64Linux2_2.6.1.tar.gz">Linux 64-bit tar file</a></td>
-<td><code>tar zxvf msms_i86_64Linux2_2.6.1.tar.gz</code></td>
+<td>2.6.2</td>
+<td><a href="https://github.com/sannerlab/downloads/releases/download/msms-2.6.2/msms_i86_64Linux2_2.6.2.tar.gz">Linux 64-bit tar file</a></td>
+<td><code>tar zxvf msms_i86_64Linux2_2.6.2.tar.gz</code></td>
 </tr>
 <tr class="even">
 <td>macOS before 10.14 (pre-Mojave)</td>
+<td>2.6.1</td>
 <td><a href="https://github.com/sannerlab/downloads/releases/download/msms-2.6.1/msms_MacOSX_2.6.1.tar.gz">macOS tar file</a></td>
 <td><code>tar zxvf msms_MacOSX_2.6.1.tar.gz</code></td>
 </tr>
 <tr class="odd">
-<td>macOS 10.14 (Mojave) and later</td>
+<td>macOS 10.14 (Mojave) and later, Intel</td>
+<td>2.6.1</td>
 <td><a href="https://github.com/sannerlab/downloads/releases/download/msms-2.6.1/msms_x86_64Darwin_2.6.1.tar.gz">macOS tar file</a></td>
 <td><code>tar zxvf msms_x86_64Darwin_2.6.1.tar.gz</code></td>
 </tr>
 <tr class="even">
-<td>Arm64</td>
+<td>macOS, Apple silicon (Arm64)</td>
+<td>2.6.1</td>
 <td><a href="https://github.com/sannerlab/downloads/releases/download/msms-2.6.1/msms_Arm64_2.6.1.tgz">Arm64 tar file</a></td>
 <td><code>tar zxvf msms_Arm64_2.6.1.tgz</code></td>
 </tr>
 <tr class="odd">
 <td>Windows</td>
+<td>2.6.1</td>
 <td><a href="https://github.com/sannerlab/downloads/releases/download/msms-2.6.1/msms_win32_2.6.1.zip">Windows zip file</a></td>
 <td>extract the files from <code>msms_win32_2.6.1.zip</code></td>
 </tr>
 </tbody>
 </table>
-<p>The files are on GitHub, in the <a href="https://github.com/sannerlab/downloads/releases/tag/msms-2.6.1">msms-2.6.1 release</a>. See the <a href="../../software/msms/documentation.html">Documentation</a> for how to run <code>msms</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Version 2.6.2 is available for Linux only so far. The macOS and Windows downloads are still version 2.6.1, without the 2.6.2 fixes.</p>
+</div>
+</div>
+<p>The Linux tar file contains two binaries. <code>msms.x86_64Linux2.2.6.2.staticgcc</code> runs on any 64-bit x86 Linux; <code>msms.x86_64Linux2.2.6.2</code> needs glibc 2.34 or later, libtirpc and libgomp.</p>
+<p>The files are on GitHub, in the <a href="https://github.com/sannerlab/downloads/releases/tag/msms-2.6.2">msms-2.6.2</a> and <a href="https://github.com/sannerlab/downloads/releases/tag/msms-2.6.1">msms-2.6.1</a> releases. The 2.6.1 release also has the previous Linux version. See the <a href="../../software/msms/documentation.html">Documentation</a> for how to run <code>msms</code>.</p>
 
 
 
@@ -708,8 +735,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../software/msms/documentation.html" class="pagination-link" aria-label="Documentation">
-        <span class="nav-page-text">Documentation</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../software/msms/release-notes.html" class="pagination-link" aria-label="Release notes">
+        <span class="nav-page-text">Release notes</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
