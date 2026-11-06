@@ -1,0 +1,96 @@
+---
+title: "MSMS release notes"
+---
+
+## Version 2.6.2 (November 2026)
+
+A robustness release: it fixes crashes on large or unusual inputs, merges duplicate atoms instead
+of stopping, and runs `-all_components` in parallel. It is available for
+[Linux 64-bit](download.qmd) for now.
+
+**Output is unchanged.** For inputs that 2.6.1 handled, the `.vert`, `.face` and `.area` files
+are byte-for-byte identical to those of the 2.6.1 source built with the same compiler. This was
+checked on 117 cases of the regression suite, at densities 1 and 3, with and without
+`-all_components`. The 2007 2.6.1 binaries were built with a much older compiler. Compared with
+them, a few coordinates can differ in the last printed digit and a few triangles can be stitched
+differently.
+
+### Crashes fixed
+
+These inputs used to crash, hang or write corrupt files:
+
+- **Very large surfaces.** A component with more than 2 million triangles or vertices overflowed
+  the output buffers, which corrupted the files or crashed MSMS.
+- **Large molecules.** At around 100,000 atoms the recursive surface construction overflowed the
+  default 8 MB stack. MSMS now runs the computation on a thread with a large stack. The traversal
+  order, and so the output, is unchanged.
+- **Very large and very small spheres.** Radii above about 37 Å (at the default `hdensity` of 3)
+  and around 0.4 Å overflowed the triangulation templates.
+- **Faces with many points.** Faces with more than 10,000 points overflowed the stitching arrays,
+  which are now sized for each face.
+- **Many components.** `-all_components` crashed beyond 253 surface components. The limit is now
+  65,535.
+- **Recovery from numerical problems.** Some paths taken after a degenerate configuration crashed
+  or hung instead of restarting with enlarged atoms:
+  - "third atom not found" recursed until the stack overflowed;
+  - the last retry built the surface on an incomplete reduced surface;
+  - the spatial tree was freed twice;
+  - merged components were used after being freed;
+  - more than 4 singular edges overflowed an array.
+- **Exact tangency.** Rounding produced square roots of slightly negative numbers (NaN). These
+  are now clamped to 0.
+- **Spatial search tree.** It read past the end of an array for some atom distributions.
+- **Input.** A field longer than 19 characters in the sphere file, such as a long atom name,
+  overflowed a buffer. File names longer than the internal buffers are now rejected with an
+  error.
+
+### Duplicate atoms
+
+Two atoms with exactly the same centre used to stop the run with "identical centers". MSMS now:
+
+- keeps one atom per centre: the one with the largest radius, or the first in the file if the
+  radii are equal;
+- prints a warning for each atom it merges;
+- reports atoms closer than 0.001 Å.
+
+Numbering still follows the input file. This applies to the sphere numbers in `.vert` files, the
+`.area` rows (a merged atom gets a row with zero area) and the `-one_cavity` atom indices.
+
+### Faster `-all_components`
+
+With `-all_components`, the search for a starting face on buried atoms now runs in parallel
+(OpenMP). The output is the same for any number of threads. `OMP_NUM_THREADS` sets the number of
+threads; by default MSMS uses all cores.
+
+| Input | 2.6.1 | 2.6.2, 8 threads |
+|---|---|---|
+| 1gd1 | 0.89 s | 0.47 s |
+| pbmol | 2.03 s | 1.03 s |
+
+### Linux binaries
+
+The Linux tar file contains two binaries:
+
+- `msms.x86_64Linux2.2.6.2.staticgcc` is statically linked and runs on any 64-bit x86 Linux;
+- `msms.x86_64Linux2.2.6.2` needs glibc 2.34 or later, libtirpc and libgomp.
+
+## Version 2.6.1
+
+- `find_free_edges` now continues when an atom is completely inside another atom.
+
+## Version 2.6.0
+
+- **Dual density.** A surface can now be computed with 2 vertex densities. The new `-hdensity`
+  option gives the density for the high-density region. A flag on each atom marks the
+  high-density region. This flag comes before the name field in the input file, so `.xyzrn`
+  files are not compatible with earlier versions.
+- Edges in cycles made of only 2 edges are now always subdivided.
+- If numerical instability stops the reduced surface from building, MSMS can now restart the
+  calculation.
+
+## Version 2.5.7
+
+- **Vertex type field fixed.** It is now:
+  - 3 for vertices inside reentrant faces;
+  - 2 for vertices in toroidal faces and on SES edges and vertices;
+  - 1 for vertices inside contact faces.

@@ -191,6 +191,8 @@ website:
       href: software/msms/index.qmd
     - text: Download
       href: software/msms/download.qmd
+    - text: Release notes
+      href: software/msms/release-notes.qmd
     - text: Documentation
       href: software/msms/documentation.qmd
     - text: Gallery

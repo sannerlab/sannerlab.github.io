@@ -2,17 +2,30 @@
 title: "Download MSMS"
 ---
 
-The current release is **MSMS 2.6.1**. MSMS is free for non-commercial use;
-commercial use needs a license (see [License](license.qmd)).
+The current release is **MSMS 2.6.2** (November 2026). It fixes crashes on large or unusual
+inputs, merges duplicate atoms instead of stopping, and runs `-all_components` in parallel. For
+inputs that 2.6.1 handled, the output is unchanged. See the [release notes](release-notes.qmd).
 
-| Platform | File | Unpack with |
-|---|---|---|
-| Linux 64-bit | [Linux 64-bit tar file](https://github.com/sannerlab/downloads/releases/download/msms-2.6.1/msms_i86_64Linux2_2.6.1.tar.gz) | `tar zxvf msms_i86_64Linux2_2.6.1.tar.gz` |
-| macOS before 10.14 (pre-Mojave) | [macOS tar file](https://github.com/sannerlab/downloads/releases/download/msms-2.6.1/msms_MacOSX_2.6.1.tar.gz) | `tar zxvf msms_MacOSX_2.6.1.tar.gz` |
-| macOS 10.14 (Mojave) and later | [macOS tar file](https://github.com/sannerlab/downloads/releases/download/msms-2.6.1/msms_x86_64Darwin_2.6.1.tar.gz) | `tar zxvf msms_x86_64Darwin_2.6.1.tar.gz` |
-| Arm64 | [Arm64 tar file](https://github.com/sannerlab/downloads/releases/download/msms-2.6.1/msms_Arm64_2.6.1.tgz) | `tar zxvf msms_Arm64_2.6.1.tgz` |
-| Windows | [Windows zip file](https://github.com/sannerlab/downloads/releases/download/msms-2.6.1/msms_win32_2.6.1.zip) | extract the files from `msms_win32_2.6.1.zip` |
+MSMS is free for non-commercial use; commercial use needs a license (see [License](license.qmd)).
+
+| Platform | Version | File | Unpack with |
+|---|---|---|---|
+| Linux 64-bit | 2.6.2 | [Linux 64-bit tar file](https://github.com/sannerlab/downloads/releases/download/msms-2.6.2/msms_i86_64Linux2_2.6.2.tar.gz) | `tar zxvf msms_i86_64Linux2_2.6.2.tar.gz` |
+| macOS before 10.14 (pre-Mojave) | 2.6.1 | [macOS tar file](https://github.com/sannerlab/downloads/releases/download/msms-2.6.1/msms_MacOSX_2.6.1.tar.gz) | `tar zxvf msms_MacOSX_2.6.1.tar.gz` |
+| macOS 10.14 (Mojave) and later, Intel | 2.6.1 | [macOS tar file](https://github.com/sannerlab/downloads/releases/download/msms-2.6.1/msms_x86_64Darwin_2.6.1.tar.gz) | `tar zxvf msms_x86_64Darwin_2.6.1.tar.gz` |
+| macOS, Apple silicon (Arm64) | 2.6.1 | [Arm64 tar file](https://github.com/sannerlab/downloads/releases/download/msms-2.6.1/msms_Arm64_2.6.1.tgz) | `tar zxvf msms_Arm64_2.6.1.tgz` |
+| Windows | 2.6.1 | [Windows zip file](https://github.com/sannerlab/downloads/releases/download/msms-2.6.1/msms_win32_2.6.1.zip) | extract the files from `msms_win32_2.6.1.zip` |
+
+::: {.callout-note}
+Version 2.6.2 is available for Linux only so far. The macOS and Windows downloads are still
+version 2.6.1, without the 2.6.2 fixes.
+:::
+
+The Linux tar file contains two binaries. `msms.x86_64Linux2.2.6.2.staticgcc` runs on any 64-bit
+x86 Linux; `msms.x86_64Linux2.2.6.2` needs glibc 2.34 or later, libtirpc and libgomp.
 
 The files are on GitHub, in the
-[msms-2.6.1 release](https://github.com/sannerlab/downloads/releases/tag/msms-2.6.1). See the [Documentation](documentation.qmd) for how to
-run `msms`.
+[msms-2.6.2](https://github.com/sannerlab/downloads/releases/tag/msms-2.6.2) and
+[msms-2.6.1](https://github.com/sannerlab/downloads/releases/tag/msms-2.6.1) releases. The 2.6.1
+release also has the previous Linux version. See the [Documentation](documentation.qmd) for how
+to run `msms`.

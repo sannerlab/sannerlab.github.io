@@ -32,7 +32,9 @@ options, the first match is used.
 `-if filename`
 : The file from which the sphere set *S* is read. Each line holds the center (*x, y, z*) and the
   radius *r* of one sphere, in free format. Lines starting with `#` are comments and are skipped.
-  This is the only required option in standalone mode.
+  This is the only required option in standalone mode. Since version 2.6.2, spheres with
+  identical centers are merged: MSMS keeps the largest one and prints a warning for each
+  sphere it merges. Output files still use the numbering of the input file.
 
 `-of filename`
 
@@ -96,7 +98,9 @@ options, the first match is used.
 `-all_components`
 : Compute all components of the molecular surfaces (reduced and solvent excluded). By default only
   the external component is computed. With `-of filename`, a `.vert` and a `.face` file are
-  written for each component.
+  written for each component. Since version 2.6.2, part of this computation runs in parallel;
+  the `OMP_NUM_THREADS` environment variable sets the number of threads (by default, all
+  cores). The output is the same for any number of threads.
 
 `-one_cavity #atoms at1 [at2] [at3]`
 : Compute one specific component of the molecular surfaces by giving 1, 2 or 3 atoms the probe
