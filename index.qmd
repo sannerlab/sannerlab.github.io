@@ -11,6 +11,9 @@ open-graph:
   description: "Computational methods and software for predicting, analyzing, visualizing and optimizing molecular interactions, at Scripps Research in La Jolla."
 twitter-card:
   description: "Computational methods and software for predicting, analyzing, visualizing and optimizing molecular interactions, at Scripps Research in La Jolla."
+# lets feed readers find the news feed from the home page address (news/index.qmd has its own)
+include-in-header:
+  text: '<link rel="alternate" type="application/rss+xml" title="Sanner Lab news" href="news/index.xml">'
 # the 3 latest news posts, shown in the "Latest news" strip (template in _includes/news-latest.ejs)
 listing:
   id: news-listing

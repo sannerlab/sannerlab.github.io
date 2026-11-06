@@ -1,2 +1,4 @@
 # news posts: one page each, listed on news/index.qmd and on the home page (newest 3)
 toc: false
+# no "Back to top" link: the posts are short, and the link would end up in the RSS feed items
+back-to-top-navigation: false
