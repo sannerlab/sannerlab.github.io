@@ -144,6 +144,23 @@ div.sourceCode { border-left: 4px solid rgba($primary, 0.55); }
 .tool-tiles img { display: block; width: 100%; height: auto; aspect-ratio: 1; border-radius: 0; }
 @media (max-width: 700px) { .tool-tiles a { flex-basis: calc(50% - .5rem); } }
 
+/* home page: "Latest news" strip above the Software card, styled like the cards
+   (listing template _includes/news-latest.ejs) */
+.news-strip { border: 1px solid rgba(128,128,128,.35); border-top: 5px solid var(--lab-navy);
+  border-radius: 8px; padding: 1rem 1.1rem .5rem; margin-top: 1rem; }
+.news-strip h3 { margin-top: 0; font-size: 1.15rem; }
+.news-strip h3 a { color: var(--lab-navy); text-decoration: none; }
+.news-strip > p:last-child { text-align: right; font-size: .85rem; margin: .1rem 0 0; }
+.news-latest { list-style: none; padding: 0; margin: .3rem 0 0; }
+.news-latest li { display: grid; grid-template-columns: 7rem 1fr; column-gap: 1rem; padding: .5rem 0;
+  border-top: 1px solid rgba(128,128,128,.2); }
+.news-latest li:first-child { border-top: 0; }
+.news-date { font-size: .8rem; color: #5b6670; padding-top: .2rem; white-space: nowrap; }
+.news-title { font-weight: 600; text-decoration: none; }
+.news-title:hover { text-decoration: underline; }
+.news-desc { display: block; font-size: .9rem; line-height: 1.4; color: #4a5560; }
+@media (max-width: 700px) { .news-latest li { grid-template-columns: 1fr; } .news-date { padding-top: 0; } }
+
 /* lab page funding table: keep award numbers, institute and years on one line */
 #funding td:nth-child(-n+3) { white-space: nowrap; }
 

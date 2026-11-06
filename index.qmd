@@ -5,6 +5,23 @@ body-classes: picture-banner
 title: "Sanner Lab"
 subtitle: "Scripps Research, La Jolla"
 toc: false
+# link previews (Bluesky, LinkedIn): without these, the first software tile and the subtitle are used
+image: images/social-card.jpg
+open-graph:
+  description: "Computational methods and software for predicting, analyzing, visualizing and optimizing molecular interactions, at Scripps Research in La Jolla."
+twitter-card:
+  description: "Computational methods and software for predicting, analyzing, visualizing and optimizing molecular interactions, at Scripps Research in La Jolla."
+# the 3 latest news posts, shown in the "Latest news" strip (template in _includes/news-latest.ejs)
+listing:
+  id: news-listing
+  contents: news/posts
+  sort: "date desc"
+  max-items: 3
+  type: custom
+  template: _includes/news-latest.ejs
+  date-format: "MMM D, YYYY"
+  sort-ui: false
+  filter-ui: false
 ---
 
 The main focus of the [Sanner Lab at Scripps Research in La Jolla](lab.qmd) is the development of
@@ -14,6 +31,15 @@ including MSMS for calculating molecular surfaces, AutoDock4 and AutoDockFR for 
 molecules into proteins, F2Dock for docking proteins and, most recently, AutoDock CrankPep, along
 with a variety of graphical user interfaces such as PMV, Vision, AutoDockTools, AutoGridFR,
 ADapt and WEWoS.
+
+::: {.news-strip}
+### [Latest news](news/index.qmd)
+
+::: {#news-listing}
+:::
+
+[All news →](news/index.qmd)
+:::
 
 ::: {.tool-grid}
 

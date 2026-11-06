@@ -1,0 +1,18 @@
+---
+title: "News"
+description: "Software releases and other news from the Sanner Lab at Scripps Research."
+toc: false
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  date-format: "MMM D, YYYY"
+  fields: [image, date, title, description]
+  image-align: left
+  sort-ui: false
+  filter-ui: false
+  feed:
+    title: "Sanner Lab news"
+---
+
+To follow the news in a feed reader, subscribe to the [RSS feed](index.xml).

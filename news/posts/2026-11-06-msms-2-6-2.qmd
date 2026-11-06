@@ -1,0 +1,26 @@
+---
+title: "MSMS 2.6.2 released"
+date: 2026-11-06
+description: "A robustness release: MSMS no longer crashes on very large or unusual inputs, merges duplicate atoms instead of stopping, and computes all surface components in parallel."
+image: ../../images/tools/msms.jpg
+---
+
+MSMS 2.6.2 is out for [Linux 64-bit](../../software/msms/download.qmd). It makes MSMS more robust:
+
+- **Fewer crashes.** Inputs that used to crash MSMS, hang it or make it write corrupt files now
+  work. These include surfaces with more than 2 million triangles, molecules of around 100,000
+  atoms and more, very large and very small spheres, and more than 253 surface components with
+  `-all_components` (the limit is now 65,535). Several recovery paths after numerical problems
+  are also fixed.
+- **Duplicate atoms.** Two atoms with the same centre no longer stop the run. MSMS keeps one of
+  them, prints a warning and keeps the numbering of the input file.
+- **Faster `-all_components`.** The search for buried components now runs in parallel. With 8
+  threads it is about twice as fast.
+
+**The output is unchanged.** For inputs that 2.6.1 handled, the `.vert`, `.face` and `.area` files
+are byte-for-byte identical to those of the 2.6.1 source built with the same compiler.
+
+The macOS and Windows downloads are still version 2.6.1.
+
+[Download MSMS 2.6.2](../../software/msms/download.qmd) ·
+[Release notes](../../software/msms/release-notes.qmd)

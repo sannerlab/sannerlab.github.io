@@ -6,10 +6,16 @@ project:
   - /adapt/**
   - /wewos/**
   - .nojekyll
+  # Bluesky handle @sannerlab.github.io: Bluesky checks this file for the account's DID
+  - .well-known/atproto-did
 website:
   title: Sanner Lab
   site-url: https://sannerlab.github.io
   description: Computational methods and software for molecular docking at Scripps Research.
+  # link previews on Bluesky, LinkedIn, etc.; pages with an `image:` (news posts) use their own
+  image: images/social-card.jpg
+  open-graph: true
+  twitter-card: true
   page-navigation: true
   back-to-top-navigation: true
   search: true
@@ -48,12 +54,18 @@ website:
         href: software/license.qmd
     - text: Publications
       href: publications.qmd
+    - text: News
+      href: news/index.qmd
     - text: Contact
       href: contact.qmd
     right:
     - icon: github
       href: https://github.com/sannerlab
       aria-label: Sanner Lab on GitHub
+    # profile linked by its DID, so the link survives handle changes
+    - icon: bluesky
+      href: https://bsky.app/profile/did:plc:xnwalwj7goqgasajc3shg2cg
+      aria-label: Sanner Lab on Bluesky
   sidebar:
   - id: adcp
     title: AutoDock CrankPep
@@ -259,6 +271,9 @@ website:
     right:
     - icon: github
       href: https://github.com/sannerlab
+    - icon: bluesky
+      href: https://bsky.app/profile/did:plc:xnwalwj7goqgasajc3shg2cg
+      aria-label: Sanner Lab on Bluesky
 format:
   html:
     # light only: white background, black text

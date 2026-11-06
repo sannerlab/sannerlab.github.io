@@ -1,0 +1,16 @@
+---
+title: "New lab website"
+date: 2026-10-14
+description: "The Sanner Lab has a new website, with downloads, documentation and tutorials for each of our software tools."
+image: ../../images/social-card.jpg
+---
+
+The lab's new website is at [sannerlab.github.io](https://sannerlab.github.io). It brings
+together:
+
+- [a page for each of our software tools](../../software/index.qmd), with downloads,
+  documentation, tutorials and a gallery. These pages used to be on ccsb.scripps.edu.
+- the downloads themselves (installers, tutorial data and PDFs). They are now in the releases of
+  [sannerlab/downloads](https://github.com/sannerlab/downloads/releases) on GitHub.
+- the lab's [publications](../../publications.qmd).
+- [who we are](../../lab.qmd): current members, alumni and funding.
