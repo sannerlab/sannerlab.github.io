@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Sanner Lab news</title>
+<link>https://sannerlab.github.io/news/</link>
+<atom:link href="https://sannerlab.github.io/news/index.xml" rel="self" type="application/rss+xml"/>
+<description>Software releases and other news from the Sanner Lab at Scripps Research.</description>
+<image>
+<url>https://sannerlab.github.io/images/social-card.jpg</url>
+<title>Sanner Lab news</title>
+<link>https://sannerlab.github.io/news/</link>
+</image>
+<generator>quarto-1.10.18</generator>
+<lastBuildDate>Fri, 06 Nov 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>MSMS 2.6.2 released</title>
+  <link>https://sannerlab.github.io/news/posts/2026-11-06-msms-2-6-2.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>MSMS 2.6.2 is out for <a href="../../software/msms/download.html">Linux 64-bit</a>. It makes MSMS more robust:</p>
+<ul>
+<li><strong>Fewer crashes.</strong> Inputs that used to crash MSMS, hang it or make it write corrupt files now work. These include surfaces with more than 2 million triangles, molecules of around 100,000 atoms and more, very large and very small spheres, and more than 253 surface components with <code>-all_components</code> (the limit is now 65,535). Several recovery paths after numerical problems are also fixed.</li>
+<li><strong>Duplicate atoms.</strong> Two atoms with the same centre no longer stop the run. MSMS keeps one of them, prints a warning and keeps the numbering of the input file.</li>
+<li><strong>Faster <code>-all_components</code>.</strong> The search for buried components now runs in parallel. With 8 threads it is about twice as fast.</li>
+</ul>
+<p><strong>The output is unchanged.</strong> For inputs that 2.6.1 handled, the <code>.vert</code>, <code>.face</code> and <code>.area</code> files are byte-for-byte identical to those of the 2.6.1 source built with the same compiler.</p>
+<p>The macOS and Windows downloads are still version 2.6.1.</p>
+<p><a href="../../software/msms/download.html">Download MSMS 2.6.2</a> · <a href="../../software/msms/release-notes.html">Release notes</a></p>
+
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <guid>https://sannerlab.github.io/news/posts/2026-11-06-msms-2-6-2.html</guid>
+  <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://sannerlab.github.io/images/tools/msms.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>New lab website</title>
+  <link>https://sannerlab.github.io/news/posts/2026-10-14-new-website.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>The lab’s new website is at <a href="https://sannerlab.github.io">sannerlab.github.io</a>. It brings together:</p>
+<ul>
+<li><a href="../../software/index.html">a page for each of our software tools</a>, with downloads, documentation, tutorials and a gallery. These pages used to be on ccsb.scripps.edu.</li>
+<li>the downloads themselves (installers, tutorial data and PDFs). They are now in the releases of <a href="https://github.com/sannerlab/downloads/releases">sannerlab/downloads</a> on GitHub.</li>
+<li>the lab’s <a href="../../publications.html">publications</a>.</li>
+<li><a href="../../lab.html">who we are</a>: current members, alumni and funding.</li>
+</ul>
+
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <guid>https://sannerlab.github.io/news/posts/2026-10-14-new-website.html</guid>
+  <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://sannerlab.github.io/images/social-card.jpg" medium="image" type="image/jpeg"/>
+</item>
+</channel>
+</rss>
