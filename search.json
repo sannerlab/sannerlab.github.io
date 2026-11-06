@@ -1224,7 +1224,7 @@
     "href": "news/index.html",
     "title": "News",
     "section": "",
-    "text": "Follow the Sanner Lab on Bluesky at @sannerlab.github.io for software releases and lab news.\n\nTo get new posts in a feed reader, such as Feedly, Inoreader, NetNewsWire or Thunderbird, add https://sannerlab.github.io/news/ to the reader; it finds the RSS feed on its own. If the reader asks for the feed itself, use https://sannerlab.github.io/news/index.xml. Browsers show the feed as raw XML: it is meant for feed readers.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMSMS 2.6.2 released\n\n\nA robustness release: MSMS no longer crashes on very large or unusual inputs, merges duplicate atoms instead of stopping, and computes all surface components in parallel.\n\n\n\n\n\nNov 6, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nNew lab website\n\n\nThe Sanner Lab has a new website, with downloads, documentation and tutorials for each of our software tools.\n\n\n\n\n\nOct 14, 2026\n\n\n\n\n\nNo matching items\n Back to top"
+    "text": "Follow the Sanner Lab on Bluesky at @sannerlab.github.io for software releases and lab news.\n\n RSS feed: copy this link into your feed reader.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMSMS 2.6.2 released\n\n\nA robustness release: MSMS no longer crashes on very large or unusual inputs, merges duplicate atoms instead of stopping, and computes all surface components in parallel.\n\n\n\n\n\nNov 6, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nNew lab website\n\n\nThe Sanner Lab has a new website, with downloads, documentation and tutorials for each of our software tools.\n\n\n\n\n\nOct 14, 2026\n\n\n\n\n\nNo matching items\n Back to top"
   },
   {
     "objectID": "news/posts/2026-11-06-msms-2-6-2.html",
