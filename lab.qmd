@@ -40,18 +40,16 @@ and the visual programming environment Vision.
 ::: {.member-row}
 
 ::: {.member}
-::: {.member-photo .placeholder}
-KS
-:::
+![](images/people/kandarp-sojitra.jpg){fig-alt="Portrait of Kandarp Sojitra"}
+
 **Kandarp Sojitra**<br>
 Postdoctoral Fellow<br>
 [GitHub](https://github.com/kandarpsojitra29)
 :::
 
 ::: {.member}
-::: {.member-photo .placeholder}
-JW
-:::
+![](images/people/jiahui-wang.jpg){fig-alt="Portrait of Jiahui Wang"}
+
 **Jiahui Wang**<br>
 Postdoctoral Fellow<br>
 [GitHub](https://github.com/Jiahuiwang0614)
