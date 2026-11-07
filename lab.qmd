@@ -35,24 +35,23 @@ and the visual programming environment Vision.
 
 <!-- To add a photo: put it in images/people/ and replace the placeholder div with
      ![](images/people/<name>.jpg){fig-alt="Portrait of <name>"}
-     To add a description: write it in the empty paragraph under the name. -->
+     To add a description: write it in the empty paragraph under the name.
+     LinkedIn icon after the name: [<i class="bi bi-linkedin" aria-hidden="true"></i>](<url>){.member-linkedin aria-label="<name> on LinkedIn"} -->
 
 ::: {.member-row}
 
 ::: {.member}
 ![](images/people/kandarp-sojitra.jpg){fig-alt="Portrait of Kandarp Sojitra"}
 
-**Kandarp Sojitra**<br>
-Postdoctoral Fellow<br>
-[GitHub](https://github.com/kandarpsojitra29)
+**Kandarp Sojitra** [<i class="bi bi-linkedin" aria-hidden="true"></i>](https://www.linkedin.com/in/kandarp-a-sojitra-63938963/){.member-linkedin aria-label="Kandarp Sojitra on LinkedIn"}<br>
+Postdoctoral Fellow
 :::
 
 ::: {.member}
 ![](images/people/jiahui-wang.jpg){fig-alt="Portrait of Jiahui Wang"}
 
-**Jiahui Wang**<br>
-Postdoctoral Fellow<br>
-[GitHub](https://github.com/Jiahuiwang0614)
+**Jiahui Wang** [<i class="bi bi-linkedin" aria-hidden="true"></i>](https://www.linkedin.com/in/jiahui-wang-54219b327/){.member-linkedin aria-label="Jiahui Wang on LinkedIn"}<br>
+Postdoctoral Fellow
 :::
 
 :::

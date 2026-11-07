@@ -202,3 +202,6 @@ div.sourceCode { border-left: 4px solid rgba($primary, 0.55); }
   background: rgba(11,122,111,.12); color: var(--tc-lab); font-size: 2.6rem; font-weight: 700; }
 .member-photo.placeholder p { margin: 0; }
 .member .quarto-figure { margin: 0; }
+/* LinkedIn icon after a member's name, in LinkedIn blue */
+.member-linkedin { color: #0a66c2; text-decoration: none; margin-left: .25rem; }
+.member-linkedin:hover { color: #004182; }
