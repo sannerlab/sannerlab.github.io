@@ -36,7 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../software/msms/download.html" rel="next">
+<link href="../../software/msms/30-years.html" rel="next">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -46,7 +46,10 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-95fdcd3a80a68b30415fc4c9db77bd3d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-cede79ebe32a35fca310e5a8983f5b31.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -259,6 +262,12 @@ background: #2d7d46;
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../software/msms/30-years.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">30 years (1996–2026)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../software/msms/download.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Download</span></a>
   </div>
@@ -308,8 +317,18 @@ background: #2d7d46;
 
 
 
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>MSMS turns 30!</strong> After 30 years, the MSMS water probe is still rolling. <a href="../../software/msms/30-years.html">Watch how it works and read the anniversary story →</a></p>
+</div>
+</div>
+</div>
 <p><strong>MSMS</strong> is a fast algorithm for computing molecular surfaces. Michel Sanner developed it as part of his Ph.D.&nbsp;thesis. It has been widely used to compute and display the solvent excluded surface (SES) of proteins. This surface is also known as the Lee and Richards surface, after the authors who first defined it by rolling a probe sphere, representing a solvent molecule, over the spheres representing the protein atoms. It is also called the Connolly surface, after Mike Connolly, who wrote the first program to compute it analytically.</p>
-<p>MSMS is used by several molecular visualization programs, including VMD, Chimera and our own PMV. It is available as a <a href="../../software/msms/download.html">standalone program</a>, and as a library with Python bindings in the MGLTools and ADFRsuite distributions.</p>
+<p>The 1996 paper describing MSMS has been cited more than 2,700 times (2,721 according to Google Scholar on November 10, 2026). MSMS is used by several molecular visualization programs, including VMD, Chimera and our own PMV. It also computes the molecular surfaces used by <a href="https://doi.org/10.1038/s41592-019-0666-6">MaSIF</a> (Gainza et al., <em>Nature Methods</em>, 2020), a geometric deep-learning method that learns interaction fingerprints from protein surfaces, and by methods built on it, such as <a href="https://doi.org/10.1021/acs.jcim.5c02566">MaSIF-PMP</a> for protein–membrane binding. It is available as a <a href="../../software/msms/download.html">standalone program</a>, and as a library with Python bindings in the MGLTools and ADFRsuite distributions.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -326,29 +345,29 @@ Note
 <div class="gallery quarto-layout-panel" data-layout-ncol="3">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="img/reduced-1.jpg" class="img-fluid" alt="Reduced surface of a molecule: a triangulated polyhedron connecting atom centers"></p>
+<p><a href="img/reduced-1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/reduced-1.jpg" class="img-fluid" alt="Reduced surface of a molecule: a triangulated polyhedron connecting atom centers"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="img/tst_reduced.jpg" class="img-fluid" alt="MSMS illustration: reduced surface"></p>
+<p><a href="img/tst_reduced.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/tst_reduced.jpg" class="img-fluid" alt="MSMS illustration: reduced surface"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="img/intro2.jpg" class="img-fluid" alt="MSMS illustration: molecular surface construction"></p>
+<p><a href="img/intro2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img/intro2.jpg" class="img-fluid" alt="MSMS illustration: molecular surface construction"></a></p>
 </div>
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="img/simple_sing.l-1.jpg" class="img-fluid" alt="MSMS illustration: a singular case"></p>
+<p><a href="img/simple_sing.l-1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img/simple_sing.l-1.jpg" class="img-fluid" alt="MSMS illustration: a singular case"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="img/ms_reent2.jpg" class="img-fluid" alt="Probe sphere and a reentrant face of the solvent excluded surface"></p>
+<p><a href="img/ms_reent2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="img/ms_reent2.jpg" class="img-fluid" alt="Probe sphere and a reentrant face of the solvent excluded surface"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="img/ms_toric2.jpg" class="img-fluid" alt="Probe sphere, atoms and a toric reentrant face of the solvent excluded surface"></p>
+<p><a href="img/ms_toric2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="img/ms_toric2.jpg" class="img-fluid" alt="Probe sphere, atoms and a toric reentrant face of the solvent excluded surface"></a></p>
 </div>
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="img/MSMS_contact.jpg" class="img-fluid" alt="Contact and reentrant faces of the solvent excluded surface over a ring of atoms"></p>
+<p><a href="img/MSMS_contact.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="img/MSMS_contact.jpg" class="img-fluid" alt="Contact and reentrant faces of the solvent excluded surface over a ring of atoms"></a></p>
 </div>
 </div>
 </div>
@@ -772,8 +791,8 @@ Note
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../software/msms/download.html" class="pagination-link" aria-label="Download">
-        <span class="nav-page-text">Download</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../software/msms/30-years.html" class="pagination-link" aria-label="30 years (1996–2026)">
+        <span class="nav-page-text">30 years (1996–2026)</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -810,6 +829,38 @@ Note
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

@@ -15,7 +15,40 @@
 <link>https://sannerlab.github.io/news/</link>
 </image>
 <generator>quarto-1.10.18</generator>
-<lastBuildDate>Fri, 06 Nov 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 10 Nov 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>MSMS turns 30</title>
+  <link>https://sannerlab.github.io/news/posts/2026-11-10-msms-turns-30.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="tagline">
+<p>After 30 years, the MSMS water probe is still rolling!</p>
+</div>
+<p>Thirty years ago, Michel Sanner, Arthur Olson, and Jean-Claude Spehner introduced MSMS, a program for computing molecular surfaces.</p>
+<p>Originally developed for molecular modeling and visualization, MSMS remains in use today, including in modern geometric deep-learning research.</p>
+<figure class="video-embed teaser figure">
+<a href="../../software/msms/30-years.html" aria-label="Watch the full video and read the anniversary story">
+<video autoplay="" muted="" loop="" playsinline="" poster="media/msms-30-teaser-poster.jpg">
+<source src="media/msms-30-teaser.mp4" type="video/mp4">
+</video>
+</a>
+</figure>
+<p>We are pleased to celebrate this milestone and grateful to the community that has continued to use and build upon MSMS over the years.</p>
+<p><a href="../../software/msms/30-years.html">Watch the full video and read the anniversary story →</a></p>
+<div class="follow-us">
+<p> Follow the Sanner Lab on Bluesky at <a href="https://bsky.app/profile/did:plc:xnwalwj7goqgasajc3shg2cg">@sannerlab.github.io</a> or on <a href="https://www.linkedin.com/company/144103051">LinkedIn</a> for software releases and lab news.</p>
+</div>
+
+
+
+ ]]></description>
+  <guid>https://sannerlab.github.io/news/posts/2026-11-10-msms-turns-30.html</guid>
+  <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://sannerlab.github.io/news/posts/media/msms-30-teaser.gif" medium="image" type="image/gif"/>
+</item>
 <item>
   <title>MSMS 2.6.2 released</title>
   <link>https://sannerlab.github.io/news/posts/2026-11-06-msms-2-6-2.html</link>

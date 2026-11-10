@@ -46,7 +46,10 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-95fdcd3a80a68b30415fc4c9db77bd3d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-cede79ebe32a35fca310e5a8983f5b31.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -370,24 +373,24 @@ background: #6a3fa0;
 <div class="gallery quarto-layout-panel" data-layout-ncol="3">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="img/overviewpic.png" class="img-fluid" alt="The AGFR graphical user interface"></p>
+<p><a href="img/overviewpic.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/overviewpic.png" class="img-fluid" alt="The AGFR graphical user interface"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="img/agfr2.png" class="img-fluid" alt="AGFR screenshot"></p>
+<p><a href="img/agfr2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/agfr2.png" class="img-fluid" alt="AGFR screenshot"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="img/agfr3.png" class="img-fluid" alt="AGFR screenshot"></p>
+<p><a href="img/agfr3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img/agfr3.png" class="img-fluid" alt="AGFR screenshot"></a></p>
 </div>
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="img/word-image-46.png" class="img-fluid" alt="Affinity map shown as an orthoslice"></p>
+<p><a href="img/word-image-46.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img/word-image-46.png" class="img-fluid" alt="Affinity map shown as an orthoslice"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="img/word-image-42.png" class="img-fluid" alt="Covalent ligand outlined with dashed lines"></p>
+<p><a href="img/word-image-42.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="img/word-image-42.png" class="img-fluid" alt="Covalent ligand outlined with dashed lines"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="img/word-image-31.png" class="img-fluid" alt="Docking box set from AutoSite fill points"></p>
+<p><a href="img/word-image-31.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="img/word-image-31.png" class="img-fluid" alt="Docking box set from AutoSite fill points"></a></p>
 </div>
 </div>
 </div>
@@ -878,6 +881,38 @@ background: #6a3fa0;
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

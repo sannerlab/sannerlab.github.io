@@ -46,7 +46,10 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-95fdcd3a80a68b30415fc4c9db77bd3d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-cede79ebe32a35fca310e5a8983f5b31.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -374,24 +377,24 @@ background: #1f5fa6;
 <div class="gallery quarto-layout-panel" data-layout-ncol="3">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="img/helix.jpg" class="img-fluid" alt="Two superimposed helical peptide poses in a receptor pocket"></p>
+<p><a href="img/helix.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/helix.jpg" class="img-fluid" alt="Two superimposed helical peptide poses in a receptor pocket"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="img/5grd.png" class="img-fluid" alt="ADCP example, PDB 5GRD"></p>
+<p><a href="img/5grd.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/5grd.png" class="img-fluid" alt="ADCP example, PDB 5GRD"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="img/3av9-a.png" class="img-fluid" alt="ADCP example, PDB 3AV9"></p>
+<p><a href="img/3av9-a.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img/3av9-a.png" class="img-fluid" alt="ADCP example, PDB 3AV9"></a></p>
 </div>
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="img/1n7f.png" class="img-fluid" alt="ADCP example, PDB 1N7F"></p>
+<p><a href="img/1n7f.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img/1n7f.png" class="img-fluid" alt="ADCP example, PDB 1N7F"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="img/4ak4.png" class="img-fluid" alt="ADCP example, PDB 4AK4"></p>
+<p><a href="img/4ak4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="img/4ak4.png" class="img-fluid" alt="ADCP example, PDB 4AK4"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img src="img/cyclic-crankshaft.png" class="img-fluid" alt="Crankshaft move rotating a cyclic peptide about the axis between two C-alpha atoms"></p>
+<p><a href="img/cyclic-crankshaft.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="img/cyclic-crankshaft.png" class="img-fluid" alt="Crankshaft move rotating a cyclic peptide about the axis between two C-alpha atoms"></a></p>
 </div>
 </div>
 </div>
@@ -905,6 +908,38 @@ background: #1f5fa6;
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
