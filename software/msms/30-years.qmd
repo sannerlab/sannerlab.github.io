@@ -76,7 +76,9 @@ and other molecules. These surfaces help researchers visualize molecular shapes 
 how molecules interact.
 
 Over the following three decades, MSMS became a widely used tool in molecular modeling and
-visualization, finding its way into applications such as VMD, UCSF Chimera, and PMV.
+visualization, finding its way into applications such as VMD, UCSF Chimera, and PMV. The 1996
+paper has been cited more than 2,700 times (2,721 according to Google Scholar on November 10,
+2026).
 
 What is particularly rewarding is that MSMS continues to find applications in new areas of
 research. For example, a [2026 study of protein–membrane interactions](https://doi.org/10.1021/acs.jcim.5c02566)

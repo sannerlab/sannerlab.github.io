@@ -19,8 +19,9 @@ who first defined it by rolling a probe sphere, representing a solvent molecule,
 representing the protein atoms. It is also called the Connolly surface, after Mike Connolly, who
 wrote the first program to compute it analytically.
 
-MSMS is used by several molecular visualization programs, including VMD, Chimera and our own PMV.
-It also computes the molecular surfaces used by
+The 1996 paper describing MSMS has been cited more than 2,700 times (2,721 according to Google
+Scholar on November 10, 2026). MSMS is used by several molecular visualization programs,
+including VMD, Chimera and our own PMV. It also computes the molecular surfaces used by
 [MaSIF](https://doi.org/10.1038/s41592-019-0666-6) (Gainza et al., *Nature Methods*, 2020), a
 geometric deep-learning method that learns interaction fingerprints from protein surfaces, and
 by methods built on it, such as [MaSIF-PMP](https://doi.org/10.1021/acs.jcim.5c02566) for
