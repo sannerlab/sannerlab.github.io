@@ -7,6 +7,8 @@ toc: true
 body-classes: logo-banner adcp-logo
 resources:
   - img/adcp-logo.png
+# click a gallery picture to enlarge it
+lightbox: true
 ---
 
 **AutoDock CrankPep** (ADCP) is a docking engine specialized for peptides. It combines a protein

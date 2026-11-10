@@ -1,0 +1,42 @@
+---
+title: "MSMS turns 30"
+date: 2026-11-10
+description: "Thirty years after its 1996 publication, MSMS, our program for computing molecular surfaces, is still in use, including in geometric deep-learning research."
+# News page thumbnail: the animated teaser; link previews (Bluesky, LinkedIn) use the static card
+image: media/msms-30-teaser.gif
+open-graph:
+  image: ../../images/msms-30-years-card.jpg
+twitter-card:
+  image: ../../images/msms-30-years-card.jpg
+# the teaser video and its poster are referenced only from raw HTML, so list them for Quarto to copy
+resources:
+  - media/msms-30-teaser.mp4
+  - media/msms-30-teaser-poster.jpg
+---
+
+::: {.tagline}
+After 30 years, the MSMS water probe is still rolling!
+:::
+
+Thirty years ago, Michel Sanner, Arthur Olson, and Jean-Claude Spehner introduced MSMS, a
+program for computing molecular surfaces.
+
+Originally developed for molecular modeling and visualization, MSMS remains in use today,
+including in modern geometric deep-learning research.
+
+```{=html}
+<figure class="video-embed teaser">
+<a href="../../software/msms/30-years.html" aria-label="Watch the full video and read the anniversary story">
+<video autoplay muted loop playsinline poster="media/msms-30-teaser-poster.jpg">
+<source src="media/msms-30-teaser.mp4" type="video/mp4">
+</video>
+</a>
+</figure>
+```
+
+We are pleased to celebrate this milestone and grateful to the community that has continued to
+use and build upon MSMS over the years.
+
+[Watch the full video and read the anniversary story →](../../software/msms/30-years.qmd)
+
+{{< include /_includes/follow-us.md >}}

@@ -204,6 +204,8 @@ website:
     contents:
     - text: Overview
       href: software/msms/index.qmd
+    - text: 30 years (1996–2026)
+      href: software/msms/30-years.qmd
     - text: Download
       href: software/msms/download.qmd
     - text: Release notes

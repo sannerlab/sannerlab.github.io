@@ -3,6 +3,8 @@ title-block-banner: "#6a3fa0"
 title-block-banner-color: "#ffffff"
 title: "AutoGridFR (AGFR)"
 subtitle: "Affinity maps and target files for docking"
+# click a gallery picture to enlarge it
+lightbox: true
 ---
 
 **AutoGridFR** (AGFR) computes the affinity maps that

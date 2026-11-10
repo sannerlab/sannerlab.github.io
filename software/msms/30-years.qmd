@@ -1,0 +1,106 @@
+---
+title-block-banner: "#2d7d46"
+title-block-banner-color: "#ffffff"
+title: "30 years of MSMS (1996–2026)"
+subtitle: "Three decades of molecular surface computation"
+description: "MSMS turns 30: the story of our molecular surface program, first published in 1996, and a narrated video of how it works."
+# link previews (Bluesky, LinkedIn): 1200x630 card made from the video's end card
+image: ../../images/msms-30-years-card.jpg
+toc: false
+# the video and its poster are referenced only from raw HTML, so list them for Quarto to copy
+resources:
+  - video/msms-30-years.mp4
+  - img/msms-30-years-poster.jpg
+---
+
+::: {.tagline}
+After 30 years, the MSMS water probe is still rolling!
+:::
+
+```{=html}
+<figure class="video-embed">
+<video controls preload="metadata" playsinline poster="img/msms-30-years-poster.jpg">
+<source src="video/msms-30-years.mp4" type="video/mp4">
+Your browser cannot play this video. <a href="video/msms-30-years.mp4">Download it (MP4)</a>.
+</video>
+<figcaption>How MSMS computes molecular surfaces · 2 min 25 s, narrated ·
+<a href="video/msms-30-years.mp4" download>Download (MP4, 12 MB)</a></figcaption>
+</figure>
+```
+
+::: {.callout-note collapse="true" appearance="simple"}
+## Video transcript
+
+This video explains how MSMS computes molecular surfaces.
+
+Biological molecules exist in solvent, which is mostly water.
+
+The cyan sphere represents such a water molecule. It rolls over the atoms of the molecule to
+define the solvent excluded surface, or molecular surface for short.
+
+MSMS first places the water molecule, here the large yellow sphere, in a position where it
+contacts three atomic spheres. This position defines a spherical triangle on the probe, shown as
+an orange mesh, outlining the solvent excluded surface. It also corresponds to a vertex of the
+solvent accessible surface, the center of the probe sphere, and to a triangular face of the
+reduced surface, shown as a red triangle.
+
+From such a position, the probe can roll over a pair of atoms until it hits a third atom. As it
+rolls, it sweeps out a green toroidal face of the solvent excluded surface, while its center
+travels along an edge of the solvent accessible surface, which corresponds to an edge of the
+reduced surface.
+
+This image gives an overview of the duality between the three surfaces: the reduced surface at
+the bottom, the solvent excluded surface in the middle, and the solvent accessible surface at the
+top. Knowing one of these surfaces defines the other two.
+
+Here is MSMS at work on a small molecule. The cyan probe rolls over the atoms, laying down gold
+reentrant faces and green toroidal faces.
+
+Once all reentrant faces have been defined, the open patches on the atomic spheres define contact
+faces, shown in purple.
+
+Triangles for these faces are obtained by clipping a pre-triangulated template with the face
+outline, and stitching them to the edges of the green toroidal faces.
+
+The mathematical definition of these surfaces, and the MSMS software to compute them, were
+published thirty years ago, in 1996. MSMS is still widely used today.
+:::
+
+In 1996, Michel Sanner, Arthur Olson, and Jean-Claude Spehner published *Reduced surface: an
+efficient way to compute molecular surfaces* in *Biopolymers*, introducing MSMS, a program for
+computing molecular surfaces efficiently and reliably.
+
+Originally developed as part of Michel Sanner's PhD research, MSMS addressed an important
+challenge in structural biology: generating accurate representations of the surfaces of proteins
+and other molecules. These surfaces help researchers visualize molecular shapes and investigate
+how molecules interact.
+
+Over the following three decades, MSMS became a widely used tool in molecular modeling and
+visualization, finding its way into applications such as VMD, UCSF Chimera, and PMV.
+
+What is particularly rewarding is that MSMS continues to find applications in new areas of
+research. For example, a [2026 study of protein–membrane interactions](https://doi.org/10.1021/acs.jcim.5c02566)
+used MSMS to generate molecular surfaces for geometric deep-learning models. A tool originally
+developed for molecular graphics is now contributing to research approaches that were difficult
+to imagine in 1996.
+
+Scientific software evolves rapidly, and many excellent tools have emerged since MSMS was
+introduced. Seeing MSMS remain useful after 30 years is a gratifying reminder that a well-defined
+computational solution can continue to serve the research community long after its original
+development.
+
+We are proud to mark this anniversary and grateful to the many researchers who have used, cited,
+and built upon MSMS over the years.
+
+## Learn more
+
+- [MSMS software and documentation](index.qmd)
+- [Original 1996 publication](https://doi.org/c7jbnr): Sanner, M. F.; Olson, A. J.; Spehner,
+  J.-C. Reduced surface: an efficient way to compute molecular surfaces. *Biopolymers*
+  **1996**, 38, 305–320.
+- [Example of MSMS in geometric deep learning (2026)](https://doi.org/10.1021/acs.jcim.5c02566):
+  Park, B.; Van Lehn, R. C. Decoding protein–membrane binding interfaces from
+  surface-fingerprint-based geometric deep learning and molecular dynamics simulations.
+  *J. Chem. Inf. Model.* **2026**, 66, 2299–2310.
+
+{{< include /_includes/follow-us.md >}}

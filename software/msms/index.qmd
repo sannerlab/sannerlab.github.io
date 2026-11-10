@@ -3,7 +3,14 @@ title-block-banner: "#2d7d46"
 title-block-banner-color: "#ffffff"
 title: "MSMS"
 subtitle: "Fast computation of molecular surfaces"
+# click an illustration to enlarge it
+lightbox: true
 ---
+
+::: {.callout-tip appearance="simple" icon="false"}
+**MSMS turns 30!** After 30 years, the MSMS water probe is still rolling.
+[Watch how it works and read the anniversary story →](30-years.qmd)
+:::
 
 **MSMS** is a fast algorithm for computing molecular surfaces. Michel Sanner developed it as part
 of his Ph.D. thesis. It has been widely used to compute and display the solvent excluded surface
