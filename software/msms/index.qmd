@@ -20,7 +20,11 @@ representing the protein atoms. It is also called the Connolly surface, after Mi
 wrote the first program to compute it analytically.
 
 MSMS is used by several molecular visualization programs, including VMD, Chimera and our own PMV.
-It is available as a [standalone program](download.qmd), and as a library with Python bindings in
+It also computes the molecular surfaces used by
+[MaSIF](https://doi.org/10.1038/s41592-019-0666-6) (Gainza et al., *Nature Methods*, 2020), a
+geometric deep-learning method that learns interaction fingerprints from protein surfaces, and
+by methods built on it, such as [MaSIF-PMP](https://doi.org/10.1021/acs.jcim.5c02566) for
+protein–membrane binding. It is available as a [standalone program](download.qmd), and as a library with Python bindings in
 the MGLTools and ADFRsuite distributions.
 
 ::: {.callout-note}
