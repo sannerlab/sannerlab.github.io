@@ -322,7 +322,7 @@
     "href": "software/msms/30-years.html#learn-more",
     "title": "30 years of MSMS (1996–2026)",
     "section": "Learn more",
-    "text": "Learn more\n\nMSMS software and documentation\nOriginal 1996 publication: Sanner, M. F.; Olson, A. J.; Spehner, J.-C. Reduced surface: an efficient way to compute molecular surfaces. Biopolymers 1996, 38, 305–320.\nExample of MSMS in geometric deep learning (2026): Park, B.; Van Lehn, R. C. Decoding protein–membrane binding interfaces from surface-fingerprint-based geometric deep learning and molecular dynamics simulations. J. Chem. Inf. Model. 2026, 66, 2299–2310.\n\n\n Follow the Sanner Lab on Bluesky at @sannerlab.github.io or on LinkedIn for software releases and lab news.",
+    "text": "Learn more\n\nMSMS software and documentation\nOriginal 1996 publication: Sanner, M. F. et al. Reduced surface: an efficient way to compute molecular surfaces. Biopolymers 1996, 38, 305–320.\nExample of MSMS in geometric deep learning (2026): Park, B.; Van Lehn, R. C. Decoding protein–membrane binding interfaces from surface-fingerprint-based geometric deep learning and molecular dynamics simulations. J. Chem. Inf. Model. 2026, 66, 2299–2310.\n\n\n Follow the Sanner Lab on Bluesky at @sannerlab.github.io or on LinkedIn for software releases and lab news.",
     "crumbs": [
       "30 years (1996–2026)"
     ]
@@ -1218,7 +1218,7 @@
     "href": "news/posts/2026-11-10-msms-turns-30.html",
     "title": "MSMS turns 30",
     "section": "",
-    "text": "After 30 years, the MSMS water probe is still rolling!\n\nThirty years ago, Michel Sanner, Arthur Olson, and Jean-Claude Spehner introduced MSMS, a program for computing molecular surfaces.\nOriginally developed for molecular modeling and visualization, MSMS remains in use today, including in modern geometric deep-learning research.\n\n\n\n\n\n\n\nWe are pleased to celebrate this milestone and grateful to the community that has continued to use and build upon MSMS over the years.\nWatch the full video and read the anniversary story →\n\n Follow the Sanner Lab on Bluesky at @sannerlab.github.io or on LinkedIn for software releases and lab news."
+    "text": "After 30 years, the MSMS water probe is still rolling!\n\nThirty years ago, Michel Sanner introduced MSMS, a program for computing molecular surfaces.\nOriginally developed for molecular modeling and visualization, MSMS remains in use today, including in modern geometric deep-learning research.\n\n\n\n\n\n\n\nWe are pleased to celebrate this milestone and grateful to the community that has continued to use and build upon MSMS over the years.\nWatch the full video and read the anniversary story →\n\n Follow the Sanner Lab on Bluesky at @sannerlab.github.io or on LinkedIn for software releases and lab news."
   },
   {
     "objectID": "news/posts/2026-11-06-msms-2-6-2.html",
