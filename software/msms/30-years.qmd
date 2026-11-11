@@ -23,7 +23,7 @@ After 30 years, the MSMS water probe is still rolling!
 <source src="video/msms-30-years.mp4" type="video/mp4">
 Your browser cannot play this video. <a href="video/msms-30-years.mp4">Download it (MP4)</a>.
 </video>
-<figcaption>How MSMS computes molecular surfaces · 2 min 25 s, narrated ·
+<figcaption>How MSMS computes molecular surfaces · 2 min 23 s, narrated ·
 <a href="video/msms-30-years.mp4" download>Download (MP4, 12 MB)</a></figcaption>
 </figure>
 ```
@@ -35,10 +35,10 @@ This video explains how MSMS computes molecular surfaces.
 
 Biological molecules exist in solvent, which is mostly water.
 
-The cyan sphere represents such a water molecule. It rolls over the atoms of the molecule to
-define the solvent excluded surface, or molecular surface for short.
+For the calculation, this water molecule is represented by a sphere. It rolls over the atoms of
+the molecule to define the solvent excluded surface, or molecular surface for short.
 
-MSMS first places the water molecule, here the large yellow sphere, in a position where it
+MSMS first places the water molecule, here the large orange sphere, in a position where it
 contacts three atomic spheres. This position defines a spherical triangle on the probe, shown as
 an orange mesh, outlining the solvent excluded surface. It also corresponds to a vertex of the
 solvent accessible surface, the center of the probe sphere, and to a triangular face of the
@@ -53,7 +53,7 @@ This image gives an overview of the duality between the three surfaces: the redu
 the bottom, the solvent excluded surface in the middle, and the solvent accessible surface at the
 top. Knowing one of these surfaces defines the other two.
 
-Here is MSMS at work on a small molecule. The cyan probe rolls over the atoms, laying down gold
+Here is MSMS at work on a small molecule. The probe rolls over the atoms, laying down gold
 reentrant faces and green toroidal faces.
 
 Once all reentrant faces have been defined, the open patches on the atomic spheres define contact
@@ -66,8 +66,8 @@ The mathematical definition of these surfaces, and the MSMS software to compute 
 published thirty years ago, in 1996. MSMS is still widely used today.
 :::
 
-In 1996, Michel Sanner, Arthur Olson, and Jean-Claude Spehner published *Reduced surface: an
-efficient way to compute molecular surfaces* in *Biopolymers*, introducing MSMS, a program for
+In 1996, Michel Sanner published *Reduced surface: an efficient way to compute molecular
+surfaces* in *Biopolymers*, introducing MSMS, a program for
 computing molecular surfaces efficiently and reliably.
 
 Originally developed as part of Michel Sanner's PhD research, MSMS addressed an important
