@@ -18,8 +18,7 @@ resources:
 After 30 years, the MSMS water probe is still rolling!
 :::
 
-Thirty years ago, Michel Sanner, Arthur Olson, and Jean-Claude Spehner introduced MSMS, a
-program for computing molecular surfaces.
+Thirty years ago, Michel Sanner introduced MSMS, a program for computing molecular surfaces.
 
 Originally developed for molecular modeling and visualization, MSMS remains in use today,
 including in modern geometric deep-learning research.

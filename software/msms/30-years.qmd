@@ -97,9 +97,8 @@ and built upon MSMS over the years.
 ## Learn more
 
 - [MSMS software and documentation](index.qmd)
-- [Original 1996 publication](https://doi.org/c7jbnr): Sanner, M. F.; Olson, A. J.; Spehner,
-  J.-C. Reduced surface: an efficient way to compute molecular surfaces. *Biopolymers*
-  **1996**, 38, 305–320.
+- [Original 1996 publication](https://doi.org/c7jbnr): Sanner, M. F. et al. Reduced surface: an
+  efficient way to compute molecular surfaces. *Biopolymers* **1996**, 38, 305–320.
 - [Example of MSMS in geometric deep learning (2026)](https://doi.org/10.1021/acs.jcim.5c02566):
   Park, B.; Van Lehn, R. C. Decoding protein–membrane binding interfaces from
   surface-fingerprint-based geometric deep learning and molecular dynamics simulations.
