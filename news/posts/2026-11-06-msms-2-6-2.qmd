@@ -22,6 +22,9 @@ are byte-for-byte identical to those of the 2.6.1 source built with the same com
 
 The macOS and Windows downloads are still version 2.6.1.
 
+**Update, November 12:** MSMS 2.6.2 is now also available
+[for macOS and Windows](2026-11-12-msms-2-6-2-macos-windows.qmd).
+
 [Download MSMS 2.6.2](../../software/msms/download.qmd) ·
 [Release notes](../../software/msms/release-notes.qmd)
 

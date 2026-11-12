@@ -6,7 +6,8 @@ title: "MSMS release notes"
 
 A robustness release: it fixes crashes on large or unusual inputs, merges duplicate atoms instead
 of stopping, and runs `-all_components` in parallel. It is available for
-[Linux 64-bit](download.qmd) for now.
+[Linux, macOS and Windows](download.qmd). The macOS and Windows packages were added on
+November 12, 2026; they give byte-identical output on the regression suite.
 
 **Output is unchanged.** For inputs that 2.6.1 handled, the `.vert`, `.face` and `.area` files
 are byte-for-byte identical to those of the 2.6.1 source built with the same compiler. This was
@@ -67,12 +68,14 @@ threads; by default MSMS uses all cores.
 | 1gd1 | 0.89 s | 0.47 s |
 | pbmol | 2.03 s | 1.03 s |
 
-### Linux binaries
+### Binaries
 
-The Linux tar file contains two binaries:
-
-- `msms.x86_64Linux2.2.6.2.staticgcc` is statically linked and runs on any 64-bit x86 Linux;
-- `msms.x86_64Linux2.2.6.2` needs glibc 2.34 or later, libtirpc and libgomp.
+- **Linux:** `msms.x86_64Linux2.2.6.2.staticgcc` is statically linked and runs on any 64-bit x86
+  Linux; `msms.x86_64Linux2.2.6.2` needs glibc 2.34 or later, libtirpc and libgomp.
+- **macOS:** `msms.universalDarwin.2.6.2` is one universal binary for Apple silicon (macOS 11 or
+  later) and Intel Macs (macOS 10.15 or later).
+- **Windows:** `msms.exe` runs on 64-bit Windows, and on Windows on Arm through x64 emulation. It
+  needs `libomp.dll`, which is in the same zip file.
 
 ## Version 2.6.1
 

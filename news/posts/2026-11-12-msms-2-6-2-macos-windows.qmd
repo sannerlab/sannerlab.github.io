@@ -1,0 +1,23 @@
+---
+title: "MSMS 2.6.2 for macOS and Windows"
+date: 2026-11-12
+description: "MSMS 2.6.2, our robustness release, is now available for macOS (one binary for Apple silicon and Intel Macs) and 64-bit Windows, as well as Linux."
+image: ../../images/tools/msms.jpg
+---
+
+[MSMS 2.6.2](2026-11-06-msms-2-6-2.qmd) is now available for macOS and Windows, as well as Linux:
+
+- **macOS:** one binary for Apple silicon Macs (macOS 11 or later) and Intel Macs (macOS 10.15
+  or later).
+- **Windows:** 64-bit Windows, and Windows on Arm through x64 emulation.
+
+These builds include all the 2.6.2 fixes: no more crashes on very large or unusual inputs,
+duplicate atoms merged instead of stopping the run, and a parallel `-all_components`. They give
+byte-for-byte the same surfaces as the Linux version on our regression suite.
+
+Older systems (macOS 10.14 or earlier, 32-bit Windows) can still use version 2.6.1.
+
+[Download MSMS 2.6.2](../../software/msms/download.qmd) ·
+[Release notes](../../software/msms/release-notes.qmd)
+
+{{< include /_includes/follow-us.md >}}
