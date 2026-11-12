@@ -263,8 +263,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#older-systems" id="toc-older-systems" class="nav-link active" data-scroll-target="#older-systems">Older systems</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -307,48 +313,61 @@ ul.task-list li input[type="checkbox"] {
 <td><code>tar zxvf msms_i86_64Linux2_2.6.2.tar.gz</code></td>
 </tr>
 <tr class="even">
+<td>macOS 10.15 and later, Apple silicon and Intel</td>
+<td>2.6.2</td>
+<td><a href="https://github.com/sannerlab/downloads/releases/download/msms-2.6.2/msms_universalDarwin_2.6.2.tar.gz">macOS tar file</a></td>
+<td><code>tar zxvf msms_universalDarwin_2.6.2.tar.gz</code></td>
+</tr>
+<tr class="odd">
+<td>Windows 64-bit</td>
+<td>2.6.2</td>
+<td><a href="https://github.com/sannerlab/downloads/releases/download/msms-2.6.2/msms_win64_2.6.2.zip">Windows zip file</a></td>
+<td>extract the files from <code>msms_win64_2.6.2.zip</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Linux:</strong> the tar file contains two binaries. <code>msms.x86_64Linux2.2.6.2.staticgcc</code> runs on any 64-bit x86 Linux; <code>msms.x86_64Linux2.2.6.2</code> needs glibc 2.34 or later, libtirpc and libgomp.</li>
+<li><strong>macOS:</strong> <code>msms.universalDarwin.2.6.2</code> is one binary for Apple silicon Macs (macOS 11 or later) and Intel Macs (macOS 10.15 or later). If macOS refuses to run it after the download, run <code>xattr -d com.apple.quarantine msms.universalDarwin.2.6.2</code> in the unpacked folder.</li>
+<li><strong>Windows:</strong> keep <code>libomp.dll</code> in the same folder as <code>msms.exe</code>. It also runs on Windows on Arm, through x64 emulation.</li>
+</ul>
+<section id="older-systems" class="level3">
+<h3 class="anchored" data-anchor-id="older-systems">Older systems</h3>
+<p>For macOS 10.14 or earlier and for 32-bit Windows, use version 2.6.1, which does not have the 2.6.2 fixes:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Platform</th>
+<th>Version</th>
+<th>File</th>
+<th>Unpack with</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
 <td>macOS before 10.14 (pre-Mojave)</td>
 <td>2.6.1</td>
 <td><a href="https://github.com/sannerlab/downloads/releases/download/msms-2.6.1/msms_MacOSX_2.6.1.tar.gz">macOS tar file</a></td>
 <td><code>tar zxvf msms_MacOSX_2.6.1.tar.gz</code></td>
 </tr>
-<tr class="odd">
-<td>macOS 10.14 (Mojave) and later, Intel</td>
+<tr class="even">
+<td>macOS 10.14 (Mojave), Intel</td>
 <td>2.6.1</td>
 <td><a href="https://github.com/sannerlab/downloads/releases/download/msms-2.6.1/msms_x86_64Darwin_2.6.1.tar.gz">macOS tar file</a></td>
 <td><code>tar zxvf msms_x86_64Darwin_2.6.1.tar.gz</code></td>
 </tr>
-<tr class="even">
-<td>macOS, Apple silicon (Arm64)</td>
-<td>2.6.1</td>
-<td><a href="https://github.com/sannerlab/downloads/releases/download/msms-2.6.1/msms_Arm64_2.6.1.tgz">Arm64 tar file</a></td>
-<td><code>tar zxvf msms_Arm64_2.6.1.tgz</code></td>
-</tr>
 <tr class="odd">
-<td>Windows</td>
+<td>Windows 32-bit</td>
 <td>2.6.1</td>
 <td><a href="https://github.com/sannerlab/downloads/releases/download/msms-2.6.1/msms_win32_2.6.1.zip">Windows zip file</a></td>
 <td>extract the files from <code>msms_win32_2.6.1.zip</code></td>
 </tr>
 </tbody>
 </table>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Version 2.6.2 is available for Linux only so far. The macOS and Windows downloads are still version 2.6.1, without the 2.6.2 fixes.</p>
-</div>
-</div>
-<p>The Linux tar file contains two binaries. <code>msms.x86_64Linux2.2.6.2.staticgcc</code> runs on any 64-bit x86 Linux; <code>msms.x86_64Linux2.2.6.2</code> needs glibc 2.34 or later, libtirpc and libgomp.</p>
-<p>The files are on GitHub, in the <a href="https://github.com/sannerlab/downloads/releases/tag/msms-2.6.2">msms-2.6.2</a> and <a href="https://github.com/sannerlab/downloads/releases/tag/msms-2.6.1">msms-2.6.1</a> releases. The 2.6.1 release also has the previous Linux version. See the <a href="../../software/msms/documentation.html">Documentation</a> for how to run <code>msms</code>.</p>
+<p>The files are on GitHub, in the <a href="https://github.com/sannerlab/downloads/releases/tag/msms-2.6.2">msms-2.6.2</a> release (with SHA-256 checksums) and the <a href="https://github.com/sannerlab/downloads/releases/tag/msms-2.6.1">msms-2.6.1</a> release, which also has the previous Linux and Apple silicon versions. See the <a href="../../software/msms/documentation.html">Documentation</a> for how to run <code>msms</code>.</p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

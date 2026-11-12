@@ -15,7 +15,34 @@
 <link>https://sannerlab.github.io/news/</link>
 </image>
 <generator>quarto-1.10.18</generator>
-<lastBuildDate>Tue, 10 Nov 2026 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 12 Nov 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>MSMS 2.6.2 for macOS and Windows</title>
+  <link>https://sannerlab.github.io/news/posts/2026-11-12-msms-2-6-2-macos-windows.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><a href="../../news/posts/2026-11-06-msms-2-6-2.html">MSMS 2.6.2</a> is now available for macOS and Windows, as well as Linux:</p>
+<ul>
+<li><strong>macOS:</strong> one binary for Apple silicon Macs (macOS 11 or later) and Intel Macs (macOS 10.15 or later).</li>
+<li><strong>Windows:</strong> 64-bit Windows, and Windows on Arm through x64 emulation.</li>
+</ul>
+<p>These builds include all the 2.6.2 fixes: no more crashes on very large or unusual inputs, duplicate atoms merged instead of stopping the run, and a parallel <code>-all_components</code>. They give byte-for-byte the same surfaces as the Linux version on our regression suite.</p>
+<p>Older systems (macOS 10.14 or earlier, 32-bit Windows) can still use version 2.6.1.</p>
+<p><a href="../../software/msms/download.html">Download MSMS 2.6.2</a> · <a href="../../software/msms/release-notes.html">Release notes</a></p>
+<div class="follow-us">
+<p> Follow the Sanner Lab on Bluesky at <a href="https://bsky.app/profile/did:plc:xnwalwj7goqgasajc3shg2cg">@sannerlab.github.io</a> or on <a href="https://www.linkedin.com/company/144103051">LinkedIn</a> for software releases and lab news.</p>
+</div>
+
+
+
+ ]]></description>
+  <guid>https://sannerlab.github.io/news/posts/2026-11-12-msms-2-6-2-macos-windows.html</guid>
+  <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
+  <media:content url="https://sannerlab.github.io/images/tools/msms.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>MSMS turns 30</title>
   <link>https://sannerlab.github.io/news/posts/2026-11-10-msms-turns-30.html</link>
@@ -65,6 +92,7 @@
 </ul>
 <p><strong>The output is unchanged.</strong> For inputs that 2.6.1 handled, the <code>.vert</code>, <code>.face</code> and <code>.area</code> files are byte-for-byte identical to those of the 2.6.1 source built with the same compiler.</p>
 <p>The macOS and Windows downloads are still version 2.6.1.</p>
+<p><strong>Update, November 12:</strong> MSMS 2.6.2 is now also available <a href="../../news/posts/2026-11-12-msms-2-6-2-macos-windows.html">for macOS and Windows</a>.</p>
 <p><a href="../../software/msms/download.html">Download MSMS 2.6.2</a> · <a href="../../software/msms/release-notes.html">Release notes</a></p>
 <div class="follow-us">
 <p> Follow the Sanner Lab on Bluesky at <a href="https://bsky.app/profile/did:plc:xnwalwj7goqgasajc3shg2cg">@sannerlab.github.io</a> or on <a href="https://www.linkedin.com/company/144103051">LinkedIn</a> for software releases and lab news.</p>

@@ -273,7 +273,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#crashes-fixed" id="toc-crashes-fixed" class="nav-link" data-scroll-target="#crashes-fixed">Crashes fixed</a></li>
   <li><a href="#duplicate-atoms" id="toc-duplicate-atoms" class="nav-link" data-scroll-target="#duplicate-atoms">Duplicate atoms</a></li>
   <li><a href="#faster--all_components" id="toc-faster--all_components" class="nav-link" data-scroll-target="#faster--all_components">Faster <code>-all_components</code></a></li>
-  <li><a href="#linux-binaries" id="toc-linux-binaries" class="nav-link" data-scroll-target="#linux-binaries">Linux binaries</a></li>
+  <li><a href="#binaries" id="toc-binaries" class="nav-link" data-scroll-target="#binaries">Binaries</a></li>
   </ul></li>
   <li><a href="#version-2.6.1" id="toc-version-2.6.1" class="nav-link" data-scroll-target="#version-2.6.1">Version 2.6.1</a></li>
   <li><a href="#version-2.6.0" id="toc-version-2.6.0" class="nav-link" data-scroll-target="#version-2.6.0">Version 2.6.0</a></li>
@@ -305,7 +305,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="version-2.6.2-november-2026" class="level2">
 <h2 class="anchored" data-anchor-id="version-2.6.2-november-2026">Version 2.6.2 (November 2026)</h2>
-<p>A robustness release: it fixes crashes on large or unusual inputs, merges duplicate atoms instead of stopping, and runs <code>-all_components</code> in parallel. It is available for <a href="../../software/msms/download.html">Linux 64-bit</a> for now.</p>
+<p>A robustness release: it fixes crashes on large or unusual inputs, merges duplicate atoms instead of stopping, and runs <code>-all_components</code> in parallel. It is available for <a href="../../software/msms/download.html">Linux, macOS and Windows</a>. The macOS and Windows packages were added on November 12, 2026; they give byte-identical output on the regression suite.</p>
 <p><strong>Output is unchanged.</strong> For inputs that 2.6.1 handled, the <code>.vert</code>, <code>.face</code> and <code>.area</code> files are byte-for-byte identical to those of the 2.6.1 source built with the same compiler. This was checked on 117 cases of the regression suite, at densities 1 and 3, with and without <code>-all_components</code>. The 2007 2.6.1 binaries were built with a much older compiler. Compared with them, a few coordinates can differ in the last printed digit and a few triangles can be stitched differently.</p>
 <section id="crashes-fixed" class="level3">
 <h3 class="anchored" data-anchor-id="crashes-fixed">Crashes fixed</h3>
@@ -364,12 +364,12 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="linux-binaries" class="level3">
-<h3 class="anchored" data-anchor-id="linux-binaries">Linux binaries</h3>
-<p>The Linux tar file contains two binaries:</p>
+<section id="binaries" class="level3">
+<h3 class="anchored" data-anchor-id="binaries">Binaries</h3>
 <ul>
-<li><code>msms.x86_64Linux2.2.6.2.staticgcc</code> is statically linked and runs on any 64-bit x86 Linux;</li>
-<li><code>msms.x86_64Linux2.2.6.2</code> needs glibc 2.34 or later, libtirpc and libgomp.</li>
+<li><strong>Linux:</strong> <code>msms.x86_64Linux2.2.6.2.staticgcc</code> is statically linked and runs on any 64-bit x86 Linux; <code>msms.x86_64Linux2.2.6.2</code> needs glibc 2.34 or later, libtirpc and libgomp.</li>
+<li><strong>macOS:</strong> <code>msms.universalDarwin.2.6.2</code> is one universal binary for Apple silicon (macOS 11 or later) and Intel Macs (macOS 10.15 or later).</li>
+<li><strong>Windows:</strong> <code>msms.exe</code> runs on 64-bit Windows, and on Windows on Arm through x64 emulation. It needs <code>libomp.dll</code>, which is in the same zip file.</li>
 </ul>
 </section>
 </section>
