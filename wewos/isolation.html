@@ -113,12 +113,16 @@ starts it again from its last autosave. The network is kept; the results of that
 
 <h2 id="how">How it works</h2>
 <ul>
-<li>An isolated network runs in its own Python process, started with
-<a href="https://github.com/containers/bubblewrap">bubblewrap</a>. The process has its own
-namespaces (processes, users, network), sees the files of its level only, and has no
-capabilities.</li>
-<li>Its memory is limited to three quarters of the machine's, a file it writes to 4 GB, and it
-ends when the WEWoS server ends.</li>
+<li>An isolated network runs in its own Python process, confined by the operating system:
+  <ul>
+  <li><b>Linux:</b> <a href="https://github.com/containers/bubblewrap">bubblewrap</a>. The
+  process has its own namespaces (processes, users, network), sees the files of its level only,
+  and has no capabilities.</li>
+  <li><b>macOS:</b> <code>sandbox-exec</code>, which comes with macOS, with a profile WEWoS writes
+  for the level: what the process may read and write, and whether it may use the network.</li>
+  </ul></li>
+<li>A file it writes is limited to 4 GB, and it ends when the WEWoS server ends. On Linux its
+memory is also limited to three quarters of the machine's; macOS does not apply that limit.</li>
 <li>The server passes the page's requests on to it, and the page keeps working as usual: editing,
 widgets, runs, the 3D viewers and picking.</li>
 <li>The page accepts scripts only from the WEWoS server and talks only to it
@@ -128,9 +132,12 @@ never as code.</li>
 
 <h2 id="limits">Limits</h2>
 <ul>
-<li>Isolation needs Linux and bubblewrap (<code>apt install bubblewrap</code> on Debian and
-Ubuntu). Elsewhere, <b>File &gt; Isolation of this network</b> is greyed out and networks run
-unrestricted.</li>
+<li>Isolation needs Linux with bubblewrap (<code>apt install bubblewrap</code> on Debian and
+Ubuntu), or macOS. When the server starts, it checks that WEWoS runs under the sandbox; if not,
+<b>File &gt; Isolation of this network</b> is greyed out, networks run unrestricted, and the
+reason is shown. On Windows, run WEWoS under WSL2 (Linux on Windows) to isolate networks.</li>
+<li>On macOS, <code>sandbox-exec</code> is marked as deprecated by Apple, although macOS itself
+and programs such as web browsers still rely on the sandbox it starts.</li>
 <li>A sandbox lowers the risk; it is not a guarantee. A flaw in the Linux kernel could let code
 out, and the worker has no system-call filter.</li>
 <li>A network can still use all the processor, fill the disk of its folder, or show you results
