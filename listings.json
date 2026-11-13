@@ -1,6 +1,6 @@
 [
   {
-    "listing": "/index.html",
+    "listing": "/news/index.html",
     "items": [
       "/news/posts/2026-11-12-msms-2-6-2-macos-windows.html",
       "/news/posts/2026-11-10-msms-turns-30.html",
@@ -9,7 +9,7 @@
     ]
   },
   {
-    "listing": "/news/index.html",
+    "listing": "/index.html",
     "items": [
       "/news/posts/2026-11-12-msms-2-6-2-macos-windows.html",
       "/news/posts/2026-11-10-msms-turns-30.html",
