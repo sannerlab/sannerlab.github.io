@@ -9,6 +9,7 @@
 <h4>Start here</h4><ul>
 <li><a href="index.html">Overview</a></li>
 <li><a href="start.html">Getting started</a></li>
+<li><a href="networks.html">Examples and open networks</a></li>
 <li><a href="editor.html">Building a network</a></li>
 <li><a href="running.html">Running a network</a></li>
 </ul>
@@ -29,7 +30,7 @@
 </ul>
 <h4>Reference</h4><ul>
 <li><a href="files.html">Saving, opening, importing</a></li>
-<li><a href="isolation.html">Networks from other people</a></li>
+<li><a href="isolation.html">Execution modes</a></li>
 <li><a href="libraries.html">Node libraries</a></li>
 <li><a href="nodes.html">Writing your own nodes</a></li>
 <li><a href="vision.html">WEWoS and Vision</a></li>
@@ -116,8 +117,10 @@ Filelist to open its code, and add <code>values.sort()</code> after the line tha
         values.sort()
         filenames = [ os.path.join(directory, x) for x in values ]
         self.outputData(filelist=filenames)</pre>
-<p>Press <b>Save and run</b>. Save the network (<b>File &gt; Save</b>), close it and open it again:
-the changed code is saved with the network, as every change made to a node is.</p>
+<p>Press <b>Save and run</b>. Save the network (<b>File &gt; Save</b>), close it (the &#10005; on its
+tab) and open it again (<b>File &gt; Open network</b>, choosing the <code>.wnet.json</code> saved in
+the network's folder): the
+changed code is saved with the network, as every change made to a node is.</p>
 <figure>
 <img src="img/cartoon1b.png" alt="Filelist, iterate, Read Image, Scale and Show Image">
 <figcaption><b>iterate over a file list.</b> Filelist's code sorts the names.</figcaption>

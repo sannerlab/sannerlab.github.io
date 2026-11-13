@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Networks from other people &middot; WEWoS documentation</title>
+<title>Execution modes &middot; WEWoS documentation</title>
 <link rel="stylesheet" href="style.css">
 </head><body><div class="layout">
 <nav class="side">
@@ -9,6 +9,7 @@
 <h4>Start here</h4><ul>
 <li><a href="index.html">Overview</a></li>
 <li><a href="start.html">Getting started</a></li>
+<li><a href="networks.html">Examples and open networks</a></li>
 <li><a href="editor.html">Building a network</a></li>
 <li><a href="running.html">Running a network</a></li>
 </ul>
@@ -29,7 +30,7 @@
 </ul>
 <h4>Reference</h4><ul>
 <li><a href="files.html">Saving, opening, importing</a></li>
-<li><a class="here" href="isolation.html">Networks from other people</a></li>
+<li><a class="here" href="isolation.html">Execution modes</a></li>
 <li><a href="libraries.html">Node libraries</a></li>
 <li><a href="nodes.html">Writing your own nodes</a></li>
 <li><a href="vision.html">WEWoS and Vision</a></li>
@@ -37,7 +38,7 @@
 </ul>
 </nav>
 <main>
-<h1>Networks from other people</h1>
+<h1>Execution modes</h1>
 <p class="lead">A network file is a program. When you open one that someone else made, WEWoS can
 run it in a sandbox, where its code cannot reach your files or the internet.</p>
 
@@ -53,7 +54,7 @@ contain runs as soon as the imported network opens.</li>
 <p>In Vision, all of this ran with your rights. In WEWoS, a network from someone else can run in
 its own process, confined by the operating system.</p>
 
-<h2 id="levels">Three levels</h2>
+<h2 id="levels">Three modes</h2>
 <table>
 <tr><th>Level</th><th>its code can read</th><th>its code can write</th><th>internet</th></tr>
 <tr><td><b>Sandboxed</b></td><td>its own folder, the folders you add, and the Python environment
@@ -63,9 +64,16 @@ unless you allow it</td></tr>
 <tr><td><b>Unrestricted</b></td><td>every file you can read</td><td>every file you can write</td>
 <td>yes</td></tr>
 </table>
-<p>Unrestricted is how WEWoS runs the networks you make yourself.</p>
+<p>Unrestricted is how WEWoS runs the networks you make yourself, and how Vision ran every
+network.</p>
+<figure>
+<img src="img/sandboxed.png" alt="A sandboxed network: the green sandboxed badge in the toolbar, and the canvas tinted and framed in green">
+<figcaption><b>A sandboxed network.</b> The badge next to the run status says how the network on
+screen runs; its canvas is tinted and framed in green, with the mode in the top right
+corner.</figcaption>
+</figure>
 
-<h2 id="choose">Choosing a level</h2>
+<h2 id="choose">Choosing a mode</h2>
 <figure class="mid">
 <img src="img/open_mode.png" alt="The dialog that asks how a network file should run">
 <figcaption>Opening or importing a network asks how it runs.</figcaption>
@@ -85,17 +93,25 @@ to be asked each time.</li>
 <li>New networks, which start empty, run unrestricted.</li>
 <li>The badge next to the run status shows how the current network runs:
 <span style="white-space:nowrap">&#128737; sandboxed</span> or &#128737; read-only, with
-&middot; internet when it may use the internet, or &#128275; unrestricted. The open networks menu
-marks the isolated ones with &#128737;.</li>
+&middot; internet when it may use the internet, or &#128275; unrestricted. The thin tabs of the
+other open networks, and the open networks menu, mark the isolated ones with &#128737; (see
+<a href="networks.html#tabs">moving between networks</a>).</li>
 <li>The canvas of an isolated network is tinted and framed in the badge's color, pale green when
 it is sandboxed and pale amber when it is read-only, with its level in the top right corner, so
 that you see at a glance which networks are confined.</li>
 <li><b>File &gt; Execution mode&hellip;</b> (or a click on the badge) changes the level of the
-network on screen. The network is saved, closed and opened again from its autosave at the new
+network on screen (the dialog below). The network is saved, closed and opened again from its autosave at the new
 level, so the results of its last run are not kept. Once you have read a network's code and trust
 it, you can make it unrestricted this way. The same dialog holds the <b>Don't ask me again</b> box;
 ticking or unticking it alone leaves the network as it is.</li>
+<li>Closing an isolated network (the &#10005; on its tab, or <b>File &gt; Close network</b>) ends its
+process; its folder stays.</li>
 </ul>
+<figure class="mid">
+<img src="img/exec_mode.png" alt="The Execution mode dialog of a network, with the three modes, internet access, folders to grant, and Don't ask me again">
+<figcaption><b>File &gt; Execution mode&hellip;</b>, or a click on the badge: the mode of the network
+on screen, and whether networks opened later ask.</figcaption>
+</figure>
 
 <h2 id="internet">Internet access</h2>
 <p>A sandboxed or read-only network has no internet access unless you tick <b>Allow internet
