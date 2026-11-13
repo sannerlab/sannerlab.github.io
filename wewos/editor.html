@@ -9,6 +9,7 @@
 <h4>Start here</h4><ul>
 <li><a href="index.html">Overview</a></li>
 <li><a href="start.html">Getting started</a></li>
+<li><a href="networks.html">Examples and open networks</a></li>
 <li><a class="here" href="editor.html">Building a network</a></li>
 <li><a href="running.html">Running a network</a></li>
 </ul>
@@ -29,7 +30,7 @@
 </ul>
 <h4>Reference</h4><ul>
 <li><a href="files.html">Saving, opening, importing</a></li>
-<li><a href="isolation.html">Networks from other people</a></li>
+<li><a href="isolation.html">Execution modes</a></li>
 <li><a href="libraries.html">Node libraries</a></li>
 <li><a href="nodes.html">Writing your own nodes</a></li>
 <li><a href="vision.html">WEWoS and Vision</a></li>
@@ -62,6 +63,9 @@ libraries it uses.</p>
 shape and color of a port show the type of data it takes or gives (float, int, string, list, image,
 geometry, molecule&hellip;); hovering over a port shows its name, its type, and whether it is
 optional. An input given a widget shows the widget on its row instead of a port icon.</p>
+<p>A long port name is shortened in the node, from the end of its name or as an abbreviation
+(<i>instanceMatrices</i> shows as <i>instMat</i>): hovering over it shows the full name, and the
+parameter column shows it in full.</p>
 <p>Two small squares are special ports: the one on the top edge (<code>runNode</code>) runs the node
 when a connection brings anything to it, and the one on the bottom edge (<code>trigger</code>)
 runs the nodes connected to it after this one.</p>
@@ -94,6 +98,10 @@ the parameter column.</li>
 <li><b>Unbind (show the port)</b> removes the widget, so that the input becomes a port another node
 can feed. Right-click that port and choose <b>Rebind widget</b> to get the widget back. Some
 widgets are part of their node (a Dial's dial) and cannot be unbound.</li>
+<li><b>Wider</b> / <b>Narrower</b> / <b>Automatic width</b>: a widget shown in its node is as wide as
+its value needs (four letters for a PDB id, a few digits for a small integer), so that nodes stay
+narrow. These entries make it wider or narrower when that is too short; the width is saved with the
+network.</li>
 </ul>
 <p><b>Numbers.</b> Scroll over a number (mouse wheel, or two fingers on a trackpad) to change it
 step by step: Shift makes the steps 10 times finer, Alt/Option 10 times coarser. Drag its &#8644;
@@ -147,10 +155,13 @@ its ports. Double-click the macro node to open its network in a tab:</p>
 input ports come from the <i>input Ports</i> node on the left, its outputs go to the <i>output
 Ports</i> node on the right.</figcaption>
 </figure>
+<p>A network keeps the macro tabs you opened, and the one in front, when you switch to another
+network and back (see <a href="networks.html#tabs">moving between networks</a>). The &#10005; on a
+macro's tab closes the tab, not the macro.</p>
 <p>Inside a macro, connecting a node to the <code>new</code> port of <i>input Ports</i> or <i>output
 Ports</i> adds a port to the macro. <b>Explode macro</b> puts its nodes back in the network around
 it. Library macros (Icosahedral1, IcosCage, UTiso&hellip;) open the same way.</p>
-<div class="pn"><a href="start.html">&larr; Getting started</a><a href="running.html">Running a network &rarr;</a></div>
+<div class="pn"><a href="networks.html">&larr; Examples and open networks</a><a href="running.html">Running a network &rarr;</a></div>
 <footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
 Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
 follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>

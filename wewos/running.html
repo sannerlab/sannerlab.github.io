@@ -9,6 +9,7 @@
 <h4>Start here</h4><ul>
 <li><a href="index.html">Overview</a></li>
 <li><a href="start.html">Getting started</a></li>
+<li><a href="networks.html">Examples and open networks</a></li>
 <li><a href="editor.html">Building a network</a></li>
 <li><a class="here" href="running.html">Running a network</a></li>
 </ul>
@@ -29,7 +30,7 @@
 </ul>
 <h4>Reference</h4><ul>
 <li><a href="files.html">Saving, opening, importing</a></li>
-<li><a href="isolation.html">Networks from other people</a></li>
+<li><a href="isolation.html">Execution modes</a></li>
 <li><a href="libraries.html">Node libraries</a></li>
 <li><a href="nodes.html">Writing your own nodes</a></li>
 <li><a href="vision.html">WEWoS and Vision</a></li>
@@ -43,7 +44,7 @@
 <figure class="mid">
 <img src="img/toolbar.png" alt="The run buttons at the top of the page">
 <figcaption><b>The run controls.</b> (1) Run, (2) Run all, (3) Pause, (4) Stop, (5) run on
-change, (6) the network's state.</figcaption>
+change, (6) the network's state, (7) its execution mode.</figcaption>
 </figure>
 
 <h2 id="flow">How data flows</h2>
@@ -91,6 +92,34 @@ the node shows the error in the parameter column, with its traceback; the Log un
 has it too.</figcaption>
 </figure>
 <p>What nodes print goes to the <b>Log</b> under the network (click it to open it).</p>
+
+<h2 id="modes">Execution modes</h2>
+<p>Every network runs in one of three execution modes, shown by the badge next to its state (7 in
+the picture above; see <a href="networks.html#modes">how each network runs</a>):</p>
+<ul>
+<li><b>&#128275; Unrestricted</b>: the network runs in the WEWoS server, with your rights, as every
+network did in Vision. New networks, which you build yourself, run this way.</li>
+<li><b>&#128737; Sandboxed</b> or <b>&#128737; read-only</b>: the network runs in its own process,
+confined by the operating system. Its canvas is framed and tinted, green or amber. Running it is
+the same as above: the run buttons, widgets, viewers and picks work as usual.</li>
+</ul>
+<p>Opening a network file or an example asks which mode to use. To change the mode of the network
+on screen, click the badge or use <b>File &gt; Execution mode&hellip;</b>: the network is saved,
+closed and opened again in the new mode, so the results of its last run are not kept.</p>
+<p>What changes for an isolated network when it runs:</p>
+<ul>
+<li><b>Files.</b> A sandboxed network sees only its own folder and the folders you granted: a node
+that reads a file elsewhere fails as if the file did not exist. Upload the file (the &#8679; button
+of a file widget), or grant its folder in the execution mode dialog. A read-only network reads
+every file you can, and writes only in its folder.</li>
+<li><b>Internet.</b> It has no internet access unless you allow it. <i>Fetch PDB</i> still works:
+WEWoS downloads the entry for the network.</li>
+<li><b>Stopping.</b> Stop (&#9632;) waits for the running node to finish. If an isolated network
+has not stopped five seconds later, WEWoS offers <b>Force stop</b>, which ends its process and
+starts it again from its last autosave (also <b>File &gt; Force stop</b>).</li>
+</ul>
+<p>The <a href="isolation.html">Execution modes</a> page has the details: the three modes, granting
+folders, and how Linux, macOS and Windows confine a network.</p>
 <div class="pn"><a href="editor.html">&larr; Building a network</a><a href="tutorials.html">About the tutorials &rarr;</a></div>
 <footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
 Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials

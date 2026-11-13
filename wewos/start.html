@@ -9,6 +9,7 @@
 <h4>Start here</h4><ul>
 <li><a href="index.html">Overview</a></li>
 <li><a class="here" href="start.html">Getting started</a></li>
+<li><a href="networks.html">Examples and open networks</a></li>
 <li><a href="editor.html">Building a network</a></li>
 <li><a href="running.html">Running a network</a></li>
 </ul>
@@ -29,7 +30,7 @@
 </ul>
 <h4>Reference</h4><ul>
 <li><a href="files.html">Saving, opening, importing</a></li>
-<li><a href="isolation.html">Networks from other people</a></li>
+<li><a href="isolation.html">Execution modes</a></li>
 <li><a href="libraries.html">Node libraries</a></li>
 <li><a href="nodes.html">Writing your own nodes</a></li>
 <li><a href="vision.html">WEWoS and Vision</a></li>
@@ -40,12 +41,23 @@
 <h1>Getting started</h1>
 <p class="lead">Start the server, open the address it prints, and open an example.</p>
 
-<h2 id="install">What it needs</h2>
-<p>WEWoS runs with a Python 3 environment that has numpy. The Molecules library also needs MolKit2,
-prody and mslib, which the ADCP distribution's <code>adcpsuite</code> environment provides;
-<code>bin/wewos</code> finds that environment by itself (<code>$WEWOS_PYTHON_ENV</code> names
-another one). To see what is missing:</p>
-<pre>bin/wewos check</pre>
+<h2 id="install">Installing</h2>
+<p>The core of WEWoS (the engine, the importer, and the Standard, 3D Visualization, SymServer,
+Volume, Imaging and MatPlotLib libraries) installs with pip, on Python 3.7 to 3.13:</p>
+<pre>git clone https://github.com/sannerlab/WEWoS.git
+cd WEWoS
+python -m venv .venv &amp;&amp; . .venv/bin/activate     # or a conda environment
+pip install -e ".[all]"                           # numpy, Pillow, matplotlib
+wewos check                                       # what is missing</pre>
+<p>The Molecules library also needs MolKit2, ProDy and mslib, and isocontouring and meshing in the
+Volume library need UTpackages. These are built for Python 3.7 and come with the
+<code>adcpsuite</code> environment of the
+<a href="https://sannerlab.github.io/software/adcp/1.1/download.html">ADCP 1.1 installer</a>
+(Linux). <code>bin/wewos</code> finds that environment by itself (<code>$WEWOS_PYTHON_ENV</code>
+names another one) and runs WEWoS in it: <code>bin/wewos serve</code>, <code>bin/wewos check</code>.</p>
+<p>To run networks from other people in a sandbox (see <a href="networks.html#modes">execution modes</a>), Linux
+needs bubblewrap (<code>apt install bubblewrap</code>); macOS has what it needs; Windows needs
+<code>wewos sandbox-setup</code> once.</p>
 <p>The page needs a recent browser (Chrome, Firefox, Safari or Edge) with WebGL. It loads nothing
 from the internet: 3Dmol.js and Mol* come with WEWoS.</p>
 
@@ -78,38 +90,14 @@ address on your own machine:</p>
 are relative to that folder, as they were to a network's directory in Vision. It also holds the
 files you upload, the networks you save, and <code>autosave.wnet.json</code>, written after each
 change.</p>
-<p><b>File &gt; New network</b> opens a new, empty network. Opening a file or an example also
-adds a network: the one you were working on stays open, with its results. Every open network has
-a tab above the canvas, in the order they were opened. The network on screen has a full tab,
-followed by the tabs of the macros you opened inside it; the others have thin tabs (&#128737; when
-they run isolated), and clicking one shows that network. The &#10005; on a network's tab, or
-<b>Close network&hellip;</b> in the File menu and in the menu of the empty canvas, closes it; its
-folder stays on disk, with a last autosave. The empty network a page starts with goes away by itself
-when you open another one. The menu at the top right lists the open networks too. Networks stay
-open on the server when you close the page, and come back when you open its address again.</p>
+<p>Networks stay open on the server when you close the page, and come back when you open its
+address again.</p>
 
-<h2 id="examples">Open an example</h2>
-<figure class="mid">
-<img src="img/examples.png" alt="The Examples dialog with the Vision tutorial group open">
-<figcaption><b>File &gt; Open an example&hellip;</b> The examples come in groups: WEWoS's own, the
-networks of the <a href="tutorials.html">Vision tutorial</a>, and the examples that came with
-MGLTools Vision.</figcaption>
-</figure>
-<p>Clicking an example opens it as a new network, and copies the data files it reads into the
-network's folder. Press <b>Run all</b> to run it. The examples are good starting points:</p>
-<table>
-<tr><th>group</th><th>examples</th></tr>
-<tr><td>WEWoS</td><td>contacts of a picked residue (click the inhibitor of HIV-1 protease: a
-Python node lists the residues within a cutoff, drawn, plotted and written to a CSV file), crambin surface, helical crambin, icosahedral spheres, iterate squares, map
-isosurface, pick a residue, plots, poliovirus capsid (Mol*), spheres and a color map, viewer
-snapshot</td></tr>
-<tr><td>Vision tutorial (MGLTools 1.5.3)</td><td>the networks of the <a href="tutorials.html">tutorials</a>,
-and an empty network that has the tutorial's data in its folder</td></tr>
-<tr><td>Vision examples (MGLTools)</td><td>cpk, icos, image filters, and the network of figure 1 of the
-2002 ViPEr paper</td></tr>
-<tr><td>Vision matplotlib examples (MGLTools)</td><td>44 plots: lines, scatter, histograms, bars,
-pies, polar, contours, spectra, quiver, tables, legends&hellip;</td></tr>
-</table>
+<h2 id="next">Next: open an example</h2>
+<p><b>File &gt; Open an example&hellip;</b> opens one of the 74 example networks. Opening examples
+and network files, moving between the networks you have open, closing them, and choosing how each
+one runs (its execution mode) are on the next page, <a href="networks.html">Examples and open
+networks</a>.</p>
 
 <h2 id="cli">Without the browser</h2>
 <pre>bin/wewos run net.wnet.json                      # run a saved network
@@ -118,7 +106,7 @@ bin/wewos import old_net.py -o new.wnet.json     # convert a Vision network
 bin/wewos test                                   # the test suite</pre>
 <div class="tip"><b>Light or dark.</b> The &#9681; button at the top right switches the page between
 its light and dark themes; the choice is remembered by the browser.</div>
-<div class="pn"><a href="index.html">&larr; Overview</a><a href="editor.html">Building a network &rarr;</a></div>
+<div class="pn"><a href="index.html">&larr; Overview</a><a href="networks.html">Examples and open networks &rarr;</a></div>
 <footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
 Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
 follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>

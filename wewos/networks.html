@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Examples and open networks &middot; WEWoS documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">WEWoS<small>Web Enabled Workflow System</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a class="here" href="networks.html">Examples and open networks</a></li>
+<li><a href="editor.html">Building a network</a></li>
+<li><a href="running.html">Running a network</a></li>
+</ul>
+<h4>Tutorials</h4><ul>
+<li><a href="tutorials.html">About the tutorials</a></li>
+<li><a href="tut-first.html">Your first network</a></li>
+<li><a href="tut-image.html">An image viewer</a></li>
+<li><a href="tut-movie.html">Playing a series of images</a></li>
+<li><a href="tut-macro.html">Indexing a list; macros</a></li>
+<li><a href="tut-molecule.html">A virus capsid from one protomer</a></li>
+<li><a href="tut-cage.html">An icosahedral cage</a></li>
+<li><a href="tut-volumes.html">Volumes: isosurfaces and slices</a></li>
+</ul>
+<h4>Viewing results</h4><ul>
+<li><a href="viewer.html">The 3D viewer</a></li>
+<li><a href="colormap.html">Color maps and legends</a></li>
+<li><a href="images.html">Images and plots</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="files.html">Saving, opening, importing</a></li>
+<li><a href="isolation.html">Execution modes</a></li>
+<li><a href="libraries.html">Node libraries</a></li>
+<li><a href="nodes.html">Writing your own nodes</a></li>
+<li><a href="vision.html">WEWoS and Vision</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>Examples and open networks</h1>
+<p class="lead">Open an example or a network file, move between the networks you have open, close
+them, and choose how each one runs.</p>
+
+<h2 id="examples">Open an example</h2>
+<figure class="mid">
+<img src="img/examples.png" alt="The Examples dialog with the Vision tutorial group open">
+<figcaption><b>File &gt; Open an example&hellip;</b> The examples come in groups: WEWoS's own, the
+networks of the <a href="tutorials.html">Vision tutorial</a>, and the examples that came with
+MGLTools Vision.</figcaption>
+</figure>
+<p>Clicking an example asks how it should run (its <a href="#modes">execution mode</a>), opens it
+as a new network, and copies the data files it reads into the network's folder. Press <b>Run
+all</b> to run it. The examples are good starting points:</p>
+<table>
+<tr><th>group</th><th>examples</th></tr>
+<tr><td>WEWoS</td><td>contacts of a picked residue (click the inhibitor of HIV-1 protease: a
+Python node lists the residues within a cutoff, drawn, plotted and written to a CSV file), crambin surface, helical crambin, icosahedral spheres, iterate squares, map
+isosurface, pick a residue, plots, poliovirus capsid (Mol*), spheres and a color map, viewer
+snapshot</td></tr>
+<tr><td>Vision tutorial (MGLTools 1.5.3)</td><td>the networks of the <a href="tutorials.html">tutorials</a>,
+and an empty network that has the tutorial's data in its folder</td></tr>
+<tr><td>Vision examples (MGLTools)</td><td>cpk, icos, image filters, and the network of figure 1 of the
+2002 ViPEr paper</td></tr>
+<tr><td>Vision matplotlib examples (MGLTools)</td><td>44 plots: lines, scatter, histograms, bars,
+pies, polar, contours, spectra, quiver, tables, legends&hellip;</td></tr>
+</table>
+
+<h2 id="open">Open or import a network file</h2>
+<ul>
+<li><b>File &gt; Open network (.wnet.json)&hellip;</b> opens a network saved by WEWoS, from your
+computer.</li>
+<li><b>File &gt; Import a Vision network (*_net.py)&hellip;</b> converts a network saved by MGLTools
+Vision, without running it, and reports what it could not carry over (see
+<a href="files.html#import">importing</a>).</li>
+<li>Dropping a <code>.wnet.json</code> or <code>*_net.py</code> file on the page does the same.</li>
+</ul>
+<figure class="mid">
+<img src="img/open_mode.png" alt="The dialog that asks how a network file should run">
+<figcaption><b>Opening or importing asks how the network runs.</b> A network file is a program:
+sandboxed is offered the first time (see <a href="#modes">execution modes</a>).</figcaption>
+</figure>
+<p>Each opened network gets its own folder, and the network you were working on stays open.</p>
+
+<h2 id="tabs">Moving between open networks</h2>
+<figure class="mid">
+<img src="img/tabs.png" alt="Network tabs: two thin tabs for other networks, one of them sandboxed, then the full tab of the network on screen and of a macro opened in it">
+<figcaption><b>Three open networks.</b> The thin tabs at the left are the poliovirus capsid and a
+sandboxed network (&#128737;). The network on screen, cartoon2b, has a full tab, followed by the
+tab of its macro indexMax, which is in front.</figcaption>
+</figure>
+<ul>
+<li><b>File &gt; New network</b> opens a new, empty network. Opening a file, importing a Vision
+network or opening an example also adds a network: the one you were working on stays open, with
+its results.</li>
+<li>Every open network has a tab above the canvas, in the order they were opened. The network on
+screen has a full tab, followed by the tabs of the macros you opened inside it (double-click a
+macro). The other networks have thin tabs, marked &#128737; when they run isolated: click one to
+show that network. The menu at the top right lists the open networks too.</li>
+<li>Each network keeps its macro tabs, and the tab that was in front, when you switch to another
+network and back, and when you reload the page.</li>
+<li>Several browser tabs can show the same server, each with its own network on screen.</li>
+</ul>
+
+<h2 id="close">Closing a network</h2>
+<ul>
+<li>The &#10005; on a network's tab, or <b>Close network&hellip;</b> in the File menu and in the menu
+of the empty canvas (right-click the background), closes the network. A network with nodes asks
+first.</li>
+<li>Its folder stays on disk, with a last autosave, so <b>File &gt; Open network</b> brings it
+back. Closing an isolated network ends its process.</li>
+<li>Closing the network on screen shows the one next to it in the tabs, or a new empty network
+when it was the last.</li>
+<li>The &#10005; on a macro's tab closes the tab only.</li>
+<li>The empty network a page starts with goes away by itself when you open another one.</li>
+</ul>
+
+<h2 id="modes">How each network runs: execution modes</h2>
+<figure>
+<img src="img/sandboxed.png" alt="A sandboxed network: the green sandboxed badge in the toolbar, and the canvas tinted and framed in green">
+<figcaption><b>A sandboxed network.</b> The badge in the toolbar and the green frame and tint of
+the canvas show that its code sees only its own folder.</figcaption>
+</figure>
+<p>A network file is a program: opening it runs the code of its nodes, and running it runs the rest.
+Vision ran every network with your rights. WEWoS runs the networks you build that way, and lets a
+network from someone else run confined by the operating system:</p>
+<table>
+<tr><th>mode</th><th>its code can read</th><th>its code can write</th><th>internet</th></tr>
+<tr><td>&#128737; <b>Sandboxed</b></td><td>its own folder and the folders you add</td><td>its own
+folder</td><td>only if you allow it</td></tr>
+<tr><td>&#128737; <b>Read-only</b> (not on Windows)</td><td>every file you can read</td><td>its own
+folder</td><td>only if you allow it</td></tr>
+<tr><td>&#128275; <b>Unrestricted</b></td><td>every file you can read</td><td>every file you can
+write</td><td>yes</td></tr>
+</table>
+<ul>
+<li>Opening or importing a network file, and opening an example, ask which mode to use; sandboxed
+is offered the first time. <b>Don't ask me again</b> uses the mode you pick for the networks you
+open afterwards.</li>
+<li>New networks, which you build yourself, run unrestricted.</li>
+<li>The badge next to the run status shows the mode of the network on screen; an isolated
+network's canvas is framed and tinted, green when sandboxed and amber when read-only. Click the
+badge, or use <b>File &gt; Execution mode&hellip;</b>, to change it.</li>
+<li><i>Fetch PDB</i> works in every mode: WEWoS downloads the entry for the network.</li>
+</ul>
+<p>The <a href="isolation.html">Execution modes</a> page tells more: granting folders, internet
+access, Force stop, and how each operating system confines a network.</p>
+<div class="pn"><a href="start.html">&larr; Getting started</a><a href="editor.html">Building a network &rarr;</a></div>
+<footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
+follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>
+</main></div></body></html>

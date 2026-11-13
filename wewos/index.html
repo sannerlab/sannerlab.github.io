@@ -9,6 +9,7 @@
 <h4>Start here</h4><ul>
 <li><a class="here" href="index.html">Overview</a></li>
 <li><a href="start.html">Getting started</a></li>
+<li><a href="networks.html">Examples and open networks</a></li>
 <li><a href="editor.html">Building a network</a></li>
 <li><a href="running.html">Running a network</a></li>
 </ul>
@@ -29,7 +30,7 @@
 </ul>
 <h4>Reference</h4><ul>
 <li><a href="files.html">Saving, opening, importing</a></li>
-<li><a href="isolation.html">Networks from other people</a></li>
+<li><a href="isolation.html">Execution modes</a></li>
 <li><a href="libraries.html">Node libraries</a></li>
 <li><a href="nodes.html">Writing your own nodes</a></li>
 <li><a href="vision.html">WEWoS and Vision</a></li>
@@ -46,7 +47,8 @@ volumes, images and plots as they run.</p>
 <img src="img/overview.png" alt="WEWoS with the mol2plv tutorial network: the libraries on the left, the network in the middle, the selected node's parameters on the right, a 3D viewer under the network">
 <figcaption><b>WEWoS with the tutorial network <i>mol2plv</i>.</b> The poliovirus capsid is built
 from one protomer and its 60 icosahedral matrices, and colored by the x coordinate of its atoms.
-The numbered parts are explained <a href="#interface">below</a>.</figcaption>
+Two other networks are open, in the thin tabs at the left. The numbered parts are explained
+<a href="#interface">below</a>.</figcaption>
 </figure>
 
 <h2 id="idea">The idea</h2>
@@ -82,21 +84,27 @@ so the networks written over the years still open (see <a href="files.html#impor
 <p>The server listens on your machine only, and the address it prints carries a token that keeps
 other users of the machine out. Node code runs on the server with your rights, as it did in
 Vision; a network from someone else can run in a sandbox instead (see
-<a href="isolation.html">networks from other people</a>).</p>
+<a href="isolation.html">execution modes</a>).</p>
 
 <h2 id="interface">The interface</h2>
 <ol class="legend">
 <li><b>The libraries</b> of nodes, by category. Drag a node onto the network, or double-click it.
 <b>Libraries&hellip;</b> loads more of them.</li>
 <li><b>Find a node</b> by name in the loaded libraries.</li>
-<li><b>File</b> (new, open, save, import a Vision network, examples), <b>Edit</b> (copy, paste,
-macros, arrange) and <b>Libraries&hellip;</b></li>
+<li><b>File</b> (new, open, save, import a Vision network, examples, close), <b>Edit</b> (copy,
+paste, macros, arrange) and <b>Libraries&hellip;</b></li>
 <li><b>Run</b> the nodes that have new data, <b>Run all</b>, <b>Pause</b> and <b>Stop</b>.</li>
 <li><b>run on change</b>: when checked, changing a widget runs what it feeds. Next to it, the
 network's state: idle or running.</li>
-<li>The <b>open networks</b>. Each has its own folder for its files.</li>
+<li>The network's <b>execution mode</b>: &#128275; unrestricted, or &#128737; sandboxed or
+read-only for a network from someone else. Click it to change it (see
+<a href="isolation.html">Execution modes</a>).</li>
+<li>The <b>open networks</b>, in a menu. Each has its own folder for its files.</li>
 <li>This documentation.</li>
-<li>The network's <b>tab</b>; each macro you open gets a tab next to it.</li>
+<li>The <b>tab</b> of the network on screen; each macro you open gets a tab next to it.</li>
+<li><b>Thin tabs</b>: the other open networks (&#128737; when they run isolated). Click one to show
+that network; &#10005; closes a network (see <a href="networks.html#tabs">moving between
+networks</a>).</li>
 <li><b>The network editor.</b> The mouse wheel zooms, dragging the background pans, Shift-drag
 selects, <kbd>f</kbd> fits the network in view.</li>
 <li><b>A node</b>: its name in a bar of its library's color, inputs on the left, outputs on the
@@ -120,6 +128,8 @@ Vision's tutorial, step by step, in WEWoS.</span></a>
 3Dmol.js and Mol*, picking, silhouettes, pictures.</span></a>
 <a class="card" href="files.html"><img src="img/import_report.png" alt=""><span><b>Vision networks</b>
 Importing <code>*_net.py</code> files.</span></a>
+<a class="card" href="isolation.html"><img src="img/exec_mode.png" alt=""><span><b>Execution modes</b>
+Run a network from someone else in a sandbox.</span></a>
 </div>
 <div class="pn"><span></span><a href="start.html">Getting started &rarr;</a></div>
 <footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
