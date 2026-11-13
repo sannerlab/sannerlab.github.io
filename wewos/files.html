@@ -29,6 +29,7 @@
 </ul>
 <h4>Reference</h4><ul>
 <li><a class="here" href="files.html">Saving, opening, importing</a></li>
+<li><a href="isolation.html">Networks from other people</a></li>
 <li><a href="libraries.html">Node libraries</a></li>
 <li><a href="nodes.html">Writing your own nodes</a></li>
 <li><a href="vision.html">WEWoS and Vision</a></li>
@@ -45,7 +46,8 @@
 <tr><th>File menu</th><th>what it does</th></tr>
 <tr><td>Save / Save as&hellip;</td><td>writes <code>&lt;name&gt;.wnet.json</code> in the network's folder</td></tr>
 <tr><td>Open network (.wnet.json)&hellip;</td><td>opens a network file from your computer as a new network
-(dropping the file on the page does the same)</td></tr>
+(dropping the file on the page does the same); it first asks how the network should run, sandboxed
+by default (see <a href="isolation.html">networks from other people</a>)</td></tr>
 <tr><td>Download the network file</td><td>the <code>.wnet.json</code>, to your computer</td></tr>
 <tr><td>Download the network folder (zip)</td><td>the network with the files its nodes read and wrote</td></tr>
 <tr><td>Rename network&hellip;</td><td>its name, shown in its tab and in the open networks menu</td></tr>
@@ -93,7 +95,7 @@ same for any network).</li>
 <p>The data files a Vision network reads are not part of its <code>_net.py</code>: upload them into the
 imported network's folder (the &#8679; button of a file widget), or give their full path on the
 server.</p>
-<div class="pn"><a href="images.html">&larr; Images and plots</a><a href="libraries.html">Node libraries &rarr;</a></div>
+<div class="pn"><a href="images.html">&larr; Images and plots</a><a href="isolation.html">Networks from other people &rarr;</a></div>
 <footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
 Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
 follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>
