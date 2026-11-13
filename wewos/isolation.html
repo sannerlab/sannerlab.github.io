@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Networks from other people &middot; WEWoS documentation</title>
+<link rel="stylesheet" href="style.css">
+</head><body><div class="layout">
+<nav class="side">
+<a class="brand" href="index.html">WEWoS<small>Web Enabled Workflow System</small></a>
+<h4>Start here</h4><ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="start.html">Getting started</a></li>
+<li><a href="editor.html">Building a network</a></li>
+<li><a href="running.html">Running a network</a></li>
+</ul>
+<h4>Tutorials</h4><ul>
+<li><a href="tutorials.html">About the tutorials</a></li>
+<li><a href="tut-first.html">Your first network</a></li>
+<li><a href="tut-image.html">An image viewer</a></li>
+<li><a href="tut-movie.html">Playing a series of images</a></li>
+<li><a href="tut-macro.html">Indexing a list; macros</a></li>
+<li><a href="tut-molecule.html">A virus capsid from one protomer</a></li>
+<li><a href="tut-cage.html">An icosahedral cage</a></li>
+<li><a href="tut-volumes.html">Volumes: isosurfaces and slices</a></li>
+</ul>
+<h4>Viewing results</h4><ul>
+<li><a href="viewer.html">The 3D viewer</a></li>
+<li><a href="colormap.html">Color maps and legends</a></li>
+<li><a href="images.html">Images and plots</a></li>
+</ul>
+<h4>Reference</h4><ul>
+<li><a href="files.html">Saving, opening, importing</a></li>
+<li><a class="here" href="isolation.html">Networks from other people</a></li>
+<li><a href="libraries.html">Node libraries</a></li>
+<li><a href="nodes.html">Writing your own nodes</a></li>
+<li><a href="vision.html">WEWoS and Vision</a></li>
+<li><a href="known-issues.html">Known issues</a></li>
+</ul>
+</nav>
+<main>
+<h1>Networks from other people</h1>
+<p class="lead">A network file is a program. When you open one that someone else made, WEWoS can
+run it in a sandbox, where its code cannot reach your files or the internet.</p>
+
+<h2 id="why">Why a network needs care</h2>
+<ul>
+<li>Opening a network runs the code of the nodes whose code was edited, including its top-level
+statements.</li>
+<li>Running it runs every node. Some standard nodes evaluate their widget values as Python:
+<i>eval</i>, <i>Call Method</i>, <i>If</i>, <i>While</i> and others.</li>
+<li>Vision's <code>*_net.py</code> files are imported without being run, but the edited code they
+contain runs as soon as the imported network opens.</li>
+</ul>
+<p>In Vision, all of this ran with your rights. In WEWoS, a network from someone else can run in
+its own process, confined by the operating system.</p>
+
+<h2 id="levels">Three levels</h2>
+<table>
+<tr><th>Level</th><th>its code can read</th><th>its code can write</th><th>internet</th></tr>
+<tr><td><b>Sandboxed</b></td><td>its own folder, the folders you add, and the Python environment
+WEWoS runs in</td><td>its own folder</td><td>off, unless you allow it</td></tr>
+<tr><td><b>Read-only</b></td><td>every file you can read</td><td>its own folder</td><td>off,
+unless you allow it</td></tr>
+<tr><td><b>Unrestricted</b></td><td>every file you can read</td><td>every file you can write</td>
+<td>yes</td></tr>
+</table>
+<p>Unrestricted is how WEWoS runs the networks you make yourself.</p>
+
+<h2 id="choose">Choosing a level</h2>
+<ul>
+<li><b>File &gt; Open network</b> and <b>File &gt; Import a Vision network</b> (and dropping a file
+on the page) ask how the network should run. Sandboxed is chosen the first time; after that, the
+dialog offers the level you chose last. It is remembered in <code>settings.json</code> in the
+folder of your networks.</li>
+<li><b>File &gt; Open an example</b> asks the same question, offering the level you chose last
+for a file; the choice made for an example is not remembered.</li>
+<li>New networks, which start empty, run unrestricted.</li>
+<li>The badge next to the run status shows how the current network runs:
+<span style="white-space:nowrap">&#128737; sandboxed</span> or &#128737; read-only, with
+&middot; internet when it may use the internet, or &#128275; unrestricted. The open networks menu
+marks the isolated ones with &#128737;.</li>
+<li>The canvas of an isolated network is tinted and framed in the badge's color, pale green when
+it is sandboxed and pale amber when it is read-only, with its level in the top right corner, so
+that you see at a glance which networks are confined.</li>
+<li><b>File &gt; Isolation of this network&hellip;</b> (or a click on the badge) changes the level.
+The network is saved, closed and opened again from its autosave at the new level, so the results
+of its last run are not kept. Once you have read a network's code and trust it, you can make it
+unrestricted this way.</li>
+</ul>
+
+<h2 id="internet">Internet access</h2>
+<p>A sandboxed or read-only network has no internet access unless you tick <b>Allow internet
+access</b>. <i>Fetch PDB</i> works without it: WEWoS checks the four-character PDB id and
+downloads the entry from the RCSB for the network. Allow the internet only for a network that
+needs other downloads. A read-only network with internet access could send any file you can read
+to another computer; the dialog says so.</p>
+
+<h2 id="files">Files</h2>
+<ul>
+<li>A sandboxed network sees its own folder only. Bring data files in with the
+<b>Upload</b> button of a file widget, or list folders under <b>Also let it read these
+folders</b> when you choose the level: it can read them, not change them.</li>
+<li>The file browser of a sandboxed network shows what the network can see, so your home folder
+looks almost empty there.</li>
+<li>Downloads of the network's files and of its folder never follow a symbolic link: a network
+cannot make WEWoS hand you, or read, a file outside its folder.</li>
+</ul>
+
+<h2 id="stop">Stopping</h2>
+<p>Stop (&#9632;) waits for the running node to finish, as in Vision. If an isolated network has
+not stopped five seconds later, WEWoS offers <b>Force stop</b>, which ends the network's process and
+starts it again from its last autosave. The network is kept; the results of that run are lost.
+<b>File &gt; Force stop</b> does the same at any time.</p>
+
+<h2 id="how">How it works</h2>
+<ul>
+<li>An isolated network runs in its own Python process, started with
+<a href="https://github.com/containers/bubblewrap">bubblewrap</a>. The process has its own
+namespaces (processes, users, network), sees the files of its level only, and has no
+capabilities.</li>
+<li>Its memory is limited to three quarters of the machine's, a file it writes to 4 GB, and it
+ends when the WEWoS server ends.</li>
+<li>The server passes the page's requests on to it, and the page keeps working as usual: editing,
+widgets, runs, the 3D viewers and picking.</li>
+<li>The page accepts scripts only from the WEWoS server and talks only to it
+(a Content-Security-Policy). Text and pictures from a network are shown as text and pictures,
+never as code.</li>
+</ul>
+
+<h2 id="limits">Limits</h2>
+<ul>
+<li>Isolation needs Linux and bubblewrap (<code>apt install bubblewrap</code> on Debian and
+Ubuntu). Elsewhere, <b>File &gt; Isolation of this network</b> is greyed out and networks run
+unrestricted.</li>
+<li>A sandbox lowers the risk; it is not a guarantee. A flaw in the Linux kernel could let code
+out, and the worker has no system-call filter.</li>
+<li>A network can still use all the processor, fill the disk of its folder, or show you results
+that are wrong on purpose.</li>
+<li>Node libraries of your own that you load after an isolated network was opened are not
+available to it until it is opened again.</li>
+<li>To run a WEWoS server for other people, start it with
+<code>wewos serve --isolation sandboxed</code> (or <code>readonly</code>): every network,
+including new ones and examples, then runs at least at that level, and the server refuses to load
+Python modules or files into itself.</li>
+</ul>
+<div class="pn"><a href="files.html">&larr; Saving, opening, importing</a><a href="libraries.html">Node libraries &rarr;</a></div>
+<footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
+Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
+follow the Vision tutorial of MGLTools 1.5.3 (Michel Sanner and Guillaume Vareille, 2008).</footer>
+</main></div></body></html>
