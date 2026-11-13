@@ -120,9 +120,14 @@ starts it again from its last autosave. The network is kept; the results of that
   and has no capabilities.</li>
   <li><b>macOS:</b> <code>sandbox-exec</code>, which comes with macOS, with a profile WEWoS writes
   for the level: what the process may read and write, and whether it may use the network.</li>
+  <li><b>Windows:</b> an <i>AppContainer</i>, Windows' own app sandbox, one per network, in a
+  <i>Job object</i> that ends it, and whatever it started, when the server ends or on Force
+  stop. The network's folder and the folders you grant are opened to that AppContainer only;
+  it reaches the internet only when you allow it.</li>
   </ul></li>
-<li>A file it writes is limited to 4 GB, and it ends when the WEWoS server ends. On Linux its
-memory is also limited to three quarters of the machine's; macOS does not apply that limit.</li>
+<li>It ends when the WEWoS server ends. Its memory is limited to three quarters of the
+machine's on Linux and Windows (macOS does not apply that limit), and a file it writes to 4 GB on
+Linux and macOS.</li>
 <li>The server passes the page's requests on to it, and the page keeps working as usual: editing,
 widgets, runs, the 3D viewers and picking.</li>
 <li>The page accepts scripts only from the WEWoS server and talks only to it
@@ -133,9 +138,17 @@ never as code.</li>
 <h2 id="limits">Limits</h2>
 <ul>
 <li>Isolation needs Linux with bubblewrap (<code>apt install bubblewrap</code> on Debian and
-Ubuntu), or macOS. When the server starts, it checks that WEWoS runs under the sandbox; if not,
-<b>File &gt; Isolation of this network</b> is greyed out, networks run unrestricted, and the
-reason is shown. On Windows, run WEWoS under WSL2 (Linux on Windows) to isolate networks.</li>
+Ubuntu), macOS, or Windows 8 or later. When the server starts, it checks that WEWoS runs under
+the sandbox; if not, <b>File &gt; Isolation of this network</b> is greyed out, networks run
+unrestricted, and the reason is shown. <code>python -m wewos.isolation</code> says where it
+fails.</li>
+<li><b>On Windows, once:</b> <code>wewos sandbox-setup</code>. An AppContainer can read only the
+folders that allow it, and Python environments usually do not: this command lets Windows app
+sandboxes read (not change) the Python environment and the WEWoS folder, with
+<code>icacls</code>. It takes a minute for a large environment.</li>
+<li><b>No read-only level on Windows.</b> A process there can be kept from writing your files
+while it reads them, but keeping it off the internet then needs administrator rights; the dialog
+shows the level greyed out. Use Sandboxed, and grant the folders the network must read.</li>
 <li>On macOS, <code>sandbox-exec</code> is marked as deprecated by Apple, although macOS itself
 and programs such as web browsers still rely on the sandbox it starts.</li>
 <li>A sandbox lowers the risk; it is not a guarantee. A flaw in the Linux kernel could let code
