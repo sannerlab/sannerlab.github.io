@@ -90,6 +90,24 @@ and options are saved with the network.</li>
 and is in the pictures (the &#128247; button, Grab Image).</li>
 </ul>
 <p>A Vision network whose Color Map's legend went to a Viewer imports with the legend.</p>
+
+<h2 id="one">One color: Color Editor</h2>
+<p><b>Color Editor</b> (<b>3D Visualization &gt; Input</b>), as in Vision, gives one color. Connect
+its <code>color</code> output to the color input of a geometry (the <code>colors</code> of
+GlfLabels, Spheres, Cylinders or a box, the color of a molecule's representation): a geometry given
+one color draws all its parts in it.</p>
+<ul>
+<li>In the node, the swatch opens the picker; selected, the node shows the picker in the parameter
+column.</li>
+<li><b>Palettes</b>: basic colors, a colorblind-safe palette (Okabe&ndash;Ito), Tableau 10, pastel and
+dark palettes, the element colors (CPK) and greys, and <b>Recent</b>, the colors you picked last.
+The palette you chose last is kept by the browser.</li>
+<li><b>Spectrum</b>: drag in the square for saturation and brightness, and along the bar under it for
+the hue; the color follows as you drag.</li>
+<li>Or type the color as <code>#rrggbb</code>.</li>
+</ul>
+<p>Labels without colors are drawn in the theme's text color, dark on the light theme and light on
+the dark one.</p>
 <div class="pn"><a href="viewer.html">&larr; The 3D viewer</a><a href="images.html">Images and plots &rarr;</a></div>
 <footer class="page">WEWoS documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
 Every screenshot is of WEWoS itself, made by <code>docs/make_screenshots.py</code>. The tutorials
