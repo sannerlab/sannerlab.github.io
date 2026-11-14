@@ -63,8 +63,10 @@ connecting a node, runs the part of the network below it. Uncheck it to set seve
 press <b>Run</b>.</li>
 <li>The network's state: <i>idle</i> or <i>running</i>.</li>
 </ol>
-<p>One run happens at a time, on the server. Changing a widget while the network runs queues
-another run, which starts when this one ends. <b>Run this node</b> in a node's menu (or <b>Run
+<p>One run happens at a time, on the server. Changing a widget while the network runs sets its
+value at once, and the latest change runs when this run ends: turning a dial fast through many
+steps gives one run each time the network is free, not one run per step. <b>Stop</b> and
+<b>Pause</b> also drop a change that is waiting to run. <b>Run this node</b> in a node's menu (or <b>Run
 node</b> in the parameter column) runs one node and what is below it.</p>
 
 <h2 id="loops">Loops and stops</h2>
