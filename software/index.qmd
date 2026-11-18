@@ -65,7 +65,7 @@ Graphical tools for preparing, running and looking at calculations.
 ::: {.tool-card .tc-adapt}
 [![](../images/tools/adapt.jpg){.tool-icon fig-alt=""}](adapt/index.qmd){.tool-icon-link aria-hidden="true" tabindex="-1"}
 
-<span class="status">unreleased</span>
+<span class="status">current: 0.1.0</span>
 
 ### [ADapt](adapt/index.qmd)
 Prepares receptor and ligand PDBQT files for AutoDock from a PDB entry, in a web browser.

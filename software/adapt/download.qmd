@@ -2,5 +2,35 @@
 title: "Download ADapt"
 ---
 
-ADapt is not released yet, so there is no public download. This page will link to the release
-once it is available.
+ADapt 0.1.0, the version described in our paper, is on GitHub:
+[github.com/sannerlab/adapt](https://github.com/sannerlab/adapt). It runs on **Linux**, in the
+Python environment of [ADCP 1.1](../adcp/1.1/download.qmd), with ADFR 0.0.23 and MolKit2 0.0.6.
+
+## 1. Install ADCP 1.1
+
+Follow the [ADCP 1.1 download page](../adcp/1.1/download.qmd). It creates the `adcpsuite`
+environment.
+
+## 2. Add ADFR 0.0.23 and MolKit2 0.0.6
+
+They carry the corrections ADapt relies on, and ADCP 1.1 keeps working with them:
+
+```bash
+micromamba activate adcpsuite        # or: conda activate adcpsuite
+python -m pip install --no-deps --index-url https://sannerlab.github.io/pip/py37/ adfr==0.0.23 molkit2==0.0.6
+```
+
+## 3. Get ADapt
+
+```bash
+git clone https://github.com/sannerlab/adapt.git
+adapt/bin/adapt check                # "ADapt is ready"
+adapt/bin/adapt serve --open         # starts ADapt and opens it in your browser
+```
+
+`adapt/bin/adapt launcher --desktop` adds an ADapt icon to the applications menu and the desktop.
+On a remote machine, run `adapt/bin/adapt serve`, forward its port
+(`ssh -L 8766:127.0.0.1:8766 <host>`) and open the printed address. The
+[documentation](documentation.qmd) has the details.
+
+ADapt is distributed under the [Sannerlab MIT-like Source-Available License](/software/license.qmd).
