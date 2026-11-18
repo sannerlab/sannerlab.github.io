@@ -33,7 +33,7 @@
 <main>
 <h1>Missing residues</h1>
 <p class="lead">4A1X: see where the model has holes. Gaps in the chain and missing ends are
-listed in the tree and drawn in the 3D view.</p>
+listed in the tree and drawn in the 3D view, and a gap can be rebuilt if you choose to.</p>
 
 <p>Residues without electron density are not in the model, and the file lists them (its
 <code>REMARK 465</code> records). ADapt compares each chain's sequence with the residues present
@@ -55,15 +55,138 @@ gap.</figcaption>
 <figcaption><b>4A1X, ASU</b>: the markers for all four chains. A missing end is drawn as a
 sphere 3 Å beyond the terminal N (or C) atom, joined to it by a dotted line.</figcaption>
 </figure>
-<p>Missing residues are information: nothing is rebuilt, and the PDBQT files are the same whether
-or not a chain has any. A gap near the pocket is a reason to prefer another assembly or entry,
-or to model the loop before docking.</p>
+<p>By default missing residues are information only: nothing is rebuilt, and the PDBQT files are
+the same whether or not a chain has any. A gap near the pocket is a reason to prefer another
+assembly or entry, or to rebuild it (below) knowing what that gives you.</p>
 <div class="note"><b>A stretch whose ends meet is not shown.</b> If the residues on either side of
 a missing stretch are within 3.5 Å of each other (C to N), ADFR treats the chain as continuous
-there and does not report it. For example, 1JFF chain A lists residues 35-60 as missing, but
+there and does not report it. For example, 1JFF chain A lists residues 35 to 60 as missing, but
 GLY 34 and HIS 61 are 2.68 Å apart.</div>
-<p>AGFRgui never showed missing residues, because ADFR's detection had a defect. ADapt uses a
-corrected copy of it; see <a href="differences.html">ADapt and AGFRgui</a>.</p>
+
+<h2 id="rebuild">Rebuilding a gap</h2>
+<p>Each gap between two residues of a chain has a <b>rebuild</b> box in its params column. Nothing
+is rebuilt until you tick one, and with no box ticked every file ADapt writes is exactly what it
+would be without this feature. Ticking a box builds the gap's residues at once and draws them with
+<b>magenta carbons</b>, labelled <code>rebuilt: GKGG</code>; the gap's orange marker is hidden
+while they are drawn. What is drawn is what the receptor file will contain: the same coordinates.
+Unticking removes them.</p>
+<figure>
+<img src="img/rebuild_4a1x.png" alt="4A1X Biomol 1, the GKGG gap rebuilt">
+<figcaption><b>4A1X, Biomol 1, gap GKGG rebuilt.</b> The four residues in magenta between SER -3
+and PRO 2 (in green, the gap's entry being selected). The status line gives what was measured on
+them.</figcaption>
+</figure>
+<p>How the residues are made:</p>
+<ol>
+<li>Their <b>names and numbers come from the file's <code>REMARK 465</code> records</b>. SEQRES
+gives one letter per residue, which cannot tell a phosphoserine (SEP) from a serine, and the
+numbers that follow the residue before a gap are not always the deposited ones (1A3R chain H
+jumps from CYS 128 to GLY 131).</li>
+<li><b>PDBFixer</b> places their heavy atoms on an arc between the two residues they join, with
+the residues near the gap around them, and relaxes them in its own soft force field. It is asked
+for the chosen gaps only: it adds no other atom, so side chains stay ADFR's rotamers and your
+choices.</li>
+<li>PDBFixer's soft force field leaves a sketch, not a model: on ADFR's test entries its loops
+had peptide bonds anywhere from cis to trans, consecutive CA atoms 1.4 to 4.1 Å apart, residues
+of the wrong hand (D) and threonines in their allo form. So each new side chain is first turned
+about its CA until CB sits where an L residue's would, an inverted Thr or Ile CB is righted, and
+the residues are then <b>refined in Amber ff14SB</b> (OpenMM): every observed atom held fixed,
+after a short stage in which a soft repulsion lets the loop untangle. Every new peptide bond is kept trans and every new CA L by restraints with flat
+wells, which exert no force on a loop inside them. Charges are off: the aim is sane covalent
+geometry without clashes, not a model of the loop's electrostatics.</li>
+<li>The loop is <b>checked</b> against the tolerances below. If it is outside them the build is
+made again with the next seed (1, then 2, then 3), and the first loop that passes is kept. If none
+does, nothing is written: the box goes back and the tree says why.</li>
+<li>When the receptor is written, <code>reduce</code> adds the hydrogens of the new residues
+along with everyone else's, and they get Gasteiger charges and AutoDock types like the rest. They
+are written in chain order, between the residues they join.</li>
+</ol>
+<table>
+<tr><th>Check</th><th>Allowed</th><th>Why</th></tr>
+<tr><td>C to N of every new peptide bond, the two joins included</td><td>1.30 to 1.37 Å</td><td>A
+peptide bond is 1.33 Å.</td></tr>
+<tr><td>CA to CA of consecutive residues, the residues either side included</td><td>3.70 to
+3.95 Å</td><td>Across a trans peptide it is 3.80 Å in crystal structures; minimised in ff14SB, an
+observed stretch of 4A1X (chain A, 20 to 25) measures 3.84 to 3.89 Å.</td></tr>
+<tr><td>Every new peptide bond trans</td><td>within 30° of 180°</td><td>A cis bond (CA to CA about
+2.9 Å) is reported as cis and refused.</td></tr>
+<tr><td>Every new Thr and Ile: the hand of CB</td><td>as in the amino acid, not its allo
+form</td><td>PDBFixer's dynamics invert some; ADapt rights them before refining.</td></tr>
+<tr><td>Every new CA: improper N-C-CA-CB</td><td>positive (L), and 97 to 147°</td><td>122° for an
+L residue; the observed residues beside ADFR's test gaps measure 114 to 129°. Further off, the
+CA is distorted (squeezed toward the other hand).</td></tr>
+<tr><td>Closest new heavy atom to an observed heavy atom more than three bonds away</td><td>2.5 Å
+or more</td><td>Closer is a clash; hydrogen bonds are 2.6 Å and up.</td></tr>
+</table>
+<p>The measured values are in the status line when a box is ticked, and in
+<code>session.json</code> with every save. On ADFR's test entries:</p>
+<table>
+<tr><th>Gap</th><th>C to N (Å)</th><th>CA to CA (Å)</th><th>Closest contact (Å)</th><th>Seed kept, time</th></tr>
+<tr><td>4A1X A: SER -3, GKGG, PRO 2</td><td>1.335 to 1.355</td><td>3.808 to 3.873</td><td>3.52</td><td>1, 5 s</td></tr>
+<tr><td>1A3R H: CYS 128, GDTTG (131 to 135), SER 136</td><td>1.339 to 1.348</td><td>3.835 to 3.879</td><td>3.25</td><td>1, 8 s</td></tr>
+<tr><td>6BHG A: ASP 270, GNQ, VAL 274</td><td>1.342 to 1.348</td><td>3.836 to 3.893</td><td>3.66</td><td>2, 12 s</td></tr>
+<tr><td>4A1X B: SER -3, GK, GLY 0</td><td colspan="4">not rebuilt: two residues cannot close it
+(below)</td></tr>
+</table>
+<p>Measured by ADapt's tests (<code>tests/test_rebuild.py</code>) on the files themselves. A
+rebuilt stretch of 1H6W that is observed in the crystal (chain A, 385 to 387, taken out for the
+test) comes back 2.2 Å from the deposited backbone (RMSD over N, CA, C, O).</p>
+
+<h3>When a gap cannot be rebuilt</h3>
+<p>The box is replaced by the reason, under the gap's entry:</p>
+<figure>
+<img src="img/rebuild_refused.png" alt="4A1X Biomol 2, gap GK not rebuilt, with the reason">
+<figcaption><b>4A1X, Biomol 2, gap GK.</b> Two residues cannot join SER -3 to GLY 0 with trans
+peptide bonds and sane geometry: the loop was built, failed the checks, and was not
+written.</figcaption>
+</figure>
+<p>A gap is not offered when:</p>
+<ul>
+<li><code>REMARK 465</code> does not list exactly its residues, or numbers one of them with a
+number the chain already uses (a water or a hetero group of the same chain, for example);</li>
+<li>one of its residues is not one of the 20 amino acids. A selenomethionine (MSE) is the
+exception: it is built as the methionine ADFR writes for every MSE;</li>
+<li>a residue either side is not one of the 20 amino acids (after MSE becomes MET), lacks its
+N, CA or C, or the residue before ends with an OXT;</li>
+<li>its ends are further apart than its residues can span: CA to CA more than 3.8 Å per peptide
+bond (n + 1 bonds for n residues);</li>
+<li>the loop built for it fails the checks above, as 4A1X's GK does: this is found by building
+it, so the reason appears after you tick the box.</li>
+</ul>
+<p><b>Missing ends are not offered.</b> Only one end of a missing terminus is held, so where its
+residues go would be a guess.</p>
+
+<h3>In an assembly</h3>
+<p>A gap is chosen for a chain, in every tab that has the chain. In an assembly built by
+symmetry each copy of the chain gets the gap rebuilt in its own place, among its own neighbours, as
+ADFR completes side chains in every copy. The <code>REMARK</code> line is written once per gap,
+and <code>session.json</code> records each copy. Copies are drawn translucent, as the rest of
+them is.</p>
+<p>The new residues are in the receptor when the residues on both sides of the gap are, and never
+in a ligand. A gap in a chain written as a ligand is not filled.</p>
+
+<div class="note"><b>A rebuilt loop is one model.</b> It is built without any knowledge of
+the binding site or of the ligand you will dock, from one seed, and it is one of many
+conformations the loop could take; in the crystal it had none, which is why it is missing. It
+gives the receptor a chain without holes and keeps the docking box from seeing an opening that
+is not there, but it is not evidence of where the loop is. A missing loop near the site is still a
+reason to choose another copy of the chain, another assembly or another entry.</div>
+
+<h3>Reproducible</h3>
+<p>Everything random in a build is seeded (the seed kept is in the <code>REMARK</code> line) and runs
+on OpenMM's Reference platform, so the
+same input gives the same coordinates on any machine and in any session; ADapt's tests check
+this. The surroundings a loop is built among include every location of every atom, so choosing
+another alternate location does not move it. The side chains ADFR completes next to a loop are
+built on the default alternate location, which is the same in every run (most atoms, then highest
+occupancy, then first letter; see <a href="case-altlocs.html">alternate locations</a>).</p>
+<p>A build takes a few seconds per gap (3 to 12 s on ADFR's test entries): PDBFixer's own
+relaxation, then the refinement, once per seed tried. The first build after ADapt starts also
+loads OpenMM and PDBFixer, which adds a few seconds.</p>
+
+<p>AGFRgui never showed missing residues, because ADFR's detection had a defect, corrected in
+ADFR 0.0.23; see <a href="differences.html">ADapt and AGFRgui</a>. Rebuilding gaps is ADapt's own;
+AGFRgui and ADFR's command line have no equivalent.</p>
 <div class="pn"><a href="case-metals.html">&larr; Metals, ions, unsupported atoms</a><a href="case-mutations.html">Mutating residues &rarr;</a></div>
 <footer class="page">ADapt documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
 Every screenshot is of ADapt itself, made by <code>docs/make_screenshots.py</code>; the chemistry

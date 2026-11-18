@@ -32,16 +32,16 @@
 </nav>
 <main>
 <h1>Missing side chains</h1>
-<p class="lead">Rebuild them from a rotamer library, check the rotamer in 3D, or keep only the
-atoms the experiment saw.</p>
+<p class="lead">Rebuild them from a rotamer library, check or choose the rotamer in 3D, or keep
+only the atoms the experiment saw.</p>
 
 <p>When some side-chain atoms of a standard amino acid are missing, ADapt lists the residue under
 <b>sidechains to complete</b>, with the atoms it will build (<code>build: CG CD NE CZ NH1
 NH2</code>). By default each such side chain is rebuilt when the receptor is written: every rotamer
 of the library is scored for favourable contacts and clashes with its surroundings, and the best
-is used.</p>
+is used, unless you choose another.</p>
 
-<h2>See the rotamer</h2>
+<h2>See and choose the rotamer</h2>
 <figure>
 <img src="img/sc_rotamer_auto.png" alt="1FV1 Biomol 2, ARG100 of chain D selected, with its rotamer preview">
 <figcaption><b>1FV1, Biomol 2, chain D, ARG'100.</b> Selecting the residue centres the view on it
@@ -50,18 +50,20 @@ rotamer, <code>auto 59</code>: the best-scoring of the library's 81 arginine rot
 line gives its score: <i>Score: -1.0, contacts: 2 favorable 2 clashes</i>.</figcaption>
 </figure>
 
-<p>The drop-down lists every rotamer of the library. Choosing one redraws it and gives its score.
-You can also <b>hover over the drop-down and turn the mouse wheel</b> to step through the rotamers
-one by one, watching the preview and the score change:</p>
+<p>The drop-down lists every rotamer of the library. Choosing one redraws it and gives its score,
+and it is the rotamer built. You can also <b>hover over the drop-down and turn the mouse wheel</b>
+to step through the rotamers one by one, watching the side chain and the score change:</p>
 <div class="pair">
 <figure><img src="img/sc_rotamer_auto_zoom.png" alt="rotamer 59 (auto)">
 <figcaption><b>auto (59)</b>: score -1.0, 2 favourable contacts, 2 clashes.</figcaption></figure>
 <figure><img src="img/sc_rotamer_3_zoom.png" alt="rotamer 3">
 <figcaption><b>rotamer 3</b>: score -39.0, 6 favourable contacts, 7 clashes.</figcaption></figure>
 </div>
-<div class="note"><b>The drop-down is a preview.</b> When the receptor is written, the side chain is
-built with the best-scoring rotamer (<code>auto</code>), whatever the drop-down shows. AGFRgui
-behaves the same way; the drop-down lets you judge the alternatives, not pick one.</div>
+<p>The rotamer the drop-down shows when the receptor is written is the one built: <code>auto</code>,
+the best-scoring, unless you chose another. A chosen rotamer is built in the residue's symmetry
+copies too, recorded in the session, and named in the receptor's header
+(<code>REMARK 850 AGFR rotamer D:ARG:100:_ ARG 3 of 81</code>). Going back to <code>auto</code>
+undoes the choice. On the command line: <code>agfr --rotamers "D:ARG:100::3"</code>.</p>
 
 <h2>Or keep the side chain as it is</h2>
 <p>Right-clicking a residue under <b>sidechains to complete</b> offers <b>Complete sidechain</b>

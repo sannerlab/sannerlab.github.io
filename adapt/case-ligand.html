@@ -66,10 +66,20 @@ charges assigned with Open Babel, and a torsion tree is built for docking. See
 <p>A cofactor, metal or structural water that the ligand may interact with belongs in the
 receptor: check its first box. Additives such as glycerol or sulfate usually do not, unless one
 sits in the pocket in a way you want to keep.</p>
-<div class="tip">Which residues ADFR calls <i>ligands</i> comes from its table of PDB entries. The
-table is keyed by the PDB id, which ADapt takes from the file name, so keep the id as the name
-(<code>6ggd.pdb</code>). Hetero groups the table does not know land in <b>other</b>, where they
-can be checked just the same.</div>
+<div class="tip">Which residues are <i>ligands</i> comes from ADapt's ligand table: the chemical
+components of every PDB entry, built from the RCSB PDB (the table shipped with ADapt was built on
+November 17, 2026). The table is keyed by the PDB id, which ADapt takes from the file name, so keep
+the id as the name (<code>6ggd.pdb</code>). Hetero groups the table does not list for the entry
+land in <b>other</b>, where they can be checked just the same.</div>
+<h2 id="table">An entry the ligand table does not list</h2>
+<p>An entry released after the table was built is not in it. ADapt says so above the tree, and its
+ligands are then under <b>other</b>. <b>Update the ligand table</b> rebuilds the table from the
+RCSB PDB (a few minutes) and opens the entry again with it. The same from a terminal:</p>
+<pre>bin/adapt ligands            # the table in use: when it was built, how many entries
+bin/adapt ligands --update   # rebuild it from the RCSB PDB</pre>
+<p>A rebuilt table is kept in <code>~/.adapt/ligands/</code>, beside the one shipped with ADapt, and
+sessions opened from then on use it. Each session records the table it was made with and is
+reopened with that table, so its files are reproduced exactly.</p>
 <div class="pn"><a href="case-altlocs.html">&larr; Alternate locations</a><a href="case-metals.html">Metals, ions, unsupported atoms &rarr;</a></div>
 <footer class="page">ADapt documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
 Every screenshot is of ADapt itself, made by <code>docs/make_screenshots.py</code>; the chemistry

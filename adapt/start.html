@@ -34,6 +34,18 @@
 <h1>Getting started</h1>
 <p class="lead">Start the server, open the page it prints, and load a PDB entry.</p>
 
+<h2>Install</h2>
+<p>ADapt runs in the Python environment of ADCP 1.1, with ADFR 0.0.23 and MolKit2 0.0.6. On
+Linux:</p>
+<ol>
+<li>Install <a href="https://sannerlab.github.io/software/adcp/1.1/download.html">ADCP 1.1</a>.</li>
+<li>Add ADFR 0.0.23 and MolKit2 0.0.6 from the Sanner lab's pip index (ADCP 1.1 keeps working
+with them):
+<pre>micromamba activate adcpsuite
+python -m pip install --no-deps --index-url https://sannerlab.github.io/pip/py37/ adfr==0.0.23 molkit2==0.0.6</pre></li>
+<li>Get ADapt:
+<pre>git clone https://github.com/sannerlab/adapt.git</pre></li>
+</ol>
 <h2>Requirements</h2>
 <ul>
 <li>The ADCP distribution's Python environment (<code>adcpsuite</code>). It provides ADFR,
@@ -57,6 +69,20 @@ only.</p>
 <p>To use ADapt from another computer, forward the port from that computer and open the same
 URL there:</p>
 <pre>ssh -L 8766:127.0.0.1:8766 &lt;host running ADapt&gt;</pre>
+<h3 id="desktop">From the desktop</h3>
+<p>On the computer you sit at, ADapt can start and open its page in one step:</p>
+<pre>bin/adapt serve --open</pre>
+<p>The page opens in your default browser. Starting it again while it runs opens a new tab on the
+same server instead of a second server. The page then has a <b>Quit</b> button, and the server also
+stops by itself 10 minutes after its last page was closed (<code>--idle-exit N</code> changes the
+delay). Your sessions are kept either way: <b>Recent…</b> reopens them next time.</p>
+<p>On Linux, one command adds ADapt to the applications menu, and <code>--desktop</code> also puts
+its icon on the desktop:</p>
+<pre>bin/adapt launcher --desktop</pre>
+<p>The icon runs <code>bin/adapt serve --open</code> with the ADCP environment and output folder
+found when the launcher was made, and writes the server's messages to
+<code>~/.adapt/server.log</code>. On GNOME, right-click the desktop icon once and choose
+<b>Allow Launching</b>. <code>bin/adapt launcher --remove</code> takes both away.</p>
 <div class="tip"><b>Keep a fixed port.</b> The browser keeps what it remembers for a page (the
 Open PDB folder, the light or dark theme) per host <em>and port</em>. The default port 8766, or
 any <code>--port N</code>, keeps that memory; <code>--port 0</code> picks a new port on each run
@@ -65,13 +91,20 @@ and the memory starts empty.</div>
 <h2>Load a structure</h2>
 <ul>
 <li><b>Fetch from RCSB</b>: type an id (e.g. <code>1FV1</code>) and press Enter. The file is
-downloaded once and kept in a cache under the output folder. Entries the RCSB distributes only as
-mmCIF (the largest assemblies) are reported rather than opened, because ADapt reads PDB-format
-files.</li>
-<li><b>Open PDB…</b> or drop a file on the page: <code>.pdb</code>, <code>.ent</code>,
-<code>.pdb.gz</code> or <code>.ent.gz</code>. Keep the PDB id as the file name
-(<code>6ggd.pdb</code>): ADFR looks up the known ligands of the entry by it.</li>
+downloaded once and kept in a cache under the output folder. An entry the RCSB distributes only as
+mmCIF (the largest assemblies, and entries with five-character ligand codes, such as 10HY) is
+fetched as mmCIF.</li>
+<li><b>Open PDB…</b> or drop a file on the page: a PDB file (<code>.pdb</code>,
+<code>.ent</code>) or an mmCIF file (<code>.cif</code>, <code>.mmcif</code>), gzipped or not. Keep
+the PDB id as the name of a PDB file (<code>6ggd.pdb</code>): the ligand table is looked up by
+it. An mmCIF file carries its id.</li>
+<li><b>Recent…</b> lists the sessions of this server and those recorded in its output folder, and
+reopens one, also after the server has been restarted.</li>
 </ul>
+<p>An mmCIF file is converted to PDB records before it is analysed. Chain identifiers longer than
+one character, and residue names longer than three, are renamed (chains to free one-character
+identifiers, residue names to <code>L01</code>, <code>L02</code>, …), and the files written record
+the renaming (<code>REMARK 850 AGFR residues renamed from mmCIF A1C5F-&gt;L01</code>).</p>
 <p>ADapt opens on <b>Biomol 1</b> when the file defines biological assemblies, otherwise on the
 ASU. ADFR's own test files are a good set of examples; <code>bin/adapt examples</code> prints
 where they are installed.</p>
@@ -99,16 +132,17 @@ session, serve it under a path of its own, and fetch the files written.</p>
 <tr><th>Parameter</th><th>Effect</th></tr>
 <tr><td><code>pdb=6GGD</code></td><td>fetches the entry from the RCSB (or the cache) and opens
 it, as <b>Fetch from RCSB</b> does.</td></tr>
-<tr><td><code>session=&lt;id&gt;</code></td><td>opens a session the server already holds, for
-instance one made by a program through <code>/api/upload</code>.</td></tr>
+<tr><td><code>session=&lt;id&gt;</code></td><td>opens a session the server holds, for instance
+one made by a program through <code>/api/upload</code>, or one recorded in its output folder.</td></tr>
 <tr><td><code>tab=Biomol%202</code></td><td>with either of the above, switches to that tab
 (<code>ASU</code>, <code>Biomol N</code>, …).</td></tr>
 </table>
 <pre>http://127.0.0.1:8766/?t=…&amp;pdb=6GGD&amp;tab=Biomol%202</pre>
 <p>Once a file is open, the address bar shows <code>session=</code> and <code>tab=</code>, so a
-reload, or the URL copied elsewhere, reopens the same session. Sessions live in the server's
-memory: after a restart, an old session id gets <i>no such session; load the PDB file again</i>
-(its folder and files are still on disk).</p>
+reload, or the URL copied elsewhere, reopens the same session, also after the server has been
+restarted: ADapt then finds the session's folder in its output folder and replays the recorded
+edits, checking that each save is reproduced. A session whose input file changed on disk, or whose
+replay does not reproduce a recorded state, is refused with a message naming the event.</p>
 <h3>Requests</h3>
 <p>Every request carries the token, <code>t=…</code>.</p>
 <table>
@@ -116,9 +150,13 @@ memory: after a restart, an old session id gets <i>no such session; load the PDB
 <tr><td><code>POST api/upload?name=6ggd.pdb</code>, the file as the body</td><td>a new session:
 its <code>session</code> id, tabs and tree.</td></tr>
 <tr><td><code>GET api/sessions</code></td><td>the sessions the server holds, newest first: id,
-PDB id, tabs, current tab, folder, number of saves.</td></tr>
+PDB id, tabs, current tab, folder, number of saves; then those recorded in its output folder
+(<code>"live": false</code>).</td></tr>
 <tr><td><code>GET api/session?s=&lt;id&gt;</code></td><td>one session, as
-<code>api/upload</code> returns it, with the saves made so far and their files.</td></tr>
+<code>api/upload</code> returns it, with the saves made so far and their files; a session recorded
+in the output folder is restored first.</td></tr>
+<tr><td><code>POST api/restore</code>, body <code>{"folder": "6ggd_20260929-143042_9acda1"}</code></td><td>restores
+the session of a folder of the output folder, as <code>api/upload</code> returns it.</td></tr>
 <tr><td><code>POST api/save</code>, body
 <code>{"s": "&lt;id&gt;", "kind": "receptor"}</code> (or <code>"ligand"</code>)</td><td>writes the
 files of the current tab, as the save buttons do, and returns the save number and its
