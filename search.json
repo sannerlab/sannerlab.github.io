@@ -242,7 +242,17 @@
     "href": "software/adapt/download.html#get-adapt",
     "title": "Download ADapt",
     "section": "3. Get ADapt",
-    "text": "3. Get ADapt\ngit clone https://github.com/sannerlab/adapt.git\nadapt/bin/adapt check                # \"ADapt is ready\"\nadapt/bin/adapt serve --open         # starts ADapt and opens it in your browser\nadapt/bin/adapt launcher --desktop adds an ADapt icon to the applications menu and the desktop. On a remote machine, run adapt/bin/adapt serve, forward its port (ssh -L 8766:127.0.0.1:8766 &lt;host&gt;) and open the printed address. The documentation has the details.\nADapt is distributed under the Sannerlab MIT-like Source-Available License.",
+    "text": "3. Get ADapt\ngit clone https://github.com/sannerlab/adapt.git\nadapt/bin/adapt check                # \"ADapt is ready\"",
+    "crumbs": [
+      "Download"
+    ]
+  },
+  {
+    "objectID": "software/adapt/download.html#start-adapt",
+    "href": "software/adapt/download.html#start-adapt",
+    "title": "Download ADapt",
+    "section": "4. Start ADapt",
+    "text": "4. Start ADapt\n\nOn your own computer\nadapt/bin/adapt serve --open         # starts ADapt and opens it in your browser\nRun it again while ADapt is running and it opens a new tab on the same server instead of starting a second one. The page has a Quit button, and ADapt also stops by itself 10 minutes after its last page was closed. Your sessions are kept: Recent… reopens them next time.\n\n\nFrom the desktop (Linux)\nThe ADapt icon is not installed by default. Add it once, after steps 1 to 3:\nadapt/bin/adapt launcher --desktop   # an ADapt entry in the applications menu and an icon on the desktop\nA click on the icon does what adapt serve --open does: it starts ADapt, or reuses the one already running, and opens it in your browser. The icon remembers the environment and the output folder in use when it was made; run the command again if you move ADapt or the environment. Its messages go to ~/.adapt/server.log. On GNOME, right-click the desktop icon once and choose Allow Launching. Leave out --desktop for the menu entry alone; adapt/bin/adapt launcher --remove takes both away.\n\n\nOn a remote machine\nOn a computing cluster or another machine you reach through SSH, start ADapt there and open it from your own computer:\nadapt/bin/adapt serve                # on the remote machine; prints the address to open\nssh -L 8766:127.0.0.1:8766 &lt;host&gt;    # on your computer; then open the printed address\nThe documentation has the details.\nADapt is distributed under the Sannerlab MIT-like Source-Available License.",
     "crumbs": [
       "Download"
     ]
