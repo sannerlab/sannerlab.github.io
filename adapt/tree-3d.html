@@ -89,21 +89,24 @@ cleared when you change tab or load another file.</p>
 <tr><td>sticks with orange carbons, orange cartoon</td><td>in the <b>ligand</b></td></tr>
 <tr><td>lines with purple carbons, grey cartoon</td><td>in neither</td></tr>
 <tr><td>small spheres in element colours</td><td>atoms without bonds: waters, ions</td></tr>
-<tr><td>the same, translucent</td><td>a symmetry copy (not in the tree; see <a href="case-biomolecule.html">biological assembly</a>)</td></tr>
+<tr><td>the same, translucent</td><td>a symmetry copy (not in the tree: it follows its original chain; see <a href="case-biomolecule.html">biological assembly</a>)</td></tr>
 <tr><td>green</td><td>the <b>selected</b> fragment, or what <b>show rec.</b> / <b>show lig.</b>
 highlights</td></tr>
 <tr><td>orange carbons</td><td>what <b>show other</b> highlights</td></tr>
-<tr><td>sticks with cyan carbons</td><td>the <b>rotamer preview</b> of a side chain to be built</td></tr>
+<tr><td>sticks with cyan carbons</td><td>the <b>rotamer</b> of a side chain to be built</td></tr>
 <tr><td>orange dotted lines, spheres and labels</td><td><b>missing residues</b></td></tr>
+<tr><td>sticks with magenta carbons, labelled <code>rebuilt: …</code></td><td>the residues of a gap
+<b>rebuilt</b> on request: what the receptor file will contain (see <a
+href="case-missing-residues.html#rebuild">rebuilding a gap</a>)</td></tr>
 </table>
 <p>A checkbox click recolours its atoms immediately, so you can see what you just added or
 removed.</p>
 
-<h2>Browsing rotamers</h2>
-<p>Selecting a residue under <b>sidechains to complete</b> also draws the side chain that would be
+<h2>Browsing and choosing rotamers</h2>
+<p>Selecting a residue under <b>sidechains to complete</b> also draws the side chain that will be
 built, with cyan carbons. The drop-down in its params column lists the library's rotamers. Pick one,
 or <b>hover over the drop-down and turn the mouse wheel</b> to step through them one at a time; the
-preview and its score in the status line follow. While the pointer is over the drop-down, the wheel
+side chain and its score in the status line follow, and the rotamer shown is the one built. While the pointer is over the drop-down, the wheel
 browses rotamers and the tree does not scroll. See <a href="case-sidechains.html">missing side
 chains</a>.</p>
 

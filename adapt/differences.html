@@ -32,33 +32,87 @@
 </nav>
 <main>
 <h1>ADapt and AGFRgui</h1>
-<p class="lead">The same analysis and the same files, in a browser, with a few defects of the
-original fixed.</p>
+<p class="lead">The same analysis and the same files, in a browser, with more choices and a record of
+every one.</p>
 
 <p>ADapt is the PDB analyzer of AutoGridFR's graphical interface (AGFRgui) rebuilt as a web page.
 It does not reimplement the chemistry. The assemblies, categories, defaults, side-chain
 completion, mutations, protonation, charges and PDBQT writing are all ADFR's own code, run from
-the ADCP distribution (<code>adfr-0.0.22</code>). Only the Qt interface was rewritten. For the
-same choices, the receptor ADapt writes is byte-identical to ADFR's command line, except for the
-<code>REMARK 850 AGFR biomolecule</code> line ADapt adds to each file (below). ADapt's test suite checks this on
-ADFR's own test files.</p>
+the ADCP distribution (<code>adfr</code> 0.0.23 or later, with <code>MolKit2</code> 0.0.6; ADapt
+refuses to start with an older ADFR). Only the Qt interface was rewritten. For the same choices,
+the receptor ADapt writes is byte-identical to the one ADFR's command line writes; ADapt's test
+suite checks this on ADFR's own test files. Every choice ADapt offers for the receptor except
+rebuilding a gap (ADapt's own, below) has a command-line option, so a receptor can be rebuilt
+without ADapt from the choices <code>session.json</code> records:</p>
+<table>
+<tr><th>Choice</th><th><code>agfr</code> option</th><th>Example</th></tr>
+<tr><td>Assembly</td><td><code>--bioMol</code></td><td><code>--bioMol 2</code></td></tr>
+<tr><td>Hetero groups kept, residues removed</td><td><code>--heteroToKeep</code>,
+<code>--protToRemove</code></td><td><code>--heteroToKeep "chid B resnum 401"</code></td></tr>
+<tr><td>Alternate location</td><td><code>--altlocs</code></td><td><code>--altlocs "A:SER:166::A"</code></td></tr>
+<tr><td>Mutation</td><td><code>--mutate</code></td><td><code>--mutate "B:SER:96::ILE"</code></td></tr>
+<tr><td>Side chain kept as is</td><td><code>--sidechainsAsIs</code></td><td><code>--sidechainsAsIs "A:LYS:120:"</code></td></tr>
+<tr><td>Rotamer (numbered from 1)</td><td><code>--rotamers</code></td><td><code>--rotamers "A:LYS:120::7"</code></td></tr>
+<tr><td>Ion charge</td><td><code>--ionCharges</code></td><td><code>--ionCharges "A:ZN:401::1.5"</code></td></tr>
+<tr><td>Ion replacement</td><td><code>--substitute</code></td><td><code>--substitute "A:CU:100::ZN"</code></td></tr>
+</table>
 
-<h2>Fixed in ADapt</h2>
+<h2>Corrected in ADFR 0.0.23</h2>
+<p>These were defects of ADFR 0.0.22, found while building ADapt and corrected in ADFR itself, so
+<code>agfr</code> and AGFRgui benefit too. Each correction comes with a test in ADFR's
+<code>tests/</code> that fails on 0.0.22.</p>
 <ul>
-<li><b>The receptor and ligand files record their biomolecule.</b> A
-<code>REMARK 850 AGFR biomolecule</code> line names the tab the file was written from, the chains it
-uses and, for an assembly built by symmetry, the number of copies. ADFR's header writer has this
-line commented out.</li>
-<li><b>A ligand file names the residues it came from</b>
-(<code>REMARK 850 AGFR ligand from B:EYB:402:_</code>), with their real chain, which its atom
-records lose.</li>
+<li><b>Default alternate location.</b> Ties were broken by Python's set order, so the default
+could change from run to run (all seven altloc residues of 1FV1 tie). Now: most atoms, then highest
+occupancy, then the first letter. A residue joins the receptor according to its category only; a
+glycerol with one larger location used to be put in.</li>
+<li><b>Ion charges.</b> The default is the charge the Chemical Component Dictionary gives the
+residue name: <code>FE</code> +3 and <code>FE2</code> +2 (an <code>FE2</code> or <code>MN3</code>
+used to stop the file from opening), <code>MN</code> +2 (was +4), <code>BR</code> −1 (was +1).
+Chloride and iodide ions are manual-charge ions at −1 (chloride was <i>other</i>, written 0.00).
+Bonded chlorine and bromine get their Gasteiger charge (MolKit2 0.0.6). The ions of symmetry
+copies keep their charge (a copy's zinc was written 0.00).</li>
+<li><b>Unsupported atoms.</b> A residue with an atom AutoDock 4.1 cannot type starts outside the
+receptor whatever its category; cofactors such as vitamin B12 used to be written with the type
+<code>CO</code>. Kept anyway, it is dropped when the file is written and named in the header. A
+single unsupported ion can be replaced by Zn, Mg, Ca, Fe or Mn.</li>
+<li><b>The chosen rotamer is built.</b> The rotamer drop-down was a preview: the best-scoring
+rotamer was always built.</li>
+<li><b>Every receptor choice has a command-line option</b>: <code>--altlocs</code>,
+<code>--rotamers</code>, <code>--sidechainsAsIs</code> and <code>--substitute</code> are new.</li>
+<li><b>Missing residues are detected.</b> The test for a gap in the alignment was always false;
+it is corrected, along with the defects that test had been hiding (see <a
+href="case-missing-residues.html">Missing residues</a>). The PDBQT files do not change.</li>
+<li><b>Assemblies.</b> From ten assemblies on, a tab could hold another assembly's atoms; an
+assembly is now built by its number, and tabs are in numerical order. An assembly shares the ASU's
+tab only when it is the ASU's chains without transformation.</li>
+<li><b>Input.</b> mmCIF files are read, and a gzipped PDB file keeps its header (assemblies,
+sequences and missing residues were lost).</li>
+<li><b>The header records more, and only what the file holds.</b> The receptor names its
+biomolecule (the line was commented out), a ligand file its source file, assembly and residues,
+and the custom charge lines give the charge written, from any tab. The per-residue lines name only
+residues of the file: a chain-B receptor listed side chains completed in chain A.</li>
+<li><b>Limits are refused up front.</b> More chains than <code>reduce</code>'s 62 identifiers, or
+more than the 99,999 atoms a PDBQT file can number, is refused with a message.</li>
+</ul>
+
+<h2>Only in ADapt</h2>
+<ul>
+<li><b>Symmetry copies follow their original chain.</b> The tree lists each chain once; every
+choice made on a residue reaches its copies. A fragment chosen as ligand is taken from the
+original only, and copies that fall on an earlier copy (an ion on a symmetry axis) are written
+once.</li>
 <li><b>The receptor is also written with all its hydrogens</b>, as <code>reduce</code> placed
 them (<code>&lt;id&gt;_rec_H.pdb</code>), with <code>reduce</code>'s choices for each histidine,
-asparagine and glutamine. ADFR discards this output after reading it.</li>
-<li><b>Missing residues are shown.</b> ADFR's detection never reported one, because its test for a
-gap in the alignment was always false. ADapt uses a corrected copy of that function, which also
-fixes four defects the test had been hiding. The results match the files' own REMARK 465 records
-on ADFR's ten test entries. The PDBQT files do not change.</li>
+asparagine and glutamine.</li>
+<li><b>Sessions.</b> Every edit and every file written is recorded with checksums in
+<code>session.json</code>, and a session can be reopened, also after the server restarts
+(<b>Recent…</b>).</li>
+<li><b>A gap can be rebuilt.</b> On request, gap by gap, ADapt builds the missing residues of a gap
+inside a chain (PDBFixer, then Amber ff14SB with the observed atoms fixed), checks their
+geometry, and writes them with the receptor, recorded in a <code>REMARK 850 AGFR rebuilt</code>
+line. Nothing is rebuilt unless asked, and then the files are ADFR's. See
+<a href="case-missing-residues.html#rebuild">rebuilding a gap</a>.</li>
 <li><b>An edited ion charge is used.</b> AGFRgui's charge box was never read back, so the default
 charge was always written.</li>
 <li><b>A save after a tab switch writes the new tab.</b> AGFRgui kept the previous tab's molecule
@@ -78,15 +132,9 @@ checked category put all of its residues in the receptor while the box still sho
 <li><b>Maps and docking box.</b> ADapt ends with the PDBQT files. Computing affinity maps, which
 is AGFRgui's next step, is done with AGFR (<code>agfr</code>, <code>agfrgui</code>) from the
 receptor ADapt writes.</li>
-<li><b>Choosing a rotamer.</b> As in AGFRgui, the rotamer drop-down is a preview, and the
-best-scoring rotamer is built.</li>
 </ul>
 
-<h2>Known issues</h2>
-<p>ADapt shares the rest of ADFR's behaviour, including its known issues: symmetry copies that do
-not follow every choice, tied alternate locations whose default varies between runs, and the
-provenance records' gaps. All of them are listed, with their effects and where each is explained,
-on <a href="known-issues.html">Known issues</a>.</p>
+<p>What remains surprising or missing is on <a href="known-issues.html">Known issues</a>.</p>
 <div class="pn"><a href="provenance.html">&larr; Provenance in the PDBQT files</a><a href="known-issues.html">Known issues &rarr;</a></div>
 <footer class="page">ADapt documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
 Every screenshot is of ADapt itself, made by <code>docs/make_screenshots.py</code>; the chemistry

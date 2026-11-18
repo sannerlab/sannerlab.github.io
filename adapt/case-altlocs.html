@@ -66,14 +66,14 @@ column. The chosen one is used for the receptor, and the others are left out.</p
 contains the residue.</p>
 
 <h2>The default</h2>
-<p>ADFR selects by default the location with the most atoms, then the one with the highest
-occupancy.</p>
-<div class="note"><b>Ties are not reproducible.</b> When two locations have the same occupancy, as
-all seven altloc residues of 1FV1 do, ADFR's pick depends on the order in which Python iterates a
-set. That order varies from run to run, so SER'19 defaults to A in some runs and to B in others.
-The same holds for <code>agfr</code> and AGFRgui. Ties are common (2 of the 20 altloc residues of
-4A1X, 4 of 19 in 6BHG). If a tied residue matters for your docking, choose its location explicitly:
-the choice you make is always the one written.</div>
+<p>By default ADFR selects the location with the most atoms, then the one with the highest
+occupancy, then the first letter. The default is therefore the same in every run: SER'19, whose
+locations A and B tie at 0.50, defaults to A. Ties are common: all seven altloc residues of 1FV1,
+2 of the 20 of 4A1X, 4 of 19 in 6BHG. If a tied residue matters for your docking, look at both
+locations and choose; the choice you make is always the one written, in the residue's copies
+too.</p>
+<p>Whether the residue is in the receptor depends on its category, not on its locations: a
+glycerol with alternate locations stays out, like any additive, until you check it.</p>
 <div class="pn"><a href="case-sidechains.html">&larr; Missing side chains</a><a href="case-ligand.html">Ligands and other hetero groups &rarr;</a></div>
 <footer class="page">ADapt documentation. Author: Michel Sanner, PhD. Copyright &copy; 2026.
 Every screenshot is of ADapt itself, made by <code>docs/make_screenshots.py</code>; the chemistry

@@ -58,7 +58,8 @@ docking, it is usually the assembly that matters.</li>
 <li><b>Missing atoms and residues.</b> Atoms without electron density are absent. Far from the
 docking site this can be ignored. In or near the site it cannot: missing side-chain atoms of
 standard amino acids can be rebuilt with reasonable confidence from a rotamer library, while
-missing loops are something to know about.</li>
+missing loops are something to know about: ADapt can rebuild one on request, as one model of where
+it might be.</li>
 <li><b>Alternate locations.</b> Side chains, loops or ligands seen in several conformations are
 given as alternate locations (altlocs). One must be chosen, or the side chain considered flexible.</li>
 <li><b>Cofactors, ligands, additives and water.</b> Cofactors usually stay in the receptor, since
@@ -74,7 +75,7 @@ thought.</li>
 to dock into, so they are best made while looking at the structure.</p>
 
 <h2 id="what">What ADapt does</h2>
-<p>ADapt reads a PDB file, or fetches it from the RCSB, and analyses it with <b>ADFR's own code</b>,
+<p>ADapt reads a PDB or mmCIF file, or fetches it from the RCSB, and analyses it with <b>ADFR's own code</b>,
 the same code as the PDB analyzer of AutoGridFR's graphical interface (AGFRgui):</p>
 <ul>
 <li>it builds <b>every biological assembly</b> the file defines, one tab each, next to the ASU;</li>
@@ -85,39 +86,44 @@ shows the fragment in the structure, so every choice can be made in context;</li
 <li>it writes the <b>receptor PDBQT</b> (hydrogens added by reduce, Gasteiger charges, AutoDock
 atom types) and <b>one ligand PDBQT per selected fragment</b>. Both files carry
 <code>REMARK 850</code> records listing what was done to the PDB data (see
-<a href="provenance.html">provenance</a>), and each session keeps a record of every choice.</li>
+<a href="provenance.html">provenance</a>), and each session keeps a record of every choice, from
+which it can be reopened.</li>
 </ul>
-<p>What is known to be wrong or missing, in ADapt and in the ADFR code it runs, is listed on one
+<p>What remains surprising or missing, in ADapt and in the ADFR code it runs, is listed on one
 page: <a href="known-issues.html">Known issues</a>.</p>
 <p>The receptor files ADapt writes are byte-identical to those of ADFR's command line
-(<code>agfr --toPdbqt</code>) for the same choices, except for one line ADapt adds to each file to
-record which biomolecule was used. ADapt's test suite checks this.</p>
+(<code>agfr --toPdbqt</code>) for the same choices, and every receptor choice but rebuilding a gap has a command-line option (see
+<a href="differences.html">ADapt and AGFRgui</a>). ADapt's test suite checks this.</p>
 
 <h2 id="interface">The interface</h2>
 <ol class="legend">
-<li><b>Open PDB…</b> reads a local <code>.pdb</code>, <code>.ent</code>, <code>.pdb.gz</code> or
-<code>.ent.gz</code> file. Dropping a file on the page does the same.</li>
+<li><b>Open PDB…</b> reads a local PDB file (<code>.pdb</code>, <code>.ent</code>) or mmCIF file
+(<code>.cif</code>), gzipped or not. Dropping a file on the page does the same.</li>
 <li><b>Fetch from RCSB</b>: type a PDB id and press Enter.</li>
+<li><b>Recent…</b> lists the sessions of this server and of its output folder, and reopens
+one.</li>
 <li>The entry, its experiment and its resolution.</li>
 <li><b>One tab per construct</b>: the ASU and every biological assembly (Biomol 1, 2, …). The
 tab selects the molecule that will be written.</li>
 <li><b>The tree</b>: chains, then categories of residues, then residues. The first checkbox
 column puts a fragment in the <b>receptor</b>.</li>
-<li><b>params</b>: per-residue settings (alternate location, rotamer, ion charge).</li>
+<li><b>params</b>: per-residue settings (alternate location, rotamer, ion charge), and for a gap
+in a chain, whether to rebuild it.</li>
 <li><b>lig.</b>: the second checkbox column puts a fragment in the <b>ligand</b>.</li>
 <li><b>show rec. / lig. / other</b> highlights, in the 3D view, what is currently in the receptor,
 in the ligand, or in neither.</li>
 <li><b>receptor PDBQT</b> and <b>ligand PDBQT</b> write the files and download them.</li>
 <li><b>The 3D view</b> (3Dmol.js). Receptor atoms have grey carbons, ligand atoms orange sticks;
-symmetry copies are drawn translucent; missing residues are drawn in orange. Clicking a tree node
+symmetry copies are drawn translucent; missing residues are drawn in orange, and rebuilt ones with
+magenta carbons. Clicking a tree node
 highlights its atoms in green and centres the view on them (see
 <a href="tree-3d.html">The tree and the 3D view</a>).</li>
 <li>The status line: what was loaded, highlighted or written.</li>
 <li><b>Files written</b> (with download links and the session folder) and the <b>Log</b> of
 ADFR's messages.</li>
 </ol>
-<p>Right-clicking a residue opens its menu: complete a side chain or leave it as is, or mutate the
-residue. The <b>Docs</b> button at the top right opens this documentation.</p>
+<p>Right-clicking a residue opens its menu: complete a side chain or leave it as is, mutate the
+residue, or replace an ion AutoDock cannot type. The <b>Docs</b> button at the top right opens this documentation.</p>
 
 <h2 id="categories">Fragment categories</h2>
 <p>Under each chain, residues are grouped by category. A category's checkbox shows whether its
@@ -134,10 +140,10 @@ atoms).</td><td>yes, as they are</td></tr>
 <tr><td>cofactors</td><td>Residues in ADFR's table of cofactors.</td><td>yes</td></tr>
 <tr><td>modified</td><td>Residues the file declares as modified (MODRES records).</td><td>yes</td></tr>
 <tr><td>manual charges</td><td>Single-atom ions that AutoDock supports but that the Gasteiger
-charge model cannot charge (Zn, Mg, Ca, Fe, Mn; also Br). They get a formal charge (see
+charge model cannot charge (Zn, Mg, Ca, Fe, Mn, Cl, Br, I). They get a formal charge (see
 <a href="case-metals.html">metals</a>).</td><td>no</td></tr>
-<tr><td>ligands</td><td>Residues that ADFR's table of PDB entries lists as ligands of this
-entry.</td><td>no</td></tr>
+<tr><td>ligands</td><td>Residues that the ligand table lists for this entry (see
+<a href="case-ligand.html#table">the ligand table</a>).</td><td>no</td></tr>
 <tr><td>additives</td><td>Crystallization additives: GOL, EDO, SO4, PO4, PEG, DMS, ACT and
 others.</td><td>no</td></tr>
 <tr><td>water</td><td>Water molecules.</td><td>no</td></tr>
@@ -147,9 +153,11 @@ others.</td><td>no</td></tr>
 <ul>
 <li><b>altloc</b> holds the residues that have alternate locations, sorted into the same
 categories (see <a href="case-altlocs.html">alternate locations</a>).</li>
-<li><b>unknown atom types</b> holds residues with atoms outside the AutoDock 4.1 types. It is for
-information only (see <a href="case-metals.html#unknown">unsupported atoms</a>).</li>
-<li><b>missing residues</b> lists stretches the file reports as missing (see
+<li><b>unknown atom types</b> holds residues with atoms outside the AutoDock 4.1 types, which stay
+out of the receptor; a single ion among them can be replaced by one AutoDock types (see <a
+href="case-metals.html#unknown">unsupported atoms</a>).</li>
+<li><b>missing residues</b> lists stretches the file reports as missing; a gap inside a chain
+can be rebuilt with the box in its params column (see
 <a href="case-missing-residues.html">missing residues</a>).</li>
 </ul>
 
@@ -159,11 +167,12 @@ fetched by its id to follow along.</p>
 <div class="cards">
 <a class="card" href="case-biomolecule.html"><img src="img/1hhp_biomol1.png" alt=""><span><b>Biological assembly, not the ASU</b>1HHP, HIV-1 protease: the ASU holds half of the enzyme.</span></a>
 <a class="card" href="case-assemblies.html"><img src="img/1fv1_biomol2.png" alt=""><span><b>Choosing between assemblies</b>1FV1: two copies of one complex in one file.</span></a>
-<a class="card" href="case-sidechains.html"><img src="img/sc_rotamer_auto.png" alt=""><span><b>Missing side chains</b>Rebuild them from rotamers, or leave them as they are.</span></a>
+<a class="card" href="case-sidechains.html"><img src="img/sc_rotamer_auto.png" alt=""><span><b>Missing side chains</b>Rebuild them with the rotamer you choose, or leave them as they are.</span></a>
 <a class="card" href="case-altlocs.html"><img src="img/altloc_residue.png" alt=""><span><b>Alternate locations</b>Pick the conformation to dock against.</span></a>
 <a class="card" href="case-ligand.html"><img src="img/ligand_checked.png" alt=""><span><b>Ligands and other hetero groups</b>6GGD: take the ligand out of the receptor.</span></a>
-<a class="card" href="case-metals.html"><img src="img/charge_zn.png" alt=""><span><b>Metals, ions, unsupported atoms</b>A zinc charge; a copper AutoDock cannot type.</span></a>
-<a class="card" href="case-missing-residues.html"><img src="img/gaps_biomol1.png" alt=""><span><b>Missing residues</b>4A1X: gaps and missing termini, in the tree and in 3D.</span></a>
+<a class="card" href="case-metals.html"><img src="img/charge_zn.png" alt=""><span><b>Metals, ions, unsupported atoms</b>A zinc charge; a copper AutoDock cannot type, replaced by a zinc.</span></a>
+<a class="card" href="case-missing-residues.html"><img src="img/gaps_biomol1.png" alt=""><span><b>Missing residues</b>4A1X: gaps and missing termini, in the tree and in 3D, and gaps
+rebuilt on request.</span></a>
 <a class="card" href="case-mutations.html"><img src="img/mutate_menu.png" alt=""><span><b>Mutating residues</b>Replace a residue by any standard amino acid.</span></a>
 <a class="card" href="output.html"><img src="img/saved_files.png" alt=""><span><b>Writing the PDBQT files</b>What is written, and how it is recorded.</span></a>
 <a class="card" href="provenance.html"><img src="img/saved_files.png" alt="" style="object-position:right bottom"><span><b>Provenance in the PDBQT files</b>Every REMARK record, and how to rebuild a receptor from it.</span></a>
