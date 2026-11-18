@@ -1,0 +1,35 @@
+# id: folder under out/; name: as it reads in a sentence; credits: Section 3 keys (license page or credits_extra.tsv);
+# msms: closed = the MSMS License (closed source); bundled = ships MSMS (points to LICENSE-MSMS.md); exception: engine[:path] or prody
+id	name	credits	msms	exception
+adcp	ADCP (Python package `adcp`)	ADCP	no	engine:`ADCP/CrankiteAD_Linux-x86_64_1.1`
+adcp_src	ADCP (Python layer, github.com/sannerlab/ADCP)	ADCP	no	engine:the CrankiteAD executable that `runADCP.py` runs, and its table `ramaprob.data`
+adfr	ADFR (Python package `adfr`)	ADFR,AGFR	no	
+adfrcc	ADFRcc (Python package `adfrcc`)	ADFR	no	
+autosite	AutoSite (Python package `autosite`)	AutoSite	no	
+mslib	MSLIB (Python package `mslib`)	MSMS	closed	
+mglkey	mglkey (Python package `mglkey`)	MSMS	closed	
+mslibcom	mslibCOM (Python package `mslibcom`)	MSMS	no	
+appframework	AppFramework (Python package `appframework`, part of MGLTools)	MGLTools	no	
+bhtree	bhtree (Python package `bhtree`, part of MGLTools)	MGLTools	no	
+dejavu2	DejaVu2 (Python package `dejavu2`, part of MGLTools)	MGLTools	no	
+geomutils	geomutils (Python package `geomutils`, part of MGLTools)	MGLTools	no	
+gle	gle (Python package `gle`, part of MGLTools)	MGLTools	no	gle
+mglutil	mglutil (Python package `mglutil`, part of MGLTools)	MGLTools	no	
+molkit	MolKit (Python package `molkit`, part of MGLTools)	MGLTools	no	
+molkit2	MolKit2 (Python package `molkit2`, part of MGLTools)	MGLTools	no	
+opengltk	opengltk (Python package `opengltk`, part of MGLTools)	MGLTools	no	
+pmvapp	PmvApp (Python package `pmvapp`, part of MGLTools)	MGLTools	no	
+pybabel	PyBabel (Python package `pybabel`, part of MGLTools)	MGLTools	no	
+pyglf	pyglf (Python package `pyglf`, part of MGLTools)	MGLTools	no	pyglf
+support	Support (Python package `support`, part of MGLTools)	MGLTools	no	
+utpackages	UTpackages (Python package `utpackages`, part of MGLTools)	MGLTools	no	utpackages
+volume	Volume (Python package `volume`, part of MGLTools)	MGLTools	no	
+autodocktools	AutoDockTools (Python package `autodocktools`)	AutoDockTools	no	
+prody	the Sanner lab version of ProDy (Python package `prody`)	ProDy	no	prody
+adapt	ADapt	ADapt	no	
+wewos	WEWoS	WEWoS	no	
+msms	MSMS	MSMS	closed	
+adfrsuite	ADFRsuite 1.0	ADFR,AGFR,AutoSite,ADCP	bundled	engine
+mgltools	MGLTools	MGLTools	bundled	
+adcp11	ADCP 1.1	ADCP	no	engine
+adcpsuite2alpha	ADCPsuite2alpha, the installer of the research ADCP suite,	ADCP,ADapt,WEWoS	no	engine:the CrankiteAD executable in the `adcp` package it installs

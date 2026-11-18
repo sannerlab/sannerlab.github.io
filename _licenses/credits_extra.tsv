@@ -1,0 +1,5 @@
+# references that are not on the license page (software/license.qmd), in its bullet format
+key	bullet
+AutoDockTools	- **AutoDockTools:** Morris, G. M.; Huey, R.; Lindstrom, W.; Sanner, M. F.; Belew, R. K.; Goodsell, D. S.; Olson, A. J. AutoDock4 and AutoDockTools4: Automated docking with selective receptor flexibility. *J. Comput. Chem.* **2009**, 30 (16), 2785–2791. [doi:10.1002/jcc.21256](https://doi.org/10.1002/jcc.21256)
+ProDy	- **ProDy:** Bakan, A.; Meireles, L. M.; Bahar, I. ProDy: Protein Dynamics Inferred from Theory and Experiments. *Bioinformatics* **2011**, 27 (11), 1575–1577. [doi:10.1093/bioinformatics/btr168](https://doi.org/10.1093/bioinformatics/btr168)
+ADapt	- **ADapt:** Sojitra, K. A.; Haq, A.; Fernando, S.; Sanner, M. F. ADapt: AutoDock Analysis and Preparation Tool – preparing PDB entries for docking. Manuscript in preparation, 2026; the published reference will be listed at https://sannerlab.github.io/software/adapt/.

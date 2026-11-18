@@ -35,8 +35,8 @@ computation by turning a dial and watching the result.
 
 ## License
 
-WEWoS is distributed under the [Sannerlab MIT-like Source-Available License](/software/license.qmd). Its MSMS node library uses MSMS, which is free for
-non-commercial use only; see the [MSMS license](../msms/license.qmd).
+WEWoS is distributed under the [Sannerlab MIT-like Source-Available License](/software/license.qmd). Its MSMS node library uses MSMS, which is closed
+source and free for academic use only, under the [MSMS License](../msms/license.qmd).
 
 ## History
 

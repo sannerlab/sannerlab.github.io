@@ -62,8 +62,8 @@ reproducibility. Target files can be unzipped and the maps extracted for use wit
 ## License
 
 AGFR is distributed under the [Sannerlab MIT-like Source-Available License](/software/license.qmd). ADFRsuite's MSMS component, which `agfrgui`
-uses to compute surfaces, is free for non-commercial use only; see the
-[ADFR license page](../adfr/license.qmd).
+uses to compute surfaces, is closed source and free for academic use only, under the
+[MSMS License](../msms/license.qmd); see the [ADFR license page](../adfr/license.qmd).
 
 ## How to cite
 

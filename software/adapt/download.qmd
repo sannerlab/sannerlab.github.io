@@ -17,7 +17,7 @@ They carry the corrections ADapt relies on, and ADCP 1.1 keeps working with them
 
 ```bash
 micromamba activate adcpsuite        # or: conda activate adcpsuite
-python -m pip install --no-deps --index-url https://sannerlab.github.io/pip/py37/ adfr==0.0.23 molkit2==0.0.6
+python -m pip install --no-deps --index-url https://sannerlab.github.io/pip/py37/ adfr==0.0.23.post1 molkit2==0.0.6.post1
 ```
 
 ## 3. Get ADapt

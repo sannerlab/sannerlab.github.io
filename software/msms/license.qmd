@@ -2,8 +2,14 @@
 title: "License"
 ---
 
-MSMS is distributed under the [Sannerlab MIT-like Source-Available License](/software/license.qmd) for **non-commercial use only**. This covers the standalone
-MSMS program and the MSLIB library that ADFRsuite and MGLTools use to compute molecular surfaces.
+MSMS is closed-source software, distributed in executable form only: the standalone MSMS program,
+and the MSLIB library that ADFRsuite, MGLTools and other programs use to compute molecular
+surfaces. It is distributed under the **MSMS License** below: free for academic research and
+teaching; any other use, including commercial use, needs a commercial license from
+[Dr. Michel Sanner](mailto:sanner@scripps.edu). The MSMS License is the
+[Sannerlab MIT-like Source-Available License](/software/license.qmd) with Sections 1, 5 and 12
+written for closed-source software.
 
-Commercial use of MSMS needs a separate commercial license: contact
-[Dr. Michel Sanner](mailto:sanner@scripps.edu).
+---
+
+{{< include /_licenses/out/msms/LICENSE.md >}}

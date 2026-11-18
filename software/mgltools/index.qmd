@@ -41,7 +41,7 @@ page.
 ## License
 
 MGLTools is distributed under the [Sannerlab MIT-like Source-Available License](/software/license.qmd). The MSMS library it uses to compute molecular
-surfaces is free for non-commercial use only; see the [MSMS license](../msms/license.qmd).
+surfaces is closed source and free for academic use only, under the [MSMS License](../msms/license.qmd).
 
 ## MSMS
 

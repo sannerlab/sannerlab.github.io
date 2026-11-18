@@ -70,7 +70,8 @@ ADCP as published in 2019 is archived at [sannerlab/ADCP-2019](https://github.co
 
 ## License
 
-ADCP is distributed under the [Sannerlab MIT-like Source-Available License](/software/license.qmd). See [License](license.qmd).
+ADCP is distributed under the [Sannerlab MIT-like Source-Available License](/software/license.qmd), except its docking engine, which derives
+from CRANKITE and is distributed under the GNU LGPL v2.0. See [License](license.qmd).
 
 ## How to cite
 

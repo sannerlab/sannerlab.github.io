@@ -29,8 +29,8 @@ protein–membrane binding. It is available as a [standalone program](download.q
 the MGLTools and ADFRsuite distributions.
 
 ::: {.callout-note}
-MSMS is free for non-commercial use, under the [Sannerlab MIT-like Source-Available License](/software/license.qmd). Commercial use needs a separate
-license; see [License](license.qmd).
+MSMS is closed-source software, free for academic research and teaching under the
+[MSMS License](license.qmd). Any other use, including commercial use, needs a commercial license.
 :::
 
 ::: {.gallery layout-ncol="3"}

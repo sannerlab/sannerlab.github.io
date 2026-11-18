@@ -6,7 +6,8 @@ The current release is **MSMS 2.6.2** (November 2026). It fixes crashes on large
 inputs, merges duplicate atoms instead of stopping, and runs `-all_components` in parallel. For
 inputs that 2.6.1 handled, the output is unchanged. See the [release notes](release-notes.qmd).
 
-MSMS is free for non-commercial use; commercial use needs a license (see [License](license.qmd)).
+MSMS is closed source and free for academic use; commercial use needs a license (see [License](license.qmd)). Each
+archive carries the MSMS License (`LICENSE.md`) and `THIRD_PARTY_NOTICES.md`.
 
 | Platform | Version | File | Unpack with |
 |---|---|---|---|

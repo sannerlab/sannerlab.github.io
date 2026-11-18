@@ -7,17 +7,29 @@ toc-depth: 2
 The Sanner Lab's software is distributed under the **Sannerlab MIT-like Source-Available License,
 version 1.0**, reproduced below. It applies to every tool on this site:
 [ADCP](adcp/index.qmd), [ADFR](adfr/index.qmd), [AGFR](agfr/index.qmd),
-[AutoSite](autosite/index.qmd), [ADapt](adapt/index.qmd), [WEWoS](wewos/index.qmd),
-[MGLTools](mgltools/index.qmd) and [MSMS](msms/index.qmd), with one exception for MSMS:
+[AutoSite](autosite/index.qmd), [ADapt](adapt/index.qmd), [WEWoS](wewos/index.qmd) and
+[MGLTools](mgltools/index.qmd), with two exceptions:
 
 ::: {.callout-important}
-## MSMS: non-commercial use only
+## MSMS: closed source, under its own license
 
-For MSMS, this license applies to **non-commercial use only**. This covers the standalone MSMS
-program and the MSLIB library that ADFRsuite and MGLTools use to compute molecular surfaces.
-Commercial use of MSMS needs a separate commercial license: contact
-[Dr. Michel Sanner](mailto:sanner@scripps.edu).
+MSMS, the standalone program and the MSLIB library that ADFRsuite and MGLTools use to compute
+molecular surfaces, is closed-source software under its own [MSMS License](msms/license.qmd):
+free for academic research and teaching; any other use, including commercial use, needs a
+commercial license: contact [Dr. Michel Sanner](mailto:sanner@scripps.edu).
 :::
+
+::: {.callout-note}
+## The ADCP docking engine: GNU LGPL v2.0
+
+The docking engine of ADCP derives from CRANKITE (Podtelezhnikov and Wild, 2008). With the
+agreement of CRANKITE's authors it is distributed under the GNU Library General Public License,
+version 2.0. Its source is at [sannerlab/Crankite_AD](https://github.com/sannerlab/Crankite_AD).
+:::
+
+Every package carries a copy of this license customized for it: the license names only that
+package, Section 3 lists only the reference(s) to cite for it, and a `THIRD_PARTY_NOTICES.md`
+file lists the third-party code it includes, which keeps its own license.
 
 Questions about the license: contact [Dr. Michel Sanner](mailto:sanner@scripps.edu).
 

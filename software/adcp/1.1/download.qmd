@@ -108,3 +108,11 @@ to install the UTM virtualization app with an Ubuntu virtual machine running ADC
 - [Documentation](documentation.qmd): example commands for the main features of ADCP 1.1.
 - [AGFR and AGFRgui tutorials](/software/agfr/tutorials.qmd) for preparing
   target files.
+
+## License
+
+ADCP is distributed under the [Sannerlab MIT-like Source-Available License](../../license.qmd), except its docking
+engine, which is under the GNU LGPL v2.0 (source: [sannerlab/Crankite_AD](https://github.com/sannerlab/Crankite_AD)).
+Every package the scripts install carries its license (`LICENSE.md`) and `THIRD_PARTY_NOTICES.md`; MSMS (packages
+`mslib` and `mglkey`) is closed source under the [MSMS License](../../msms/license.qmd). See the
+[release](https://github.com/sannerlab/downloads/releases/tag/adcp-1.1) for `LICENSE-ADCP.md`.

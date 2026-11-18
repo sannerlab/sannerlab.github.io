@@ -77,3 +77,11 @@ A development build of ADFRsuite 1.1 is available for Linux 64-bit:
 chmod a+x ADFRsuite_Linux-x86_64_1.1dev_Install
 ./ADFRsuite_Linux-x86_64_1.1dev_Install
 ```
+
+## License
+
+ADFRsuite is distributed under the [Sannerlab MIT-like Source-Available License](../license.qmd). Each
+tarball carries it (`LICENSE.md`), with the [MSMS License](../msms/license.qmd) (`LICENSE-MSMS.md`), the
+GNU LGPL v2.0 of the ADCP docking engine (`COPYING.LESSER`) and `THIRD_PARTY_NOTICES.md`. For the
+installers, the same files are attached to the [release](https://github.com/sannerlab/downloads/releases/tag/adfrsuite-1.0) and replace the license text
+inside them.

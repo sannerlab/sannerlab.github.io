@@ -51,3 +51,9 @@ cd ADFRsuite_x86_64Darwin_1.0
 #   -c                    how to compile the Python files: 0 for .pyc, 1 for .pyo
 ./install.sh -d myFolder -c 0
 ```
+
+## License
+
+AutoSite is part of ADFRsuite, distributed under the [Sannerlab MIT-like Source-Available License](../license.qmd);
+see the [ADFR license page](../adfr/license.qmd). The license files are in each tarball and attached to the
+[release](https://github.com/sannerlab/downloads/releases/tag/adfrsuite-1.0).

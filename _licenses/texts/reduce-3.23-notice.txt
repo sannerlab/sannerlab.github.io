@@ -1,0 +1,36 @@
+reduce 3.23 (05/21/2013), source: https://github.com/rlabduke/reduce, commit 81b5b32.
+Notices copied verbatim from that commit.
+
+== reduce_src/reduce.cpp (and the other reduce and toolclasses sources) ==
+
+// **************************************************************
+// NOTICE: This is free software and the source code is freely
+// available. You are free to redistribute or modify under the
+// conditions that (1) this notice is not removed or modified
+// in any way and (2) any modified versions of the program are
+// also available for free.
+//               ** Absolutely no Warranty **
+// Copyright (C) 1999-2013 J. Michael Word
+// **************************************************************
+
+== libpdb/pdb++.h (and the other libpdb sources) ==
+
+// with Modifications by J. Michael Word, Duke University
+//
+//	Copyright (c) 1992 The Regents of the University of California.
+//	All rights reserved.
+//
+//	Redistribution and use in source and binary forms are permitted
+//	provided that the above copyright notice and this paragraph are
+//	duplicated in all such forms and that any documentation,
+//	advertising materials, and other materials related to such
+//	distribution and use acknowledge that the software was developed
+//	by the University of California, San Francisco.  The name of the
+//	University may not be used to endorse or promote products derived
+//	from this software without specific prior written permission.
+//	THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
+//	IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+//	WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+//
+//	Based on Brookhaven National Laboratory Protein Data Bank, Feb 1992
+//

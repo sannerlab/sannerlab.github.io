@@ -47,3 +47,10 @@ These patched builds supersede the latest stable releases of 1.5.6 and 1.5.7.
 | macOS | [mgltools_i86Darwin9_1.5.6.tar.gz](https://github.com/sannerlab/downloads/releases/download/mgltools-1.5.6/mgltools_i86Darwin9_1.5.6.tar.gz) (tarball, 63 MB) |
 | Linux 64-bit | [mgltools_Linux-x86_64_1.5.6_Install](https://github.com/sannerlab/downloads/releases/download/mgltools-1.5.6/mgltools_Linux-x86_64_1.5.6_install) (GUI installer, 70 MB) |
 | Linux 64-bit | [mgltools_x86_64Linux2_1.5.6.tar.gz](https://github.com/sannerlab/downloads/releases/download/mgltools-1.5.6/mgltools_x86_64Linux2_1.5.6.tar.gz) (tarball, 68 MB) |
+
+## License
+
+MGLTools is distributed under the [Sannerlab MIT-like Source-Available License](../license.qmd), and the MSMS library it
+includes under the [MSMS License](../msms/license.qmd). Each tarball carries them (`LICENSE.md`, `LICENSE-MSMS.md`) with
+`THIRD_PARTY_NOTICES.md`; for the installers, the same files are attached to the releases
+([1.5.7](https://github.com/sannerlab/downloads/releases/tag/mgltools-1.5.7), [1.5.6](https://github.com/sannerlab/downloads/releases/tag/mgltools-1.5.6)) and replace the license text inside them.
