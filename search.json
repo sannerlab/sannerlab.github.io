@@ -31,7 +31,7 @@
     "href": "software/mgltools/index.html#license",
     "title": "MGLTools",
     "section": "License",
-    "text": "License\nMGLTools is distributed under the Sannerlab MIT-like Source-Available License. The MSMS library it uses to compute molecular surfaces is free for non-commercial use only; see the MSMS license.",
+    "text": "License\nMGLTools is distributed under the Sannerlab MIT-like Source-Available License. The MSMS library it uses to compute molecular surfaces is closed source and free for academic use only, under the MSMS License.",
     "crumbs": [
       "Overview"
     ]
@@ -232,7 +232,7 @@
     "href": "software/adapt/download.html#add-adfr-0.0.23-and-molkit2-0.0.6",
     "title": "Download ADapt",
     "section": "2. Add ADFR 0.0.23 and MolKit2 0.0.6",
-    "text": "2. Add ADFR 0.0.23 and MolKit2 0.0.6\nThey carry the corrections ADapt relies on, and ADCP 1.1 keeps working with them:\nmicromamba activate adcpsuite        # or: conda activate adcpsuite\npython -m pip install --no-deps --index-url https://sannerlab.github.io/pip/py37/ adfr==0.0.23 molkit2==0.0.6",
+    "text": "2. Add ADFR 0.0.23 and MolKit2 0.0.6\nThey carry the corrections ADapt relies on, and ADCP 1.1 keeps working with them:\nmicromamba activate adcpsuite        # or: conda activate adcpsuite\npython -m pip install --no-deps --index-url https://sannerlab.github.io/pip/py37/ adfr==0.0.23.post1 molkit2==0.0.6.post1",
     "crumbs": [
       "Download"
     ]
@@ -282,7 +282,7 @@
     "href": "software/msms/download.html",
     "title": "Download MSMS",
     "section": "",
-    "text": "The current release is MSMS 2.6.2 (November 2026). It fixes crashes on large or unusual inputs, merges duplicate atoms instead of stopping, and runs -all_components in parallel. For inputs that 2.6.1 handled, the output is unchanged. See the release notes.\nMSMS is free for non-commercial use; commercial use needs a license (see License).\n\n\n\nPlatform\nVersion\nFile\nUnpack with\n\n\n\n\nLinux 64-bit\n2.6.2\nLinux 64-bit tar file\ntar zxvf msms_i86_64Linux2_2.6.2.tar.gz\n\n\nmacOS 10.15 and later, Apple silicon and Intel\n2.6.2\nmacOS tar file\ntar zxvf msms_universalDarwin_2.6.2.tar.gz\n\n\nWindows 64-bit\n2.6.2\nWindows zip file\nextract the files from msms_win64_2.6.2.zip\n\n\n\n\nLinux: the tar file contains two binaries. msms.x86_64Linux2.2.6.2.staticgcc runs on any 64-bit x86 Linux; msms.x86_64Linux2.2.6.2 needs glibc 2.34 or later, libtirpc and libgomp.\nmacOS: msms.universalDarwin.2.6.2 is one binary for Apple silicon Macs (macOS 11 or later) and Intel Macs (macOS 10.15 or later). If macOS refuses to run it after the download, run xattr -d com.apple.quarantine msms.universalDarwin.2.6.2 in the unpacked folder.\nWindows: keep libomp.dll in the same folder as msms.exe. It also runs on Windows on Arm, through x64 emulation.\n\n\nOlder systems\nFor macOS 10.14 or earlier and for 32-bit Windows, use version 2.6.1, which does not have the 2.6.2 fixes:\n\n\n\nPlatform\nVersion\nFile\nUnpack with\n\n\n\n\nmacOS before 10.14 (pre-Mojave)\n2.6.1\nmacOS tar file\ntar zxvf msms_MacOSX_2.6.1.tar.gz\n\n\nmacOS 10.14 (Mojave), Intel\n2.6.1\nmacOS tar file\ntar zxvf msms_x86_64Darwin_2.6.1.tar.gz\n\n\nWindows 32-bit\n2.6.1\nWindows zip file\nextract the files from msms_win32_2.6.1.zip\n\n\n\nThe files are on GitHub, in the msms-2.6.2 release (with SHA-256 checksums) and the msms-2.6.1 release, which also has the previous Linux and Apple silicon versions. See the Documentation for how to run msms.\n\n\n\n\n Back to top",
+    "text": "The current release is MSMS 2.6.2 (November 2026). It fixes crashes on large or unusual inputs, merges duplicate atoms instead of stopping, and runs -all_components in parallel. For inputs that 2.6.1 handled, the output is unchanged. See the release notes.\nMSMS is closed source and free for academic use; commercial use needs a license (see License). Each archive carries the MSMS License (LICENSE.md) and THIRD_PARTY_NOTICES.md.\n\n\n\nPlatform\nVersion\nFile\nUnpack with\n\n\n\n\nLinux 64-bit\n2.6.2\nLinux 64-bit tar file\ntar zxvf msms_i86_64Linux2_2.6.2.tar.gz\n\n\nmacOS 10.15 and later, Apple silicon and Intel\n2.6.2\nmacOS tar file\ntar zxvf msms_universalDarwin_2.6.2.tar.gz\n\n\nWindows 64-bit\n2.6.2\nWindows zip file\nextract the files from msms_win64_2.6.2.zip\n\n\n\n\nLinux: the tar file contains two binaries. msms.x86_64Linux2.2.6.2.staticgcc runs on any 64-bit x86 Linux; msms.x86_64Linux2.2.6.2 needs glibc 2.34 or later, libtirpc and libgomp.\nmacOS: msms.universalDarwin.2.6.2 is one binary for Apple silicon Macs (macOS 11 or later) and Intel Macs (macOS 10.15 or later). If macOS refuses to run it after the download, run xattr -d com.apple.quarantine msms.universalDarwin.2.6.2 in the unpacked folder.\nWindows: keep libomp.dll in the same folder as msms.exe. It also runs on Windows on Arm, through x64 emulation.\n\n\nOlder systems\nFor macOS 10.14 or earlier and for 32-bit Windows, use version 2.6.1, which does not have the 2.6.2 fixes:\n\n\n\nPlatform\nVersion\nFile\nUnpack with\n\n\n\n\nmacOS before 10.14 (pre-Mojave)\n2.6.1\nmacOS tar file\ntar zxvf msms_MacOSX_2.6.1.tar.gz\n\n\nmacOS 10.14 (Mojave), Intel\n2.6.1\nmacOS tar file\ntar zxvf msms_x86_64Darwin_2.6.1.tar.gz\n\n\nWindows 32-bit\n2.6.1\nWindows zip file\nextract the files from msms_win32_2.6.1.zip\n\n\n\nThe files are on GitHub, in the msms-2.6.2 release (with SHA-256 checksums) and the msms-2.6.1 release, which also has the previous Linux and Apple silicon versions. See the Documentation for how to run msms.\n\n\n\n\n Back to top",
     "crumbs": [
       "Download"
     ]
@@ -584,6 +584,16 @@
     ]
   },
   {
+    "objectID": "software/autosite/download.html#license",
+    "href": "software/autosite/download.html#license",
+    "title": "Download AutoSite",
+    "section": "License",
+    "text": "License\nAutoSite is part of ADFRsuite, distributed under the Sannerlab MIT-like Source-Available License; see the ADFR license page. The license files are in each tarball and attached to the release.",
+    "crumbs": [
+      "Download"
+    ]
+  },
+  {
     "objectID": "software/autosite/tutorials.html",
     "href": "software/autosite/tutorials.html",
     "title": "AutoSite tutorials",
@@ -628,7 +638,7 @@
     "href": "software/license.html",
     "title": "Software license",
     "section": "",
-    "text": "The Sanner Lab’s software is distributed under the Sannerlab MIT-like Source-Available License, version 1.0, reproduced below. It applies to every tool on this site: ADCP, ADFR, AGFR, AutoSite, ADapt, WEWoS, MGLTools and MSMS, with one exception for MSMS:\nQuestions about the license: contact Dr. Michel Sanner.\nCopyright © 2026 Prof. Michel F. Sanner and Scripps Research\nAll rights reserved except as expressly granted under this License."
+    "text": "The Sanner Lab’s software is distributed under the Sannerlab MIT-like Source-Available License, version 1.0, reproduced below. It applies to every tool on this site: ADCP, ADFR, AGFR, AutoSite, ADapt, WEWoS and MGLTools, with two exceptions:\nEvery package carries a copy of this license customized for it: the license names only that package, Section 3 lists only the reference(s) to cite for it, and a THIRD_PARTY_NOTICES.md file lists the third-party code it includes, which keeps its own license.\nQuestions about the license: contact Dr. Michel Sanner.\nCopyright © 2026 Prof. Michel F. Sanner and Scripps Research\nAll rights reserved except as expressly granted under this License."
   },
   {
     "objectID": "software/license.html#grant-of-license",
@@ -1065,6 +1075,17 @@
     "title": "Download ADCP 1.1",
     "section": "Next steps",
     "text": "Next steps\n\nDocumentation: example commands for the main features of ADCP 1.1.\nAGFR and AGFRgui tutorials for preparing target files.",
+    "crumbs": [
+      "Version 1.1 (latest)",
+      "Download"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.1/download.html#license",
+    "href": "software/adcp/1.1/download.html#license",
+    "title": "Download ADCP 1.1",
+    "section": "License",
+    "text": "License\nADCP is distributed under the Sannerlab MIT-like Source-Available License, except its docking engine, which is under the GNU LGPL v2.0 (source: sannerlab/Crankite_AD). Every package the scripts install carries its license (LICENSE.md) and THIRD_PARTY_NOTICES.md; MSMS (packages mslib and mglkey) is closed source under the MSMS License. See the release for LICENSE-ADCP.md.",
     "crumbs": [
       "Version 1.1 (latest)",
       "Download"
@@ -1544,7 +1565,7 @@
     "href": "software/wewos/index.html#license",
     "title": "WEWoS",
     "section": "License",
-    "text": "License\nWEWoS is distributed under the Sannerlab MIT-like Source-Available License. Its MSMS node library uses MSMS, which is free for non-commercial use only; see the MSMS license.",
+    "text": "License\nWEWoS is distributed under the Sannerlab MIT-like Source-Available License. Its MSMS node library uses MSMS, which is closed source and free for academic use only, under the MSMS License.",
     "crumbs": [
       "Overview"
     ]
@@ -1564,7 +1585,7 @@
     "href": "software/adcp/license.html",
     "title": "License",
     "section": "",
-    "text": "ADCP is distributed under the Sannerlab MIT-like Source-Available License, the license of all the lab’s software. If you publish work that uses ADCP, the license asks you to cite the ADCP papers.\nADFRsuite 1.0, which includes ADCP 1.0, also contains the MSMS program and the MSLIB component, which compute molecular surfaces. For them the license covers non-commercial use only; commercial use needs a separate license. Of the suite’s programs, only agfrgui uses them, for surface calculation and display. They are not used by adfr, agfr, autosite, adcp, prepare_ligand or prepare_receptor.\nFor a commercial license for MSMS and MSLIB, contact Dr. Michel Sanner.\n\n\n\n Back to top",
+    "text": "ADCP is distributed under the Sannerlab MIT-like Source-Available License, the license of all the lab’s software. If you publish work that uses ADCP, the license asks you to cite the ADCP papers.\nThe docking engine of ADCP derives from CRANKITE (Podtelezhnikov and Wild, 2008). With the agreement of CRANKITE’s authors it is distributed under the GNU Library General Public License, version 2.0; its source is at sannerlab/Crankite_AD. The archived 2019 release, sannerlab/ADCP-2019, is distributed under that license too.\nADFRsuite 1.0, which includes ADCP 1.0, also contains the MSMS program and the MSLIB component, which compute molecular surfaces. They are closed source, under the MSMS License: free for academic use; commercial use needs a commercial license. Of the suite’s programs, only agfrgui uses them, for surface calculation and display. They are not used by adfr, agfr, autosite, adcp, prepare_ligand or prepare_receptor.\nFor a commercial license for MSMS and MSLIB, contact Dr. Michel Sanner.\n\n\n\n Back to top",
     "crumbs": [
       "License"
     ]
@@ -1614,7 +1635,7 @@
     "href": "software/adcp/index.html#license",
     "title": "AutoDock CrankPep (ADCP)",
     "section": "License",
-    "text": "License\nADCP is distributed under the Sannerlab MIT-like Source-Available License. See License.",
+    "text": "License\nADCP is distributed under the Sannerlab MIT-like Source-Available License, except its docking engine, which derives from CRANKITE and is distributed under the GNU LGPL v2.0. See License.",
     "crumbs": [
       "Overview"
     ]
@@ -1756,6 +1777,17 @@
     "title": "Download ADCP 1.0",
     "section": "Installing from a tarball",
     "text": "Installing from a tarball\nThis example uses the macOS tarball; for another tarball change the file and folder names.\n# unpack the tar file\ntar zxvf ADFRsuite_x86_64Darwin_1.0.tar.gz\n\n# step into the folder created by unpacking\ncd ADFRsuite_x86_64Darwin_1.0\n\n# run the installation script\n#   -d destinationFolder  where to install ADFRsuite 1.0\n#   -c                    how to compile the Python files: 0 for .pyc, 1 for .pyo\n./install.sh -d myFolder -c 0",
+    "crumbs": [
+      "Version 1.0 (deprecated)",
+      "Download"
+    ]
+  },
+  {
+    "objectID": "software/adcp/1.0/download.html#license",
+    "href": "software/adcp/1.0/download.html#license",
+    "title": "Download ADCP 1.0",
+    "section": "License",
+    "text": "License\nADCP 1.0 is part of ADFRsuite, distributed under the Sannerlab MIT-like Source-Available License, except its docking engine (GNU LGPL v2.0); see the ADCP license page. The license files are in each tarball and attached to the release.",
     "crumbs": [
       "Version 1.0 (deprecated)",
       "Download"
@@ -1956,7 +1988,7 @@
     "href": "software/agfr/index.html#license",
     "title": "AutoGridFR (AGFR)",
     "section": "License",
-    "text": "License\nAGFR is distributed under the Sannerlab MIT-like Source-Available License. ADFRsuite’s MSMS component, which agfrgui uses to compute surfaces, is free for non-commercial use only; see the ADFR license page.",
+    "text": "License\nAGFR is distributed under the Sannerlab MIT-like Source-Available License. ADFRsuite’s MSMS component, which agfrgui uses to compute surfaces, is closed source and free for academic use only, under the MSMS License; see the ADFR license page.",
     "crumbs": [
       "Overview"
     ]
@@ -2224,7 +2256,7 @@
     "href": "software/adfr/license.html",
     "title": "License",
     "section": "",
-    "text": "The programs and components of the ADFR software suite are distributed under the Sannerlab MIT-like Source-Available License, the license of all the lab’s software.\nThe MSMS program and the MSLIB component, which compute molecular surfaces, are covered by this license for non-commercial use only; commercial use needs a separate license. Of the suite’s programs, only agfrgui uses them, for surface calculation and display. They are not used by adfr, agfr, autosite, adcp, prepare_ligand or prepare_receptor.\nFor a commercial license for MSMS and MSLIB, contact Dr. Michel Sanner.\n\n\n\n Back to top",
+    "text": "The programs and components of the ADFR software suite are distributed under the Sannerlab MIT-like Source-Available License, the license of all the lab’s software.\nThe MSMS program and the MSLIB component, which compute molecular surfaces, are not covered by it: they are closed source, under the MSMS License, free for academic use; commercial use needs a commercial license. Of the suite’s programs, only agfrgui uses them, for surface calculation and display. They are not used by adfr, agfr, autosite, adcp, prepare_ligand or prepare_receptor.\nFor a commercial license for MSMS and MSLIB, contact Dr. Michel Sanner.\n\n\n\n Back to top",
     "crumbs": [
       "License"
     ]
@@ -2377,6 +2409,16 @@
     ]
   },
   {
+    "objectID": "software/adfr/download.html#license",
+    "href": "software/adfr/download.html#license",
+    "title": "Download ADFRsuite",
+    "section": "License",
+    "text": "License\nADFRsuite is distributed under the Sannerlab MIT-like Source-Available License. Each tarball carries it (LICENSE.md), with the MSMS License (LICENSE-MSMS.md), the GNU LGPL v2.0 of the ADCP docking engine (COPYING.LESSER) and THIRD_PARTY_NOTICES.md. For the installers, the same files are attached to the release and replace the license text inside them.",
+    "crumbs": [
+      "Download"
+    ]
+  },
+  {
     "objectID": "software/adfr/tutorial-flexible-receptor.html",
     "href": "software/adfr/tutorial-flexible-receptor.html",
     "title": "Tutorial: docking with flexible receptor side chains",
@@ -2436,7 +2478,137 @@
     "href": "software/msms/license.html",
     "title": "License",
     "section": "",
-    "text": "MSMS is distributed under the Sannerlab MIT-like Source-Available License for non-commercial use only. This covers the standalone MSMS program and the MSLIB library that ADFRsuite and MGLTools use to compute molecular surfaces.\nCommercial use of MSMS needs a separate commercial license: contact Dr. Michel Sanner.\n\n\n\n Back to top",
+    "text": "MSMS is closed-source software, distributed in executable form only: the standalone MSMS program, and the MSLIB library that ADFRsuite, MGLTools and other programs use to compute molecular surfaces. It is distributed under the MSMS License below: free for academic research and teaching; any other use, including commercial use, needs a commercial license from Dr. Michel Sanner. The MSMS License is the Sannerlab MIT-like Source-Available License with Sections 1, 5 and 12 written for closed-source software.",
+    "crumbs": [
+      "License"
+    ]
+  },
+  {
+    "objectID": "software/msms/license.html#grant-of-license",
+    "href": "software/msms/license.html#grant-of-license",
+    "title": "License",
+    "section": "1. Grant of License",
+    "text": "1. Grant of License\nSubject to the conditions, limitations, and exclusions set forth in this License, permission is hereby granted, free of charge, to students, faculty and staff of universities and of other non-profit academic or research institutions to install, execute and reproduce the Software for their research and teaching (“Academic Use”), and to publish the results they obtain with it.\nAny other use, including any use by or on behalf of a commercial entity, requires a separate commercial license from the copyright holder: contact Dr. Michel Sanner.\nNo right is granted to decompile, reverse-engineer, modify or create derivative works of the Software, or to distribute, sublicense, sell or otherwise transfer copies of it, except as the copyright holder authorizes in writing.\nNo rights are granted to Excluded Persons or Excluded Organizations.",
+    "crumbs": [
+      "License"
+    ]
+  },
+  {
+    "objectID": "software/msms/license.html#excluded-persons-and-organizations",
+    "href": "software/msms/license.html#excluded-persons-and-organizations",
+    "title": "License",
+    "section": "2. Excluded Persons and Organizations",
+    "text": "2. Excluded Persons and Organizations\n\n2.1. Excluded Persons\nFor purposes of this License, an “Excluded Person” means any individual who, at the time of the activity in question, falls within one or more of the following categories:\nThis exclusion applies only during the period of the individual’s employment, appointment, or formal laboratory affiliation.\n\n(a) Schrödinger Personnel\nAny individual currently employed by Schrödinger, Inc., or any of its parent companies, subsidiaries, or controlled affiliates (collectively, “Schrödinger”), including:\n\nFull-time and part-time employees;\nOfficers and directors who are employees;\nResearch scientists and software developers;\nOther individuals working under an employment relationship with Schrödinger.\n\nThis exclusion applies regardless of whether the individual’s proposed use of the Software is professional, academic, commercial, or personal.\nFormer employees of Schrödinger are not excluded solely because of their previous employment.\nIndependent contractors, consultants, and scientific advisers are not Excluded Persons solely because of those relationships unless they are also employees as defined above. Activities undertaken on behalf of an Excluded Organization remain subject to Sections 2.2 and 4.\n\n\n\n2.2. Excluded Organizations\nThe following are designated “Excluded Organizations”:\n(a) Schrödinger, Inc., including its parent companies, subsidiaries, and controlled affiliates.\n(b) Any legal entity acting as an agent of, or under the direction of, an Excluded Organization for the purpose of acquiring, operating, evaluating, or otherwise using the Software on behalf of that Excluded Organization.\n\n\n2.3. Duration of Individual Exclusion\nAn individual’s status as an Excluded Person shall be determined at the time the individual undertakes the relevant activity involving the Software.\nAn individual who ceases to meet the definition of an Excluded Person may thereafter exercise the rights granted under this License, provided that the individual otherwise complies with its terms.\nThe end of an individual’s excluded status does not retroactively authorize activities undertaken during the period of exclusion.\nThe organizational exclusions in Section 2.2 remain in effect regardless of changes in individual personnel.\n\n\n2.4. No Grant of Rights to Excluded Parties\nNotwithstanding any other provision of this License, no license, permission, or authorization is granted to an Excluded Person or Excluded Organization to exercise copyright-controlled rights in the Software for activities from which that person or organization is excluded under Section 2.\nThis exclusion applies to activities undertaken directly or indirectly, whether for commercial, academic, scientific, educational, nonprofit, internal evaluation, personal, or other purposes.",
+    "crumbs": [
+      "License"
+    ]
+  },
+  {
+    "objectID": "software/msms/license.html#credits",
+    "href": "software/msms/license.html#credits",
+    "title": "License",
+    "section": "3. Credits",
+    "text": "3. Credits\nThe licensee will acknowledge the use of the Software that results in any externally published work, including scientific papers, articles, films, videotapes, CD’s, or DVD’s, by citing the following reference(s) for the program used:\n\nMSMS: Sanner, M. F.; Olson, A. J.; Spehner, J.-C. Reduced surface: an efficient way to compute molecular surfaces. Biopolymers 1996, 38 (3), 305–320. doi:10.1002/(SICI)1097-0282(199603)38:3&lt;305::AID-BIP4&gt;3.0.CO;2-Y",
+    "crumbs": [
+      "License"
+    ]
+  },
+  {
+    "objectID": "software/msms/license.html#prohibited-activities",
+    "href": "software/msms/license.html#prohibited-activities",
+    "title": "License",
+    "section": "4. Prohibited Activities",
+    "text": "4. Prohibited Activities\nTo the maximum extent permitted by applicable law, and insofar as the copyright holder possesses the legal right to restrict the activity, Excluded Persons and Excluded Organizations are not authorized to engage in the following activities to the extent prohibited by Section 2.\n\n4.1. Downloading and Acquisition\nDownloading, cloning, copying, reproducing, retrieving, or otherwise acquiring copies of the Software, including its source code, executable binaries, or modified versions, from any source.\nThis includes obtaining copies through:\n\nPublic or private code repositories;\nSoftware distribution websites;\nPackage managers;\nDownload servers and archives;\nThird-party distributors;\nCollaborators or other intermediaries.\n\n\n\n4.2. Evaluation and Benchmarking\nInstalling, executing, testing, evaluating, validating, profiling, or benchmarking the Software.\nThis restriction expressly includes:\n(a) Comparing the Software with competing software products, algorithms, or computational methods.\n(b) Measuring the Software’s accuracy, performance, speed, reliability, or functionality.\n(c) Using the Software to generate results for scientific publications, technical reports, product evaluations, or competitive analyses.\n(d) Evaluating the Software for potential incorporation into commercial or academic products, services, or workflows.\n(e) Conducting internal testing, proof-of-concept studies, or feasibility assessments.\nNo license-based exception is granted for evaluation, benchmarking, or research purposes.\n\n\n4.3. Use and Execution\nUsing, running, executing, or operating the Software for any purpose, including:\n\nScientific research;\nAcademic or educational activities;\nCommercial product development;\nInternal company research;\nPersonal projects;\nSoftware testing;\nComputational analysis;\nData processing;\nMethod development or validation.\n\n\n\n4.4. Modification and Derivative Works\nModifying, adapting, translating, merging, incorporating, or creating derivative works of the Software.\nThis restriction also applies to incorporating any copyright-protected portion of the Software into another software package, computational workflow, or commercial product.\n\n\n4.5. Redistribution and Sublicensing\nReproducing, distributing, publishing, sublicensing, selling, or transferring copies of the Software or derivative works.\n\n\n4.6. Indirect Use\nAn Excluded Person or Excluded Organization may not circumvent the restrictions of this License by arranging for another person or organization to exercise licensed rights in the Software on its behalf.\nThis includes:\n(a) Commissioning or directing a third party to execute or benchmark the Software.\n(b) Engaging contractors, consultants, collaborators, or service providers to operate the Software on behalf of an Excluded Person or Excluded Organization.\n(c) Using hosted computing environments or cloud services to execute the Software through an intermediary.\n(d) Arranging for another party to acquire, modify, or distribute the Software on behalf of an Excluded Person or Excluded Organization.\nThis provision does not prohibit independent research by otherwise authorized users merely because its published findings may subsequently be read or cited by an Excluded Person.\n\n\n4.7. Restrictions on Licensees\nA licensee may not knowingly distribute, sublicense, or provide copies of the Software to an Excluded Person or Excluded Organization for activities prohibited under this License.\nA licensee may not knowingly act as an intermediary to circumvent the exclusions established by this License.",
+    "crumbs": [
+      "License"
+    ]
+  },
+  {
+    "objectID": "software/msms/license.html#copies-and-attribution",
+    "href": "software/msms/license.html#copies-and-attribution",
+    "title": "License",
+    "section": "5. Copies and Attribution",
+    "text": "5. Copies and Attribution\nCopies made under Section 1 must keep the copyright notice and this License. The restrictions applicable to Excluded Persons and Excluded Organizations apply to every copy.",
+    "crumbs": [
+      "License"
+    ]
+  },
+  {
+    "objectID": "software/msms/license.html#third-party-components",
+    "href": "software/msms/license.html#third-party-components",
+    "title": "License",
+    "section": "6. Third-Party Components",
+    "text": "6. Third-Party Components\nThis License applies only to software and other materials for which the identified copyright holder has authority to grant the rights described herein.\nThird-party components incorporated into or distributed with the Software remain subject to their respective licenses.\nNothing in this License shall be construed to restrict rights independently granted under applicable third-party licenses.",
+    "crumbs": [
+      "License"
+    ]
+  },
+  {
+    "objectID": "software/msms/license.html#no-implied-rights",
+    "href": "software/msms/license.html#no-implied-rights",
+    "title": "License",
+    "section": "7. No Implied Rights",
+    "text": "7. No Implied Rights\nThe public availability of the Software, including its availability through a publicly accessible repository, website, package manager, or download service, shall not itself constitute a grant of rights beyond those expressly provided by this License.\nNo permission is implied from possession of a copy of the Software, prior access, or prior use.\nNothing in this License restricts rights that cannot lawfully be restricted by copyright license, including applicable statutory exceptions or rights independently granted by third parties.",
+    "crumbs": [
+      "License"
+    ]
+  },
+  {
+    "objectID": "software/msms/license.html#termination",
+    "href": "software/msms/license.html#termination",
+    "title": "License",
+    "section": "8. Termination",
+    "text": "8. Termination\nThe rights granted to a licensee under this License automatically terminate upon a material violation of its terms.\nA person who becomes an Excluded Person during the term of this License shall have no authorization to undertake activities restricted by Sections 2 and 4 while that excluded status continues.\nAn individual who ceases to be an Excluded Person may subsequently exercise the rights granted under this License, subject to compliance with its terms.\nTermination of one licensee’s rights shall not automatically terminate the rights of other licensees who remain in compliance with this License.",
+    "crumbs": [
+      "License"
+    ]
+  },
+  {
+    "objectID": "software/msms/license.html#separate-written-authorization",
+    "href": "software/msms/license.html#separate-written-authorization",
+    "title": "License",
+    "section": "9. Separate Written Authorization",
+    "text": "9. Separate Written Authorization\nThe copyright holder may, at their sole discretion, grant specific written authorization to an Excluded Person or Excluded Organization.\nSuch authorization must:\n(a) Identify the authorized individual or organization;\n(b) Specify the permitted activities;\n(c) Specify any applicable conditions or limitations;\n(d) Be issued by the copyright holder or an authorized representative.\nNo authorization shall be implied from verbal statements, prior dealings, public availability, or access to the Software.",
+    "crumbs": [
+      "License"
+    ]
+  },
+  {
+    "objectID": "software/msms/license.html#disclaimer-of-warranty",
+    "href": "software/msms/license.html#disclaimer-of-warranty",
+    "title": "License",
+    "section": "10. Disclaimer of Warranty",
+    "text": "10. Disclaimer of Warranty\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.\nIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OF OR OTHER DEALINGS IN THE SOFTWARE, TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW.",
+    "crumbs": [
+      "License"
+    ]
+  },
+  {
+    "objectID": "software/msms/license.html#severability",
+    "href": "software/msms/license.html#severability",
+    "title": "License",
+    "section": "11. Severability",
+    "text": "11. Severability\nIf any provision of this License is held invalid or unenforceable by a court of competent jurisdiction, that provision shall be enforced to the maximum extent permitted by applicable law.\nThe remaining provisions shall remain in effect to the extent legally permissible.",
+    "crumbs": [
+      "License"
+    ]
+  },
+  {
+    "objectID": "software/msms/license.html#license-classification",
+    "href": "software/msms/license.html#license-classification",
+    "title": "License",
+    "section": "12. License Classification",
+    "text": "12. License Classification\nThis License is a proprietary license for closed-source software. It is not an open-source license.",
+    "crumbs": [
+      "License"
+    ]
+  },
+  {
+    "objectID": "software/msms/license.html#reservation-of-rights",
+    "href": "software/msms/license.html#reservation-of-rights",
+    "title": "License",
+    "section": "13. Reservation of Rights",
+    "text": "13. Reservation of Rights\nAll rights not expressly granted under this License are reserved by the copyright holder.\nNo trademark rights, patent rights, or other intellectual-property rights are granted except to the extent expressly stated herein.\nEnd of License — MSMS License, based on the Sannerlab License Version 1.0",
     "crumbs": [
       "License"
     ]
@@ -2546,14 +2718,14 @@
     "href": "software/index.html",
     "title": "Software",
     "section": "",
-    "text": "Software developed in the lab. Each tool has an overview, downloads, documentation and, where available, tutorials. The installers and data files are on GitHub, in sannerlab/downloads.\nAll the tools are distributed under the Sannerlab MIT-like Source-Available License; MSMS is covered by it for non-commercial use only."
+    "text": "Software developed in the lab. Each tool has an overview, downloads, documentation and, where available, tutorials. The installers and data files are on GitHub, in sannerlab/downloads.\nAll the tools are distributed under the Sannerlab MIT-like Source-Available License, except MSMS, which is closed source and free for academic use under its own MSMS License."
   },
   {
     "objectID": "software/index.html#methods",
     "href": "software/index.html#methods",
     "title": "Software",
     "section": "Methods",
-    "text": "Methods\nPrograms that compute: docking, pocket detection and molecular surfaces.\n\n\n\ncurrent: 1.1\n\nAutoDock CrankPep (ADCP)\nDocking of linear and cyclic peptides by combining folding and docking.\n\n\n\n\nin ADFRsuite 1.0\n\nAutoDockFR (ADFR)\nProtein–ligand docking with explicitly specified receptor flexibility.\n\n\n\n\nin ADFRsuite 1.0\n\nAutoSite\nIdentifies ligand-binding pockets from affinity maps.\n\n\n\n\ncurrent: 2.6.1\n\nMSMS\nComputes molecular surfaces. Free for non-commercial use; commercial use needs a license."
+    "text": "Methods\nPrograms that compute: docking, pocket detection and molecular surfaces.\n\n\n\ncurrent: 1.1\n\nAutoDock CrankPep (ADCP)\nDocking of linear and cyclic peptides by combining folding and docking.\n\n\n\n\nin ADFRsuite 1.0\n\nAutoDockFR (ADFR)\nProtein–ligand docking with explicitly specified receptor flexibility.\n\n\n\n\nin ADFRsuite 1.0\n\nAutoSite\nIdentifies ligand-binding pockets from affinity maps.\n\n\n\n\ncurrent: 2.6.1\n\nMSMS\nComputes molecular surfaces. Closed source; free for academic use, commercial use needs a license."
   },
   {
     "objectID": "software/index.html#user-interfaces",
@@ -2791,6 +2963,16 @@
     "title": "Download MGLTools",
     "section": "Version 1.5.6",
     "text": "Version 1.5.6\n\n\n\nPlatform\nInstaller\n\n\n\n\nWindows\nmgltools_win32_1.5.6_Setup.exe (71 MB)\n\n\nmacOS\nmgltools_i86Darwin9_1.5.6.dmg (GUI installer, 65 MB)\n\n\nmacOS\nmgltools_i86Darwin9_1.5.6.tar.gz (tarball, 63 MB)\n\n\nLinux 64-bit\nmgltools_Linux-x86_64_1.5.6_Install (GUI installer, 70 MB)\n\n\nLinux 64-bit\nmgltools_x86_64Linux2_1.5.6.tar.gz (tarball, 68 MB)",
+    "crumbs": [
+      "Download"
+    ]
+  },
+  {
+    "objectID": "software/mgltools/download.html#license",
+    "href": "software/mgltools/download.html#license",
+    "title": "Download MGLTools",
+    "section": "License",
+    "text": "License\nMGLTools is distributed under the Sannerlab MIT-like Source-Available License, and the MSMS library it includes under the MSMS License. Each tarball carries them (LICENSE.md, LICENSE-MSMS.md) with THIRD_PARTY_NOTICES.md; for the installers, the same files are attached to the releases (1.5.7, 1.5.6) and replace the license text inside them.",
     "crumbs": [
       "Download"
     ]
