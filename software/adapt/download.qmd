@@ -2,7 +2,7 @@
 title: "Download ADapt"
 ---
 
-ADapt 0.1.0, the version described in our paper, is on GitHub:
+ADapt 0.1.1, the version described in our paper, is on GitHub:
 [github.com/sannerlab/adapt](https://github.com/sannerlab/adapt). It runs on **Linux**, in the
 Python environment of [ADCP 1.1](../adcp/1.1/download.qmd), with ADFR 0.0.24 and MolKit2 0.0.6.
 

@@ -6,8 +6,8 @@ subtitle: "AutoDock Analysis and Preparation Tool - preparing PDB entries for do
 ---
 
 ::: {.callout-note}
-ADapt 0.1.0, the version described in our paper, is on
-[GitHub](https://github.com/sannerlab/adapt/tree/v0.1.0) (tag `v0.1.0`): see [Download](download.qmd).
+ADapt 0.1.1, the version described in our paper, is on
+[GitHub](https://github.com/sannerlab/adapt/tree/v0.1.1) (tag `v0.1.1`): see [Download](download.qmd).
 :::
 
 ADapt works in a web browser. It takes a PDB entry to receptor and ligand files ready for docking
