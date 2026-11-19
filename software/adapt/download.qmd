@@ -4,20 +4,22 @@ title: "Download ADapt"
 
 ADapt 0.1.0, the version described in our paper, is on GitHub:
 [github.com/sannerlab/adapt](https://github.com/sannerlab/adapt). It runs on **Linux**, in the
-Python environment of [ADCP 1.1](../adcp/1.1/download.qmd), with ADFR 0.0.23 and MolKit2 0.0.6.
+Python environment of [ADCP 1.1](../adcp/1.1/download.qmd), with ADFR 0.0.24 and MolKit2 0.0.6.
 
 ## 1. Install ADCP 1.1
 
 Follow the [ADCP 1.1 download page](../adcp/1.1/download.qmd). It creates the `adcpsuite`
 environment.
 
-## 2. Add ADFR 0.0.23 and MolKit2 0.0.6
+## 2. Add ADFR 0.0.24 and MolKit2 0.0.6
 
-They carry the corrections ADapt relies on, and ADCP 1.1 keeps working with them:
+They carry the corrections ADapt relies on, and ADCP 1.1 keeps working with them. ADFR 0.0.24
+writes PDBQT files that AutoDock Vina can read (with 0.0.23, Vina 1.2 refused their partial
+charges):
 
 ```bash
 micromamba activate adcpsuite        # or: conda activate adcpsuite
-python -m pip install --no-deps --index-url https://sannerlab.github.io/pip/py37/ adfr==0.0.23.post1 molkit2==0.0.6.post1
+python -m pip install --no-deps --index-url https://sannerlab.github.io/pip/py37/ adfr==0.0.24 molkit2==0.0.6.post1
 ```
 
 ## 3. Get ADapt
