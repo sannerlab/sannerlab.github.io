@@ -49,9 +49,15 @@ cd WEWoS
 python -m venv .venv &amp;&amp; . .venv/bin/activate     # or a conda environment
 pip install -e ".[all]"                           # numpy, Pillow, matplotlib
 wewos check                                       # what is missing</pre>
-<p>The Molecules library also needs MolKit2, ProDy and mslib, and isocontouring and meshing in the
-Volume library need UTpackages. These are built for Python 3.7 and come with the
-<code>adcpsuite</code> environment of the
+<p>The Molecules library also needs MolKit2, ProDy, Open Babel and mslib, and isocontouring and
+meshing in the Volume library need UTpackages. On Linux (x86_64) with Python 3.10 to 3.13, they
+install with pip: what they need from PyPI with the <code>molecules</code> extra, and the packages
+themselves from the Sanner lab's package index only (some of their names belong to other projects
+on PyPI):</p>
+<pre>pip install -e ".[all,molecules]"
+pip install --no-deps --index-url https://sannerlab.github.io/pip/py3/ \
+    molkit2==0.0.7 prody==0.0.5 bhtree==0.0.2 mglutil==0.0.5 mslib==0.0.2 utpackages==0.0.2</pre>
+<p>They also come, built for Python 3.7, with the <code>adcpsuite</code> environment of the
 <a href="https://sannerlab.github.io/software/adcp/1.1/download.html">ADCP 1.1 installer</a>
 (Linux). <code>bin/wewos</code> finds that environment by itself (<code>$WEWOS_PYTHON_ENV</code>
 names another one) and runs WEWoS in it: <code>bin/wewos serve</code>, <code>bin/wewos check</code>.</p>
