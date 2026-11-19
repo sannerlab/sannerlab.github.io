@@ -1249,7 +1249,47 @@
     "href": "software/wewos/download.html",
     "title": "Download WEWoS",
     "section": "",
-    "text": "WEWoS is not released yet, so there is no public download. This page will link to the release once it is available.\n\n\n\n Back to top",
+    "text": "WEWoS 0.1.0, the version described in our paper, is on GitHub: github.com/sannerlab/WEWoS (tag v0.1.0). Its core runs on Linux, macOS and Windows with Python 3.7 to 3.13; the Molecules library and isocontouring need Linux.",
+    "crumbs": [
+      "Download"
+    ]
+  },
+  {
+    "objectID": "software/wewos/download.html#get-wewos-and-its-core",
+    "href": "software/wewos/download.html#get-wewos-and-its-core",
+    "title": "Download WEWoS",
+    "section": "1. Get WEWoS and its core",
+    "text": "1. Get WEWoS and its core\nThe core is the engine, the importer of Vision networks, and the Standard, 3D Visualization, SymServer, Volume, Imaging and MatPlotLib libraries. It needs NumPy, Pillow and matplotlib:\ngit clone --branch v0.1.0 https://github.com/sannerlab/WEWoS.git\ncd WEWoS\npython -m venv .venv && . .venv/bin/activate     # or a conda environment\npip install -e \".[all]\"\nwewos check                                       # lists what is missing\nThe source is also available as an archive: WEWoS-0.1.0.tar.gz.",
+    "crumbs": [
+      "Download"
+    ]
+  },
+  {
+    "objectID": "software/wewos/download.html#add-the-molecular-libraries-linux",
+    "href": "software/wewos/download.html#add-the-molecular-libraries-linux",
+    "title": "Download WEWoS",
+    "section": "2. Add the molecular libraries (Linux)",
+    "text": "2. Add the molecular libraries (Linux)\nThe Molecules library needs MolKit2, ProDy (our fork), Open Babel and mslib (MSMS); isocontouring, blurring and meshing in the Volume library need UTpackages. On Linux (x86_64) with Python 3.10 to 3.13, install what they need from PyPI, then the packages themselves from our package index:\npip install -e \".[all,molecules]\"\npip install --no-deps --index-url https://sannerlab.github.io/pip/py3/ \\\n    molkit2==0.0.7 prody==0.0.5 bhtree==0.0.2 mglutil==0.0.5 mslib==0.0.2 utpackages==0.0.2\nUse --index-url with these exact versions: prody and mslib are also the names of other projects on PyPI.\nWith Python 3.7, they come with the adcpsuite environment that the ADCP 1.1 installer creates; bin/wewos finds that environment by itself and runs WEWoS in it (bin/wewos serve, bin/wewos check).",
+    "crumbs": [
+      "Download"
+    ]
+  },
+  {
+    "objectID": "software/wewos/download.html#start-wewos",
+    "href": "software/wewos/download.html#start-wewos",
+    "title": "Download WEWoS",
+    "section": "3. Start WEWoS",
+    "text": "3. Start WEWoS\nwewos serve        # prints http://127.0.0.1:8767/?t=...  open it in your browser\nThe page needs a recent browser (Chrome, Firefox, Safari or Edge) with WebGL; it loads nothing from the internet. To run networks from other people in a sandbox, Linux needs bubblewrap (apt install bubblewrap), macOS has what it needs, and Windows needs wewos sandbox-setup once.\nTo use WEWoS on a remote machine, start it there and forward its port from your computer: ssh -L 8767:127.0.0.1:8767 &lt;host&gt;, then open the printed address.\nThe documentation and the tutorials take it from there.",
+    "crumbs": [
+      "Download"
+    ]
+  },
+  {
+    "objectID": "software/wewos/download.html#license",
+    "href": "software/wewos/download.html#license",
+    "title": "Download WEWoS",
+    "section": "License",
+    "text": "License\nWEWoS is distributed under the Sannerlab MIT-like Source-Available License, version 1.0. MSMS, which mslib wraps, is under its own MSMS License: free for academic research and teaching; commercial use needs a license.",
     "crumbs": [
       "Download"
     ]

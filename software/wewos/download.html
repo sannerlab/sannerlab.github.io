@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -251,8 +286,17 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#get-wewos-and-its-core" id="toc-get-wewos-and-its-core" class="nav-link active" data-scroll-target="#get-wewos-and-its-core">1. Get WEWoS and its core</a></li>
+  <li><a href="#add-the-molecular-libraries-linux" id="toc-add-the-molecular-libraries-linux" class="nav-link" data-scroll-target="#add-the-molecular-libraries-linux">2. Add the molecular libraries (Linux)</a></li>
+  <li><a href="#start-wewos" id="toc-start-wewos" class="nav-link" data-scroll-target="#start-wewos">3. Start WEWoS</a></li>
+  <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -276,9 +320,39 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>WEWoS is not released yet, so there is no public download. This page will link to the release once it is available.</p>
+<p>WEWoS 0.1.0, the version described in our paper, is on GitHub: <a href="https://github.com/sannerlab/WEWoS">github.com/sannerlab/WEWoS</a> (tag <a href="https://github.com/sannerlab/WEWoS/tree/v0.1.0">v0.1.0</a>). Its core runs on Linux, macOS and Windows with Python 3.7 to 3.13; the Molecules library and isocontouring need Linux.</p>
+<section id="get-wewos-and-its-core" class="level2">
+<h2 class="anchored" data-anchor-id="get-wewos-and-its-core">1. Get WEWoS and its core</h2>
+<p>The core is the engine, the importer of Vision networks, and the Standard, 3D Visualization, SymServer, Volume, Imaging and MatPlotLib libraries. It needs NumPy, Pillow and matplotlib:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">--branch</span> v0.1.0 https://github.com/sannerlab/WEWoS.git</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> WEWoS</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> venv .venv <span class="kw">&amp;&amp;</span> <span class="bu">.</span> .venv/bin/activate     <span class="co"># or a conda environment</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> <span class="st">".[all]"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">wewos</span> check                                       <span class="co"># lists what is missing</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The source is also available as an archive: <a href="https://github.com/sannerlab/WEWoS/archive/refs/tags/v0.1.0.tar.gz">WEWoS-0.1.0.tar.gz</a>.</p>
+</section>
+<section id="add-the-molecular-libraries-linux" class="level2">
+<h2 class="anchored" data-anchor-id="add-the-molecular-libraries-linux">2. Add the molecular libraries (Linux)</h2>
+<p>The Molecules library needs MolKit2, ProDy (our fork), Open Babel and mslib (MSMS); isocontouring, blurring and meshing in the Volume library need UTpackages. On Linux (x86_64) with Python 3.10 to 3.13, install what they need from PyPI, then the packages themselves from our package index:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-e</span> <span class="st">".[all,molecules]"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--no-deps</span> <span class="at">--index-url</span> https://sannerlab.github.io/pip/py3/ <span class="dt">\</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    molkit2==0.0.7 prody==0.0.5 bhtree==0.0.2 mglutil==0.0.5 mslib==0.0.2 utpackages==0.0.2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Use <code>--index-url</code> with these exact versions: <code>prody</code> and <code>mslib</code> are also the names of other projects on PyPI.</p>
+<p>With Python 3.7, they come with the <code>adcpsuite</code> environment that the <a href="../../software/adcp/1.1/download.html">ADCP 1.1 installer</a> creates; <code>bin/wewos</code> finds that environment by itself and runs WEWoS in it (<code>bin/wewos serve</code>, <code>bin/wewos check</code>).</p>
+</section>
+<section id="start-wewos" class="level2">
+<h2 class="anchored" data-anchor-id="start-wewos">3. Start WEWoS</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">wewos</span> serve        <span class="co"># prints http://127.0.0.1:8767/?t=...  open it in your browser</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The page needs a recent browser (Chrome, Firefox, Safari or Edge) with WebGL; it loads nothing from the internet. To run networks from other people in a sandbox, Linux needs bubblewrap (<code>apt install bubblewrap</code>), macOS has what it needs, and Windows needs <code>wewos sandbox-setup</code> once.</p>
+<p>To use WEWoS on a remote machine, start it there and forward its port from your computer: <code>ssh -L 8767:127.0.0.1:8767 &lt;host&gt;</code>, then open the printed address.</p>
+<p>The <a href="../../software/wewos/documentation.html">documentation</a> and the <a href="../../software/wewos/tutorials.html">tutorials</a> take it from there.</p>
+</section>
+<section id="license" class="level2">
+<h2 class="anchored" data-anchor-id="license">License</h2>
+<p>WEWoS is distributed under the <a href="../../software/license.html">Sannerlab MIT-like Source-Available License</a>, version 1.0. MSMS, which mslib wraps, is under its own <a href="../../software/msms/license.html">MSMS License</a>: free for academic research and teaching; commercial use needs a license.</p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
