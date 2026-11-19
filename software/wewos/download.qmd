@@ -2,5 +2,63 @@
 title: "Download WEWoS"
 ---
 
-WEWoS is not released yet, so there is no public download. This page will link to the release
-once it is available.
+WEWoS 0.1.0, the version described in our paper, is on GitHub:
+[github.com/sannerlab/WEWoS](https://github.com/sannerlab/WEWoS) (tag
+[v0.1.0](https://github.com/sannerlab/WEWoS/tree/v0.1.0)). Its core runs on Linux, macOS and
+Windows with Python 3.7 to 3.13; the Molecules library and isocontouring need Linux.
+
+## 1. Get WEWoS and its core
+
+The core is the engine, the importer of Vision networks, and the Standard, 3D Visualization,
+SymServer, Volume, Imaging and MatPlotLib libraries. It needs NumPy, Pillow and matplotlib:
+
+```bash
+git clone --branch v0.1.0 https://github.com/sannerlab/WEWoS.git
+cd WEWoS
+python -m venv .venv && . .venv/bin/activate     # or a conda environment
+pip install -e ".[all]"
+wewos check                                       # lists what is missing
+```
+
+The source is also available as an archive:
+[WEWoS-0.1.0.tar.gz](https://github.com/sannerlab/WEWoS/archive/refs/tags/v0.1.0.tar.gz).
+
+## 2. Add the molecular libraries (Linux)
+
+The Molecules library needs MolKit2, ProDy (our fork), Open Babel and mslib (MSMS); isocontouring,
+blurring and meshing in the Volume library need UTpackages. On Linux (x86_64) with Python 3.10 to
+3.13, install what they need from PyPI, then the packages themselves from our package index:
+
+```bash
+pip install -e ".[all,molecules]"
+pip install --no-deps --index-url https://sannerlab.github.io/pip/py3/ \
+    molkit2==0.0.7 prody==0.0.5 bhtree==0.0.2 mglutil==0.0.5 mslib==0.0.2 utpackages==0.0.2
+```
+
+Use `--index-url` with these exact versions: `prody` and `mslib` are also the names of other
+projects on PyPI.
+
+With Python 3.7, they come with the `adcpsuite` environment that the
+[ADCP 1.1 installer](../adcp/1.1/download.qmd) creates; `bin/wewos` finds that environment by
+itself and runs WEWoS in it (`bin/wewos serve`, `bin/wewos check`).
+
+## 3. Start WEWoS
+
+```bash
+wewos serve        # prints http://127.0.0.1:8767/?t=...  open it in your browser
+```
+
+The page needs a recent browser (Chrome, Firefox, Safari or Edge) with WebGL; it loads nothing from
+the internet. To run networks from other people in a sandbox, Linux needs bubblewrap
+(`apt install bubblewrap`), macOS has what it needs, and Windows needs `wewos sandbox-setup` once.
+
+To use WEWoS on a remote machine, start it there and forward its port from your computer:
+`ssh -L 8767:127.0.0.1:8767 <host>`, then open the printed address.
+
+The [documentation](documentation.qmd) and the [tutorials](tutorials.qmd) take it from there.
+
+## License
+
+WEWoS is distributed under the [Sannerlab MIT-like Source-Available License](../license.qmd),
+version 1.0. MSMS, which mslib wraps, is under its own [MSMS License](../msms/license.qmd): free for
+academic research and teaching; commercial use needs a license.
