@@ -212,7 +212,7 @@
     "href": "software/adapt/download.html",
     "title": "Download ADapt",
     "section": "",
-    "text": "ADapt 0.1.0, the version described in our paper, is on GitHub: github.com/sannerlab/adapt. It runs on Linux, in the Python environment of ADCP 1.1, with ADFR 0.0.23 and MolKit2 0.0.6.",
+    "text": "ADapt 0.1.0, the version described in our paper, is on GitHub: github.com/sannerlab/adapt. It runs on Linux, in the Python environment of ADCP 1.1, with ADFR 0.0.24 and MolKit2 0.0.6.",
     "crumbs": [
       "Download"
     ]
@@ -228,11 +228,11 @@
     ]
   },
   {
-    "objectID": "software/adapt/download.html#add-adfr-0.0.23-and-molkit2-0.0.6",
-    "href": "software/adapt/download.html#add-adfr-0.0.23-and-molkit2-0.0.6",
+    "objectID": "software/adapt/download.html#add-adfr-0.0.24-and-molkit2-0.0.6",
+    "href": "software/adapt/download.html#add-adfr-0.0.24-and-molkit2-0.0.6",
     "title": "Download ADapt",
-    "section": "2. Add ADFR 0.0.23 and MolKit2 0.0.6",
-    "text": "2. Add ADFR 0.0.23 and MolKit2 0.0.6\nThey carry the corrections ADapt relies on, and ADCP 1.1 keeps working with them:\nmicromamba activate adcpsuite        # or: conda activate adcpsuite\npython -m pip install --no-deps --index-url https://sannerlab.github.io/pip/py37/ adfr==0.0.23.post1 molkit2==0.0.6.post1",
+    "section": "2. Add ADFR 0.0.24 and MolKit2 0.0.6",
+    "text": "2. Add ADFR 0.0.24 and MolKit2 0.0.6\nThey carry the corrections ADapt relies on, and ADCP 1.1 keeps working with them. ADFR 0.0.24 writes PDBQT files that AutoDock Vina can read (with 0.0.23, Vina 1.2 refused their partial charges):\nmicromamba activate adcpsuite        # or: conda activate adcpsuite\npython -m pip install --no-deps --index-url https://sannerlab.github.io/pip/py37/ adfr==0.0.24 molkit2==0.0.6.post1",
     "crumbs": [
       "Download"
     ]
